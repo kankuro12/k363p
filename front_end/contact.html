@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Hotels</title>
+    <style>
+        body.loading{
+            position:fixed;
+            height:100%;
+            width:100%;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        body.loading:before{
+            content:"";
+            position:absolute;
+            height:100%;
+            width:100%;
+            background-color:white;
+            z-index:1999;
+        }
+        body.loading:after{
+            content:"";
+            position: absolute;
+            z-index:2000;
+            top:calc(50% - 40px);
+            left:calc(50% - 40px);
+            margin:auto;      
+            width: 80px;
+            height: 80px;
+            border: 2px solid #ccc;
+            border-top:3px solid #18275a;
+            border-radius: 100%;
+            animation: spin 0.7s infinite linear;
+        }
+        body.loaded{
+            opacity:1;
+            animation: fadein 1s ease-in;
+        }
+        @keyframes spin {
+            from{
+              transform: rotate(0deg);
+            }to{
+              transform: rotate(360deg);
+            }
+        }
+        @keyframes fadein {
+            from{
+              opacity:0;
+            }to{
+              opacity:1;
+            }
+        }
+    </style>
+    <script>
+      function preloader(){
+        var b = document.getElementsByTagName("BODY")[0];
+        b.classList.remove("loading");
+        b.classList.add("loaded");
+      }
+    </script>
+</head>
+<body class="loading" onload="preloader()">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <a class="navbar-brand" href="#">HOTELS.COM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="ml-auto navbar-nav">
+                <a class="btn btn-outline-white my-2 my-sm-0 mr-3">LOGIN</a>
+                <a class="btn btn-success my-2 my-sm-0 text-white">REGISTER</a>
+            </ul>
+        </div>
+    </nav>
+	<section class="page_banner">
+        <div class="container">
+            <h1>Contact Us</h1>
+        </div>
+    </section>
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <h3 class="text-center">We would love to hear from you</h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="contact-form">
+                            <form id="contact_us" action="https://paailajob.com/contactus" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter your subject">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="message" rows="5" class="form-control" placeholder="Write your message"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn1 btn-block mt-4">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-information">
+                            <p><i class="color-primary ion-android-mail"></i> info@haamrotrip.com</p>    
+                            <p><i class="color-primary ion-android-call"></i> +977 9842086201</p>   
+                            <p><i class="color-primary ion-android-pin"></i> Janapath Marg, Biratnagar</p>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">How to book</a></li>
+                        <li><a href="#">Payment options</a></li>
+                        <li><a href="#">User login</a></li>
+                        <li><a href="#">User signup</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">List your business</a></li>
+                        <li><a href="#">Payment options</a></li>
+                        <li><a href="#">Vendor login</a></li>
+                        <li><a href="#">Vendor signup</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Janpath Marg, Biratnagar</a></li>
+                        <li><a href="#">+977 9842086201</a></li>
+                        <li><a href="#">info@hotels.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <div class="footer-copyright pt-4 pb-1 mt-3 text-center">
+                        &copy; Paailajob. All rights reserved
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script
+     src="https://code.jquery.com/jquery-3.3.1.min.js"
+     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

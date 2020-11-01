@@ -1,0 +1,56 @@
+@extends('layouts.admin.index')
+@section('content')
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Create Bed Type</h5>
+            </div>
+            <div class="content">
+                @include('layouts.admin.snippets.error')
+                <form method="post" action="{{route('admin.post_create_bed_type')}}" id="addType" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">                        
+                        <div class="form-group">
+                            <label for="name">Bed Type Name</label>                        
+                            <input type="text" class="form-control" id="name" placeholder="Bed Type Name" name="name">
+                        </div>   
+                        <div class="form-group">
+                            <label for="name">Icon</label>                        
+                            <input type="file" class="form-control" id="file" name="icon">
+                        </div>                       
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-control" name="status" required="">
+                                <option value="">Select Status</option>
+                                <option value="active" {{old('status'=='active'?'selected':'')}}>Active</option>
+                                <option value="inactive" {{old('status'=='inactive'?'selected':'')}}>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="border-top">
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="reset" class="btn btn-primary">Reset</button>
+                        </div>
+                    </div>
+                </form>                      
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $("#addType").validate({
+            rules: {
+                name: "required",
+                status: "required"
+            },
+            messages: {
+                name: "Please enter bed type name",
+                status: "Please select a status"                
+            }
+});
+</script>
+@endsection

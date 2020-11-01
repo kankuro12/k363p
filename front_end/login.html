@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Hotels</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <a class="navbar-brand" href="#">HOTELS.COM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="ml-auto navbar-nav">
+                <a class="btn btn-outline-white my-2 my-sm-0 mr-3">LOGIN</a>
+                <a class="btn btn-success my-2 my-sm-0 text-white">REGISTER</a>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="login-form">
+                        <form id="jobseeker_login" class="log-form" method="post" action="https://paailajob.com/jobseeker/login">
+                            <div id="statusBox"></div>
+                            <h3 class="color1 mb-4">Login</h3>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="E-mail">
+                                <span class="text-danger">
+                                    <strong id="email-error"></strong>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <span class="text-danger">
+                                    <strong id="password-error"></strong>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember" id="keeplogged">
+                                <label for="keeplogged" class="color1">Keep me signed in <a href="https://paailajob.com/password/reset" class="text-muted float-right">Forgot Password</a></label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-block btn1">Sign in</button>
+                            </div>
+                            <p class="font-weight-bold mb-0">Sign in with:</p>
+                            <a href="https://paailajob.com/jobseeker/auth/facebook" class="btn btn-fb">
+                                <i class="ion-social-facebook"></i>
+                            </a>  
+
+                            <!--<a href="https://paailajob.com/jobseeker/auth/google" class="btn btn-tw">-->
+                                <!--    <i class="ion-social-google"></i>-->
+                                <!--</a>  -->
+
+                                <a href="https://paailajob.com/jobseeker/auth/linkedin" class="btn btn-in">
+                                 <i class="ion-social-linkedin"></i>
+                             </a>   
+
+
+
+                             <p class="color1 text-center font-weight-bold mt-3">Not a member yet? <a href="https://paailajob.com/jobseeker/register" class="color-primary">Register here</a></p>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+   <!--  <section class="social-icon-section text-center py-4">
+        <div class="container">
+            <span class="social-icon"><i class="ion-social-facebook"></i></span>
+            <span class="social-icon"><i class="ion-social-twitter"></i></span>
+            <span class="social-icon"><i class="ion-social-instagram"></i></span>
+        </div>
+    </section> -->
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">How to book</a></li>
+                        <li><a href="#">Payment options</a></li>
+                        <li><a href="#">User login</a></li>
+                        <li><a href="#">User signup</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">List your business</a></li>
+                        <li><a href="#">Payment options</a></li>
+                        <li><a href="#">Vendor login</a></li>
+                        <li><a href="#">Vendor signup</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Janpath Marg, Biratnagar</a></li>
+                        <li><a href="#">+977 9842086201</a></li>
+                        <li><a href="#">info@hotels.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <div class="footer-copyright pt-4 pb-1 mt-3 text-center">
+                        &copy; Paailajob. All rights reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        $("#jobseeker_login").validate({
+            ignore:[],
+            rules: {        
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {        
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 8 characters long"
+                },
+                email: "Please enter a valid email address",   
+            },
+            errorPlacement: function(error, element) {         
+                error.appendTo( element.parent("div") );
+            }
+        });
+
+
+    </script>
+</body>
+</html>
