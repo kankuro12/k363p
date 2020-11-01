@@ -25,13 +25,13 @@
                         <a href="{{ url('user/auth/facebook') }}" class="btn btn-fb">
                             <i class="ion-social-facebook"></i>
                         </a>  
-                        <a href="{{ url('user/auth/github') }}" class="btn btn-fb">
+                        {{-- <a href="{{ url('user/auth/github') }}" class="btn btn-fb">
                             <i class="ion-social-github"></i>
                         </a>  
 
                         <a href="" class="btn btn-in">
                              <i class="ion-social-linkedin"></i>
-                        </a> 
+                        </a>  --}}
                          <p class="color1 text-center font-weight-bold mt-3">Not a member yet? <a href="{{route('user.getRegister')}}" class="color-primary">Register here</a></p>
                      </form>
                  </div>
