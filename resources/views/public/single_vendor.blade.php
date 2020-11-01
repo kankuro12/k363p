@@ -12,15 +12,18 @@
                     </div>
                 </div>
                 <div class="col-md-3 pb-4">
-                    <div class="h-avg-cost">
+                    {{-- <div class="h-avg-cost">
                         <span class="avg-cost-txt">Avg. Cost</span>
                         <div><span class="cost">Rs.{{$vendor->average_cost}}</span><span> / Package</span></div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-2 pb-4">
                     <div class="h-rev text-center">
                         <span class="rating-circle mx-auto mb-2"><span>{{$vendor->average_review()['avg_rating']}}</span></span>
-                        <div><a href="#" class="text-white">{{$vendor->reviews()->where('status','approved')->count()}} reviews</a></div>
+                        @php
+                            $reviewscount=$vendor->reviews()->where('status','approved')->count();
+                        @endphp
+                        <div><a href="#" class="text-white">{{$reviewscount>0?$reviewscount :" No "}} reviews</a></div>
                     </div>
                 </div>
             </div>
@@ -115,7 +118,7 @@
                                          <div class="old-price">Rs.{{$vr->price}}</div>
                                        @endif
                                         <div class="new-price">Rs.{{$vr->getNewPrice()}}</div>
-                                        <div class="per-night">per Package</div>
+                                        {{-- <div class="per-night">per Package</div> --}}
                                     </div>
                                     <a href="{{route('public.get_room',['vslug'=>$vendor->slug,'rslug'=>$vr->slug])}}" class="btn btn-success float-right mt-2">View Detail ></a>
                                 </div>

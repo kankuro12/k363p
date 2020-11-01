@@ -53,9 +53,9 @@
      <div class="featured-item">
        <div class="featured-item-img-wrapper">
          <img src="{{asset('uploads/vendor/logo/263x160/'.$fv->logo)}}" class="img-fluid">
-         <div class="avg-cost">
+         {{-- <div class="avg-cost">
            Avg. cost: Rs.{{$fv->average_cost}} / day
-         </div>
+         </div> --}}
          @if($fv->average_review()['avg_rating']>0.0)
          <div class="circle-rating">
              {{$fv->average_review()['avg_rating']}}
@@ -96,9 +96,9 @@
       <div class="featured-item">
         <div class="featured-item-img-wrapper">
           <img src="{{asset('uploads/vendor/logo/263x160/'.$fv->logo)}}" class="img-fluid">
-          <div class="avg-cost">
+          {{-- <div class="avg-cost">
             Avg. cost: Rs.{{$fv->average_cost}} / day
-          </div>
+          </div> --}}
           @if($fv->average_review()['avg_rating']>0.0)
           <div class="circle-rating">
               {{$fv->average_review()['avg_rating']}}
