@@ -126,7 +126,6 @@ class LoginController extends Controller
             $input['provider'] = $provider;
             $input['provider_id'] = $user->getId();
 			$input['ppic']=$user->getAvatar();
-			dd($input);
             $authUser = $this->findOrCreate($input);
             Auth::loginUsingId($authUser->id);
             return redirect()->intended($this->redirectTo);
@@ -168,6 +167,7 @@ class LoginController extends Controller
                 'lname'=>$input['lname'],
                 'profile_img'=>$name,
             ]);
+			dd($input,$vuser);
 
             return $user;
         }
