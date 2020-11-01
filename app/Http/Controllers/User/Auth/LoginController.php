@@ -167,7 +167,7 @@ class LoginController extends Controller
                 'lname'=>$input['lname'],
                 'profile_img'=>$name,
             ]);
-			dd($input,$vuser);
+			// dd($input,$vuser);
 
             return $user;
         }
