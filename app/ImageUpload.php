@@ -19,7 +19,7 @@ class FileUpload extends Model
 
             $a= public_path().'/'.$path.'/'.str_replace(',','x',$sizes[$i][0].'x'.$sizes[$i][1]);
             if(!File::exists($a)) {
-                File::makeDirectory($a);
+                File::makeDirectory($a ,0775, true,true);
             }
             $img->resize($sizes[$i][0],null,function ($constraint) {
                 $constraint->aspectRatio();
