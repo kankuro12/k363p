@@ -156,7 +156,7 @@ class LoginController extends Controller
 
             if($input['ppic']){
                 $fileContents = file_get_contents($input['ppic']);
-                $name=time().".jpg";
+                $name=$user->id.time().".jpg";
                 File::put(public_path() . '/uploads/user/profile_img/' .$name, $fileContents);
                 File::put(public_path() . '/uploads/user/profile_img/200x200/' .$name, $fileContents);
             }
