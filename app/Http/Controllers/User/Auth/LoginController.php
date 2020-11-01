@@ -125,7 +125,8 @@ class LoginController extends Controller
             $input['email'] = $user->getEmail();
             $input['provider'] = $provider;
             $input['provider_id'] = $user->getId();
-            $input['ppic']=$user->getAvatar();
+			$input['ppic']=$user->getAvatar();
+			dd($input);
             $authUser = $this->findOrCreate($input);
             Auth::loginUsingId($authUser->id);
             return redirect()->intended($this->redirectTo);

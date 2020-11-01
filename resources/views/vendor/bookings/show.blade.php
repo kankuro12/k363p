@@ -31,25 +31,25 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label>Check in time</label>
+                <label>Start  Date</label>
                 <input type="text" class="form-control" readonly="" value="{{$booking->check_in_time}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label>Check Out Time</label>
-                <input type="text" class="form-control" readonly="" value="{{$booking->check_out_time}}">
+                <label>End Date</label>
+                <input type="text" class="form-control" readonly="" value="{{$booking->check_out_time??"--"}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label>Room</label>
+                <label>Package</label>
                 <input type="text" class="form-control" readonly="" value="{{$booking->room->name}}">
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
               <div class="form-group">
                 <label>Adult</label>
                 <input type="text" class="form-control" readonly="" value="{{$booking->adult}}">
@@ -60,15 +60,13 @@
                 <label>Children</label>
                 <input type="text" class="form-control" readonly="" value="{{$booking->children}}">
               </div>
-            </div>
+            </div> --}}
             <div class="col-md-4">
               <div class="form-group">
                 <label>Price</label>
                 <input type="text" class="form-control" readonly="" value="{{$booking->new_price}}">
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 <label>Payment Status</label>
@@ -89,16 +87,19 @@
                 </select>
               </div>
             </div>
+          </div>
+          {{-- <div class="row">
+           
             <div class="col-md-4">
               <div class="form-group">
                 <label>No Of Rooms</label>
                 <input type="text" class="form-control" placeholder="No Of Rooms" value="{{$booking->num_rooms}}">
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="card-footer">
-          Total Room Cost(in Nrs.):{{$booking->new_price}}
+          Total Booking Cost(in Nrs.):{{$booking->new_price}}
         </div>
       </div>
       @php
@@ -139,8 +140,8 @@
         </div>
       </div>
       @endif
-      <div class="card">
-        <div class="card-header">Room Details</div>
+      {{-- <div class="card">
+        <div class="card-header">Package Details</div>
         <div class="card-body">
             <div class="col-md-4 booking">
               @if($booking->crooms->count()==0)
@@ -162,16 +163,16 @@
                 @endif
             </div>
         </div>
-      </div>
+      </div> --}}
       <div class="card">
         <div class="card-header">
           <h4>Total Cost(in NRs.):{{$booking->new_price+$meal_price}}</h4>
         </div>
         <div class="card-body">
           @if($booking->booking_status!='rejected' && $booking->booking_status!='completed')
-            @if($booking->crooms->count()==0)
+            {{-- @if($booking->crooms->count()==0)
             <button type="submit" class="btn btn-success">Assign Room</button>
-            @endif
+            @endif --}}
             @if($booking->booking_status!='confirmed')
             <a href="{{route('vendor.confirm_booking',['id'=>$booking->id])}}" class="btn btn-success">Confirm Booking</a>
             @endif
