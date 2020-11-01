@@ -12,9 +12,9 @@ class AdminSeeder extends Seeder
     public function run()
     {
         \App\Admin::create([
-        	'name'=>'Khadga Shretstha',
-        	'email'=>'admin@admin.com',
-        	'password'=>bcrypt('lovethecode'),
+        	'name'=>'Abtest Abtest',
+        	'email'=>'abtest@needtechnosoft.com.np',
+        	'password'=>bcrypt('admin@123'),
             'active'=>1,
         	'remember_token'=>str_random(10),
         ]);
