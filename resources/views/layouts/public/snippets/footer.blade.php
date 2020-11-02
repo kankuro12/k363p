@@ -28,9 +28,9 @@
       </div>
       <div class="col-md-3">
         <ul class="list-unstyled footer-links">
-          <li><a href="#">Janpath Marg, Biratnagar</a></li>
-          <li><a href="#">+977 9842086201</a></li>
-          <li><a href="#">info@abtest.com</a></li>
+          <li><a href="#">{{config('general.st_add',"street address")}}</a></li>
+          <li><a href="#">{{config('general.phone',['9800000000'])[0]}}</a></li>
+          <li><a href="#">{{config('general.email',"info@abtest.com")}}</a></li>
         </ul>
       </div>
     </div>

@@ -73,7 +73,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="178" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;"> <img class="adapt-img" src="https://khjfu.stripocdn.email/content/guids/CABINET_caced7777e8b9920431d4aaae206286a/images/42021553581261950.png" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="178" height="41.48"></td> 
+                      <td align="center" style="padding:0;Margin:0;"> <img class="adapt-img" src="{{asset('assets/public/img/logo.png')}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="178" height="41.48"></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -162,7 +162,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="174" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="right" style="padding:0;Margin:0;padding-top:35px;"> <img class="adapt-img" src="https://khjfu.stripocdn.email/content/guids/CABINET_caced7777e8b9920431d4aaae206286a/images/42021553581261950.png" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="174" height="40.54"></td> 
+                      <td align="right" style="padding:0;Margin:0;padding-top:35px;"> <img class="adapt-img" src="{{asset('assets/public/img/logo.png')}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="174" height="40.54"></td> 
                      </tr> 
                    </table> </td> 
                   <td class="es-hidden" width="20" style="padding:0;Margin:0;"></td> 
@@ -174,7 +174,16 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p20b" width="173" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:0;Margin:0;padding-top:25px;padding-left:25px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">+977-9842811999,<br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">+977-9842811999</p> </td> 
+                   
+                      <td align="left" style="padding:0;Margin:0;padding-top:25px;padding-left:25px;">
+                        @foreach (config('general.phone',['9800000000']) as $phone)
+                          
+                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">
+                          {{$phone}}
+                        </p>
+                        @endforeach 
+                        
+                      </td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -185,7 +194,7 @@ a[x-apple-data-detectors] {
                   <td width="173" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:lato, 'helvetica neue', helvetica, arial, sans-serif;line-height:30px;color:#333333;">TextHummingbird, 6234 Gilbert Center Drive, Gilbert CA <span style="font-family:'lucida sans unicode', 'lucida grande', sans-serif;"></span>99999 US<br></p> </td> 
+                     <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:lato, 'helvetica neue', helvetica, arial, sans-serif;line-height:30px;color:#333333;">{{config('general.st_add','street address')}}<span style="font-family:'lucida sans unicode', 'lucida grande', sans-serif;"></span>{{config('general.country','nepal')}}<br></p> </td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -202,10 +211,10 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;"> 
                        <table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                          <tr style="border-collapse:collapse;"> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Facebook" src="https://khjfu.stripocdn.email/content/assets/img/social-icons/circle-colored/facebook-circle-colored.png" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Twitter" src="https://khjfu.stripocdn.email/content/assets/img/social-icons/circle-colored/twitter-circle-colored.png" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Instagram" src="https://khjfu.stripocdn.email/content/assets/img/social-icons/circle-colored/instagram-circle-colored.png" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;"><img title="Youtube" src="https://khjfu.stripocdn.email/content/assets/img/social-icons/circle-colored/youtube-circle-colored.png" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Facebook" src="{{cdn_asset('social-fb.png')}}" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Twitter" src="{{cdn_asset('social-twitter.png')}}" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px;"><img title="Instagram" src="{{cdn_asset('social-insta.png')}}" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;"><img title="Youtube" src="{{cdn_asset('social-youtube.png')}}" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td> 
                          </tr> 
                        </table> </td> 
                      </tr> 

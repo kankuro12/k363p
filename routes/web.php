@@ -1001,6 +1001,8 @@ Route::get('list-business',[
 	'as'=>'public.list_business'
 ]);
 
-
+Route::get('test',function(){
+	echo cdn_asset('social-fb.png');
+});
 
 
