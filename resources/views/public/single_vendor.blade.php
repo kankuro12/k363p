@@ -257,17 +257,17 @@
             </div>
             <div class="hotel-policy mt-4">
                 <div class="d-p-heading">
-                   <h2>Hotel Policy</h2>
+                   <h2>Operating Hours</h2>
                 </div> 
                 <div class="mt-3">
-                    <div>Check-in: {{$vendor->policy?$vendor->policy->check_in_time:'11:00 AM'}}</div>
-                    <div>Check-out: {{$vendor->policy?$vendor->policy->check_out_time:'12:00 PM'}}</div>
+                    <div>{{$vendor->policy?$vendor->policy->check_in_time:'10:00 AM'}} -  {{$vendor->policy?$vendor->policy->check_out_time:'05:00 PM'}}</div>
+                 
                     @if($vendor->policy)
                     <a href="#policy_modal" data-toggle="modal">see more...</a>
                     @endif
                 </div>
             </div>
-            <div class="hotel-essential-places mt-4">
+            {{-- <div class="hotel-essential-places mt-4">
                 <div class="d-p-heading">
                    <h2>Essential Places</h2>
                 </div> 
@@ -311,7 +311,7 @@
                         <span>1.3 km</span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             @if($nearbies->count()>0)
             <div class="nearby-res-cafe mt-4">
                 <div class="d-p-heading">
