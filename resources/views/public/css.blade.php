@@ -11,6 +11,12 @@
     box-shadow: 0 0 0 0.2rem rgba(12, 30, 192, 0.5) !important;
 }
 
+.featured-hotel-section .featured-hotel-carousel .featured-item .featured-item-img-wrapper:before {
+    
+    background: -webkit-gradient(linear, left bottom, left top, from(#1b2d5480), to(transparent));
+    background: linear-gradient(to top, #1b2d5480, transparent);
+}
+
 
 .hero-section .hero-search-caption .hero-search .services:before {
     content: "\f2c1";
