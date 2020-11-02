@@ -30,7 +30,7 @@
         <ul class="list-unstyled footer-links">
           <li><a href="#">Janpath Marg, Biratnagar</a></li>
           <li><a href="#">+977 9842086201</a></li>
-          <li><a href="#">info@hotels.com</a></li>
+          <li><a href="#">info@abtest.com</a></li>
         </ul>
       </div>
     </div>

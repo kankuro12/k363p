@@ -12,15 +12,19 @@
                     </div>
                 </div>
                 <div class="col-md-3 pb-4">
-                    <div class="h-avg-cost">
+                    {{-- <div class="h-avg-cost">
                         <span class="avg-cost-txt">Price</span>
                         <div><span class="cost">Rs.{{$vendor->average_cost}}</span><span> {{$vendor->average_cost_type}}</span></div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-2 pb-4">
                     <div class="h-rev text-center">
                         <span class="rating-circle mx-auto mb-2"><span>{{$vendor->average_review()['avg_rating']}}</span></span>
-                        <div><a href="#" class="text-white">{{$vendor->reviews()->where('status','approved')->count()}} reviews</a></div>
+                        {{-- <div><a href="#" class="text-white">{{$vendor->reviews()->where('status','approved')->count()}} reviews</a></div> --}}
+                        @php
+                            $reviewscount=$vendor->reviews()->where('status','approved')->count();
+                        @endphp
+                        <div><a href="#" class="text-white">{{$reviewscount>0?$reviewscount :" No "}} reviews</a></div>
                     </div>
                 </div>
             </div>
@@ -95,7 +99,7 @@
                  <div id="checkingRoom"></div> --}}
                  <div class="shadow mt-1 mb-1 p-2">
                      <label >Start From</label>
-                     <input type="date" class="form-control" name="check_in_time" required>
+                     <input type="date" class="form-control" name="check_in_time" required value="{{date("Y-m-d")}}">
                  </div>
                     
                     <input type="submit" value="Start Booking" class="btn btn-success mt-2">

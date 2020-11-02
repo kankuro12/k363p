@@ -29,7 +29,7 @@
                             <input type="hidden" name="adult" value="1">
                             <input type="hidden" name="children" value="0">
                             <input type="hidden" name="num_rooms" value="1">
-							<input type="hidden" name="price" id="price" value="{{ $room->price }}">
+							<input type="hidden" name="price" id="price" value="{{$room->discount==0? $room->price:$room->getNewPrice() }}">
 	
 							<div class="d-p-heading">
 								<h2>Personal Information</h2>
@@ -115,8 +115,8 @@
                     <hr>
                     <div class="b-total-price font-weight-bold">
                         <div class="total-price-title">Total Price</div>
-                        <div class="total-price color1" data-org-price="{{ $room->price }}">Rs. <span
-                                class="t-price-amount">{{ $room->price }}</span></div>
+                        <div class="total-price color1" data-org-price="{{$room->discount==0? $room->price:$room->getNewPrice() }}">Rs. <span
+                                class="t-price-amount">{{$room->discount==0? $room->price:$room->getNewPrice() }}</span></div>
                     </div>
                 </div>
               
