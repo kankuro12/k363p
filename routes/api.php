@@ -3,6 +3,10 @@
 
 
 Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
+    Route::post('login', 'API\User\AuthController@login');
+    Route::post('register', 'API\User\AuthController@register');
+    Route::get('activate/{token}', 'API\User\AuthController@signupActivate');
+
     Route::post('login', 'API\Vendor\Auth\AuthController@login');
     Route::group([ 'middleware' => 'auth:api','prefix'=>'user'],function (){
         Route::get('test', function(){
