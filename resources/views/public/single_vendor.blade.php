@@ -315,7 +315,7 @@
             @if($nearbies->count()>0)
             <div class="nearby-res-cafe mt-4">
                 <div class="d-p-heading">
-                   <h2>Nearby Restaurants / Cafe</h2>
+                   <h2>Nearby Services Providers</h2>
                 </div> 
                 @foreach($nearbies as $nearby)
                 @php
@@ -323,20 +323,22 @@
                 $nvendor=App\Model\Vendor\Vendor::find($id);
                 $dist=$vendor->vincentyGreatCircleDistance($vendor->location->lay,$vendor->location->lng,$nvendor->location->lat,$nvendor->location->lng);
                 @endphp
-                <a href="{{route('public.single_vendor',['v'=>$nvendor->slug])}}">
-                    <div class="res-cafe">
-                        <div class="d-flex">
-                            <div class="r-c-img-wrapper">
-                                <img src="{{asset('uploads/vendor/logo/263x160/'.$nvendor->logo)}}">
-                            </div>
-                            <div class="r-c-detail-wrapper">
-                                <div class="r-c-title">{{$nvendor->name}}</div>
-                                <div class="r-c-loc"><i class="ion-android-pin"></i> {{$dist}}</div>
-                                <div class="r-c-avg">avg. cost: Rs. {{$nvendor->average_cost}} </div>
+                @if ($nvendor->id!=$vendor->id)
+                    <a href="{{route('public.single_vendor',['slug'=>$nvendor->slug])}}">
+                        <div class="res-cafe">
+                            <div class="d-flex">
+                                <div class="r-c-img-wrapper">
+                                    <img src="{{asset('uploads/vendor/logo/263x160/'.$nvendor->logo)}}">
+                                </div>
+                                <div class="r-c-detail-wrapper">
+                                    <div class="r-c-title">{{$nvendor->name}}</div>
+                                    <div class="r-c-loc"><i class="ion-android-pin"></i> {{$dist}}</div>
+                                    {{-- <div class="r-c-avg">avg. cost: Rs. {{$nvendor->average_cost}} </div> --}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                @endif
                 @endforeach
             </div>
             @endif
@@ -456,7 +458,7 @@
       });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script> 
 <script>
     let defaultPage = 2;
     $('#load-more').click(function () {

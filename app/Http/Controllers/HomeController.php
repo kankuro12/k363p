@@ -40,7 +40,7 @@ class HomeController extends Controller
       $nearbies=Location::selectRaw('*, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( lat ) ) ) ) AS distance', [$lat, $lng, $lat])
         ->having('distance', '<', $distance)
         ->orderBy('distance')
-        ->where('id','!=',$vendor->id)
+        ->where('vendor_id','<>',$vendor->id)
         ->get();
       $reviews = $vendor->reviews()->where('status','approved')->latest()->paginate(3);
     	return view('public.single_vendor',compact('vendor','nearbies','reviews'));

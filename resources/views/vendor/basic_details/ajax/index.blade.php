@@ -410,7 +410,7 @@
 
       }
 </script>    
-{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script> --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
 <script type="text/javascript">
   function changeProfile() {
       $('#pf-pic').click();
