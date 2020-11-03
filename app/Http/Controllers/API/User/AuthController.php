@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Model\VendorUser\VendorUser;
-use App\Notifications\Vendor\SignupActivate;
+use App\Notifications\User\APISignupActivate;
 use Illuminate\Support\Facades\Validator;
 
 use Carbon\Carbon;
@@ -54,7 +54,7 @@ class AuthController extends Controller
 	            'mobile_number'=>$request->mobile_number,	            
 	            'user_id'=>$user->id,
             ]);
-            $user->notify(new SignupActivate($user));
+            $user->notify(new APISignupActivate($user));
 
             return response()->json([
                  'message' => 'Please verify your email','success' => '1'
