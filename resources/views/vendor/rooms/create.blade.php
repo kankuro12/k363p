@@ -71,7 +71,7 @@
     </div>
     <div class="card">
       <div class="card-header">
-        Services Details
+        Services Included in package
       </div>
       <div class="card-body">
           <div class="row">

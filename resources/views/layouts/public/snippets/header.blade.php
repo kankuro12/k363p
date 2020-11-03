@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
     <a class="navbar-brand" href="{{route('public.home')}}">
       <img src="{{asset('assets/public/img/logo.png')}}" height="50px;">
     </a>

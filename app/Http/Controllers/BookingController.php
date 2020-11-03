@@ -209,8 +209,8 @@ class BookingController extends Controller
         $response=json_decode($response);
         $idx=$response->idx;        
         $provider='khalti';
-        $this->booking_process_start_step_2($request,$provider,$token,$idx);
-        return response()->json(['msg'=>'successfully booked','success'=>1,'redirect_url'=>'/']);
+        return $this->booking_process_start_step_2($request,$provider,$token,$idx);
+        // return response()->json(['msg'=>'successfully booked','success'=>1,'redirect_url'=>'/']);
 
     }
 

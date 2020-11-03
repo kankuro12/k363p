@@ -75,8 +75,8 @@
 									placeholder="Add your additional requests here..."></textarea>
 							</div>
 							<div class="form-group">
-								<button id="checkoutBtn" class="btn btn1 pl-4 pr-4 py-2 ">Confirm Booking <i
-										class="ion-chevron-right"></i></button>
+								<a id="checkoutBtn" class="btn btn1 pl-4 pr-4 py-2 ">Confirm Booking <i
+										class="ion-chevron-right"></i></a>
 							</div>
 	
 						</form>

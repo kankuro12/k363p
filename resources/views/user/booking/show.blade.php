@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="dashboard-content-wrapper p-4">
+                <div class="dashboard-content-wrapper p-md-4 p-1 mt-3 mt-md-0">
                     <h4 class="mb-3 color1 font-weight-bold">Booking Detail</h4>
 
                       <div id="accordion">
@@ -20,7 +20,7 @@
                                   Service Details
                                 </a>
                               </div>
-                              <div id="booking-detail" class="collapse show" data-parent="#accordion">
+                              <div id="booking-detail" class="collapse show" data-parent="#accordion" style="overflow: scroll;">
                                 <table class="table table-bordered">
                                     <tbody>
                                       <tr>

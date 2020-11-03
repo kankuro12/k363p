@@ -35,9 +35,10 @@
    <section class="h-details-section mt-4">
        <div class="row">
          <div class="col-md-7">
-             <div class="room-gallery-carousel owl-carousel">
+           
+             <div class="room-gallery-carousel owl-carousel" id="gallery">
               @foreach($room->roomphotos as $rp)
-                 <div class="gallery-item">
+                 <div class="gallery-item item">
                      <img src="{{asset('uploads/vendor/roomphotos/'.$rp->image)}}" class="img-fluid">
                  </div>
               @endforeach
@@ -50,7 +51,7 @@
              </div>
               <div class="mt-3 room_amenities">
                   <div class="d-p-heading">  
-                      <h2>Service Provided</h2>
+                      <h2>Services Included</h2>
                   </div>
                   <div class="row">
                        @foreach($room->roomamenities as $ra)
@@ -60,15 +61,30 @@
                        @endforeach 
                   </div>
               </div>
+              <div class="mt-3">
+                  <div class="row">
+                      @foreach ($room->roomphotos as $photos)
+                          <div class="col-md-6 col-lg-4 col-sm-1">
+                                <img src="{{asset('')}}" alt="" srcset="">
+                          </div>
+                      @endforeach
+                  </div>
+              </div>
          </div>
-         <div class="col-md-5">
+         <div class="col-md-5 yello-left-border">
              <div class="m-room-detail-wrapper">
                  <h4 class="color1 font-weight-bold mb-3">{{$room->vendor->name}}</h4>
                  <div class="row">
                    <div class="col-md-12">
                       <div class="room-type">
                           <span class="room-type-title">{{$room->name}}</span>
-                      </div>                     
+                          <hr>
+                          <div class="b-total-price font-weight-bold">
+                            <div class="total-price-title">Price</div>
+                            <div class="total-price color1" data-org-price="{{$room->discount==0? $room->price:$room->getNewPrice() }}">Rs. <span
+                                    class="t-price-amount">{{$room->discount==0? $room->price:$room->getNewPrice() }}</span></div>
+                        </div>                 
+                      </div>    
                    </div>
                   </div>
                   <form id="checkAvailabitlityForm" method="get" action="{{route('get_booking_process_start',['vslug'=>$vendor->slug,'rslug'=>$room->slug])}}">
@@ -170,7 +186,36 @@
 //     });        
 //   }
 
-  
+$("document").ready(function(){
+        $("#gallery").owlCarousel({ // Initialize slider
+			items:1,
+			slideBy:1,
+			nav:true,
+			loop:true,
+			dots:false,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:true
+                },
+                1000:{
+                    items:2,
+                    nav:true,
+                    loop:false
+                },
+                1600:{
+                    items:3,
+                    nav:true,
+                    loop:false
+                }
+            }
+		});
+});
 
 
 </script>

@@ -2,7 +2,15 @@
 
 
 
-
+Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
+    Route::post('login', 'API\Vendor\Auth\AuthController@login');
+    Route::group([ 'middleware' => 'auth:api','prefix'=>'user'],function (){
+        Route::get('test', function(){
+            echo "test ok";
+        });
+        Route::get('info', 'API\user\General@info');
+    });
+});
 
 /* Vendor Controller */
 Route::group(['prefix'=>'vendor'],function (){

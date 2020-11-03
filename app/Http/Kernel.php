@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'admin_guest'=>\App\Http\Middleware\RedirectIfAdminAuthenticated::class,
         'authen'=>\App\Http\Middleware\Authen::class,
         'type'=>\App\Http\Middleware\CheckType::class,
+        'CheckApiKey'=>\App\Http\Middleware\CheckApiKey::class,
     ];
 
     /**
