@@ -85,7 +85,7 @@ class StepController extends Controller
             $vendor->step=3;
             $vendor->save(); 
             
-            return redirect()->route('vendor.step3');
+            return redirect()->route('vendor.dashboard');
         
         }else{
            return view("vendor.step.step3") ;
