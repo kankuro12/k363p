@@ -522,7 +522,27 @@ Route::group(['prefix'=>'vendor','middleware'=>'guest'],function(){
 	    'uses' => 'Vendor\Auth\RegisterController@resend'
 	]);
 });
-Route::group(['prefix'=>'vendor','middleware'=>['authen','type'],'type'=>['vendor']],function(){
+Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>['vendor']],function(){
+
+	Route::get('logout',[
+		'uses'=>'Vendor\Auth\LoginController@getLogout',
+		'as'=>'vendor.getLogout'
+	]);
+
+	Route::match(['get','post'],'step1',[
+		'uses'=>'Vendor\StepController@step1',
+		'as'=>'vendor.step1'
+	]);
+	Route::match(['get','post'],'step2',[
+		'uses'=>'Vendor\StepController@step2',
+		'as'=>'vendor.step2'
+	]);
+
+	Route::match(['get','post'],'step3',[
+		'uses'=>'Vendor\StepController@step3',
+		'as'=>'vendor.step3'
+	]);
+
 	Route::get('logout',[
 		'uses'=>'Vendor\Auth\LoginController@getLogout',
 		'as'=>'vendor.getLogout'
@@ -1001,8 +1021,14 @@ Route::get('list-business',[
 	'as'=>'public.list_business'
 ]);
 
+
+
+
 Route::get('test',function(){
-	echo cdn_asset('social-fb.png');
+	$str="https://www.google.com/maps/place/Need+Technosoft+Pvt+Ltd/@26.4809638,87.2742021,17z/data=!3m1!4b1!4m5!3m4!1s0x39ef75d4df1dda71:0x7a5c0791724d0c90!8m2!3d26.480959!4d87.2763908";
+	$data=parse_url($str);
+	dd($data);
 });
 
+Route::get('sms/show','MockSmsController@show');
 

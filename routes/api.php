@@ -1,7 +1,6 @@
 <?php
 
-
-
+Route::post('sms/mock','MockSmsController@mock');
 Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
     Route::post('login', 'API\User\AuthController@login');
     Route::post('register', 'API\User\AuthController@register');

@@ -132,7 +132,15 @@
                         if(data.success){
                             $('#register-form')[0].reset();
                             toastr.success(data.message);
+                            window.location.replace("{{route('vendor.step1')}}");
+
                         }
+                   },
+                   error: function(jqXHR, exception) {
+                        toastr.error("Some Error Occured Please Try Again");
+                        console.log(jqXHR, exception);
+                        $('#submitBtn').html('Register').removeAttr("disabled");     
+
                    }            
                });
            }

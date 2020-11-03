@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'authen'=>\App\Http\Middleware\Authen::class,
         'type'=>\App\Http\Middleware\CheckType::class,
         'CheckApiKey'=>\App\Http\Middleware\CheckApiKey::class,
+        'step'=>\App\Http\Middleware\Step::class,
     ];
 
     /**

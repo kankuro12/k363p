@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
+use App\Channels\SMS;
 class SignupActivate extends Notification
 {
     use Queueable;
@@ -29,7 +29,7 @@ class SignupActivate extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail',SMS::class];
     }
 
     /**
@@ -48,8 +48,13 @@ class SignupActivate extends Notification
 //            ->line('Thank you for using our application!');
 
         return (new MailMessage)->subject('Confirm your account!!!')->view(
-            'email.vendors.activate',['token'=>$notifiable->activation_token]
+            'email.vendors.apiactivate',['token'=>$notifiable->activation_token]
         );
+    }
+
+    public function toSMS($notifiable){
+        $vendor=$notifiable->vendor;
+        return ['to'=>$vendor->phone_number,"text"=>"Your Activation Code is ".$notifiable->activation_token];
     }
 
     /**

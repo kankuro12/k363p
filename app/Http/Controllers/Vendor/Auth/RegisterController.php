@@ -38,7 +38,7 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
                 'role_id'=>2,
-                'activation_token' => str_random(60),
+                'activation_token' => mt_rand(100000,999999),
             ]);
             $user->save();
 
@@ -53,7 +53,9 @@ class RegisterController extends Controller
             $user->notify(new SignupActivate($user));
 
             Auth::logout();
+            if(Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], true)) {
 
+            }
             return response()->json([
                  'message' => 'Please verify your email','success' => '1'
             ], 201);
