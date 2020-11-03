@@ -366,10 +366,10 @@
 
         <ul>
             @if($vendor->policy)
-            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Check In Check Out Policy</span>: {{$vendor->policy->check_in_out_policy}}</li>
+            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Service Enroll Policy</span>: {{$vendor->policy->check_in_out_policy}}</li>
             <li style="margin-bottom: 5px;"><span class="font-weight-bold">Cancellation Policy:</span> {{$vendor->policy->cancelation_policy}}</li>
-            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Extra Bed Policy:</span> {{$vendor->policy->extra_bed_policy}}</li>
-            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Payment Mode:</span> {{$vendor->policy->payment_mode}}</li>
+            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Extra Service Policy:</span> {{$vendor->policy->extra_bed_policy}}</li>
+            <li style="margin-bottom: 5px;"><span class="font-weight-bold">Payment Policy:</span> {{$vendor->policy->payment_mode}}</li>
             <li style="margin-bottom: 5px;"><span class="font-weight-bold">Description: </span>{{$vendor->policy->description}}</li>
             @endif
         </ul>

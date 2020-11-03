@@ -9,22 +9,22 @@
               <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Check In Time</label>
-                        <input type="text" name="check_in_time" class="timepicker form-control" placeholder="Check In Time" value="{{$policies?$policies->check_in_time:''}}">
+                        <label>Opening Time</label>
+                        <input type="text" name="check_in_time" class="timepicker form-control" placeholder="Opening Time" value="{{$policies?$policies->check_in_time:''}}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Check Out Time</label>
-                        <input type="text" name="check_out_time" class="timepicker form-control" placeholder="Check Out Time" value="{{$policies?$policies->check_out_time:''}}">
+                        <label>Closing Time</label>
+                        <input type="text" name="check_out_time" class="timepicker form-control" placeholder="Closing Time" value="{{$policies?$policies->check_out_time:''}}">
                     </div>
                 </div>
               </div>
               <div class="row">
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label>Check In Check Out Policy</label>
-                          <textarea class="form-control" placeholder="Enter Check In CheckOut Policy" name="check_in_out_policy">{{$policies?$policies->check_in_out_policy:''}}</textarea>
+                          <label>Service Enroll Policy</label>
+                          <textarea class="form-control" placeholder="Service Enroll Policy" name="check_in_out_policy">{{$policies?$policies->check_in_out_policy:''}}</textarea>
                       </div>
                   </div>
               </div>
@@ -39,23 +39,23 @@
               <div class="row">
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label>Extra Bed Policy</label>
-                          <textarea class="form-control" placeholder="Enter Extra Bed Policy" name="extra_bed_policy">{{$policies?$policies->extra_bed_policy:''}}</textarea>
+                          <label>Extra Services Policy</label>
+                          <textarea class="form-control" placeholder="Enter Extra Services Policy" name="extra_bed_policy">{{$policies?$policies->extra_bed_policy:''}}</textarea>
                       </div>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label>Payment Mode</label>
-                          <textarea class="form-control" placeholder="Enter Payment Mode" name="payment_mode">{{$policies?$policies->payment_mode:''}}</textarea>
+                          <label>Payment Policy</label>
+                          <textarea class="form-control" placeholder="Enter Payment Policy" name="payment_mode">{{$policies?$policies->payment_mode:''}}</textarea>
                       </div>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label>Details</label>
+                          <label>Extra Details</label>
                           <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike" name="description">{{$policies?$policies->description:''}}</textarea>
                       </div>
                   </div>
