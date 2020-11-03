@@ -357,7 +357,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title color1">Hotel Policy</h4>
+        <h4 class="modal-title color1">Service Provider Policy</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
