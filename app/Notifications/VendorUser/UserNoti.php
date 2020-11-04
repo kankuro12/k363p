@@ -41,7 +41,7 @@ class UserNoti extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('Room has been booked from hamromytrip.com')->view(
+        return (new MailMessage)->subject('Package has been booked from '.env('APP_NAME','laravel'))->view(
             'email.users.booked',['booking'=>$this->data]
         );
     }

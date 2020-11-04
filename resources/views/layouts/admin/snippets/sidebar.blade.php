@@ -44,11 +44,11 @@
                       <span class="sidebar-normal"> Package Type </span>
                   </a>
               </li>
-              <li>
+              {{-- <li>
                   <a href="{{route('admin.get_bed_type')}}">
-                      <span class="sidebar-normal"> Bed Type </span>
+                      <span class="sidebar-normal"> Service Types </span>
                   </a>
-              </li>
+              </li> --}}
               <li>
                   <a href="{{route('admin.get_reviews')}}">
                       <span class="sidebar-normal"> Reviews </span>

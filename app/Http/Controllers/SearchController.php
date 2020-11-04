@@ -31,7 +31,14 @@ class SearchController extends Controller
         $vendors=$vendors->WhereHas('category', function($q) use($service) {
             $q->where('name', 'like', '%' . $service. '%');
         });
+
+        $vendors=$vendors->orWhereHas('rooms', function($q) use($service) {
+            $q->where('name', 'like', '%' . $service. '%');
+        });
+
+        $vendors=$vendors->orWhere('name','like', '%' . $service. '%');
     }
+    // dd($vendors->get());
 
     //amenities filter     
     if($request->filled('samenities')) {

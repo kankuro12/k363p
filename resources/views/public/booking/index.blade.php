@@ -75,7 +75,7 @@
 									placeholder="Add your additional requests here..."></textarea>
 							</div>
 							<div class="form-group">
-								<a id="checkoutBtn" class="btn btn1 pl-4 pr-4 py-2 ">Confirm Booking <i
+								<a id="checkoutBtn" class="btn btn1 pl-4 pr-4 py-2 text-white">Confirm Booking <i
 										class="ion-chevron-right"></i></a>
 							</div>
 	
@@ -208,9 +208,11 @@
                     },
                     onError(error) {
                         toastr.info(error);
-                        location.reload();
+                        // location.reload();
                     },
-                    onClose() {}
+                    onClose() {
+                        $('#online_payment_mdl').modal('hide');
+                    }
                 }
             };
             var checkout = new KhaltiCheckout(config);

@@ -74,7 +74,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="178" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;"> <img src="https://kiwqe.stripocdn.email/content/guids/CABINET_c8535df7001070b4b024a08fd540f6c3/images/72761553597332062.png" alt="Hummingbird logo" title="Hummingbird logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="104" height="24.23"></td> 
+                     <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;"> <img src="{{asset('assets/public/img/logo.png')}}" alt="Hummingbird logo" title="Hummingbird logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="104" height="24.23"></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -122,7 +122,7 @@ a[x-apple-data-detectors] {
                       <td align="left" style="padding:20px;Margin:0;"> 
                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">Dear {{$booking['data']->first_name." ".$booking['data']->last_name}}, <br></p>
                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;"><br></p> 
-                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">We're glad you've placed your trust in HamroTrip and have chosen us as your preferred hospitality partner for the We are pleased to confirm that {{$booking['data']->num_rooms}} Room at {{$booking['data']->vendor->name. "(".$booking['data']->room->name. ")"}} has been reserved under your name. While you’re busy preparing for your trip, our teams are constantly working towards providing beautiful living spaces for you to enjoy. <br></p>
+                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;">We're glad you've placed your trust in {{env('APP_NAME','laravel')}} and have chosen us.  We are pleased to confirm that {{$booking['data']->vendor->name. "(".$booking['data']->room->name. ")"}} has been reserved under your name.  <br></p>
                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:28px;color:#333333;"><br></p> 
                       </td> 
                      </tr> 
@@ -176,28 +176,8 @@ a[x-apple-data-detectors] {
                   <td class="es-hidden" width="20" style="padding:0;Margin:0;"></td> 
                  </tr> 
                </table> 
-               <!--[if mso]></td><td width="125" valign="top"><![endif]--> 
-               <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left;"> 
-                 <tr style="border-collapse:collapse;"> 
-                  <td class="es-m-p20b" width="125" align="center" style="padding:0;Margin:0;"> 
-                   <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
-                     <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:26px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:39px;color:#696969;"><strong>{{$booking['data']->adult+$booking['data']->child}} Guest<br></strong></p> </td> 
-                     </tr> 
-                   </table> </td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td><td width="20"></td><td width="125" valign="top"><![endif]--> 
-               <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right;"> 
-                 <tr style="border-collapse:collapse;"> 
-                  <td width="125" align="center" style="padding:0;Margin:0;"> 
-                   <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
-                     <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:26px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:39px;color:#696969;"><strong>{{$booking['data']->num_rooms}} Room</strong></p> </td> 
-                     </tr> 
-                   </table> </td> 
-                 </tr> 
-               </table> 
+                
+             
                <!--[if mso]></td></tr></table><![endif]--> </td> 
              </tr> 
              <tr style="border-collapse:collapse;"> 
@@ -241,7 +221,7 @@ a[x-apple-data-detectors] {
                   <td width="560" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:16px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:24px;color:#696969;"><strong><u>Hotel Rules</u></strong></p> </td> 
+                      <td align="left" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:16px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:24px;color:#696969;"><strong><u>Service Provider Policy</u></strong></p> </td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -257,10 +237,10 @@ a[x-apple-data-detectors] {
                      <tr style="border-collapse:collapse;"> 
                     <td align="left" style="padding:5px;Margin:0;"> 
                         @if($booking['data']->vendor->policy)
-                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Check In Check Out Policy:</b> {{$booking['data']->vendor->policy->check_in_out_policy}}</p>
+                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Service Enroll Policy :</b> {{$booking['data']->vendor->policy->check_in_out_policy}}</p>
                         <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Cancellation Policy:</b>{{$booking['data']->vendor->policy->cancelation_policy}}</p>
-                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Extra Bed Policy:</b>{{$booking['data']->vendor->policy->extra_bed_policy}}</p>
-                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Payment Mode:</b>{{$booking['data']->vendor->policy->payment_mode}}</p>
+                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Extra Service Policy:</b>{{$booking['data']->vendor->policy->extra_bed_policy}}</p>
+                        <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Payment Policy:</b>{{$booking['data']->vendor->policy->payment_mode}}</p>
                         <p style="Margin:10px;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:18px;color:#333333;text-align:justify;"><b>Description: </b></span>{{$booking['data']->vendor->policy->description}}</p>
                         @endif
 
@@ -279,7 +259,7 @@ a[x-apple-data-detectors] {
                   <td width="560" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="left" style="padding:5px;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">We wish you a hassle-free stay.<br></p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">Waiting to host you. See you soon,</p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">Thank you <br></p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">Team HamroTrip <br></p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">021 344212<br></p> </td> 
+                      <td align="left" style="padding:5px;Margin:0;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">Thank you <br></p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">{{env('APP_NAME',"LARAVEL")}} <br></p> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;">{{config('general.phone',['9800000000'])[0]}}<br></p> </td> 
                      </tr> 
                    </table> </td> 
                  </tr> 

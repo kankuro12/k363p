@@ -42,7 +42,7 @@ class VendorNoti extends Notification
     public function toMail($notifiable)
     {
         //$url = url('/api/vendor/auth/signup/activate/'.$notifiable->activation_token);
-        return (new MailMessage)->subject('Room has been booked from hamromytrip.com')->view(
+        return (new MailMessage)->subject('PAckaged has been booked from '.env('APP_NAME','laravel'))->view(
             'email.vendors.booked',['booking'=>$this->data]
         );
     }

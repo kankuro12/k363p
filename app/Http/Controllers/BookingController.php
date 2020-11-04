@@ -175,6 +175,7 @@ class BookingController extends Controller
         $notification['link']='';
         $notification['id']=$booking->booking_id;
         $notification['data']='';
+        $notification['oid']=$booking->id;
         $when = now()->addSeconds(5);        
         $booking->vendor->user->notify((new VendorNoti($notification))->delay($when));
 
