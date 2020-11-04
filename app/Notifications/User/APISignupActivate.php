@@ -46,8 +46,8 @@ class APISignupActivate extends Notification
     }
 
     public function toSMS($notifiable){
-        $vendor=$notifiable->vendoruser;
-        return ['to'=>$vendor->phone_number,"text"=>"Your Activation Code is ".$notifiable->activation_token];
+        $user=$notifiable->vendoruser;
+        return ['to'=>$user->mobile_number,"text"=>"Your Activation Code is ".$notifiable->activation_token];
     }
 
     
