@@ -20,7 +20,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin_auth'],function(){
 	    }
 	    return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
 	});
-`
+
 
 	Route::get('logout',[
 		'as'=>'admin.logout'
@@ -1033,4 +1033,3 @@ Route::get('test',function(){
 });
 
 Route::get('sms/show','MockSmsController@show');
-
