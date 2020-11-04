@@ -11,7 +11,7 @@ Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
         Route::get('test', function(){
             echo "test ok";
         });
-        Route::get('info', 'API\user\General@info');
+        Route::get('info', 'API\User\General@info');
     });
 });
 
