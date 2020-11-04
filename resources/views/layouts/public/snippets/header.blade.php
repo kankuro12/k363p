@@ -15,12 +15,12 @@
         @else
         @if(Auth::guard()->user()->role->name=='user')
         <ul class="ml-auto navbar-nav">
-           <a class="btn btn-outline-white custom-min-menu my-2 my-sm-0 mr-3" href="{{route('user.getLogin')}}">{{Auth::user()->vendoruser->fname}}</a>
+           <a class="btn btn-outline-white custom-min-menu my-2 my-sm-0 mr-3" href="{{route('user.profile')}}">{{Auth::user()->vendoruser->fname}}</a>
            <a class="btn btn-success my-2 my-sm-0 text-white" href="{{route('user.getLogout')}}">LOGOUT</a>
         </ul>
         @elseif(Auth::guard()->user()->role->name=='vendor')
         <ul class="ml-auto navbar-nav">
-           <a class="btn btn-outline-white custom-min-menu my-2 my-sm-0 mr-3" href="{{route('vendor.getLogin')}}">{{Auth::user()->vendor->name}}</a>
+           <a class="btn btn-outline-white custom-min-menu my-2 my-sm-0 mr-3" href="{{route('vendor.dashboard')}}">{{Auth::user()->vendor->name}}</a>
            <a class="btn btn-success my-2 my-sm-0 text-white" href="{{route('vendor.getLogout')}}">LOGOUT</a>
         </ul>
         @endif     

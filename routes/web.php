@@ -20,7 +20,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin_auth'],function(){
 	    }
 	    return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
 	});
-
+`
 
 	Route::get('logout',[
 		'as'=>'admin.logout'
@@ -542,6 +542,8 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 		'uses'=>'Vendor\StepController@step3',
 		'as'=>'vendor.step3'
 	]);
+
+	
 
 	Route::get('logout',[
 		'uses'=>'Vendor\Auth\LoginController@getLogout',
