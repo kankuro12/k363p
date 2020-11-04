@@ -90,9 +90,12 @@ class AuthController extends Controller
     public function logout(){
 
     }
-    public function signupActivate($token)
+    public function signupActivate(Request $request)
     {
-        $user = User::where('activation_token', $token)->first();
+        $request->validate([
+            'token' => 'required',
+        ]);
+        $user = User::where('activation_token', $request->token)->first();
         if (!$user) {
             return response()->json([
                 'message' => 'This activation token is invalid.'
@@ -101,6 +104,7 @@ class AuthController extends Controller
         $user->active = true;
         $user->activation_token = '';
         $user->save();
-        return $user;
+        $user->vendoruser;
+        return  response()->json([  'message' => 'Email Verified','success' => '1']);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-
+use App\Channels\SMS;
 class APISignupActivate extends Notification
 {
     use Queueable;
@@ -29,7 +29,7 @@ class APISignupActivate extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail',SMS::class];
     }
 
     /**
@@ -45,6 +45,12 @@ class APISignupActivate extends Notification
         );
     }
 
+    public function toSMS($notifiable){
+        $vendor=$notifiable->vendoruser;
+        return ['to'=>$vendor->phone_number,"text"=>"Your Activation Code is ".$notifiable->activation_token];
+    }
+
+    
 
     /**
      * Get the array representation of the notification.
