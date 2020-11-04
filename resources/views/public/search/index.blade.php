@@ -108,7 +108,7 @@
         </div>
         <div class="col-md-9">
              <div class="listing-wrapper">
-                 <h3 class="color1 searh-result-title">Available Properties :</h3>
+                 <h3 class="color1 searh-result-title">Available Service Providers :</h3>
                   <form id="sortForm">
                  <div class="filter-sortby d-flex">
                      <div>sortby:</div>

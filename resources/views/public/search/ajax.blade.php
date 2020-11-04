@@ -43,7 +43,7 @@
                                         @foreach ($vendor->rooms as $room)
                                             <li>
                                                 <div style="display: flex;justify-content: space-between">
-                                                    <span><a href="">{{$room->name}}</a></span>
+                                                    <span><a href="{{route('public.get_room',['vslug'=>$vendor->slug,'rslug'=>$room->slug])}}">{{$room->name}}</a></span>
                                                     <span>200</span>
                                                 </div>
                                             </li>
@@ -67,5 +67,5 @@
     @endforeach
     {{$vendors->links()}}
 @else
-<p>No Matching Properties Found!!!.</p>
+<p>No Matching Services Found!!!.</p>
 @endif

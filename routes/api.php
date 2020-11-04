@@ -7,12 +7,16 @@ Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
     Route::post('activate', 'API\User\AuthController@signupActivate');
 
     Route::post('login', 'API\Vendor\Auth\AuthController@login');
+
+    Route::Post('vendors/featured','API\User\General@info');
     Route::group([ 'middleware' => 'auth:api','prefix'=>'user'],function (){
         Route::get('test', function(){
             echo "test ok";
         });
         Route::get('info', 'API\User\General@info');
     });
+
+
 });
 
 /* Vendor Controller */

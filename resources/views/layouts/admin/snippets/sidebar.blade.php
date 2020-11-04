@@ -112,12 +112,12 @@
               <p>Booking Menu</p>
           </a>
       </li>
-          <li class="{{ (Request::is('admin/tourism-areas') ? ' active' : '') }}">
+          {{-- <li class="{{ (Request::is('admin/tourism-areas') ? ' active' : '') }}">
         <a href="{{route('admin.get_tourisam_areas')}}">
             <i class="ion-earth"></i>
             <p>Tourism Areas</p>
         </a>
-    </li>
+    </li> --}}
     <li class="{{ (Request::is('admin/members') ? ' active' : '') }}">
         <a href="{{route('admin.members')}}">
             <i class="ion-android-people"></i>
