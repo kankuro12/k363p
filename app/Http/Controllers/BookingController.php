@@ -63,7 +63,7 @@ class BookingController extends Controller
         $hotel_detail=Vendor::where('slug',$vslug)->first();
         $room=Room::where('slug',$rslug)->first();
         $check_in_time=$details['check_in_time'];
-        // $check_out_time=$details['check_out_time'];
+        // $check_out_time=$details['check_out_time']; 
         // $days=Carbon::parse($check_out_time)->diffInDays(Carbon::parse($check_in_time));
         // $price=$room->getNewPrice()*$details['num_rooms']*$days;
         // $meals=$hotel_detail->meals;
