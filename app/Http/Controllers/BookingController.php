@@ -43,8 +43,8 @@ class BookingController extends Controller
         if($request->num_rooms){
             $num_rooms=$request->num_rooms;  
             $check_in_time=$request->check_in_time; 
-            $check_out_time=$request->check_out_time;
-            $day=Carbon::parse($check_out_time)->diffInDays(Carbon::parse($check_in_time)); 
+            // $check_out_time=$request->check_out_time;
+            $day=1;
             $b=Booking::where('booking_status','!=','completed')->where('booking_status','!=','rejected')->where('room_id',$room->id)->whereBetween('check_in_time', [$check_in_time, $check_out_time])->WhereBetween('check_out_time', [$check_in_time, $check_out_time])->sum('num_rooms');
 
             $avaialbe=$total_rooms-$b;          
