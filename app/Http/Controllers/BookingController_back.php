@@ -26,7 +26,7 @@ use App\PaymentMethod;
 use App\Notifications\Vendor\VendorNoti;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
-class BookingController extends Controller
+class BookingController_back extends Controller
 {
     public function bookings_start(Request $request,$vslug,$rslug){
     	$booking_details=$request->all();
