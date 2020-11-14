@@ -119,9 +119,13 @@
 
           
           <div class="featured-amenities mb-2">
+            @if ($fv->amenities->count()>0)
             @foreach($fv->amenities->take(5) as $fam)
             <span class="fai mr-2"><img src="{{asset('uploads/vendor/amenities/icons/200x200/'.$fam->icon)}}" height="20px" width="20px" /></span>
             @endforeach
+            @else
+            <br>
+           @endif
           </div>
           <a href="{{route('public.single_vendor',['slug'=>$fv->slug])}}" class="btn btn-success btn-block">View Detail</a>
         </div>       
