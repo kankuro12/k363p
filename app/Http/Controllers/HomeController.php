@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Vendor\Vendor;
 use App\Model\Vendor\Room;
+use App\Model\Vendor\RoomType;
 use App\Model\Vendor\Review;
 use DB;
 use App\TourismArea;
@@ -13,12 +14,13 @@ use App\Model\Vendor\Country;
 use App\Model\Vendor\City;
 use App\Model\Vendor\Location;
 use App\Model\Vendor\Collection;
+// use App\Model\Vendor\Room;
 use App\Enquiry;
 class HomeController extends Controller
 {
     public function home(){
     	$featured_vendors=Vendor::where(['featured'=>'active','verified'=>1])->take(8)->inRandomOrder()->latest()->get();
-      $trs=TourismArea::where('status','active')->limit(3)->get();  
+      $trs=Room::all();  
       $popular_vendors= Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
       ->select(array('vendors.*',
         DB::raw('SUM(avg_rating) as ratings_average')
@@ -32,6 +34,32 @@ class HomeController extends Controller
 
     	return view('public.home',compact('featured_vendors','trs','popular_vendors','collections'));
     }
+
+    public function home1(){
+    	$featured_vendors=Vendor::all();
+      $trs=Room::all();  
+      $roomtypes=RoomType::all();
+      $popular_vendors= Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
+      ->select(array('vendors.*',
+        DB::raw('SUM(avg_rating) as ratings_average')
+        ))
+      ->where('reviews.status','=','approved')
+      ->where('reviews.avg_rating','>',4)
+      ->groupBy('id')
+      ->orderBy('ratings_average', 'DESC')
+      ->get();  
+      $collections=Collection::where('status',1)->get();
+
+
+    	return view('public.home1',compact('featured_vendors','trs','popular_vendors','collections','roomtypes'));
+    }
+
+    public function search(Request $request){
+        $locations=Location::where('name','like','%'.$request->name.'%')->whereNotNull('name')->distinct('name')->get();
+        $cities=city::where('name','like','%'.$request->name.'%')->whereNotNull('name')->distinct('name')->get();
+        
+    }
+
     public function single_vendor($slug){
     	$vendor=Vendor::where('slug',$slug)->firstOrFail();
     	$lat = $vendor->location->lat;
@@ -43,7 +71,7 @@ class HomeController extends Controller
         ->where('vendor_id','<>',$vendor->id)
         ->get();
       $reviews = $vendor->reviews()->where('status','approved')->latest()->paginate(3);
-    	return view('public.single_vendor',compact('vendor','nearbies','reviews'));
+    	return view('public.single_vendor_1',compact('vendor','nearbies','reviews'));
     }
     public function get_review(Request $request,$slug){
 

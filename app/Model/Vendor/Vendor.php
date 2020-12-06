@@ -105,6 +105,7 @@ class Vendor extends Model
         $avg_facility=0;
         $avg_sbehaviour=0;
         $num_of_active_reviews=$this->reviews()->where('status','approved')->count();
+        $services=$this->rooms()->count();
         $num_div=$num_of_active_reviews*5;
         if($num_of_active_reviews>0){
             foreach ($this->reviews()->where('status','approved')->get() as $key => $review) {
@@ -128,6 +129,8 @@ class Vendor extends Model
         $result['avg_food']=$num_of_active_reviews==0?0:($avg_food/$num_div)*100;
         $result['avg_sbehaviour']=$num_of_active_reviews==0?0:($avg_sbehaviour/$num_div)*100; 
         $result['avg_facility']=$num_of_active_reviews==0?0:($avg_facility/$num_div)*100;  
+        $result['reviews']=$num_of_active_reviews;  
+        $result['services']=$services;  
         return $result;      
     }
     public static function vincentyGreatCircleDistanceold(

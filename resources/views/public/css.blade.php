@@ -68,4 +68,13 @@
     }
 }
 
+.mobile-search .select2-selection{
+    height:35px !important;
+}
+.mobile-search .select2-selection__arrow{
+    display:none;
+}
+.mobile-search .select2-container{
+    width:100% !important;
+}
 </style>

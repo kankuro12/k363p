@@ -7,6 +7,8 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+      
         @if(!Auth::check())
           <ul class="ml-auto navbar-nav">
              <a class="btn btn-outline-white custom-min-menu my-2 my-sm-0 mr-3" href="{{route('user.getLogin')}}">LOGIN</a>

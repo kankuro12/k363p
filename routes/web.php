@@ -942,6 +942,15 @@ Route::get('/',[
 	'uses'=>'HomeController@home',
 	'as'=>'public.home'
 ]);
+
+Route::post('/searchloc',[
+	'uses'=>'HomeController@search',
+	'as'=>'public.searchloc'
+]);
+Route::get('/home1',[
+	'uses'=>'HomeController@home1',
+	'as'=>'public.home1'
+]);
 Route::get('v/{slug}',[
 	'uses'=>'HomeController@single_vendor',
 	'as'=>'public.single_vendor'

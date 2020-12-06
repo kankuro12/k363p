@@ -1,4 +1,4 @@
-@extends('layouts.public.index')
+@extends('layouts.public.index1')
 @section('content')
 <section class="hotel-banner-section">
     <img src="{{asset('uploads/vendor/cover_img/'.$vendor->cover_img)}}" class="img-fluid" />

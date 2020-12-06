@@ -1,0 +1,64 @@
+.mobilemenu {
+  padding: 0.5rem;
+  z-index: 888;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px #F1F3F7 solid;
+}
+
+.mobilemenu .menublock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mobilemenu .menublock .menubtn {
+  padding-left: 1rem;
+}
+
+.mobilemenu .menublock .menubtn .brand {
+  max-width: 100px;
+}
+
+.mobilemenu .menublock .menubtn .brand img {
+  max-width: 100px;
+}
+
+.mobilemenu .menublock .signup {
+  font-size: 1.3rem;
+  padding: 0rem 0rem 0rem 0.5rem;
+}
+
+.mobilemenu .menublock .search {
+  font-size: 1.3rem;
+  padding-right: 0.3rem;
+  margin-right: 0.2rem;
+  border-right: 1px #d1d1d1 solid;
+}
+
+.mobilemenu .menublock .language {
+  padding-right: 0.5rem;
+  position: relative;
+  border-right: 1px #d1d1d1 solid;
+}
+
+.mobilemenu .menublock .language .icon {
+  font-size: 1.3rem;
+}
+
+.mobilemenu .menublock .language .sup {
+  position: absolute;
+  font-size: 0.6rem;
+  right: 1px;
+  display: block;
+  top: -6px;
+  background: #e81010;
+  color: white;
+  padding: 2px;
+  font-weight: 700;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+/*# sourceMappingURL=mobilemenu.css.map */
