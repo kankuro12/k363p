@@ -1,9 +1,9 @@
 @import  "annimations";
 @import "buttons";
-@import "mobilemenu";       
-@import "nav";       
+@import "mobilemenu";
+@import "nav";
 
- 
+
 
 
 html {
@@ -37,7 +37,7 @@ div.sticky {
     outline:none !important;
     border:rgba(47, 156, 206, 0.856) 1px solid !important;
     box-shadow:0px 0px 3px 3px rgba(47, 155, 206, 0.678);
-    
+
 }
 .city{
     background:#F3F5F7;
@@ -51,7 +51,7 @@ div.sticky {
         text-align: right;
 
         .dropdown-title{
-           
+
             padding:5px 25px;
             display:inline-block;
             .icon{
@@ -84,8 +84,8 @@ div.sticky {
         //         }
         //     }
         // }
-      
-      
+
+
       .dropdown-content {
         display: none;
         position: absolute;
@@ -95,9 +95,9 @@ div.sticky {
         padding: 7px;
         z-index: 1;
         text-align:left;
-        
+
       }
-      
+
     }
     .dropdown:hover .dropdown-content {
         display: block;
@@ -123,7 +123,7 @@ div.sticky {
         background-size:cover;
         padding:1.2rem 0px 1rem 0px;
         h1{
-            font-weight:700; 
+            font-weight:700;
         }
     }
 
@@ -132,7 +132,7 @@ div.sticky {
         border-radius: 5px;
         border-radius: 5px;
         // overflow: hidden;
-        
+
         .location{
             @extend .span;
             flex:3;
@@ -183,7 +183,7 @@ div.sticky {
         .services{
             @extend .span;
             flex:2;
-            
+
             // select{
             //     height:50px;
             //     border:none;
@@ -224,10 +224,10 @@ div.sticky {
                 display:none;
             }
             .select2-selection__rendered{
-                padding:8px; 
+                padding:8px;
             }
             // .select2-selection__rendered:empty{
-            //     padding-top:0px; 
+            //     padding-top:0px;
             // }
 
             // .select2-selection__placeholder{
@@ -239,7 +239,7 @@ div.sticky {
             #select2-select-service-container{
                 height:50px;
                 border:none;
-               
+
                padding-left:20px;
                text-align:left;
             }
@@ -316,9 +316,9 @@ div.sticky {
             box-shadow:0px 0px 3px 3px rgba(255,255,255,0.3)
         }
 
-        
 
-        
+
+
     }
 }
 
@@ -330,7 +330,7 @@ div.sticky {
         .feature-head{
             font-size:20px;
             font-weight:600;
-            display:inline-block; 
+            display:inline-block;
             padding-right:20px;
             border-right:1px solid #b5b5b5;
             .feature-title{
@@ -364,16 +364,17 @@ div.sticky {
 
         }
     }
-    
+
 }
 
 
 .special-nav{
-    font-size :20px;
-    padding:0px 8px !important;
-    border-radius:50%;
-    background:white;
-    overflow:hidden;
+    font-size: 15px;
+    padding: 2px 8px !important;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 0px #000000ab;
 }
 .special-nav:focus{
     outline:none;
@@ -391,7 +392,7 @@ div.sticky {
             font-weight:700;
             font-size:28px;
             color:#404040;
-            
+
         }
     }
     #owl-feature-vendors{
@@ -433,22 +434,22 @@ div.sticky {
                 border-right:1px #e2e2e2 solid;
                 border-bottom:1px #e2e2e2 solid;
                 .f-title{
-                    white-space: nowrap; 
+                    white-space: nowrap;
                     color:#141414;
                     font-weight: 700;
                     font-size: 1.5rem;
                     overflow: hidden;
-                    text-overflow: ellipsis; 
-                    
+                    text-overflow: ellipsis;
+
                 }
                 .f-subtitle{
-                    white-space: nowrap; 
+                    white-space: nowrap;
                     color:#333333;
                     font-weight: 400;
                     font-size: 1rem;
                     overflow: hidden;
-                    text-overflow: ellipsis; 
-                    
+                    text-overflow: ellipsis;
+
                 }
 
                 .f-rating{
@@ -462,15 +463,15 @@ div.sticky {
                         font-weight: 600;
                         color:white;
                         margin-right:5px;
-                       
+
                     }
                     .fa-circle{
                         font-size:5px;
                         color:#222222;
                     }
-                    
+
                 }
-             
+
 
             }
         }
@@ -485,7 +486,7 @@ div.sticky {
             font-weight:700;
             font-size:28px;
             color:#404040;
-            
+
         }
     }
     #owl-feature-services{
@@ -524,22 +525,22 @@ div.sticky {
                 border-right:1px #e2e2e2 solid;
                 border-bottom:1px #e2e2e2 solid;
                 .fs-title{
-                    white-space: nowrap; 
+                    white-space: nowrap;
                     color:#141414;
                     font-weight: 700;
                     font-size: 1.5rem;
                     overflow: hidden;
-                    text-overflow: ellipsis; 
-                    
+                    text-overflow: ellipsis;
+
                 }
                 .fs-subtitle{
-                    white-space: nowrap; 
+                    white-space: nowrap;
                     color:#333333;
                     font-weight: 400;
                     font-size: 1rem;
                     overflow: hidden;
-                    text-overflow: ellipsis; 
-                    
+                    text-overflow: ellipsis;
+
                 }
 
                 .fs-rating{
@@ -553,7 +554,7 @@ div.sticky {
                         font-weight: 600;
                         color:white;
                         margin-right:5px;
-                       
+
                     }
                 }
                 .fs-price{
@@ -561,7 +562,7 @@ div.sticky {
                     .new{
                         color:#EE2E24;
                         font-weight:700;
-                    } 
+                    }
                     .old{
                         text-decoration:line-through;
                         font-weight:500;
@@ -593,7 +594,7 @@ div.sticky {
         .icon{
             font-size:35px;
         }
-        
+
     }
 
     .service-type:hover{
@@ -627,14 +628,14 @@ div.sticky {
                 border-bottom:1px solid white;
             }
         }
-        
+
     }
     .description{
         padding:3rem 5rem;
         .link{
             font-size: 16px;
             padding:10px 15px;
-            
+
             color: #fff;
             display:inline-block;
             margin: 10px 0;
@@ -655,6 +656,26 @@ div.sticky {
     }
 
 }
+
+.page-banner{
+	height:230px;
+	position: relative;
+	background: rgb(211,22,79);
+    background: linear-gradient(90deg, rgba(211,22,79,1) 0%, rgba(222,39,59,1) 100%);
+	.page-banner-content{
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		color:#fff;
+		h1{
+            font-size:2.5rem;
+
+		}
+	}
+}
+
+
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 400px;
 @media (max-width: $breakpoint-tablet) {
@@ -672,7 +693,7 @@ $breakpoint-mobile: 400px;
             // .link{
             //     font-size: 16px;
             //     padding:10px 15px;
-                
+
             //     color: #fff;
             //     display:inline-block;
             //     margin: 10px 0;
@@ -687,12 +708,12 @@ $breakpoint-mobile: 400px;
                 border-left:none;
                 border-right:none;
             }
-    
+
             .long-link{
                 border:none;
             }
         }
-    } 
+    }
     .city{
         .dropdown{
             text-align:left;
@@ -722,7 +743,7 @@ $breakpoint-mobile: 400px;
                 height:100%;
                 div{
                     span{
-                        padding:5px 7px !important;                  
+                        padding:5px 7px !important;
                         .fas{
                             margin-right:0px !important;
                         }
@@ -750,12 +771,12 @@ $breakpoint-mobile: 400px;
         padding:1.2rem;
         color:white;
         .head{
-            
+
             display:block !important;
 
         }
 
-        .search-link{           
+        .search-link{
             margin:5px 0rem !important;
             display:block !important;
         }
@@ -768,37 +789,37 @@ $breakpoint-mobile: 400px;
     .secondary{
         padding: 5rem 2rem;
     }
-   
+
     .feature-vendors{
         // padding:1.2rem 2rem;
         .f-header{
-            
+
             h1{
                 text-align:center;
-                
+
             }
-            
+
         }
         #owl-feature-vendors{
-           
-    
+
+
             .owl-feature-vendor{
                 .image-holder{
-                   
+
                     height:175px !important;
                     img{
                         min-height:175px !important;
                     }
                 }
                 .owl-feature-description{
-                    
+
                     .f-title{
                        font-size:1.1rem;
-                        
+
                     }
                     .f-subtitle{
                        font-size:0.8rem;
-                        
+
                     }
                 }
             }
@@ -806,7 +827,7 @@ $breakpoint-mobile: 400px;
     }
 
     .feature-services{
-        // margin-top:4rem;    
+        // margin-top:4rem;
         .fs-header{
             text-align:center;
         }
@@ -836,4 +857,4 @@ $breakpoint-mobile: 400px;
             }
         }
     }
-} 
+}

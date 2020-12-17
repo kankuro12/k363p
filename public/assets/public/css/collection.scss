@@ -1,0 +1,183 @@
+.special-nav{
+    font-size: 15px;
+    padding: 2px 8px !important;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 0px #000000ab;
+}
+.special-nav:focus{
+    outline:none;
+}
+
+
+.collections{
+    margin-top:4rem;
+    .title{
+        margin:1.3rem 0px;
+        h1{
+
+                font-weight:700;
+                font-size:28px;
+                color:#252525;
+
+        }
+    }
+    #owl-collections{
+        .owl-nav{
+            .owl-prev{
+                @extend .special-nav;
+                position:absolute;
+                top:50%;
+                left:-15px;
+            }
+            .owl-next{
+                @extend .special-nav;
+                position:absolute;
+                top:50%;
+                right:-15px;
+            }
+        }
+        .owl-dots{
+            display:none;height:0;
+        }
+    }
+.owl-collection{
+
+        border-radius: 10px;
+        .image-holder{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+            overflow: hidden;
+            image{
+                width: 100%;
+            }
+        }
+        .coll-desc{
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background:#f1f1f1;
+            line-height: 1rem;
+            padding:15px 10px;
+            .coll-title{
+               color:#222222;
+               font-size: 25px;
+
+               margin-bottom: 10px;
+               font-weight: 700;
+            }
+            .coll-subtitle{
+               color:#404040;
+               font-size: 16px;
+               font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) and (min-width:576px) {
+    .collections{
+        .title{
+            text-align:left;
+            h1{
+                font-weight:700;
+                font-size:28px;
+                color:#404040;
+            }
+        }
+    .owl-collection{
+            border-radius: 10px;
+            .image-holder{
+
+                overflow: hidden;
+                image{
+                    width: 100%;
+                }
+            }
+            .coll-desc{
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                .coll-title{
+
+                   color:#222222;
+                   background:#f1f1f1;
+                   font-size: 20px;
+                    margin-bottom:5px;
+                   font-weight: 700;
+                }
+                .coll-subtitle{
+
+                   color:#404040;
+                   background:#f1f1f1;
+                   font-size: 16px;
+
+                   font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .collections{
+        margin-top:2rem;
+        .title{
+            text-align:left;
+            margin:0.5rem 0rem;
+            h1{
+                font-weight: 500;
+                font-size: 22px;
+                color: #1f1f1f;
+            }
+        }
+        #owl-collections{
+            .owl-nav{
+                .owl-prev{
+
+                    top:35% !important;
+
+                }
+                .owl-next{
+
+
+                    top:35% !important;
+
+                }
+            }
+        }
+    .owl-collection{
+            border-radius: 10px;
+            .image-holder{
+
+                overflow: hidden;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                image{
+                    width: 100%;
+                }
+            }
+            .coll-desc{
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                .coll-title{
+
+                   color:#222222;
+                   background:#f1f1f1;
+                   font-size: 16px;
+                    padding-top:5px;
+                   font-weight: 600;
+                   margin-bottom: 3px;
+                }
+                .coll-subtitle{
+
+                   color:#404040;
+                   background:#f1f1f1;
+                   font-size: 13px;
+
+                   font-weight: 500;
+                }
+            }
+        }
+    }
+}

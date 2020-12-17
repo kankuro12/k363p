@@ -40,6 +40,7 @@
         @endfor        
     </div>  
 </div> --}}
+
 <input type="hidden" name="price" value="{{$price}}" required="">
 <div class="r-g-total">
     <div class="r-g-final-price" id="r-g-final-price">Rs. {{$price}}</div>

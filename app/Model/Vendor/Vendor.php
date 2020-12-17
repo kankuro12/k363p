@@ -82,6 +82,24 @@ class Vendor extends Model
     public function rooms(){
         return $this->hasMany(Room::class,'vendor_id');
     }
+
+    public function roomTypeRooms(){
+        $types=[];
+        foreach(RoomType::all() as $roomtype){
+            $data=Room::where(['vendor_id'=>$this->id,'roomtype_id'=>$roomtype->id])->get();
+            if($data->count()>0){
+                $types[$roomtype->name]=[
+                    'data'=>$data,
+                    'image'=>$roomtype->icon
+                ];
+                
+            }
+        }
+        return $types;
+        
+    }
+
+
     public function reviews(){
         return $this->hasMany(Review::class);
     }

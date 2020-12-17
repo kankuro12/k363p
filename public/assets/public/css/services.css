@@ -1,0 +1,136 @@
+.special-nav, .data-services #owl-services .owl-nav .owl-prev, .data-services #owl-services .owl-nav .owl-next {
+  font-size: 15px;
+  padding: 2px 8px !important;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 6px 0px #000000ab;
+          box-shadow: 0px 0px 6px 0px #000000ab;
+}
+
+.special-nav:focus, .data-services #owl-services .owl-nav .owl-prev:focus, .data-services #owl-services .owl-nav .owl-next:focus {
+  outline: none;
+}
+
+.data-services {
+  margin-top: 4rem;
+}
+
+.data-services .title {
+  margin: 1.3rem 0px;
+}
+
+.data-services .title h1 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #252525;
+}
+
+.data-services #owl-services .owl-nav .owl-prev {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+}
+
+.data-services #owl-services .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+}
+
+.data-services #owl-services .owl-dots {
+  display: none;
+  height: 0;
+}
+
+.data-services .owl-service {
+  border-radius: 10px;
+}
+
+.data-services .owl-service .image-holder {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.data-services .owl-service .image-holder image {
+  width: 100%;
+}
+
+.data-services .owl-service .service-title {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #404040;
+  background: #f1f1f1;
+  font-size: 28px;
+  padding: 5px 10px 10px 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .data-services .title {
+    text-align: left;
+  }
+  .data-services .title h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #404040;
+  }
+  .data-services .owl-service {
+    border-radius: 10px;
+  }
+  .data-services .owl-service .image-holder {
+    overflow: hidden;
+  }
+  .data-services .owl-service .image-holder image {
+    width: 100%;
+  }
+  .data-services .owl-service .service-title {
+    color: #404040;
+    background: #f1f1f1;
+    font-size: 20px;
+    padding: 5px 10px 10px 10px;
+    font-weight: 600px;
+  }
+}
+
+@media (max-width: 576px) {
+  .data-services {
+    margin-top: 2rem;
+  }
+  .data-services .title {
+    text-align: left;
+    margin: 0.5rem 0rem;
+  }
+  .data-services .title h1 {
+    font-weight: 500;
+    font-size: 22px;
+    color: #1f1f1f;
+  }
+  .data-services #owl-services .owl-nav .owl-prev {
+    top: 35% !important;
+  }
+  .data-services #owl-services .owl-nav .owl-next {
+    top: 35% !important;
+  }
+  .data-services .owl-service {
+    border-radius: 10px;
+  }
+  .data-services .owl-service .image-holder {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .data-services .owl-service .image-holder image {
+    width: 100%;
+  }
+  .data-services .owl-service .service-title {
+    color: #404040;
+    background: #f1f1f1;
+    font-size: 16px;
+    padding: 5px 10px 10px 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+/*# sourceMappingURL=services.css.map */

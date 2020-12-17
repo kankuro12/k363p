@@ -42,7 +42,7 @@ class StepController extends Controller
 
         if($request->getMethod()=="POST"){
             $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1050,min_height=600',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=500',
             ]);
             $user=Auth::user();
             $vendor=Vendor::where('user_id',$user->id)->firstOrFail(); 

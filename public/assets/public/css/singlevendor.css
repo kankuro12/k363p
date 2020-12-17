@@ -13,7 +13,8 @@
 }
 
 .vendor-main {
-  background: #fafafa;
+  font-family: 'Rubik', sans-serif;
+  background: #e2e2e2;
 }
 
 .vendor-main .vendor-header {
@@ -52,13 +53,13 @@
 
 .vendor-main .vendor-header .header-overlay .main-desc .vendor-name {
   font-weight: 800;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   text-shadow: -2px -2px 5px black;
 }
 
 .vendor-main .vendor-header .header-overlay .main-desc .vendor-address {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-shadow: -2px -2px 5px black;
 }
 
@@ -68,19 +69,19 @@
 
 .vendor-main .vendor-header .header-overlay .main-desc .rating .point {
   display: inline-block;
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 800;
   background: white;
   color: #D81E45;
   border-radius: 50%;
-  padding: 15px;
+  padding: 12px 10px;
 }
 
 .vendor-main .vendor-header .header-overlay .main-desc .rating .count {
   display: inline-block;
   margin-top: 5px;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .vendor-main .vendor-header .owl-nav .owl-prev {
@@ -100,10 +101,138 @@
   height: 0;
 }
 
+.vendor-main .vendor-amenities {
+  background: #ebebeb;
+  padding: 1rem 1rem;
+  text-align: left;
+}
+
+.vendor-main .vendor-amenities .vendor-amenity {
+  text-align: center;
+  padding: 0.4rem 1rem;
+  display: inline-block;
+}
+
+.vendor-main .vendor-amenities .vendor-amenity .icon {
+  font-size: 1.8rem;
+  color: #262626;
+  display: inline-block;
+}
+
+.vendor-main .vendor-amenities .vendor-amenity .divider {
+  display: block;
+}
+
+.vendor-main .vendor-amenities .vendor-amenity .title {
+  font-size: 0.8rem;
+  font-size: 700;
+  display: inline-block;
+}
+
+.vendor-main .section {
+  border-radius: 0.3rem;
+  background: white;
+  margin: 1.5rem 0rem;
+  padding: 1.5rem 1.5rem 0rem 1.5rem;
+}
+
+.vendor-main .section .title {
+  color: #061639;
+}
+
+.vendor-main .section .title h2 {
+  color: #061639;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.vendor-main .section .title h2 span {
+  padding-right: 1rem;
+  padding-bottom: 0.1rem;
+  border-bottom: red 3px solid;
+}
+
+.vendor-main .service .image-holder {
+  height: 200px;
+  overflow: hidden;
+}
+
+.vendor-main .service .owl-feature-description {
+  padding: 0px 5px 5px 5px;
+}
+
+.vendor-main .service .owl-feature-description .fs-title {
+  white-space: nowrap;
+  color: #141414;
+  font-weight: 700;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vendor-main .service .owl-feature-description .fs-subtitle {
+  white-space: nowrap;
+  color: #333333;
+  font-weight: 400;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vendor-main .service .owl-feature-description .fs-rating {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.vendor-main .service .owl-feature-description .fs-rating .fs-rating-display {
+  padding: 2px 5px 2px 8px;
+  background: #52B520;
+  font-weight: 600;
+  color: white;
+  margin-right: 5px;
+}
+
+.vendor-main .service .owl-feature-description .fs-price {
+  font-size: 20px;
+}
+
+.vendor-main .service .owl-feature-description .fs-price .new {
+  color: #EE2E24;
+  font-weight: 700;
+}
+
+.vendor-main .service .owl-feature-description .fs-price .old {
+  text-decoration: line-through;
+  font-weight: 500;
+  color: #535353;
+  font-size: 15px;
+  margin: 0px 1px;
+}
+
+.vendor-main .service .owl-feature-description .fs-price .discount {
+  font-size: 15px;
+  color: #bea721;
+  font-weight: 700;
+}
+
+.vendor-main .socials span {
+  font-size: 20px;
+  border-radius: 50%;
+}
+
 @media (max-width: 768px) {
   .vendor-main .vendor-header .header-overlay .main-desc {
     text-align: center;
     padding: 2rem 2rem;
+  }
+  .vendor-main .section .title {
+    text-align: center;
+  }
+  .vendor-main .section .title h2 span {
+    padding-left: 1rem;
   }
 }
 
@@ -142,6 +271,9 @@
   }
   .vendor-main .vendor-header .owl-nav .owl-next {
     right: 5px;
+  }
+  .vendor-main .section {
+    padding: 1.5rem  0.5rem;
   }
   .special-nav, .vendor-main .vendor-header .owl-nav .owl-prev, .vendor-main .vendor-header .owl-nav .owl-next {
     font-size: 0.8rem;

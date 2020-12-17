@@ -1,5 +1,7 @@
 <style>
-
+.href{
+    cursor: pointer;
+}
 #navbarTogglerDemo02 > ul > a.btn.btn-success.my-2.my-sm-0.text-white, div.featured-item-detail-wrapper > a{
     background:#1650b5;
     border-color:#8cb6ff;
@@ -52,6 +54,14 @@
 .yello-left-border{
     border-left:2px solid #E3D701;
 }
+
+.icon-image{
+    height:35px;
+    width:35px;
+    border-radius:50%;
+    vertical-align: top;
+    margin-top:6px;
+}
 @media (max-width:500px){
     .navbar-nav{
         background:white;
@@ -66,6 +76,12 @@
     .yello-left-border{
         border-left:none;
     }
+
+    .icon-image{
+        height: 30px;
+        width: 30px;
+        margin-top: 2px;
+    }
 }
 
 .mobile-search .select2-selection{
@@ -76,5 +92,8 @@
 }
 .mobile-search .select2-container{
     width:100% !important;
+}
+.color1{
+   color: #061639;
 }
 </style>

@@ -1,0 +1,29 @@
+$color1:#000000;
+.btn{
+	border-radius:0;
+}
+.btn-outline-white{
+		color:#fff !important;
+		border-color:#fff;
+}
+.btn1{
+	color:rgba(255,255,255,0.8);
+	background-color:$color1;
+	&:hover{
+		color: rgba(255,255,255,0.8);
+		opacity:0.9;
+		transition:0.3s;
+	}
+}
+.btn-white{
+	color:rgba(0,0,0,0.8);
+	background-color:#fff;
+	&.z1{
+		box-shadow:0 0 10px 0 rgba(90,90,90,0.2);
+	}
+	&:hover{
+		color:#000;
+		opacity:0.8;
+		transition:0.3s all;
+	}
+}

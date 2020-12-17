@@ -1,0 +1,99 @@
+.mobilemenu_v1{
+    z-index:889;
+    padding:1rem;
+    background: rgb(211,22,79);
+    background: linear-gradient(90deg, rgba(211,22,79,1) 0%, rgba(222,39,59,1) 100%);
+    color:#999999;
+    .menu{
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            img{
+
+                width:150px;
+            }
+        }
+        .tooglebtn{
+            color:white;
+            font-size:22px;
+        }
+        .notification{
+            color:white;
+            font-size:22px;
+
+        }
+    }
+    .search{
+        padding-top:10px;
+        transition: all 0.5s;
+        
+        top:0;left:0;right: 0;
+        cursor: pointer;
+        .search-input{
+            background:white;
+            border-radius:3px;
+            display:flex;
+            padding:5px;
+            .text{
+                flex-grow:1;
+                padding:5px 0px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .logo{
+                padding:5px 10px 5px 5px;
+            }
+        }
+    }
+
+    .scrolled{
+        position: absolute;
+        top: 0.3rem;
+        left: 2.8rem;
+        right: 2.8rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        .text{
+            max-width: 88% !important;
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+        }
+    }
+}
+.cities{
+    background:white;
+    padding:0.7rem 0.3rem 0.7rem 1.2rem;
+    display:flex;
+    white-space: nowrap;
+    overflow:scroll;
+    .single{
+        display:inline;
+        text-align:center;
+        margin-right: 10px;
+        line-height: 0.9rem;
+        .icon{
+            height:40px;
+            width:40px;
+            background:#DD253D;
+            border-radius: 20px;
+            display:inline-block;
+            color:white;
+            background-size:100%;
+            overflow:hidden;
+            img{
+                height:100%;
+                width:100%;
+            }
+        }
+        .text{
+            color:rgb(24, 24, 24);
+            display:block;
+            font-size:12px;
+            font-weight:500;
+
+        }
+
+
+    }
+
+}

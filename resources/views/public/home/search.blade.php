@@ -1,4 +1,4 @@
-<div class="hero-search">
+<div class="hero-search d-none d-xl-block">
     <div class="container">
         <div class="header" id="search-header">
             <h1 class="text-center text-white">

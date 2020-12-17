@@ -1,0 +1,216 @@
+.special-nav, .feature-services #owl-feature-services .owl-nav .owl-prev, .feature-services #owl-feature-services .owl-nav .owl-next {
+  font-size: 15px;
+  padding: 2px 8px !important;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 6px 0px #000000ab;
+          box-shadow: 0px 0px 6px 0px #000000ab;
+}
+
+.special-nav:focus, .feature-services #owl-feature-services .owl-nav .owl-prev:focus, .feature-services #owl-feature-services .owl-nav .owl-next:focus {
+  outline: none;
+}
+
+.feature-services {
+  margin-top: 4rem;
+}
+
+.feature-services .fs-header {
+  margin: 1.3rem 0px;
+}
+
+.feature-services .fs-header h1 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #404040;
+}
+
+.feature-services #owl-feature-services .owl-nav .owl-prev {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+}
+
+.feature-services #owl-feature-services .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+}
+
+.feature-services #owl-feature-services .owl-dots {
+  display: none;
+  height: 0;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .image-holder {
+  overflow: hidden;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .image-holder img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description {
+  padding: 0px 10px 10px 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #f1f1f1;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-title {
+  white-space: nowrap;
+  color: #141414;
+  font-weight: 700;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-subtitle {
+  white-space: nowrap;
+  color: #333333;
+  font-weight: 400;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::before {
+  content: '( ';
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::after {
+  content: ' )';
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating .fs-rating-display {
+  padding: 2px 5px 2px 8px;
+  background: #52B520;
+  font-weight: 600;
+  color: white;
+  margin-right: 5px;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price {
+  font-size: 20px;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .new {
+  color: #EE2E24;
+  font-weight: 700;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .old {
+  text-decoration: line-through;
+  font-weight: 500;
+  color: #535353;
+  font-size: 15px;
+  margin: 0px 1px;
+  display: inline-block;
+}
+
+.feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .discount {
+  font-size: 15px;
+  color: #bea721;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .feature-services .fs-header {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-services {
+    margin-top: 2rem;
+  }
+  .feature-services .fs-header {
+    text-align: left;
+    margin: 0.5rem 0rem;
+  }
+  .feature-services .fs-header h1 {
+    font-weight: 500;
+    font-size: 22px;
+    color: #1f1f1f;
+  }
+  .feature-services #owl-feature-services .owl-nav .owl-prev {
+    top: 35% !important;
+  }
+  .feature-services #owl-feature-services .owl-nav .owl-next {
+    top: 35% !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description {
+    line-height: 1.2rem;
+    padding-top: 10px !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-subtitle {
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    font-size: 0.8rem !important;
+    position: absolute;
+    bottom: 70px;
+    background: #43882c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    right: 10px;
+    color: white;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::before {
+    content: '';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::after {
+    content: '';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price {
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .new {
+    color: #EE2E24;
+    font-weight: 700;
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .old {
+    display: none;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .discount {
+    margin-left: 5px !important;
+    font-size: 0.8rem !important;
+    display: inline-block;
+    color: #bea721;
+    font-weight: 700;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .discount ::before {
+    content: '-';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .down {
+    display: block;
+    content: 'd';
+    color: #F1F1F1;
+    font-size: 0.8rem !important;
+    font-weight: 700;
+  }
+}
+/*# sourceMappingURL=featuredservice.css.map */

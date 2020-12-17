@@ -19,8 +19,8 @@ use App\Enquiry;
 class HomeController extends Controller
 {
     public function home(){
-    	$featured_vendors=Vendor::where(['featured'=>'active','verified'=>1])->take(8)->inRandomOrder()->latest()->get();
-      $trs=Room::all();  
+        $featured_vendors=Vendor::where(['featured'=>'active','verified'=>1])->take(8)->inRandomOrder()->latest()->get();
+      $trs=Room::all();
       $popular_vendors= Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
       ->select(array('vendors.*',
         DB::raw('SUM(avg_rating) as ratings_average')
@@ -29,7 +29,7 @@ class HomeController extends Controller
       ->where('reviews.avg_rating','>',4)
       ->groupBy('id')
       ->orderBy('ratings_average', 'DESC')
-      ->get();  
+      ->get();
       $collections=Collection::where('status',1)->get();
 
     	return view('public.home',compact('featured_vendors','trs','popular_vendors','collections'));
@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function home1(){
     	$featured_vendors=Vendor::all();
-      $trs=Room::all();  
+      $trs=Room::all();
       $roomtypes=RoomType::all();
       $popular_vendors= Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
       ->select(array('vendors.*',
@@ -47,7 +47,7 @@ class HomeController extends Controller
       ->where('reviews.avg_rating','>',4)
       ->groupBy('id')
       ->orderBy('ratings_average', 'DESC')
-      ->get();  
+      ->get();
       $collections=Collection::where('status',1)->get();
 
 
@@ -57,14 +57,14 @@ class HomeController extends Controller
     public function search(Request $request){
         $locations=Location::where('name','like','%'.$request->name.'%')->whereNotNull('name')->distinct('name')->get();
         $cities=city::where('name','like','%'.$request->name.'%')->whereNotNull('name')->distinct('name')->get();
-        
+
     }
 
     public function single_vendor($slug){
     	$vendor=Vendor::where('slug',$slug)->firstOrFail();
     	$lat = $vendor->location->lat;
     	$lng = $vendor->location->lng;
-    	$distance = 20;    
+    	$distance = 20;
       $nearbies=Location::selectRaw('*, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( lat ) ) ) ) AS distance', [$lat, $lng, $lat])
         ->having('distance', '<', $distance)
         ->orderBy('distance')
@@ -78,12 +78,12 @@ class HomeController extends Controller
       $vendor=Vendor::where('slug',$slug)->firstOrFail();
       $reviews = $vendor->reviews()->where('status','approved')->latest();
 
-      
+
       if($request->has('page')) {
           $reviews=$reviews->paginate(3);
       }
       $returnHTML = view('public.room.review', compact('reviews'))->render();
-      
+
       return response()->json(['html'=>$returnHTML,'page'=>$reviews->currentPage(),'hasMorePages'=>$reviews->hasMorePages()]);
 
     }
@@ -129,12 +129,12 @@ class HomeController extends Controller
     public function get_room($vslug,$rslug){
         $vendor=Vendor::where('slug',$vslug)->firstOrFail();
         $room=Room::where('slug',$rslug)->firstOrFail();
-        return view('public.room.index',compact('room','vendor'));
+        return view('public.room.index1',compact('room','vendor'));
     }
     public function get_tourism_area($slug){
       $tourismArea=TourismArea::where('slug',$slug)->firstOrFail();
       $othertourismAreas=TourismArea::where('id','!=',$tourismArea->id)->where(['status'=>'active'])->take(4)->get();
       return view('public.getTourismArea',compact('tourismArea','othertourismAreas'));
     }
-    
+
 }

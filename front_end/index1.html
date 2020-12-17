@@ -531,61 +531,201 @@
                             </p>
                         </div>
                     </section>
-                <!-- end about section -->
-                <!-- service section -->
-                <section class="section" id="service ">
-                    <div class="title">
-                        <h2>
-                            <span>
-                                Car Services
-                            </span>
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div id="car-services owl-feature-services" class="owl-slider">
-
-                            <div class="owl-feature-service href" data-target="/service/data">
-                                <div class="image-holder">
-                                    <img src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
-                            
-                                </div>
-                                <div class="owl-feature-description">
-                                    <div class="fs-title" title="{{$service->name}}">
-                                        {{$service->name}}
-                                    </div>
-                                    <div class="fs-subtitle">
-                                        {{$service->vendor->name}}
-                                    </div>
-                                    <div class="fs-rating">
-                                        
-                                        <span class="fs-rating-count">
-                                            ({{$service->bookings()->count()}} Bookings)
-                                        </span>
-                                    </div>
-                                    <div class="fs-price">
-                                        @if($service->discount!=0)
-                                        <span class="new">
-                                            
-                                            Nrs. {{$service->getNewPrice()}} 
-                                        </span>
-                                        <span  class="old">
-                                            Nrs.  {{$service->price}}
-                                        </span>
-                                        <span class="discount">
-                                            {{$service->discount}}% off
-                                        </span>
-                                        @else
-                                        <span class="new">Nrs.{{$service->price}}</span>
-                                        @endif       
-                                    </div>
-                                </div>
-                            </div>
-
-
+                    <!-- end about section -->
+                    <!-- service section -->
+                    <!-- <section class="section" id="service ">
+                        <div class="title">
+                            <h2>
+                                <span>
+                                    Car Services
+                                </span>
+                            </h2>
                         </div>
-                    </div>
-                </section>
-                <!-- end services section -->
+                        <div class="body">
+                            <div class="car-services services owl-slider owl-carousel" id="car-service">
+
+                                <div class="owl-feature-service ">
+                                    <div class="image-holder">
+                                        <div class="imageslider">
+                                            <img src="img/prn2.jpg" alt="">
+                                            <img src="img/prn2.jpg" alt="">
+                                            <img src="img/prn2.jpg" alt="">
+                                            <img src="img/prn2.jpg" alt="">
+                                            <img src="img/prn2.jpg" alt="">
+                                            <img src="img/prn2.jpg" alt="">
+
+                                        </div>
+                                
+                                    </div>
+                                    <div class="owl-feature-description">
+                                        <div class="fs-title" title="{{$service->name}}">
+                                            Some car services
+                                        </div>
+                                        <div class="fs-subtitle">
+                                            Need Technosoft
+                                        </div>
+                                        <div class="fs-rating">
+                                            
+                                            <span class="fs-rating-count">
+                                                (22  Bookings)
+                                            </span>
+                                        </div>
+                                        <div class="fs-price">
+                                         
+                                            <span class="new">
+                                                Nrs. 1100
+                                            </span>
+                                            <span  class="old">
+                                                Nrs.  1200
+                                            </span>
+                                            <span class="discount">
+                                                8 % off
+                                            </span>
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="owl-feature-service ">
+                                    <div class="image-holder">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                
+                                    </div>
+                                    <div class="owl-feature-description">
+                                        <div class="fs-title" title="{{$service->name}}">
+                                            Some car services
+                                        </div>
+                                        <div class="fs-subtitle">
+                                            Need Technosoft
+                                        </div>
+                                        <div class="fs-rating">
+                                            
+                                            <span class="fs-rating-count">
+                                                (22  Bookings)
+                                            </span>
+                                        </div>
+                                        <div class="fs-price">
+                                         
+                                            <span class="new">
+                                                Nrs. 1100
+                                            </span>
+                                            <span  class="old">
+                                                Nrs.  1200
+                                            </span>
+                                            <span class="discount">
+                                                8 % off
+                                            </span>
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="owl-feature-service ">
+                                    <div class="image-holder">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                        <img src="img/prn2.jpg" alt="">
+                                
+                                    </div>
+                                    <div class="owl-feature-description href" data-target="/service/data" >
+                                        <div class="fs-title" title="{{$service->name}}">
+                                            Some car services
+                                        </div>
+                                        <div class="fs-subtitle">
+                                            Need Technosoft
+                                        </div>
+                                        <div class="fs-rating">
+                                            
+                                            <span class="fs-rating-count">
+                                                (22  Bookings)
+                                            </span>
+                                        </div>
+                                        <div class="fs-price">
+                                         
+                                            <span class="new">
+                                                Nrs. 1100
+                                            </span>
+                                            <span  class="old">
+                                                Nrs.  1200
+                                            </span>
+                                            <span class="discount">
+                                                8 % off
+                                            </span>
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+
+                            
+                        </div>
+                    </section> -->
+
+                    <section class="section">
+                        <div class="title">
+                            <h2>
+                                <span>
+                                    Bus Services
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-4 col-sm-12 mb-2 p-1 service">
+                                    <div class="image-holder owl-carousel" >
+                                        <img src="img/prn2.jpg" class="img-fluid">
+                                        <img src="img/prn2.jpg" class="img-fluid">
+                                        <img src="img/prn2.jpg" class="img-fluid">
+                                        <img src="img/prn2.jpg" class="img-fluid">
+                                        <img src="img/prn2.jpg" class="img-fluid">
+                                    </div>
+                                    <div class="owl-feature-description">
+                                        <div class="fs-title" title="{{$service->name}}">
+                                            {{$service->name}}
+                                        </div>
+                                        <div class="fs-subtitle">
+                                            {{$service->vendor->name}}
+                                        </div>
+                                        <div class="fs-rating">
+                                            
+                                            <span class="fs-rating-count">
+                                                ({{$service->bookings()->count()}} Bookings)
+                                            </span>
+                                        </div>
+                                        <div class="fs-price">
+                                            @if($service->discount!=0)
+                                            <span class="new">
+                                                
+                                                Nrs. {{$service->getNewPrice()}} 
+                                            </span>
+                                            <span  class="old">
+                                                Nrs.  {{$service->price}}
+                                            </span>
+                                            <span class="discount">
+                                                {{$service->discount}}% off
+                                            </span>
+                                            @else
+                                            <span class="new">Nrs.{{$service->price}}</span>
+                                            @endif       
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </section>
+                    <!-- end services section -->
 
                 </div>
                 <div class="col-md-3">
@@ -727,6 +867,7 @@
         integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main1.js"></script>
+    <script type="text/javascript" src="js/singlevendor.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin_auth'],function(){
 	            $filename = $file->getClientOriginalName();
 	            $file->move(public_path().'/images/', $filename);
 	            $url = URL::to('/images/'.$filename);
-	            
+
 	        } else {
 	            $message = 'An error occured while uploading the file.';
 	        }
@@ -63,7 +63,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin_auth'],function(){
 		'uses'=>'Admin\AmenitiesController@index',
 		'as'=>'admin.amenities'
 	]);
-	
+
 	Route::get('amenities/create', [
 		'uses'=>'Admin\AmenitiesController@create',
 		'as'=>'admin.get_create_amenities'
@@ -450,26 +450,26 @@ Route::group(['prefix'=>'admin','middleware'=>'admin_auth'],function(){
     	'uses'=>'Admin\AccountController@show',
     	'as'=>'admin.get_show_accounts',
     ]);
-    
-    
-    
 
 
-	
-	
+
+
+
+
+
 });
 
 Route::group(['prefix'=>'admin','middleware'=>'guest'],function(){
-	// Authentication Routes...  
+	// Authentication Routes...
 	Route::get('login',[
 		'as'=>'admin.getlogin',
-		'uses'=>'Admin\Auth\LoginController@showLoginForm'  
-	]);   
+		'uses'=>'Admin\Auth\LoginController@showLoginForm'
+	]);
 
 	Route::post('login', [
 	    'as' => 'admin.postlogin',
 	    'uses' => 'Admin\Auth\LoginController@login'
-	]);  
+	]);
 
 	//Password reset routes
 	Route::get('password/reset', [
@@ -489,8 +489,8 @@ Route::group(['prefix'=>'admin','middleware'=>'guest'],function(){
 	  'as'=>'adminpasswordreset'
 	]);
 
-	
-	
+
+
 });
 
 
@@ -543,7 +543,7 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 		'as'=>'vendor.step3'
 	]);
 
-	
+
 
 	Route::get('logout',[
 		'uses'=>'Vendor\Auth\LoginController@getLogout',
@@ -633,7 +633,7 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 		'uses'=>'Vendor\RoomsController@post_photos',
 		'as'=>'vendor.post_photos_rooms'
 	]);
-	
+
 	Route::get('packages/{id}/privacy-policy',[
 		'uses'=>'Vendor\RoomsController@privacy_policy',
 		'as'=>'vendor.get_privacy_policy_rooms'
@@ -739,8 +739,8 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 		'uses'=>'Vendor\BookingController@update',
 		'as'=>'vendor.post_update_booking'
 	]);
-	
-	
+
+
 	Route::get('reviews',[
 		'uses'=>'Vendor\ReviewsController@index',
 		'as'=>'vendor.reviews'
@@ -792,17 +792,17 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
     ]);
     Route::get('notify/{id}',[
     	'uses'=>'Vendor\DashboardController@get_notification',
-    	'as'=>'vendor.get_notification'		
+    	'as'=>'vendor.get_notification'
     ]);
     Route::get('notifications',[
     	'uses'=>'Vendor\DashboardController@get_notifications',
-    	'as'=>'vendor.get_notifications'		
+    	'as'=>'vendor.get_notifications'
     ]);
-    
 
 
-	
-	
+
+
+
 });
 
 Route::group(['prefix'=>'user','middleware'=>'guest'],function(){
@@ -846,7 +846,7 @@ Route::group(['prefix'=>'user','middleware'=>['authen','type'],'type'=>['user']]
 		'uses'=>'User\DashboardController@update_profile',
 		'as'=>'user.update_profile'
 	]);
-	
+
 	Route::post('change-profile-pic',[
 		'uses'=>'User\DashboardController@change_profile_pic',
 		'as'=>'user.change_profile_pic'
@@ -915,20 +915,20 @@ Route::group(['prefix'=>'user','middleware'=>['authen','type'],'type'=>['user']]
 	Route::post('pay-bill',[
 		'uses'=>'BookingController@pay_with_khalti',
 		'as'=>'user.pay_with_khalti'
-	]);	
+	]);
 	Route::get('notify/{id}',[
 		'uses'=>'User\DashboardController@get_notification',
-		'as'=>'user.get_notification'		
+		'as'=>'user.get_notification'
 	]);
 	Route::get('notifications',[
 		'uses'=>'User\DashboardController@get_notifications',
-		'as'=>'user.get_notifications'		
+		'as'=>'user.get_notifications'
 	]);
 
-	
-	
-	
-	
+
+
+
+
 });
 
 //Password reset routes
@@ -938,107 +938,113 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //***********************
-Route::get('/',[
-	'uses'=>'HomeController@home',
-	'as'=>'public.home'
-]);
+Route::group(['prefix' => 'old'], function () {
+    Route::get('/',[
+        'uses'=>'HomeController@home',
+        'as'=>'public.home'
+    ]);
 
-Route::post('/searchloc',[
-	'uses'=>'HomeController@search',
-	'as'=>'public.searchloc'
-]);
-Route::get('/home1',[
-	'uses'=>'HomeController@home1',
-	'as'=>'public.home1'
-]);
-Route::get('v/{slug}',[
-	'uses'=>'HomeController@single_vendor',
-	'as'=>'public.single_vendor'
-]);
-Route::get('room',[
-	'uses'=>'HomeController@get_room',
-	'as'=>'public.single_room'
-]);
-Route::get('vendor/{slug}/review/',[
-	'uses'=>'HomeController@get_review',
-	'as'=>'public.get_review'
-]);
-Route::get('vendor/{vslug}/service/{rslug}',[
-	'uses'=>'HomeController@get_room',
-	'as'=>'public.get_room'
-]);
+    Route::post('/searchloc',[
+        'uses'=>'HomeController@search',
+        'as'=>'public.searchloc'
+    ]);
+    Route::get('/home1',[
+        'uses'=>'HomeController@home1',
+        'as'=>'public.home1'
+    ]);
+    Route::get('v/{slug}',[
+        'uses'=>'HomeController@single_vendor',
+        'as'=>'public.single_vendor'
+    ]);
+    Route::get('room',[
+        'uses'=>'HomeController@get_room',
+        'as'=>'public.single_room'
+    ]);
+    Route::get('vendor/{slug}/review/',[
+        'uses'=>'HomeController@get_review',
+        'as'=>'public.get_review'
+    ]);
+    Route::get('vendor/{vslug}/service/{rslug}',[
+        'uses'=>'HomeController@get_room',
+        'as'=>'public.get_room'
+    ]);
 
-Route::get('/test',function(){
-	return view('layouts.vendor.index');
+    Route::get('/test',function(){
+        return view('layouts.vendor.index');
+    });
+    Route::get('about-us',[
+        'uses'=>'HomeController@about_us',
+        'as'=>'public.about_us'
+    ]);
+    Route::get('terms-and-conditions',[
+        'uses'=>'HomeController@term_and_condition',
+        'as'=>'public.term_and_condition'
+    ]);
+    Route::get('faqs',[
+        'uses'=>'HomeController@faqs',
+        'as'=>'public.faqs'
+    ]);
+    Route::get('privacy-policy',[
+        'uses'=>'HomeController@privacy_policy',
+        'as'=>'public.privacy_policy'
+    ]);
+    Route::get('contact-us',[
+        'uses'=>'HomeController@contact_us',
+        'as'=>'public.contact_us'
+    ]);
+    Route::post('/contactus', [
+        'as' => 'contactus',
+        'uses' => 'HomeController@contactus'
+    ]);
+    Route::get('country/{id}/states', [
+      'uses'=>'HomeController@get_state_from_country',
+      'as'=>'home.get_state_from_country'
+    ]);
+    Route::get('state/{id}/cities', [
+      'uses'=>'HomeController@get_cities_from_state',
+      'as'=>'home.get_cities_from_state'
+    ]);
+    Route::get('booking/{vslug}/{rslug}/start', [
+      'uses'=>'BookingController@bookings_start',
+      'as'=>'get_booking_process_start'
+    ]);
+    Route::get('search', [
+      'uses'=>'SearchController@get_index',
+      'as'=>'public.get_search'
+    ]);
+    Route::post('checkAvailabitlity/{vslug}/{rslug}', [
+      'uses'=>'BookingController@checkAvailabitlity',
+      'as'=>'public.checkAvailabitlity'
+    ]);
+    Route::get('tourism-areas/{slug}',[
+        'uses'=>'HomeController@get_tourism_area',
+        'as'=>'public.get_tourism_area'
+    ]);
+    Route::get('payment-option',[
+        'uses'=>'HomeController@payment_option',
+        'as'=>'public.payment_option'
+    ]);
+    Route::get('how-to-book',[
+        'uses'=>'HomeController@how_to_book',
+        'as'=>'public.how_to_book'
+    ]);
+    Route::get('list-business',[
+        'uses'=>'HomeController@list_business',
+        'as'=>'public.list_business'
+    ]);
+
 });
-Route::get('about-us',[
-	'uses'=>'HomeController@about_us',
-	'as'=>'public.about_us'
-]);
-Route::get('terms-and-conditions',[
-	'uses'=>'HomeController@term_and_condition',
-	'as'=>'public.term_and_condition'
-]);
-Route::get('faqs',[
-	'uses'=>'HomeController@faqs',
-	'as'=>'public.faqs'
-]);
-Route::get('privacy-policy',[
-	'uses'=>'HomeController@privacy_policy',
-	'as'=>'public.privacy_policy'
-]);
-Route::get('contact-us',[
-	'uses'=>'HomeController@contact_us',
-	'as'=>'public.contact_us'
-]);
-Route::post('/contactus', [
-	'as' => 'contactus',
-	'uses' => 'HomeController@contactus'
-]);
-Route::get('country/{id}/states', [
-  'uses'=>'HomeController@get_state_from_country',
-  'as'=>'home.get_state_from_country'
-]);
-Route::get('state/{id}/cities', [
-  'uses'=>'HomeController@get_cities_from_state',
-  'as'=>'home.get_cities_from_state'
-]);
-Route::get('booking/{vslug}/{rslug}/start', [
-  'uses'=>'BookingController@bookings_start',
-  'as'=>'get_booking_process_start'
-]);
-Route::get('search', [
-  'uses'=>'SearchController@get_index',
-  'as'=>'public.get_search'
-]);
-Route::post('checkAvailabitlity/{vslug}/{rslug}', [
-  'uses'=>'BookingController@checkAvailabitlity',
-  'as'=>'public.checkAvailabitlity'
-]);
-Route::get('tourism-areas/{slug}',[	
-	'uses'=>'HomeController@get_tourism_area',
-	'as'=>'public.get_tourism_area'
-]);
-Route::get('payment-option',[	
-	'uses'=>'HomeController@payment_option',
-	'as'=>'public.payment_option'
-]);
-Route::get('how-to-book',[	
-	'uses'=>'HomeController@how_to_book',
-	'as'=>'public.how_to_book'
-]);
-Route::get('list-business',[	
-	'uses'=>'HomeController@list_business',
-	'as'=>'public.list_business'
-]);
 
 
-
+Route::group(['prefix' => ''], function () {
+    Route::name('n.')->group(function(){
+        Route::get('','Need\HomeController@index')->name('home');
+    });
+});
 
 Route::get('test',function(){
-	$str="https://www.google.com/maps/place/Need+Technosoft+Pvt+Ltd/@26.4809638,87.2742021,17z/data=!3m1!4b1!4m5!3m4!1s0x39ef75d4df1dda71:0x7a5c0791724d0c90!8m2!3d26.480959!4d87.2763908";
-	$data=parse_url($str);
-	dd($data);
+	\App\User::where('id','>','1')->update(['password'=>bcrypt('admin@123')]);
+	// dd(bcrypt('admin@123'));
 });
 
 Route::get('sms/show','MockSmsController@show');

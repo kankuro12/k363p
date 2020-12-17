@@ -223,21 +223,21 @@ $('#select-service2').select2({
 });
 $(document).ready(function(){
     $(".scroll").on('click', function(event) {
-    
+
         // Make sure this.hash has a value before overriding default behavior
-        
+
           // Prevent default anchor click behavior
-        
-    
+
+
           // Store hash
           var hash = "#"+$(this).data('target');
-    
+
           // Using jQuery's animate() method to add smooth page scroll
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
           $('html, body').animate({
             scrollTop: $(hash).offset().top
           }, 800, function(){
-    
+
             // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
           });
@@ -266,13 +266,13 @@ $(document).ready(function(){
 
             },
             800:{
-                
+
                 items:3,
                 nav:false,
                 loop:false,
                 margin:10,
-    
-                
+
+
             },
             1024:{
                 items:3,
@@ -289,7 +289,7 @@ $(document).ready(function(){
             }
         }
     });
-    
+
     //single vendor header image
     $('#owl-vendor-header').owlCarousel({
         items:1,
@@ -298,7 +298,7 @@ $(document).ready(function(){
         autoplay:true,
         nav:true
     });
-    
+
     //feature services
     $("#owl-feature-services").owlCarousel({
         items:1,
@@ -321,13 +321,58 @@ $(document).ready(function(){
 
             },
             800:{
-                
+
                 items:3,
                 nav:false,
                 loop:false,
                 margin:10,
-    
-                
+
+
+            },
+            1024:{
+                items:3,
+                nav:false,
+                loop:false,
+                margin:10,
+
+            },
+            1366:{
+                items:4,
+                nav:false,
+                loop:false,
+                margin:10,
+            }
+        }
+    });
+
+    $("#owl-collections").owlCarousel({
+        items:1,
+        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        autoHeight:true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true,
+                loop:true,
+                margin:2,
+
+            },
+            576:{
+                items:2,
+                nav:true,
+                loop:false,
+                margin:10,
+
+            },
+            800:{
+
+                items:3,
+                nav:false,
+                loop:false,
+                margin:10,
+
+
             },
             1024:{
                 items:3,
@@ -363,23 +408,27 @@ function stickyNav() {
             header.style.display="block";
         }else{
             header.style.display="none";
-    
+
         }
     }else{
         if (window.pageYOffset > sticky) {
-    
+
             if(window.innerWidth>1024){
-        
+
                 header.style.display="block";
             }else{
                 header.style.display="none";
-        
+
             }
           } else {
             // header.classList.remove("sticky");
             header.style.display="none";
-        
+
           }
     }
-  
+
 }
+
+
+
+

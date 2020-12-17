@@ -1,0 +1,199 @@
+.special-nav{
+    font-size: 15px;
+    padding: 2px 8px !important;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 0px #000000ab;
+}
+.special-nav:focus{
+    outline:none;
+}
+
+
+
+.feature-vendors{
+    // padding:1.2rem 2rem;
+    .f-header{
+        margin:1.3rem 0px;
+        h1{
+            font-weight:700;
+            font-size:28px;
+            color:#404040;
+
+        }
+    }
+    #owl-feature-vendors{
+        .owl-nav{
+            .owl-prev{
+                @extend .special-nav;
+                position:absolute;
+                top:50%;
+                left:-15px;
+            }
+            .owl-next{
+                @extend .special-nav;
+                position:absolute;
+                top:50%;
+                right:-15px;
+            }
+        }
+        .owl-dots{
+            display:none;height:0;
+        }
+
+        .owl-feature-vendor{
+            .image-holder{
+
+                overflow:hidden;
+
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                img{
+                    width:100%;
+
+                }
+            }
+            .owl-feature-description{
+                padding:0px 5px 5px 5px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background:#f1f1f1;
+                .f-title{
+                    white-space: nowrap;
+                    color:#141414;
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                }
+                .f-subtitle{
+                    white-space: nowrap;
+                    color: #5d5d5d;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                }
+
+                .f-rating{
+                    margin-top:5px;
+                    margin-bottom:5px;
+                    font-weight: 300;
+                    font-size: 1rem;
+                    .f-rating-display{
+                        padding:2px 5px 2px 8px;
+                        background:#52B520;
+                        font-weight: 600;
+                        color:white;
+                        margin-right:5px;
+
+                    }
+                    .fa-circle{
+                        font-size:5px;
+                        color:#222222;
+                    }
+
+                }
+
+
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) and (min-width:576px) {
+    .feature-vendors{
+        // padding:1.2rem 2rem;
+        .f-header{
+            h1{
+                text-align:left;
+            }
+        }
+        #owl-feature-vendors{
+            .owl-feature-vendor{
+
+                .owl-feature-description{
+
+                    .f-title{
+                       font-size:1.1rem;
+
+                    }
+                    .f-subtitle{
+                       font-size:0.8rem;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-vendors{
+
+        .f-header{
+            margin:0.5rem 0rem;
+            h1{
+                font-weight: 500;
+                font-size: 22px;
+                color: #1f1f1f;
+            }
+        }
+        #owl-feature-vendors{
+
+            .owl-nav{
+                .owl-prev{
+
+                    top:35% !important;
+                }
+                .owl-next{
+                    top:35% !important;
+
+                }
+            }
+            .owl-dots{
+                display:none;height:0;
+            }
+            .owl-feature-vendor{
+
+                .owl-feature-description{
+
+                    line-height: 1.2rem;
+                    padding-top:5px !important;
+                    .f-title{
+                        font-weight: 600 !important;
+                        font-size: 0.8rem !important;
+
+                    }
+                    .f-subtitle{
+                        font-weight: 500 !important;
+                        font-size: 0.7rem !important;
+
+                    }
+                    .f-rating{
+                        margin-top:0px !important;
+                        margin-bottom:0px !important;
+                        font-weight: 400;
+                        font-size: 0.7rem !important;
+                        .f-rating-display{
+                            position: absolute;
+                            bottom: 60px;
+                            right: 5px;
+
+
+                        }
+                        .fa-circle{
+                            font-size:5px;
+                            color:#222222;
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

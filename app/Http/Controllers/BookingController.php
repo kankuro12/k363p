@@ -84,7 +84,7 @@ class BookingController extends Controller
 
         $khalti=PaymentMethod::where('pkey','khalti')->first();       
 
-        return view('public.booking.index',compact('user','hotel_detail','room','pmethods','khalti','check_in_time'));
+        return view('public.booking.index1',compact('user','hotel_detail','room','pmethods','khalti','check_in_time'));
     }
     public function booking_process_start_step_2(Request $request,$provider=null,$token=null,$idx=null){
         $validator=Validator::make($request->all(),[

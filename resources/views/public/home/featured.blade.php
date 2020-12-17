@@ -10,7 +10,7 @@
         <div class="f-subtitle">
             {{$vendor->location!=null?$vendor->location->name??'N/A':'N/A'}}
         </div>
-      
+
         @php
             $rating=$vendor->average_review();
         @endphp
@@ -24,19 +24,19 @@
                 </span>
 
             </span>
-            <span>
+            <span class="d-none d-md-inline-block">
 
                 <i class="fas fa-circle"></i>
             </span>
-            <span class="f-rating-count">
-                ({{$rating['reviews']}} reviews)
+            <span class="f-rating-count d-inline-block">
+                ( {{$rating['reviews']}} reviews )
             </span>
-            <span>
+            <span >
 
                 <i class="fas fa-circle"></i>
             </span>
-            <span>
-                {{$rating['services']}} services
+            <span class="d-inline-block">
+                ( {{$rating['services']}} services )
             </span>
         </div>
     </div>
