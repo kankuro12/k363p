@@ -53,15 +53,30 @@
         <div class="menuitem">
             <div class="header">Account</div>
             @if(Auth::check())
-                <div class="text">
+                <div class="text ">
                     <a href="{{route('n.user.dashboard')}}">Profile</a>
                 </div>
+                <div class="text">
+                    <a href="{{route('n.user.dashboard')}}">Bookings</a>
+                </div>
+                <div class="text">
+                    <a href="{{route('n.user.dashboard')}}">Notification</a>
+                </div>
+                <div class="text">
+                    <a href="{{route('n.user.dashboard')}}">Favourites</a>
+                </div>
+                <div class="text">
+                    <a href="{{route('n.user.dashboard')}}">Reviews</a>
+                </div>
+
                 <div class="text">
                     <a href="{{route('n.user.logout')}}">Logout</a>
                 </div>
             @else
                 <div class="text">
                     <a href="{{route('n.user.login')}}">Login</a>
+                </div>
+                <div class="text">
                     <a href="{{route('n.user.signup')}}">signup</a>
                 </div>
             @endif
