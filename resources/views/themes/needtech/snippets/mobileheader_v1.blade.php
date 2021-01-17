@@ -1,3 +1,6 @@
+@if (Route::is('n.home'))
+
+
 <div class="d-block d-xl-none mobilemenu_v1 sticky" >
     <div class="menu">
         <span class="tooglebtn" onclick="sidebar.toogle();">
@@ -11,9 +14,9 @@
         </span>
     </div>
     <div class="search" id="mob_search">
-        <div class="search-input">
+        <div class="search-input" onclick="location.href='{{route('n.search')}}'">
             <span class="logo"><i class="fas fa-search"></i></span>
-            <span class="text">
+            <span class="text open-mobile-search" >
                 Search Using City Location and Service
             </span>
         </div>
@@ -41,3 +44,4 @@
     @endforeach
 
 </div>
+@endif

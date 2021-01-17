@@ -77,7 +77,7 @@ class Vendor extends Model
         return $this->hasOne(Policy::class);
     }
     public function location(){
-        return $this->hasOne(Location::class);
+        return $this->hasOne(Location::class,'vendor_id','id');
     }
     public function rooms(){
         return $this->hasMany(Room::class,'vendor_id');
@@ -92,11 +92,11 @@ class Vendor extends Model
                     'data'=>$data,
                     'image'=>$roomtype->icon
                 ];
-                
+
             }
         }
         return $types;
-        
+
     }
 
 
@@ -128,9 +128,9 @@ class Vendor extends Model
         if($num_of_active_reviews>0){
             foreach ($this->reviews()->where('status','approved')->get() as $key => $review) {
               $avg_rating+=$review->rating();
-              $avg_clean+=$review->clean;  
-              $avg_comfort+=$review->comfort;  
-              $avg_food+=$review->food;   
+              $avg_clean+=$review->clean;
+              $avg_comfort+=$review->comfort;
+              $avg_food+=$review->food;
               $avg_facility+=$review->facility;
               $avg_sbehaviour+=$review->sbehaviour;
             }
@@ -145,11 +145,11 @@ class Vendor extends Model
         $result['avg_clean']=$num_of_active_reviews==0?0:($avg_clean/$num_div)*100;
         $result['avg_comfort']=$num_of_active_reviews==0?0:($avg_comfort/$num_div)*100;
         $result['avg_food']=$num_of_active_reviews==0?0:($avg_food/$num_div)*100;
-        $result['avg_sbehaviour']=$num_of_active_reviews==0?0:($avg_sbehaviour/$num_div)*100; 
-        $result['avg_facility']=$num_of_active_reviews==0?0:($avg_facility/$num_div)*100;  
-        $result['reviews']=$num_of_active_reviews;  
-        $result['services']=$services;  
-        return $result;      
+        $result['avg_sbehaviour']=$num_of_active_reviews==0?0:($avg_sbehaviour/$num_div)*100;
+        $result['avg_facility']=$num_of_active_reviews==0?0:($avg_facility/$num_div)*100;
+        $result['reviews']=$num_of_active_reviews;
+        $result['services']=$services;
+        return $result;
     }
     public static function vincentyGreatCircleDistanceold(
       $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
@@ -168,25 +168,25 @@ class Vendor extends Model
       $angle = atan2(sqrt($a), $b);
       return  number_format((float)($angle * $earthRadius), 1, '.', '');
     }
-    function vincentyGreatCircleDistance($lat1, $lon1, $lat2, $lon2, $unit='K'){ 
-        $theta = $lon1 - $lon2; 
-        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta)); 
-        $dist = acos($dist); 
-        $dist = rad2deg($dist); 
+    function vincentyGreatCircleDistance($lat1, $lon1, $lat2, $lon2, $unit='K'){
+        $theta = $lon1 - $lon2;
+        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
         $miles = $dist * 60 * 1.1515;
         $unit = strtoupper($unit);
 
-        if ($unit == "K") 
+        if ($unit == "K")
         {
-            return ($miles * 1.609344); 
-        } 
-        else if ($unit == "N") 
+            return ($miles * 1.609344);
+        }
+        else if ($unit == "N")
         {
         return ($miles * 0.8684);
-        } 
-        else 
+        }
+        else
         {
         return $miles;
       }
-    } 
+    }
 }

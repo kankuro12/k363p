@@ -41,7 +41,7 @@
             z-index:2000;
             top:calc(50% - 40px);
             left:calc(50% - 40px);
-            margin:auto;      
+            margin:auto;
             width: 80px;
             height: 80px;
             border: 2px solid #ccc;
@@ -92,9 +92,9 @@
     <title>{{env('APP_NAME','laravel')}}</title>
   </head>
 <body data-spy="scroll" data-target=".h-d-nav-wrapper" data-offset="120"  onload="preloader()" class="loading">
-@include('layouts.public.snippets.header')
- @yield('content') 
-@include('layouts.public.snippets.footer')
+{{-- @include('layouts.public.snippets.header') --}}
+ @yield('content')
+{{-- @include('layouts.public.snippets.footer') --}}
  <!-- Optional JavaScript -->
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
@@ -109,7 +109,7 @@
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
- 
+
 
 <!--  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
  <script type="text/javascript">
@@ -118,8 +118,8 @@
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
        }
    });
-  
- 
+
+
 </script>
 
  @yield('scripts')

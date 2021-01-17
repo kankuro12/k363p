@@ -26,7 +26,7 @@
     .search{
         padding-top:10px;
         transition: all 0.5s;
-        
+
         top:0;left:0;right: 0;
         cursor: pointer;
         .search-input{
@@ -39,6 +39,7 @@
                 padding:5px 0px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                overflow: hidden;
             }
             .logo{
                 padding:5px 10px 5px 5px;

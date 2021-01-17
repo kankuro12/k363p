@@ -1,6 +1,9 @@
 @extends('layouts.public.index')
 
 @section('content')
+@section('style')
+    <link rel="stylesheet" href="{{asset('assets\public\css\userdashboard.css')}}">
+@endsection
 @include('user.nav')
 <section class="dashboard-section">
     <div class="container">
@@ -14,7 +17,7 @@
                 <div class="dashboard-content-wrapper p-4">
                     <h4 class="mb-3 color1 font-weight-bold">Profile</h4>
                     <div id="message"></div>
-                    <div id="content"></div>                    
+                    <div id="content"></div>
                 </div>
             </div>
         </div>
@@ -23,15 +26,15 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-        
+
         loadData();
         function loadData(){
             $.ajax({
                 type: "get",
                 url: "{{route('user.profile')}}",
                 data: "",
-                cache: false,               
-                success: function (data){                    
+                cache: false,
+                success: function (data){
                     $("#content").html(data);
                 },
                 error:function(data){
@@ -49,17 +52,17 @@
                 data: data,
                 cache: false,
                 beforeSend: function() {
-                    $("body").addClass('loading');    
+                    $("body").addClass('loading');
                 },
                 success: function (data){
                     $("#message").html('');
                     $("#message").removeClass('alert alert-danger');
-                    $("body").removeClass('loading'); 
-                    if(data.errors){                        
+                    $("body").removeClass('loading');
+                    if(data.errors){
                         $("#message").addClass('alert alert-danger');
                         $.each(data.errors, function(key,value) {
                              $('#message').append('<li>'+value+'</li>');
-                         }); 
+                         });
                     }else{
                         toastr.success(data.message);
                         loadData();
@@ -91,10 +94,10 @@
               type: 'POST',
               contentType: false,
               processData: false,
-              success: function (data) {   
+              success: function (data) {
                   $("body").removeClass('loading');
-                  $('#profile_img').attr('src', '{{asset('uploads/user/profile_img/200x200/')}}/' + data.profile_img);                    
-                  toastr.success(data.message);   
+                  $('#profile_img').attr('src', '{{asset('uploads/user/profile_img/200x200/')}}/' + data.profile_img);
+                  toastr.success(data.message);
               },
               error: function (xhr, status, error) {
                   console.log(xhr.responseText);

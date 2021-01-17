@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div id="search-bar">
-            <form action="">
+            <form action="{{route('n.search')}}">
                 <div class="">
 
                     <div class="search-bar">
@@ -15,7 +15,7 @@
                                 <span class="input ">
                                     <input type="text" autocomplete="off"
                                         placeholder="Search By City or Neighbourhood" id="location" name="location"
-                                        required>
+                                        required class="search-location" data-url="{{route('n.location.search')}}" data-target="#target">
 
                                 </span>
                                 <span class="locsearch">
@@ -36,9 +36,9 @@
                             </div>
                         </span>
                         <span class="services">
-                            <select name="" id="select-service" name="service">
+                            <select  id="select-service" name="service[]" >
                                 <option value=""></option>
-                                <option value=""></option>
+
                                 @foreach (\App\Model\Vendor\RoomType::all() as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach

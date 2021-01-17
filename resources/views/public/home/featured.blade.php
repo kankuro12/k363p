@@ -1,4 +1,4 @@
-<div class="owl-feature-vendor href" data-target="{{route('public.single_vendor',['slug'=>$vendor->slug])}}">
+<div class="owl-feature-vendor href" data-target="{{route('n.single_vendor',['slug'=>$vendor->slug])}}">
     <div class="image-holder">
         <img src="{{asset('uploads/vendor/logo/263x160/'.$vendor->logo)}}" alt="">
 

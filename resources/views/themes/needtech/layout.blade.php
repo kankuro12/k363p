@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    @yield('meta')
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     {{-- <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
@@ -16,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/mobilemenu_V1.css')}}">
     <link rel="stylesheet" href="{{asset('assets\public\css\sidemenu.css')}}">
     <link rel="stylesheet" href="{{asset('assets\public\css\collection.css')}}">
+    <link rel="stylesheet" href="{{asset('assets\public\css\mobile.search.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="https://kit.fontawesome.com/4ea06e897a.js" crossorigin="anonymous"></script>
@@ -93,6 +95,8 @@
 
         //b.classList.remove("loading").classList.add("loaded");
         //b.classList.add("loaded");
+
+            @yield('onload')
       }
 
     </script>
@@ -132,6 +136,17 @@ aria-hidden="true">
   </div>
 </div>
  <!-- Optional JavaScript -->
+ <script>
+    window.Laravel = {csrfToken: '{{ csrf_token() }}'};
+    function goBack () {
+        if (document.referrer.indexOf("{{url('')}}") === 0) {
+            history.back();
+        } else {
+            window.location.href = "{{url('')}}";
+
+        }
+    }
+ </script>
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -148,11 +163,19 @@ aria-hidden="true">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
  integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
  crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+ <script>
+
+    axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+ </script>
 
  <script type="text/javascript" src="{{asset('assets/public/js/scroll.js')}}"></script>
 
  <script type="text/javascript" src="{{asset('assets/public/js/main1.js')}}"></script>
  <script type="text/javascript" src="{{asset('assets/public/js/sidebar.js')}}"></script>
+ {{-- <script type="text/javascript" src="{{asset('assets/public/js/search.js')}}"></script> --}}
 
 {{-- <script type="text/javascript" src="js/main1.js"></script> --}}
 <!--  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
@@ -162,6 +185,7 @@ aria-hidden="true">
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
        }
    });
+
 
 
 </script>

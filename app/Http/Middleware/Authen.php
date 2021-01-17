@@ -20,16 +20,16 @@ class Authen
             $actions=$request->route()->getAction();
             if(isset($actions['type'])){
                 $type=$actions['type'][0];
-
                 if($type){
                     if($type=='user'){
-                        $redirectTo='user/login';
+
+                        return redirect()->route('n.user.login');
                     }elseif($type=='vendor'){
                         $redirectTo='vendor/login';
                     }
                 }
-            }            
-            return redirect($redirectTo);
+            }
+
         }
         return $next($request);
     }

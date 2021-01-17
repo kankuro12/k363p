@@ -17,3 +17,4 @@ $('#sidebar').click(function (e) {
     return;
     sidebar.toogle();
 });
+

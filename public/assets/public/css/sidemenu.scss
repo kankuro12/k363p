@@ -7,6 +7,7 @@
     z-index:1200;
     background:rgba(0,0,0,0.3);
     overflow:hidden;
+    transition: all 0.2s;
     .menu{
         overflow:hidden;
         background:white;
@@ -27,6 +28,7 @@
                     display:inline-block;
                     img{
                         width:35px;
+                        height:35px;
                     }
                 }
                 .profile-name{
@@ -78,6 +80,13 @@
                 font-weight:500;
                 padding-left:5px;
                 color:#525252;
+                a{
+                    font-size: 1rem;
+                    font-weight:500;
+                    padding-left:10px;
+                    color:#525252;
+                }
+
             }
         }
     }

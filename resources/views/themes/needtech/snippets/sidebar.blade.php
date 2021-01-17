@@ -20,7 +20,7 @@
         <div class="user " >
             <div class="row">
                 <div class="col-9">
-                    <span class="profile">
+                    <span class="profile href" data-target="{{$authlink}}">
                         <span class="profile-img">
                             <img src="{{$user_image}}" alt="">
                         </span>
@@ -51,10 +51,20 @@
         </div>
 
         <div class="menuitem">
-            <div class="header">dasdfds</div>
-            <div class="text">
-                some thing is admobba
-            </div>
+            <div class="header">Account</div>
+            @if(Auth::check())
+                <div class="text">
+                    <a href="{{route('n.user.dashboard')}}">Profile</a>
+                </div>
+                <div class="text">
+                    <a href="{{route('n.user.logout')}}">Logout</a>
+                </div>
+            @else
+                <div class="text">
+                    <a href="{{route('n.user.login')}}">Login</a>
+                    <a href="{{route('n.user.signup')}}">signup</a>
+                </div>
+            @endif
         </div>
     </div>
 </div>

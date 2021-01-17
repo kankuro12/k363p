@@ -1,5 +1,7 @@
 @extends('themes.needtech.layout')
-
+@section('meta')
+    <meta name="theme-color" content="#D4184C" />
+@endsection
 @section('content')
 {{-- <div class="city d-block d-md-none pl-4 pt-2 pb-2 pr-3">
     <div class="d-flex" style="justify-content: space-between">
@@ -94,7 +96,6 @@
     <div class="mt-3 mb-3">
         <div  style="height:75px;background:red;color:white;font-weight:600;text-align:center;">
             <h2>
-
                 Here will ne banner
             </h2>
         </div>
@@ -168,46 +169,9 @@
                 @foreach ($trs as $service)
                     @include('public.home.service',['service'=>$service])
                 @endforeach
-
             </div>
         </div>
     </div>
 </div>
-<div class="secondary">
-    <div class="row">
-        @foreach ($roomtypes as $roomtype)
-            <div class="col-md-4 col-lg-3 col-xl-2 col-sm-6">
-                <div class="service-type shadow href" data-target="/get/car" >
-                    <div class="icon">
-                        <img src="{{asset('uploads/vendor/room_type/icons/'.$roomtype->icon)}}" style="height:35px;width:35px;" alt="">
-                    </div>
-                    <div>
-                        {{$roomtype->name}}
-                    </div>
-                </div>
-            </div>
-        @endforeach
-        {{-- <div class="col-md-4 col-lg-3 col-xl-2 col-sm-6">
 
-            <div class="service-type shadow href" data-target="/get/bike" >
-                <div class="icon">
-                    <i class="fas fa-motorcycle"></i>
-                </div>
-                <div>
-                    Bike
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-lg-3 col-xl-2 col-sm-6">
-            <div class="service-type shadow href" data-target="/get/truck" >
-                <div class="icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <div>
-                    truck
-                </div>
-            </div>
-        </div> --}}
-    </div>
-</div>
 @endsection

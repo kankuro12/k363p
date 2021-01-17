@@ -10,9 +10,9 @@
             <div>
                 <img src="{{asset('uploads/vendor/cover_img/'.$vendor->cover_img)}}" class="img-fluid" />
             </div>
-                
+
             @endfor
-            
+
         </div>
         <div class="header-overlay">
             <div class="main-desc">
@@ -20,7 +20,7 @@
                     <div class="col-md-6">
                         <div class="vendor-name">{{$vendor->name}}</div>
                         <div class="vendor-address">
-                            <i class="fas fa-map-marker-alt"></i> 
+                            <i class="fas fa-map-marker-alt"></i>
                             {{$vendor->location?$vendor->location->name:'N/A'}}
                         </div>
                     </div>
@@ -40,9 +40,9 @@
                             </span>
                         </div>
                     </div>
-                    
+
                 </div>
-              
+
             </div>
         </div>
 
@@ -51,7 +51,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8">
-                
+
                 {{-- @if($vendor->amenities->count()>0)
                     <section class="section">
                         <div class="body">
@@ -64,7 +64,7 @@
                                                     <img src="{{asset('uploads/vendor/amenities/icons/200x200/'.$fam->icon)}}" class="mr-1" width="20px" height="20px" />
                                                     <span class="am-title color1">{{$fam->name}}</span>
                                                 </div>
-                                            </div>                	
+                                            </div>
                                         @endforeach
                                     @endfor
                                 </div>
@@ -73,9 +73,9 @@
                 @endif --}}
 
                 <!-- service section -->
-          
+
                 @foreach ($vendor->roomTypeRooms() as $name=>$section)
-                    
+
                     <section class="section">
                         <div class="title">
                             <h2>
@@ -93,7 +93,7 @@
                                     @include('public.singlevendor.service',['service'=>$service])
                                 @endforeach
 
-                                
+
                             </div>
                         </div>
                     </section>
@@ -101,12 +101,12 @@
                 <!-- end services section -->
 
 
-                
+
             </div>
             <div class="col-lg-4">
                 <!-- about section -->
                 <section class="section" id="about ">
-                    <div class="title">
+                    <div class="title mb-2">
                         <h2>
                             <span>
                                 About Us
@@ -117,12 +117,12 @@
                         <p>
                             {!!$vendor->description!!}
                         </p>
-                        
+
                         @if($vendor->amenities->count()>0)
                             <div style="height:1px;padding:1px 0px;background:#ee2e2466;margin:10px 0px 5px 0px;" ></div>
                                 <div class="">
                                     {{-- @for ($i = 0; $i < 12; $i++) --}}
-                                        @foreach($vendor->amenities as $fam)                	
+                                        @foreach($vendor->amenities as $fam)
                                             <span class="d-inline-block mb-1 mr-2  pr-2 pl-2 pt-1 pb-1" style="border-radius:5px;background:#f1f1f1;">
                                                 <img src="{{asset('uploads/vendor/amenities/icons/200x200/'.$fam->icon)}}" class="mr-1" width="20px" height="20px" />
                                                 <span class="am-title">{{$fam->name}}</span>
@@ -130,10 +130,10 @@
                                         @endforeach
                                     {{-- @endfor --}}
                                 </div>
-    
+
                         @endif
                     </div>
-                    
+
                 </section>
                 <!-- end about section -->
                  <!-- contact us section -->
@@ -162,7 +162,7 @@
                                 <span  class="d-inline-block">
                                     <a href="{{$vendor->website}}" class="color1">{{$vendor->website}}</a>
                                 </span>
-                            </div>                        
+                            </div>
                         @endif
                         <div style="height:1px;padding:1px 0px;background:#ee2e2466;margin:10px 0px 5px 0px;" >
 
@@ -183,17 +183,17 @@
                                     <i class="fab fa-instagram href p-1 color1" data-target="{{$vendor->instagram_url}}"></i>
                                 </span>
                             @endif
-                          
-                        </div>
-                                       
-                       
 
-                        
-                        
+                        </div>
+
+
+
+
+
                     </div>
                 </section>
                 <!-- end about section -->
-                
+
             </div>
         </div>
     </div>
