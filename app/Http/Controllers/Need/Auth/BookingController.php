@@ -26,7 +26,7 @@ class BookingController extends Controller
                 return redirect()->route('n.user.otp');
             }
         }else{
-            return view('themes.needtech.auth.login');
+            return view('themes.needtech.Auth.login');
         }
     }
 
@@ -57,7 +57,7 @@ class BookingController extends Controller
             if($request->filled('number')){
                 $number=$request->number;
             }
-            return view('themes.needtech.auth.signup',compact('number'));
+            return view('themes.needtech.Auth.signup',compact('number'));
         }
     }
 
@@ -83,7 +83,7 @@ class BookingController extends Controller
             if($number==null){
                 return redirect()->route('n.user.login');
             }
-            return view('themes.needtech.auth.otp',compact('number'));
+            return view('themes.needtech.Auth.otp',compact('number'));
         }
     }
 
