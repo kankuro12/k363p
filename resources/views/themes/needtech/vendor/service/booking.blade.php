@@ -7,13 +7,25 @@
 
     <link rel="stylesheet" href="{{asset('assets\public\css\nouislider.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .form-header{
+            font-weight:700;
+            font-size: 1.5rem;
+        }
 
+        @media(max-width:576px){
+            .form-header{
+                font-weight:700;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="page-banner d-none d-md-block">
         <div class="page-banner-content py-2 py-md-5 mb-2 mb-md-3 " style="background:blue;color:white;text-align:center;">
             <div class="container">
-                <h1>Checkout page</h1>
+                <h1 >Checkout page</h1>
             </div>
         </div>
     </div>
@@ -21,9 +33,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 ">
-					<div class="bg-white  p-2 p-md-4 shadow mt-2 mt-md-0" >
+					<div class="bg-white  p-2 p-md-4 shadow mt-2 mt-md-0 mb-5 mb-md-0" >
                         <div class="d-p-heading">
-                            <h2>Personal Information</h2>
+                            <h2 class="form-header">Personal Information</h2>
                         </div>
 						<hr>
                         <form id="checkout-from" method="post" action="{{ route('n.book') }}">
@@ -60,7 +72,7 @@
 
 							<hr>
 							<div class="d-p-heading">
-								<h2>Payment Method</h2>
+								<h2 class="form-header">Payment Method</h2>
 							</div>
 							<div class="form-group mt-4">
 								<input type="radio" name="pmethod" id="p_at_hotel" value="1">
@@ -86,9 +98,9 @@
                 </div>
 
             <div class="col-md-5 mt-3 mt-md-0  ">
-                <div class="booking-detail-wrapper mr-md-2 ml-md-2 shadow p-2 p-md-4 mb-3 mb-md-0">
+                <div class="booking-detail-wrapper mr-md-2 ml-md-2 shadow p-2 p-md-4 mb-3 mb-md-0 d-none d-md-block">
                     <div class="d-p-heading">
-                        <h2>Your booking detail</h2>
+                        <h2 class="form-header">Your booking detail</h2>
                     </div>
                     <div class="mt-4">
                         <h5 class="color1">{{ $room->vendor->name }}</h5>
@@ -129,6 +141,28 @@
     </div>
 
     </div>
+    </div>
+
+    <div class="d-block d-md-none " style="box-shadow: 0px -1px 10px 0px rgba(31,31,31,1);position:fixed;z-index:999;bottom:0px;left:0px;right:0px;padding:5px 15px;background:white;">
+        <div class="row">
+            <div class="col-6">
+                <div style="font-weight:700">
+                    Start Date
+                </div>
+                <div style="font-weight:500;font-size:0.8rem;">
+                    <div >{{$startdate->format('D')}}, {{$startdate->format('M')}} {{$startdate->format('Y')}} </div>
+
+                </div>
+            </div>
+            <div class="col-6 text-right">
+                <div style="font-weight:700">
+                    Amount
+                </div>
+                <div style="font-weight:500;font-size:0.8rem;">
+                    Rs. {{$room->discount==0? $room->price:$room->getNewPrice() }}
+                 </div>
+            </div>
+        </div>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="online_payment_mdl">
         <div class="modal-dialog" role="document">

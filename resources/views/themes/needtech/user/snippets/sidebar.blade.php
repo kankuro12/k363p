@@ -3,10 +3,10 @@
         <a href="{{route('n.user.dashboard')}}"><i class="ion-android-person"></i> Profile</a>
     </li>
     <li class="list-group-item {{ (Request::is('user/bookings*') ? ' active' : '') }}">
-        <a href="{{route('user.bookings')}}"><i class="ion-calendar"></i> Bookings</a>
+        <a href="{{route('n.user.booking')}}"><i class="ion-calendar"></i> Bookings</a>
     </li>
     <li class="list-group-item {{ (Request::is('user/notifications*') ? ' active' : '') }}">
-        <a href="{{route('user.get_notifications')}}"><i class="ion-android-notifications"></i> Notifications <span class="badge badge-success">
+        <a href="{{route('n.user.notifications')}}"><i class="ion-android-notifications"></i> Notifications <span class="badge badge-success">
             &nbsp;{{Auth::guard()->user()->unReadnotifications->count()}}
         </span></a>
     </li>

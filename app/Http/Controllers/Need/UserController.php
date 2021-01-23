@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use File;
 use App\FileUpload;
+use App\Model\Vendor\Booking;
+
 class UserController extends Controller
 {
     public function index(Request $request){
@@ -75,5 +77,39 @@ class UserController extends Controller
               return redirect()->back()->with('$msg',"Profile Update Sucessfully");
           }
           return redirect()->back()->with('$msg',"Profile Update Sucessfully");
+    }
+
+    // XXX bookings
+
+    public function SingleBooking($code){
+        // dd($code);
+        $booking=Booking::where('booking_id',$code)->first();
+        $user=Auth::user()->vendoruser;
+
+        return view('themes.needtech.user.booking.single',compact('user','booking','code'));
+    }
+    public function booking(){
+        // dd($code);
+        $user=Auth::user()->vendoruser;
+        $bookings=Booking::where('user_id',$user->id)->get();
+        return view('themes.needtech.user.booking.index',compact('user','bookings'));
+    }
+
+    // XXX Notifications
+    public function notification($id){
+        $data=Auth::guard()->user()->notifications()->where('id',$id)->firstOrFail();
+        $data->markAsRead();
+        $user=Auth::user();
+        $user=VendorUser::where('user_id',$user->id)->firstOrFail();
+        if($data->data['link']){
+          return redirect()->to($data->data['link']);
+        }
+        return view('themes.needtech.user.notification.single',['data'=>$data]);
+    }
+    public function notifications(){
+        $data=Auth::guard()->user()->notifications()->orderBy('created_at','desc')->get();
+        $user=Auth::user();
+        $user=VendorUser::where('user_id',$user->id)->firstOrFail();
+        return view('themes.needtech.user.notification.index',['notifications'=>$data,'user'=>$user]);
     }
 }

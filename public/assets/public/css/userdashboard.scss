@@ -1,5 +1,9 @@
 
 @import "colors";
+
+body{
+    color:#061639
+}
 .dashboard-banner{
 	height:300px;
 	position:relative;
@@ -224,4 +228,73 @@
 			}
 		}
 	}
+}
+
+.dashboard-notification{
+    margin:1rem 2rem;
+    padding:1rem 2rem;
+    &.unread {
+        background:#f1f1f1;
+    }
+    .title{
+        font-size:1.5rem;
+        font-weight:600;
+        small{
+            font-size:0.9rem;
+            color:#c5c5c5;
+        }
+    }
+    .text{
+        font-size:1rem;
+        font-weight:500;
+    }
+}
+
+.col-left-0{
+    padding-right:0;
+}
+.booking{
+
+    border-left:1px solid #f1f1f1;
+    padding: 1rem ;
+    .title{
+        font-size:1.3rem;
+        font-weight:700;
+    }
+    .vendor{
+        font-size:1rem;
+        font-weight:500;
+    }
+
+    .section-title{
+        font-size:1rem;
+        font-weight:600;
+    }
+    .section-text{
+        font-size: 0.8rem;
+        font-weight:500;
+        padding-left:15px;
+    }
+}
+
+@media (max-width:576px){
+    .col-left-0{
+        padding-right:15px;
+    }
+    .dashboard-notification{
+        margin:0.5rem 0px;
+        &.unread {
+            background:#f1f1f1;
+        }
+        .title{
+            font-size:1rem;
+            small{
+                font-size:0.7rem;
+            }
+        }
+        .text{
+            font-size:0.8rem;
+            padding-left:0px;
+        }
+    }
 }

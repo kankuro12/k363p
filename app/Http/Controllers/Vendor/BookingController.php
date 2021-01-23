@@ -62,13 +62,13 @@ class BookingController extends Controller
         $booking=Booking::where(['vendor_id'=>$vendor->id,'id'=>$id])->firstOrFail();
         $room=Room::find($booking->room_id);
 
-        //checking booked child rooms        
+        //checking booked child rooms
 
         $brooms=Booking::where('booking_status','confirmed')->pluck('id');
 
         $nrooms=BookingChildRoom::whereIn('booking_id', $brooms)->pluck('child_rooms_id');
 
-        $bcrooms=$room->childrooms()->whereNotIn('id',$nrooms)->get(); 
+        $bcrooms=$room->childrooms()->whereNotIn('id',$nrooms)->get();
 
 
         return view('vendor.bookings.show',compact('booking','bcrooms'));
@@ -122,14 +122,14 @@ class BookingController extends Controller
         $notification['title']="Bookig has been ".$booking->booking_status;
         $notification['detail']='';
         $notification['link']=route('user.show_bookings',['id'=>$booking->id]);
-        $when = now()->addSeconds(5);        
+        $when = now()->addSeconds(5);
         $user->notify((new UserNoti($notification)));
 
         */
 
         session()->flash('msg','Booking Details has been updated');
         return redirect()->back();
-        
+
     }
     public function destroy($id)
     {
@@ -145,8 +145,8 @@ class BookingController extends Controller
             $notification['detail']=$booking->vendor->name." has ".$booking->booking_status." your booking for ".$booking->vendor->name."(".$booking->room->name.")";
             $notification['data']=$booking;
             $notification['id']=$booking->id;
-            $notification['link']=route('user.show_bookings',['id'=>$booking->booking_id]);
-            $when = now()->addSeconds(5);        
+            $notification['link']=route('n.user.singlebooking',['code'=>$booking->booking_id]);
+            $when = now()->addSeconds(5);
             $booking->vendoruser->user->notify((new UserNoti($notification)));
         }
         return redirect()->back();
@@ -179,8 +179,8 @@ class BookingController extends Controller
             $booking->save();
             //send mail
         }
-        return redirect()->back();        
+        return redirect()->back();
 
     }
-    
+
 }

@@ -5,7 +5,7 @@
     if(Auth::check()){
 
         if(Auth::guard()->user()->role->name=='user'){
-            $authlink=route('user.profile');
+            $authlink=route('n.user.dashboard');
             $authimage='<img style="max-width:50px;" class="icon-image" src="'.asset('uploads/user/profile_img/200x200/'.Auth::user()->vendoruser->profile_img).'" />';
             $authtext=Auth::user()->vendoruser->fname;
         }elseif(Auth::guard()->user()->role->name=='vendor'){

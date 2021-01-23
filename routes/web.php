@@ -1078,6 +1078,16 @@ Route::group(['prefix' => ''], function () {
                 Route::match(['get', 'post'],'logout','Need\UserController@logout')->name('logout');
                 Route::match(['get', 'post'],'changepic','Need\UserController@changePic')->name('changepic');
                 Route::match(['get', 'post'],'updateprofile','Need\UserController@updateProfile')->name('updateprofile');
+
+                Route::group(['prefix' => 'booking'], function () {
+					route::get('','Need\UserController@booking')->name('booking');
+                    Route::get('single/{code}','Need\UserController@SingleBooking')->name('singlebooking');
+                });
+
+                Route::group(['prefix' => 'notification'], function () {
+					route::get('','Need\UserController@notifications')->name('notifications');
+                    Route::get('notification/{id}','Need\UserController@notification')->name('singlenotification');
+                });
             });
 
 

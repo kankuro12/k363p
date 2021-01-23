@@ -1,3 +1,7 @@
+body {
+  color: #061639;
+}
+
 .dashboard-banner {
   height: 300px;
   position: relative;
@@ -250,5 +254,81 @@
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   cursor: pointer;
+}
+
+.dashboard-notification {
+  margin: 1rem 2rem;
+  padding: 1rem 2rem;
+}
+
+.dashboard-notification.unread {
+  background: #f1f1f1;
+}
+
+.dashboard-notification .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.dashboard-notification .title small {
+  font-size: 0.9rem;
+  color: #c5c5c5;
+}
+
+.dashboard-notification .text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.col-left-0 {
+  padding-right: 0;
+}
+
+.booking {
+  border-left: 1px solid #f1f1f1;
+  padding: 1rem;
+}
+
+.booking .title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.booking .vendor {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.booking .section-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.booking .section-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-left: 15px;
+}
+
+@media (max-width: 576px) {
+  .col-left-0 {
+    padding-right: 15px;
+  }
+  .dashboard-notification {
+    margin: 0.5rem 0px;
+  }
+  .dashboard-notification.unread {
+    background: #f1f1f1;
+  }
+  .dashboard-notification .title {
+    font-size: 1rem;
+  }
+  .dashboard-notification .title small {
+    font-size: 0.7rem;
+  }
+  .dashboard-notification .text {
+    font-size: 0.8rem;
+    padding-left: 0px;
+  }
 }
 /*# sourceMappingURL=userdashboard.css.map */

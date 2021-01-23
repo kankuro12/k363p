@@ -57,10 +57,10 @@
                     <a href="{{route('n.user.dashboard')}}">Profile</a>
                 </div>
                 <div class="text">
-                    <a href="{{route('n.user.dashboard')}}">Bookings</a>
+                    <a href="{{route('n.user.booking')}}">Bookings</a>
                 </div>
                 <div class="text">
-                    <a href="{{route('n.user.dashboard')}}">Notification</a>
+                    <a href="{{route('n.user.notifications')}}">Notification</a>
                 </div>
                 <div class="text">
                     <a href="{{route('n.user.dashboard')}}">Favourites</a>

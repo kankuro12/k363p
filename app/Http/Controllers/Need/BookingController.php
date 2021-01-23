@@ -20,6 +20,7 @@ use App\Model\Vendor\Location;
 use App\Model\Vendor\Collection;
 use App\Model\VendorUser\VendorUser;
 use App\Notifications\User\SignupActivate;
+use App\Notifications\Vendor\VendorNoti;
 use App\PaymentMethod;
 use App\User;
 use illuminate\Support\Facades\Auth;
@@ -176,6 +177,18 @@ class BookingController extends Controller
             $bp->status=1;
             $bp->save();
         }
-        dd($booking,$bp);
+        $redirect_url=route('n.user.singlebooking',$booking->booking_id);
+
+
+        //send mail to vendor
+        $notification['title']=$request->fname." ".$request->lname." has booked your room ";
+        $notification['detail']=$$request->fname." ".$request->lname." has booked your room at ".$booking->created_at;
+        $notification['link']='';
+        $notification['id']=$booking->booking_id;
+        $notification['data']='';
+        $notification['oid']=$booking->id;
+        $when = now()->addSeconds(5);
+        $booking->vendor->user->notify((new VendorNoti($notification))->delay($when));
+        return redirect()->route('n.user.singlebooking',$booking->booking_id);
     }
 }

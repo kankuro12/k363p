@@ -18,12 +18,12 @@ class LoginController extends Controller
 	protected $redirectTo = '/user/profile';
     public function getLogin(){
     	if(request()->next){
-    	 session()->flash('next',request()->next);            
+    	 session()->flash('next',request()->next);
     	}
     	return view('user.auth.login');
     }
     public function postLogin(Request $request){
-		$validator=Validator::make($request->all(),[	        
+		$validator=Validator::make($request->all(),[
 	        'email' => 'required|email|max:255',
 	        'password' => 'required',
 	    ]);
@@ -41,7 +41,7 @@ class LoginController extends Controller
 		     				$msg = array(
 		     					'success'  => 0,
 		     					'message' => 'Please activate your account. <a href="'.$url.'">Resend verification email?</a>'
-		     				);	     					
+		     				);
 	     				}else{
 	     					$request->session()->regenerate();
 
@@ -65,7 +65,7 @@ class LoginController extends Controller
 			     					'role'=>$user->role->name,
 			     					'redirect_url'=>$user->role->name=='user'?url('/user/profile'):url('/vendor/dashboard'),
 			     				);
-		     				}		     					
+		     				}
 	     				}
 	     				return response()->json($msg);
 	     			} else {
@@ -78,8 +78,8 @@ class LoginController extends Controller
 	     }else{
 	     	return response()->json(['errors' => $validator->errors()]);
 	     }
-  
-    	
+
+
     }
     public function getLogout(){
     	Auth::logout();
@@ -104,7 +104,7 @@ class LoginController extends Controller
     	        $status = "Your e-mail is verified. You can now login.";
     	    }else{
     	        $status = "Your e-mail is already verified. You can now login.";
-    	    }    	    
+    	    }
     	}else{
     	    return redirect('/user/login')->with('message', "Sorry your email cannot be identified.");
     	}
@@ -119,6 +119,7 @@ class LoginController extends Controller
     public function callback($provider){
         try {
             $user = Socialite::driver($provider)->stateless()->user();
+
             $fname=explode(" ", $user->getName());
             $input['fname'] = $fname[0];
             $input['lname'] = $fname[1];
@@ -137,7 +138,7 @@ class LoginController extends Controller
     }
     public function findOrCreate($input){
             $checkIfExist=User::where('provider',$input['provider'])
-	                           ->where('provider_id',$input['provider_id']) 
+	                           ->where('provider_id',$input['provider_id'])
 	                           ->orWhere('email',$input['email'])
 	                           ->first();
 
@@ -146,10 +147,10 @@ class LoginController extends Controller
             }
             $uinput['role_id']=1;
             $uinput['email']=$input['email'];
-            $uinput['verified']=1;   
-            $uinput['active']=1;            
+            $uinput['verified']=1;
+            $uinput['active']=1;
             $uinput['provider']=$input['provider'];
-            $uinput['provider_id']=$input['provider_id'];           
+            $uinput['provider_id']=$input['provider_id'];
 
             $user=User::create($uinput);
 
@@ -160,7 +161,7 @@ class LoginController extends Controller
                 File::put(public_path() . '/uploads/user/profile_img/200x200/' .$name, $fileContents);
             }
 
-            
+
             $vuser = VendorUser::create([
                 'user_id' => $user->id,
                 'fname'=>$input['fname'],
@@ -171,5 +172,5 @@ class LoginController extends Controller
 
             return $user;
         }
-    
+
 }
