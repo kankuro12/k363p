@@ -1,7 +1,7 @@
 @extends('layouts.vendor.index_auth')
 @section('content')
-<section class="signup-page-section">
-    <div class="logo text-center pb-4">
+<section class="v-center w-100">
+    <div class="logo text-center pb-2">
         <img src="{{asset('assets/public/img/logo.png')}}" style="max-width:250px;">
     </div>
     <div class="container">
@@ -72,7 +72,7 @@
                         <label for="agreetc" class="color-secondary">I agree to the <a href="{{route('public.term_and_condition')}}" class="color-primary">Terms and conditions</a></label>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-block btn1" id="submitBtn" type="submit">Register</button>
+                            <button class="btn btn-block btn-primary" id="submitBtn" type="submit">Register</button>
                         </div>
                         <p class="color-secondary text-center font-weight-bold">Already a member? <a href="{{route('vendor.getLogin')}}" class="color1">Sign in</a></p>
                     </form>
