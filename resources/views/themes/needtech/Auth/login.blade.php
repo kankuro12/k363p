@@ -60,7 +60,7 @@
                             <div >
                                 <div class="row">
                                     <div class="col-md-6 pt-2">
-                                        <a href="" class="w-100" style="text-decoration:none;display:inline-block;line-height:1;">
+                                        <a href="{{route('n.user.social',['provider'=>'facebook'])}}" class="w-100" style="text-decoration:none;display:inline-block;line-height:1;">
                                             <div class="d-flex ">
                                                 <span class="p-2 bg-white" style="color:#4C6EF5;border:1px solid #4C6EF5;">
                                                     <i class="fab fa-facebook"></i>
@@ -72,7 +72,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-6 pt-2">
-                                        <a href="" class="w-100" style="text-decoration:none;display:inline-block;line-height:1;">
+                                        <a href="{{route('n.user.social',['provider'=>'google'])}}" class="w-100" style="text-decoration:none;display:inline-block;line-height:1;">
                                             <div class="d-flex">
                                                 <span class="p-2 bg-white" style="color:#F59901;border:1px solid #F59901;">
                                                     <i class="fab fa-google"></i>

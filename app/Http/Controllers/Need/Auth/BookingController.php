@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
-
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Socialite;
+use File;
 class BookingController extends Controller
 {
     public function login(Request $request){
