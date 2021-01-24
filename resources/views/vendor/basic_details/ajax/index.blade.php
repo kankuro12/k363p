@@ -3,7 +3,7 @@
     position:relative;
   }
   .pro-wrapper{
-    background-color: white;
+    background-color: transparent;
   }
   .card-user .image .btn-edit{
     position: absolute;
@@ -44,7 +44,7 @@
         <h5>Edit Profile</h5>
       </div> -->
       <div class="card-body">
-        
+
         <form id="basic-details-form" method="post" action="{{route('vendor.post_basic_details')}}">
           <input type="hidden" name="category_id" required="" value="{{$vendor->category_id}}">
             <div class="row">
@@ -68,10 +68,10 @@
                           <option value="5" {{$vendor->star==5?'selected':''}}>5 Star</option>
                         </select>
                     </div>
-                </div>   
-                @endif                   
+                </div>
+                @endif
             </div>
-            <div class="row">                     
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Phone Number</label>
@@ -97,7 +97,7 @@
                       <label>Secondary Email Address</label>
                       <input type="text" class="form-control border-input" placeholder="Secondary Email Address" name="secondary_email" value="{{$vendor->secondary_email}}">
                   </div>
-              </div>                      
+              </div>
             </div>
 
               <div class="row">
@@ -112,7 +112,7 @@
                         <label>Twitter Address</label>
                         <input type="text" class="form-control border-input" placeholder="Twitter  Address" name="twitter_url" value="{{$vendor->twitter_url}}">
                     </div>
-                </div>                      
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -121,7 +121,7 @@
                         <input type="text" class="form-control border-input" placeholder="Instagram Address" value="{{$vendor->instagram_url}}" name="instagram_url">
                     </div>
                 </div>
-               
+
                   <div class="col-md-6">
                       <div class="form-group">
                           <label>Average Cost(in Rs.)</label>
@@ -136,7 +136,7 @@
                           <select name="country_id" class="form-control" id="country">
                             <option value="" selected="" disabled="">Select Country</option>
                             @foreach($countries as $country)
-                            <option value="{{$country->id}}" 
+                            <option value="{{$country->id}}"
                               @if($vendor->location->city_id!='')
                               {{$vendor->location->city->state->country_id==$country->id?'selected':''}}
                               @endif
@@ -153,7 +153,7 @@
                             @if($vendor->location->city_id!='')
                             @foreach($vendor->location->city->state->country->states as $state)
                             <option value="{{$state->id}}"
-                            
+
                              {{$vendor->location->city->state_id==$state->id?'selected':''}}
                             >{{$state->name}}</option>
                             @endforeach
@@ -189,7 +189,7 @@
                       <div class="form-group">
                           <label for="title">Lat:</label>
                           <input type="text" class="form-control" id="lat" name="lat" value="{{$vendor->location->lat}}" readonly="">
-                      </div>                            
+                      </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
@@ -197,7 +197,7 @@
                           <input type="text" class="form-control" id="lng" name="lng" value="{{$vendor->location->lng}}" readonly="">
                       </div>
                   </div>
-              </div>              
+              </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -236,7 +236,7 @@
                 <input type="hidden" id="file_name"/>
 
               </div>
-          </div>         
+          </div>
       </div>
   </div> -->
 </div>
@@ -268,8 +268,8 @@
              secondary_phone_number:{
                   //number: true,
                   // minlength: 10,
-                  // maxlength: 10              
-             },            
+                  // maxlength: 10
+             },
              average_cost:{
               required:true
              },
@@ -282,12 +282,12 @@
              instagram_url:{
               url:true
              },
-           
+
              description:{
                 required:true
             ,}
-             },         
-             
+             },
+
           messages: {
               vname: {
                   required: "Please enter vendor name",
@@ -305,14 +305,14 @@
                   required:"Please enter email address",
                   email:"Please enter valid email address"
               },
-              secondary_email:{                 
+              secondary_email:{
                   email:"Please enter valid email address"
               },
               average_cost:{
                 required:"Please enter average cost"
               },
               description: {
-                  required: "Please enter description ",        
+                  required: "Please enter description ",
               },
               star:{
                 required:"Please select star"
@@ -323,8 +323,8 @@
               tripadvisor_url: "Please provide your tripadvisor url",
 
           },
-          errorPlacement: function(error, element){              
-              error.appendTo( element.parent("div") ); 
+          errorPlacement: function(error, element){
+              error.appendTo( element.parent("div") );
           },
           submitHandler: function(form) {
               alert('data');
@@ -337,18 +337,18 @@
                  success: function(response) {
                   $("#submitBtn").attr('disabled',false);
                      $('#basic-details-form')[0].reset();
-                      if(response.errors){                        
+                      if(response.errors){
                         for (var error in response.errors) {
-                           toastr.warning(response.errors[error]);                       
+                           toastr.warning(response.errors[error]);
                     }
-                      } 
+                      }
                       if(response.success){
-                        toastr.success(response.message);   
+                        toastr.success(response.message);
                         loadData();
                       }else{
                         console.log("Sorry");
                       }
-                 }            
+                 }
              });
          }
       });
@@ -369,7 +369,7 @@
         map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: {
             lat: lat,
-            lng: lng              
+            lng: lng
           },
           zoom: 15
         });
@@ -378,8 +378,8 @@
             {
                 position: {
                     lat: lat,
-                    lng: lng             
-                }, 
+                    lng: lng
+                },
                 map: map,
                 draggable:true
             }
@@ -393,8 +393,8 @@
             for(i=0;place=places[i];i++){
                 bounds.extend(place.geometry.location);
                 marker.setPosition(place.geometry.location);
-            var addressType = place.address_components[i].types[0];            
-            }            
+            var addressType = place.address_components[i].types[0];
+            }
             map.fitBounds(bounds);
             map.setZoom(15);
         });
@@ -409,7 +409,7 @@
         });
 
       }
-</script>    
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
 <script type="text/javascript">
   function changeProfile() {
@@ -431,17 +431,17 @@
           type: 'POST',
           contentType: false,
           processData: false,
-          success: function (data) {   
+          success: function (data) {
               $("body").removeClass('loading');
-                if(data.errors){                        
+                if(data.errors){
                   for (var error in data.errors) {
-                     toastr.warning(data.errors[error]);                       
+                     toastr.warning(data.errors[error]);
                 }
-                } 
+                }
                 if(data.success){
-                  $('#logo').attr('src', '{{asset('uploads/vendor/logo/263x160/')}}/' + data.logo);                   
-                toastr.success(data.message); 
-                }             
+                  $('#logo').attr('src', '{{asset('uploads/vendor/logo/263x160/')}}/' + data.logo);
+                toastr.success(data.message);
+                }
           },
           error: function (xhr, status, error) {
               console.log(xhr.responseText);
@@ -459,25 +459,25 @@
     function uploadCover(img) {
         var form_data = new FormData();
         form_data.append('file', img.files[0]);
-        form_data.append('_token', '{{csrf_token()}}');                
+        form_data.append('_token', '{{csrf_token()}}');
         $.ajax({
             url: "{{route('vendor.change_cover_pic')}}",
             data: form_data,
             type: 'POST',
             contentType: false,
             processData: false,
-            success: function (data) {   
+            success: function (data) {
                 $("body").removeClass('loading');
-                if(data.errors){                        
+                if(data.errors){
                   for (var error in data.errors) {
-                     toastr.warning(data.errors[error]);                       
+                     toastr.warning(data.errors[error]);
                 }
-                } 
+                }
                 if(data.success){
                   $('#cover').attr('src', '{{asset('uploads/vendor/cover_img')}}/' + data.cover_img);
                   toastr.success(data.message);
                 }
-                
+
             },
             error: function (xhr, status, error) {
                 console.log(xhr.responseText);
@@ -501,14 +501,14 @@
             cache: false,
             dataType: 'json',
             beforeSend: function() {
-                // $("body").addClass('loading');    
+                // $("body").addClass('loading');
             },
             success: function (data){
-                // $("body").removeClass('loading'); 
+                // $("body").removeClass('loading');
                 $("#state").empty();
                 $('#state').append($('<option>',{value:' ', text:'Select State'}));
 
-                $.each(data, function(index, state) {                                 
+                $.each(data, function(index, state) {
                     $('#state').append($('<option>',{value:state.id, text:state.name}));
                 });
             },
@@ -524,14 +524,14 @@
             cache: false,
             dataType: 'json',
             beforeSend: function() {
-                //$("body").addClass('loading');    
+                //$("body").addClass('loading');
             },
             success: function (data){
-                //$("body").removeClass('loading'); 
+                //$("body").removeClass('loading');
                 $("#city").empty();
                 $('#city').append($('<option>',{value:' ', text:'Select City'}));
 
-                $.each(data, function(index, state) {                                 
+                $.each(data, function(index, state) {
                     $('#city').append($('<option>',{value:state.id, text:state.name}));
                 });
             },
@@ -540,11 +540,11 @@
             }
         });
     }
-    
+
 </script>
-<script type="text/javascript">  
-    CKEDITOR.replace('description' );  
+<script type="text/javascript">
+    CKEDITOR.replace('description' );
     CKEDITOR.config.toolbar = [
        ['Styles','Format','Font','FontSize','Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste','Find','Replace','-','Outdent','Indent','-','Print','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
     ];
-</script>  
+</script>

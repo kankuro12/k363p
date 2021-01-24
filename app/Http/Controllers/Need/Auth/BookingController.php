@@ -7,7 +7,9 @@ use App\Model\VendorUser\VendorUser;
 use App\Notifications\User\SignupActivate;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 class BookingController extends Controller
 {
@@ -100,4 +102,68 @@ class BookingController extends Controller
     public function logout(){
         Auth::logout();
     }
+
+    public function redirect($provider){
+        return Socialite::driver($provider)->redirect();
+    }
+    public function callback($provider){
+        try {
+            $user = Socialite::driver($provider)->stateless()->user();
+
+            $fname=explode(" ", $user->getName());
+            $input['fname'] = $fname[0];
+            $input['lname'] = $fname[1];
+            $input['email'] = $user->getEmail();
+            $input['provider'] = $provider;
+            $input['provider_id'] = $user->getId();
+			$input['ppic']=$user->getAvatar();
+            $authUser = $this->findOrCreate($input);
+            Auth::loginUsingId($authUser->id,true);
+            if(session('redirect')==null){
+                return redirect()->route('user.profile');
+            }else{
+                return redirect(session('redirect'));
+            }
+        }catch (Exception $e) {
+
+            return redirect('user/auth/'.$provider);
+
+        }
+    }
+    public function findOrCreate($input){
+            $checkIfExist=User::where('provider',$input['provider'])
+	                           ->where('provider_id',$input['provider_id'])
+	                           ->orWhere('email',$input['email'])
+	                           ->first();
+
+            if($checkIfExist){
+                return $checkIfExist;
+            }
+            $uinput['role_id']=1;
+            $uinput['email']=$input['email'];
+            $uinput['verified']=1;
+            $uinput['active']=1;
+            $uinput['provider']=$input['provider'];
+            $uinput['provider_id']=$input['provider_id'];
+
+            $user=User::create($uinput);
+
+            if($input['ppic']){
+                $fileContents = file_get_contents($input['ppic']);
+                $name=$user->id.time().".jpg";
+                File::put(public_path() . '/uploads/user/profile_img/' .$name, $fileContents);
+                File::put(public_path() . '/uploads/user/profile_img/200x200/' .$name, $fileContents);
+            }
+
+
+            $vuser = VendorUser::create([
+                'user_id' => $user->id,
+                'fname'=>$input['fname'],
+                'lname'=>$input['lname'],
+                'profile_img'=>$name,
+            ]);
+			// dd($input,$vuser);
+
+            return $user;
+        }
 }

@@ -1,9 +1,12 @@
-@extends('layouts.public.index')
+@extends('layouts.vendor.index_auth')
 @section('content')
-<section class="signup-page-section">
+<section class="v-center w-100">
+    <div class="logo text-center pb-1">
+        <img src="{{asset('assets/public/img/logo.png')}}" style="max-width:250px;">
+    </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
+        <div class="">
+            <div class="mx-auto">
 
                 <div class="p-4">
                     @if ($errors->any())
@@ -19,7 +22,7 @@
                 <div class="signup-form">
                     <form id="register-form" method="post" action="{{route('vendor.step3')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <h3 class="color1 ">Add A Profile Image</h3>
+                        {{-- <h3 class="text-center ">Add A Profile Image</h3> --}}
                         <div class="form-group">
                             <div style="position: relative">
                                 <div class="text-center">
@@ -35,11 +38,11 @@
                                                                         ">Clear</span>
                                 </div>
                             </div>
-                        </div>    
-                        <div class="form-group">
-                            <button class="btn btn-block btn1" id="submitBtn" type="submit">Next</button>
                         </div>
-                      
+                        <div class="form-group">
+                            <button class="btn btn-block btn-primary" id="submitBtn" type="submit">Next</button>
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -49,7 +52,7 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-   
+
 
         function loadImage(input) {
             console.log(input);
@@ -72,6 +75,6 @@
             }
         }
 
-    
+
 </script>
 @endsection

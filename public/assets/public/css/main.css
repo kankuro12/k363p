@@ -1411,7 +1411,7 @@ input[type="checkbox"]:checked + label:before {
 .login-page-section, .signup-page-section {
   position: relative;
   padding: 20vh 0;
-  background: url("../img/login-back.jpg");
+  background: #0070C6;
   background-size: cover;
   background-position: center;
 }
@@ -1423,9 +1423,6 @@ input[type="checkbox"]:checked + label:before {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.4);
-  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(transparent));
-  background: linear-gradient(to bottom, #000000, transparent);
 }
 
 .login-page-section .login-form, .login-page-section .signup-form, .signup-page-section .login-form, .signup-page-section .signup-form {

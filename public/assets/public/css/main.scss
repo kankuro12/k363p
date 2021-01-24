@@ -1175,8 +1175,8 @@ input[type="checkbox"]{
 //login page
 .login-page-section,.signup-page-section{
 	position:relative;
-	padding: 20vh 0;
-	background:url('../img/login-back.jpg');
+	padding: 5vh 0;
+	background:#0070C6;
 	background-size:cover;
 	background-position: center;
 	&:before{
@@ -1186,12 +1186,12 @@ input[type="checkbox"]{
 		bottom: 0;
 		left:0;
 		right:0;
-		background: rgba(0,0,0,0.4);
-		background:linear-gradient(to bottom, $color1, transparent);
+
 	}
 	.login-form,.signup-form{
-		background-color: rgba(255,255,255,0.8);
-		padding:30px;
+		background-color: rgba(255,255,255);
+        padding:30px;
+        border-radius:5px;
 		.form-control{
 			border-radius: 0;
 			min-height:45px;

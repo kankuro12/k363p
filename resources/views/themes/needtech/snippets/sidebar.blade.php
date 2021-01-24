@@ -10,7 +10,7 @@
         }elseif(Auth::guard()->user()->role->name=='vendor'){
 
 
-            $user_text=Auth::user()->vendoruser->name;
+            $user_text=Auth::user()->vendor->name;
 
         }
     }

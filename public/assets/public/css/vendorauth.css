@@ -1,0 +1,69 @@
+.min-h-100 {
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #5a1c1c;
+  color: white;
+  position: relative;
+}
+
+.sidebar .menu {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 20px 20px 50px 0px;
+}
+
+.sidebar .menu ul {
+  list-style: none;
+  text-align: right;
+}
+
+.sidebar .menu ul li {
+  font-weight: 600;
+  color: #696969;
+}
+
+.sidebar .menu ul li.active {
+  color: white;
+}
+
+.login-page-section, .signup-page-section {
+  position: relative;
+  padding: 10vh 0;
+  background: white;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.login-page-section .login-form, .login-page-section .signup-form, .signup-page-section .login-form, .signup-page-section .signup-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.login-page-section .login-form .form-control, .login-page-section .signup-form .form-control, .signup-page-section .login-form .form-control, .signup-page-section .signup-form .form-control {
+  border-radius: 0;
+  min-height: 45px;
+  background-color: transparent;
+}
+
+.login-page-section .login-form .form-control:focus, .login-page-section .signup-form .form-control:focus, .signup-page-section .login-form .form-control:focus, .signup-page-section .signup-form .form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.login-page-section .login-form .error, .login-page-section .signup-form .error, .signup-page-section .login-form .error, .signup-page-section .signup-form .error {
+  color: red;
+}
+
+.v-center {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/*# sourceMappingURL=vendorauth.css.map */

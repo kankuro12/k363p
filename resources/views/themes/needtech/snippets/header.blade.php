@@ -11,7 +11,7 @@
         }elseif(Auth::guard()->user()->role->name=='vendor'){
             $authlink=route('vendor.dashboard');
             $authimage='<i class="fas fa-user-circle"></i>';
-            $authtext=Auth::user()->vendoruser->name;
+            $authtext=Auth::user()->vendor->name;
         }
     }
 @endphp
