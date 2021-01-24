@@ -96,19 +96,22 @@
 
     <div class="row m-0">
         <div class="col-md-6 pr-0 min-h-100 d-none d-md-block sidebar" style="" >
-            <div class="menu">
-                <ul>
-                    <li class="{{Route::is('vendor.step1')?"active":""}}">
-                        Verify User
-                    </li>
-                    <li class="{{Route::is('vendor.step2')?"active":""}}">
-                        Add Cover Photo
-                    </li>
-                    <li class="{{Route::is('vendor.step3')?"active":""}}">
-                        Add Profile Picture
-                    </li>
-                </ul>
-            </div>
+            @if (!Route::is('vendor.getLogin') && !Route::is('vendor.getRegister'))
+
+                <div class="menu">
+                    <ul>
+                        <li class="{{Route::is('vendor.step1')?"active":""}}">
+                            Verify User
+                        </li>
+                        <li class="{{Route::is('vendor.step2')?"active":""}}">
+                            Add Cover Photo
+                        </li>
+                        <li class="{{Route::is('vendor.step3')?"active":""}}">
+                            Add Profile Picture
+                        </li>
+                    </ul>
+                </div>
+            @endif
 
         </div>
         <div class="col-md-6 pl-0 min-h-100">

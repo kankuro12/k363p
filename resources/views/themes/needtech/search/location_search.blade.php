@@ -99,5 +99,16 @@
             </div>
         </div>
     </div>
-
+@else
+    <div class="text-center mt-5 pt-5">
+        <div class="text-center">
+            <img src="https://ouch-cdn.icons8.com/preview/52/3fc4ea7b-1a78-4215-be4d-e613c321ae15.png" alt="" style="max-width:300px;">
+        </div>
+        <h2>
+            Sorry! No result found :(
+        </h2>
+        <p>
+            we are sorry we cannot find what you are looking for. Please try another way.
+        </p>
+    </div>
 @endif

@@ -1,4 +1,4 @@
-<div class="owl-feature-service href" data-target="/service/data">
+<div class="owl-feature-service href" data-target="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$service->vendor->slug])}}">
     <div class="image-holder">
         <img src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
 

@@ -19,23 +19,24 @@
             <span class="h-100 city-left d-block d-md-inline">
                 <div class="dropdown">
                     <span class="dropdown-title">
-                        <span>
-                            Biratnagar
+                        @php
+                            $cities=\App\Model\Vendor\City::all();
+                            $othercities=$cities->slice(1);
+                        @endphp
+                        <span class="href" data-target="{{route('n.search')}}?location={{$cities->first()->name}}">
+                            {{$cities->first()->name}}
                         </span>
                         <span class="icon">
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </span>
                     <div class="dropdown-content">
-                        <div>
-                            Kakadvitta
-                        </div>
-                        <div>
-                            Belbari
-                        </div>
-                        <div>
-                            Biratchowk
-                        </div>
+                        @foreach ($othercities as $city)
+                            <div class="href text-right pr-5" data-target="{{route('n.search')}}?location={{$city->name}}">
+                                {{$city->name}}
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
             </span>

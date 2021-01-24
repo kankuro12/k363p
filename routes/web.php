@@ -27,6 +27,11 @@ Route::group(['prefix' => ''], function () {
             'as'=>'single_service'
             ]);
 
+        Route::get('collection/{slug}',[
+            'uses'=>'Need\HomeController@collection',
+            'as'=>'collection'
+            ]);
+
         Route::get('ajaxsearch','Need\HomeController@ajaxSearch')->name('ajaxsearch');
 
         // XXX Booking Start

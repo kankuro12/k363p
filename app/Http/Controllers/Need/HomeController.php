@@ -154,4 +154,10 @@ class HomeController extends Controller
     	return view('themes.needtech.vendor.service.index',compact('vendor','room'));
 
     }
+
+    public function collection($slug){
+        $collection=Collection::where('slug',$slug)->first();
+    	return view('themes.needtech.collection.index',compact('collection'));
+
+    }
 }

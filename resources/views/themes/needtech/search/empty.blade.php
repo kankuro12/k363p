@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{asset('assets\public\css\nouislider.css')}}">
 @endsection
 @section('content')
+    <div id="search" class="text-center pt-5 mt-5 d-none">
+        <img src="https://bestanimations.com/media/loading-gears/2074796765loading-gears-animation-3.gif" alt="">
+    </div>
     <div id="main_search">
 
     </div>
@@ -21,6 +24,7 @@
             var loc=document.getElementById('location1').value;
             // console.log(loc.length);
             document.getElementById('main_search').innerHTML="";
+            $('#search').removeClass('d-none');
             if(loc.length>2){
                 let params = new URLSearchParams('');
                 params.append('location',loc);
@@ -31,8 +35,11 @@
                     // console.log(document.getElementById('main_search'));
                     document.getElementById('main_search').innerHTML= response.data;
                     manageData();
+                    $('#search').addClass('d-none');
+
                 })
                 .catch(function(err){
+                    $('#search').addClass('d-none');
 
                 });
             }
