@@ -133,9 +133,9 @@
                                                             <div class="price">
                                                                 Rs. {{round($service->getNewPrice())}}
                                                             </div>
-                                                            {{-- <div class="desc">
+                                                            <div class="desc">
                                                                 {!!$service->description!!}
-                                                            </div> --}}
+                                                            </div>
                                                             <div class="links">
 
                                                                 <span  >
