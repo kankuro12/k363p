@@ -94,7 +94,7 @@
                     </div>
 
                     @foreach ($services as $key=>$item)
-                        <div class="section  mb-2 mb-md-3 py-3" data-aos="fade-right">
+                        <div class="section  mb-2 mb-md-3 py-3">
                             <div class="container-fluid">
                                 <div class="title">
                                     {{App\Model\Vendor\RoomType::find($key)->name}}
@@ -120,8 +120,8 @@
                                                 </div> --}}
 
 
-                                                    <div class="row m-0 single-service mb-2" data-aos="zoom-out-top">
-                                                        <div class="col-6 col-md-5 p-0" data-aos="zoom-out-right">
+                                                    <div class="row m-0 single-service mb-2" >
+                                                        <div class="col-6 col-md-5 p-0" >
                                                             <div class="image">
                                                                 <img class="w-100" src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
                                                             </div>
@@ -133,18 +133,15 @@
                                                             <div class="price">
                                                                 Rs. {{round($service->getNewPrice())}}
                                                             </div>
-                                                            <div class="desc">
+                                                            {{-- <div class="desc">
                                                                 {!!$service->description!!}
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="links">
 
-                                                                <span class="link href" data-target="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}" >
+                                                                <span  >
+                                                                    <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">View Detail</a>
+                                                                </span>
 
-                                                                    View Detail
-                                                                </span>
-                                                                <span class="link" data-target="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}" >
-                                                                    Book Now
-                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,6 +179,7 @@
                                                             {{$review->vendor_user->lname}}
                                                         </span>
                                                         <br>
+
                                                         <span style="color:#009700;">
 
                                                             <span>
@@ -198,6 +196,7 @@
                                                             </span>
 
                                                         </span>
+                                                        {{-- <span class="ml-4" style="color:#b9b9b9;font-size:0.7rem;">- {{$review->updated_at->diffForHumans()}}</span> --}}
                                                     </span>
                                                 </div>
                                                 <div class="review_body">

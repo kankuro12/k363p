@@ -680,6 +680,25 @@ body{
                         font-size:0.7rem;
                     }
                 }
+
+                .contact{
+
+                    margin: 5px 0px 0px 0px;
+                    padding: 3px 0px;
+                    .icon{
+                        padding:0.3rem;
+                        box-shadow: 0 0 3px #777777ad;
+                        border-radius: 50%;
+                        font-size:0.8rem;
+                    }
+                    .text{
+                        a{
+                            font-size:0.8rem ;
+                            font-weight: 600 ;
+                            color:#0f0191;
+                        }
+                    }
+                }
             }
 
         }
