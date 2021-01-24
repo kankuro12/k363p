@@ -63,10 +63,6 @@
                             </div>
                         </div>
 
-
-
-
-
                         <div class="form-group">
                             <input type="checkbox" name="agreetc" id="agreetc" value="1">
                         <label for="agreetc" class="color-secondary">I agree to the <a href="{{route('public.term_and_condition')}}" class="color-primary">Terms and conditions</a></label>

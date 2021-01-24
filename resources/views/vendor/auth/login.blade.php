@@ -11,7 +11,7 @@
                     <form id="login-form" class="log-form" method="post" action="{{route('vendor.postLogin')}}">
                         @csrf
                         <div id="statusBox"></div>
-                        <h3 class="color1 mb-4">Login</h3>
+                        <h3 class="mb-4 text-center">Login</h3>
                         <div class="form-group">
                             <input type="email" name="email" class="form-control" placeholder="E-mail">
                         </div>

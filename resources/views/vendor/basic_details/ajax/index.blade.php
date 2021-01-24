@@ -48,7 +48,7 @@
         <form id="basic-details-form" method="post" action="{{route('vendor.post_basic_details')}}">
           <input type="hidden" name="category_id" required="" value="{{$vendor->category_id}}">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" class="form-control border-input" placeholder="Vendor Name" value="{{$vendor->name}}" name="vname">
@@ -122,15 +122,23 @@
                     </div>
                 </div>
 
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Average Cost(in Rs.)</label>
-                          <input type="text" class="form-control border-input" placeholder="Average Cost" name="average_cost" value="{{$vendor->average_cost}}">
-                      </div>
-                  </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>City</label>
+                        <select name="city_id" id="city" class="form-control">
+                          <option value="">Select City</option>
+
+                          @foreach(\App\Model\Vendor\City::all() as $city)
+                            <option value="{{$city->id}}" {{$vendor->location->city_id==$city->id?'selected':''}} >{{$city->name}}</option>
+                          @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
               </div>
               <div class="row">
-                  <div class="col-md-4">
+                  {{-- <div class="col-md-4">
                       <div class="form-group">
                           <label>Country</label>
                           <select name="country_id" class="form-control" id="country">
@@ -144,8 +152,8 @@
                             @endforeach
                           </select>
                       </div>
-                  </div>
-                  <div class="col-md-4">
+                  </div> --}}
+                  {{-- <div class="col-md-4">
                       <div class="form-group">
                           <label>State</label>
                           <select name="state_id" id="state" class="form-control">
@@ -160,8 +168,8 @@
                             @endif
                           </select>
                       </div>
-                  </div>
-                  <div class="col-md-4">
+                  </div> --}}
+                  {{-- <div class="col-md-4">
                       <div class="form-group">
                           <label>City</label>
                           <select name="city_id" id="city" class="form-control">
@@ -173,18 +181,18 @@
                             @endif
                           </select>
                       </div>
-                  </div>
+                  </div> --}}
               </div>
               <div class="form-group">
-                  <label for="pwd">Map:</label>
+                  <label for="pwd">Street Address:</label>
                   <input type="text" id="searchMap" class="form-control" name="location_name" value="{{$vendor->location->name}}">
-                  <div class="card">
+                  {{-- <div class="card">
                     <div class="card-body">
                       <div id="map-canvas"></div>
                     </div>
-                  </div>
+                  </div> --}}
               </div>
-              <div class="row">
+              {{-- <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
                           <label for="title">Lat:</label>
@@ -197,7 +205,7 @@
                           <input type="text" class="form-control" id="lng" name="lng" value="{{$vendor->location->lng}}" readonly="">
                       </div>
                   </div>
-              </div>
+              </div> --}}
 
             <div class="row">
                 <div class="col-md-12">
@@ -273,15 +281,7 @@
              average_cost:{
               required:true
              },
-             facebook_url: {
-                url: true
-             },
-             twitter_url: {
-                 url:true
-             },
-             instagram_url:{
-              url:true
-             },
+
 
              description:{
                 required:true
@@ -317,10 +317,7 @@
               star:{
                 required:"Please select star"
               },
-              facebook_url: "Please provide your facebook url",
-              twitter_url: "Please provide your twitter url",
-              instagram_url: "Please provide your instagram url",
-              tripadvisor_url: "Please provide your tripadvisor url",
+
 
           },
           errorPlacement: function(error, element){
@@ -484,62 +481,62 @@
             }
         });
     }
-    $(document).on('change','#country',function(){
-      var country_id=$(this).val();
-      $("#state").empty();
-      $("#city").empty();
-      generateState(country_id);
-    });
-    $(document).on('change','#state',function(){
-      var state_id=$(this).val();
-      generateCity(state_id);
-    });
-    function generateState(cid){
-        $.ajax({
-            type: "get",
-            url: "/country/"+cid+"/states",
-            cache: false,
-            dataType: 'json',
-            beforeSend: function() {
-                // $("body").addClass('loading');
-            },
-            success: function (data){
-                // $("body").removeClass('loading');
-                $("#state").empty();
-                $('#state').append($('<option>',{value:' ', text:'Select State'}));
+    // $(document).on('change','#country',function(){
+    //   var country_id=$(this).val();
+    //   $("#state").empty();
+    //   $("#city").empty();
+    //   generateState(country_id);
+    // });
+    // $(document).on('change','#state',function(){
+    //   var state_id=$(this).val();
+    //   generateCity(state_id);
+    // });
+    // function generateState(cid){
+    //     $.ajax({
+    //         type: "get",
+    //         url: "/country/"+cid+"/states",
+    //         cache: false,
+    //         dataType: 'json',
+    //         beforeSend: function() {
+    //             // $("body").addClass('loading');
+    //         },
+    //         success: function (data){
+    //             // $("body").removeClass('loading');
+    //             $("#state").empty();
+    //             $('#state').append($('<option>',{value:' ', text:'Select State'}));
 
-                $.each(data, function(index, state) {
-                    $('#state').append($('<option>',{value:state.id, text:state.name}));
-                });
-            },
-            error:function(data){
-                console.log(data);
-            }
-        });
-    }
-    function generateCity(cid){
-        $.ajax({
-            type: "get",
-            url: "/state/"+cid+"/cities",
-            cache: false,
-            dataType: 'json',
-            beforeSend: function() {
-                //$("body").addClass('loading');
-            },
-            success: function (data){
-                //$("body").removeClass('loading');
-                $("#city").empty();
-                $('#city').append($('<option>',{value:' ', text:'Select City'}));
+    //             $.each(data, function(index, state) {
+    //                 $('#state').append($('<option>',{value:state.id, text:state.name}));
+    //             });
+    //         },
+    //         error:function(data){
+    //             console.log(data);
+    //         }
+    //     });
+    // }
+    // function generateCity(cid){
+    //     $.ajax({
+    //         type: "get",
+    //         url: "/state/"+cid+"/cities",
+    //         cache: false,
+    //         dataType: 'json',
+    //         beforeSend: function() {
+    //             //$("body").addClass('loading');
+    //         },
+    //         success: function (data){
+    //             //$("body").removeClass('loading');
+    //             $("#city").empty();
+    //             $('#city').append($('<option>',{value:' ', text:'Select City'}));
 
-                $.each(data, function(index, state) {
-                    $('#city').append($('<option>',{value:state.id, text:state.name}));
-                });
-            },
-            error:function(data){
-                console.log(data);
-            }
-        });
-    }
+    //             $.each(data, function(index, state) {
+    //                 $('#city').append($('<option>',{value:state.id, text:state.name}));
+    //             });
+    //         },
+    //         error:function(data){
+    //             console.log(data);
+    //         }
+    //     });
+    // }
 
 </script>
 <script type="text/javascript">
