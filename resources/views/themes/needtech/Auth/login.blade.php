@@ -1,6 +1,6 @@
 @extends('themes.needtech.layout')
 @section('meta')
-    <meta name="theme-color" content="#ED2A24" />
+    <meta name="theme-color" content="#c22319" />
 @endsection
 @section('subtitle',"Login")
 @section('styles')
@@ -26,7 +26,7 @@
                             <div class=" text-center bg-white py-3">
                                 <img src="{{asset('assets/public/img/logo.png')}}" style="max-width:100%;">
                                 <br>
-                                <h3 style="color:#ED2A24;font-weight:700">
+                                <h3 style="color:#c22319;font-weight:700">
                                     Login
                                 </h3>
                             </div>

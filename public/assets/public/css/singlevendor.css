@@ -275,7 +275,7 @@ body {
 .vendor-main .section .body .single-service .link a {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #ED2A24;
+  color: #c22319;
 }
 
 .vendor-main .section .body .review::last-of-type {
@@ -341,7 +341,7 @@ body {
 }
 
 .vendor-main .section .body .pricing .new {
-  color: #ED2A24;
+  color: #c22319;
   font-weight: 600;
 }
 
@@ -413,7 +413,7 @@ body {
   .vendor-main .section .body .single-service .link a {
     font-weight: 700;
     font-size: 0.9rem;
-    color: #ED2A24;
+    color: #c22319;
   }
 }
 
@@ -524,7 +524,7 @@ body {
   .vendor-main .section .body .single-service .link a {
     font-weight: 700;
     font-size: 0.9rem;
-    color: #ED2A24;
+    color: #c22319;
   }
   .vendor-main .section .body .review .review_title {
     font-weight: 500;

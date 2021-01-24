@@ -1,7 +1,7 @@
 @extends('themes.needtech.layout')
 @section('subtitle',"Checkout - ".$room->name)
 @section('meta')
-    <meta name="theme-color" content="#ED2A24" />
+    <meta name="theme-color" content="#c22319" />
 @endsection
 @section('styles')
 

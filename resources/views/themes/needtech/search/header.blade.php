@@ -64,7 +64,7 @@
 @if(!Route::is('n.search') )
     <style>
         .mobile-other-header{
-            background:#ED2A24;
+            background:#c22319;
             color:white;
         }
         .btn-back{
@@ -81,7 +81,7 @@
 
         }
     </style>
-    <div class="d-block d-lg-none mobile-other-header p-2" style="background:@yield('subtitle_color','#ED2A24') !important;">
+    <div class="d-block d-lg-none mobile-other-header p-2" style="background:@yield('subtitle_color','#c22319') !important;">
         <div class="d-flex justify-content-between">
             <span>
                 <button class="btn btn-back py-0 px-2" onclick="goBack()">

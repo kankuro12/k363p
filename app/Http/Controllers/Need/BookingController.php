@@ -182,7 +182,7 @@ class BookingController extends Controller
 
         //send mail to vendor
         $notification['title']=$request->fname." ".$request->lname." has booked your room ";
-        $notification['detail']=$$request->fname." ".$request->lname." has booked your room at ".$booking->created_at;
+        $notification['detail']=$request->fname." ".$request->lname." has booked your room at ".$booking->created_at;
         $notification['link']='';
         $notification['id']=$booking->booking_id;
         $notification['data']='';

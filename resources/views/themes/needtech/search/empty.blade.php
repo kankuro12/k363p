@@ -1,6 +1,6 @@
 @extends('themes.needtech.layout')
 @section('meta')
-    <meta name="theme-color" content="#ED2A24" />
+    <meta name="theme-color" content="#c22319" />
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('assets\public\css\search\location.css')}}">

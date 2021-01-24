@@ -1,5 +1,5 @@
 .mobile-search-header {
-  background: #ED2A24;
+  background: #c22319;
   z-index: 22;
   padding: 5px;
 }
@@ -43,7 +43,7 @@
           flex-grow: 1;
   border: none;
   padding: 5px 10px;
-  caret-color: #ED2A24;
+  caret-color: #c22319;
 }
 
 .mobile-search-header .search-top .input-holder .input-min-holder .input .focus {
@@ -52,7 +52,7 @@
 
 .mobile-search-header .search-top .input-holder .input-min-holder .close {
   padding: 9px 9px 9px 0px;
-  color: #ED2A24;
+  color: #c22319;
   font-weight: 500;
   font-size: 1rem;
   opacity: 1;
@@ -246,7 +246,7 @@
 .search-main .results .all-vendors .single-vendor .service .link a {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #ED2A24;
+  color: #c22319;
 }
 
 .search-main .results .all-vendors .single-vendor .title {
@@ -304,7 +304,7 @@
 }
 
 .search-main .results .mobile-filter-page .clear {
-  color: #ED2A24;
+  color: #c22319;
   font-size: 0.9rem;
   font-weight: 700;
   display: contents;
@@ -347,7 +347,7 @@
 }
 
 .search-main .results .mobile-filter-page .apply-filter {
-  background: #ED2A24;
+  background: #c22319;
   position: fixed;
   bottom: -100vh;
   width: calc(100% - 60px);
