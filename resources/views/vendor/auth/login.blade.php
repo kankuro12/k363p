@@ -1,7 +1,7 @@
 @extends('layouts.vendor.index_auth')
 @section('content')
-<div class="login-page-section">
-    <div class="logo text-center pb-4">
+<div class="v-center w-100">
+    <div class="logo text-center pb-1">
         <img src="{{asset('assets/public/img/logo.png')}}" style="max-width:250px;">
     </div>
     <div class="container">
