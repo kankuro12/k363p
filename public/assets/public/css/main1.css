@@ -175,6 +175,7 @@
 .primary-header .h-right .language .icon {
   font-size: 35px;
   padding-right: 10px;
+  max-height: 50px;
 }
 
 .primary-header .h-right .language .small-icon {
@@ -197,6 +198,8 @@
 .primary-header .h-right .signup .icon {
   font-size: 35px;
   padding-right: 10px;
+  max-height: 50px;
+  overflow: hidden;
 }
 
 .primary-header .h-right .signup:hover {
@@ -424,6 +427,13 @@
   font-size: 30px;
 }
 
+.secondary-header .menublock .signup .icon {
+  font-size: 30px;
+  max-height: 50px;
+  overflow: hidden;
+  display: inline-block;
+}
+
 .secondary-header .menublock .search {
   font-size: 1.3rem;
   padding-right: 0.3rem;
@@ -436,6 +446,8 @@
 
 .secondary-header .menublock .language .icon {
   font-size: 30px;
+  max-height: 50px;
+  overflow: hidden;
 }
 
 .secondary-header .menublock .language .sup {

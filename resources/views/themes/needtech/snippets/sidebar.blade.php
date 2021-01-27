@@ -51,6 +51,8 @@
         </div>
 
         <div class="menuitem">
+            <div class="header"><a href="{{route('n.home')}}">Home</a></div>
+            <div class="header"><a href="{{route('n.search')}}">Search</a></div>
             <div class="header">Account</div>
             @if(Auth::check())
                 <div class="text ">

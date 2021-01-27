@@ -11,7 +11,7 @@
         </span></a>
     </li>
     <li class="list-group-item {{ (Request::is('user/reviews*') ? ' active' : '') }}">
-        <a href="{{route('user.reviews')}}"><i class="ion-android-chat"></i> Reviews</a>
+        <a href="{{route('n.user.reviews')}}"><i class="ion-android-chat"></i> Reviews</a>
     </li>
     <li class="list-group-item {{ (Request::is('user/favourites*') ? ' active' : '') }}">
         <a href="{{route('user.favourites')}}"><i class="ion-heart"></i> Favourites</a>

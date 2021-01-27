@@ -5,8 +5,8 @@
         <div  class="owl-carousel owl-services service-container" id="vendor_{{$vendor->id}}">
             @foreach ($vendor->services as $service)
                 <div  class="service" data-price="{{$service->getNewPrice()}}" data-type="{{$service->roomtype_id}}">
-                    <div class="image">
-                        <img src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
+                    <div class="image" style="max-height:130px;overflow:hidden;">
+                        <img  src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
                         <div class="description">
                             <div class="name">
                                 {{$service->name}} | Rs. {{round($service->getNewPrice())}}
@@ -15,14 +15,14 @@
                     </div>
 
                     <div class="link">
-                        <a href="">Book Now</a>
+                        <a href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">{{$service->roomtype->name}} View Detail</a>
                     </div>
 
                 </div>
             @endforeach
         </div>
         <div>
-            <div class="title ">
+            <div class="title d-block d-md-inline">
                 <span>
                     {{$vendor->name}}
                 </span>
@@ -32,13 +32,13 @@
             @php
                 $rating=$vendor->average_review();
             @endphp
-            <div class="subtitle ">
+            <div class="subtitle d-block d-md-inline">
                 <span>
                     {{$vendor->location->name??"NA"}}
                 </span>
 
             </div>
-            <div class="subtitle " style="font-weight:700;">
+            <div class="subtitle d-block d-md-inline" style="font-weight:700;">
                 <span >
                     <a href="{{route('n.single_vendor',['slug'=>$vendor->slug])}}">View Detail</a>
                 </span>

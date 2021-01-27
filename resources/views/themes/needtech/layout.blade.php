@@ -175,6 +175,7 @@ aria-hidden="true">
 
  <script type="text/javascript" src="{{asset('assets/public/js/main1.js')}}"></script>
  <script type="text/javascript" src="{{asset('assets/public/js/sidebar.js')}}"></script>
+ <script type="text/javascript" src="{{asset('assets/public/js/rating.js')}}"></script>
  {{-- <script type="text/javascript" src="{{asset('assets/public/js/search.js')}}"></script> --}}
 
 {{-- <script type="text/javascript" src="js/main1.js"></script> --}}

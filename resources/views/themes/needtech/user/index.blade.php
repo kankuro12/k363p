@@ -43,7 +43,7 @@
                                 $states=\App\Model\Vendor\State::all();
                                 $cities=\App\Model\Vendor\City::all();
                             @endphp
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Country</label>
                                 <select name="country_id" id="country" class="form-control">
                                     <option value="">Select country</option>
@@ -67,7 +67,7 @@
                                     @endforeach
 
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>City</label>
                                 <select name="city_id" id="city" class="form-control">

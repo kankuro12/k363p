@@ -2,6 +2,10 @@ body {
   color: #061639;
 }
 
+.rating {
+  font-size: 2rem;
+}
+
 .dashboard-banner {
   height: 300px;
   position: relative;
@@ -286,21 +290,21 @@ body {
 
 .booking {
   border-left: 1px solid #f1f1f1;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .booking .title {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .booking .vendor {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
 .booking .section-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -329,6 +333,35 @@ body {
   .dashboard-notification .text {
     font-size: 0.8rem;
     padding-left: 0px;
+  }
+  .booking {
+    border-left: 1px solid #f1f1f1;
+    padding: 0.5rem 0.5rem;
+  }
+  .booking .title {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .booking .vendor {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .booking .section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .booking .section-text {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding-left: 15px;
+  }
+  .booking .btn-sm {
+    padding: 0px;
+    border: none;
+    background: transparent !important;
+    color: #FE7768;
+    font-weight: 500;
+    margin: auto;
   }
 }
 /*# sourceMappingURL=userdashboard.css.map */

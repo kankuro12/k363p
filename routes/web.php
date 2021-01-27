@@ -60,6 +60,7 @@ Route::group(['prefix' => ''], function () {
                 Route::match(['get', 'post'],'logout','Need\UserController@logout')->name('logout');
                 Route::match(['get', 'post'],'changepic','Need\UserController@changePic')->name('changepic');
                 Route::match(['get', 'post'],'updateprofile','Need\UserController@updateProfile')->name('updateprofile');
+                Route::match(['get', 'post'],'reviews','Need\UserController@reviews')->name('reviews');
 
                 Route::group(['prefix' => 'booking'], function () {
 					route::get('','Need\UserController@booking')->name('booking');

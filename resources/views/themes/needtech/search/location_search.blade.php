@@ -1,7 +1,6 @@
-@if (count($all)>0)
 
 
-    <div class="search-main">
+    <div class="search-main ">
         <div class="row m-0">
             <div class="col-md-3">
 
@@ -17,7 +16,7 @@
                         </span>
                     </div>
                     <div class="divider mt-2"></div>
-                    @if (($min!=null && $max!=null) && ($min!=0 && $max!=0))
+
                         <div class="d-flex justify-content-between price-filter-view">
                             <span>
 
@@ -42,8 +41,7 @@
                         </div>
                         <div class="divider mt-2"></div>
 
-                    @endif
-                    @if (!$hasservice)
+
 
                     <div class="services">
                         <div class="title">
@@ -52,7 +50,7 @@
                         @foreach (\App\Model\Vendor\RoomType::all() as $service)
                             <span class="service-item">
 
-                                <input type="checkbox" onchange="roomType()" class="serviceType" value="{{$service->id}}" {{Request::has('service')?(Request::get('service')==$service->id?"checked":""):""}}>
+                                <input  type="checkbox" onchange="inputcheck=true;ajaxSearch(0);" class="serviceType" value="{{$service->id}}" {{$hasservice?(in_array($service->id,$services)?"checked":""):""}}>
                                 <span class="service-name">
                                     {{$service->name}}
                                 </span>
@@ -60,7 +58,7 @@
                         @endforeach
                     </div>
                     {{-- <div class="divider mt-2"></div> --}}
-                    @endif
+
                     {{-- <div class="services">
                         <div class="title">
                             Options
@@ -78,37 +76,41 @@
             </div>
             <div class="col-md-9 p-0">
 
-                <div class="results">
-                    <div class="mini-filters d-none d-md-flex">
-                        <span class="sort-by-text">
-                            Sort By :
-                        </span>
-                        <select  id="sort-by">
-                            <option value="name">name</option>
-                            <option value="name">rating</option>
-                            <option value="name">price</option>
-                        </select>
+
+                    <div class="results {{count($all)>0?"":"d-none"}}">
+                        {{-- <div class="mini-filters d-none d-md-flex">
+                            <span class="sort-by-text">
+                                Sort By :
+                            </span>
+                            <select  id="sort-by">
+                                <option value="name">name</option>
+                                <option value="name">rating</option>
+                                <option value="name">price</option>
+                            </select>
+                        </div> --}}
+                        {{-- <div class="divider d-none d-md-block"></div> --}}
+
+
+                            @include('themes.needtech.search.vendor')
+                            @include('themes.needtech.search.mobile_footer')
+
                     </div>
-                    <div class="divider d-none d-md-block"></div>
+                    <div class="text-center mt-5 pt-5 {{count($all)>0?"d-none":"d-block"}}">
+                        <div class="text-center">
+                            <img src="https://ouch-cdn.icons8.com/preview/52/3fc4ea7b-1a78-4215-be4d-e613c321ae15.png" alt="" style="max-width:300px;">
+                        </div>
+                        <h2>
+                            Sorry! No result found :(
+                        </h2>
+                        <p>
+                            we are sorry we cannot find what you are looking for. Please try another way.
+                        </p>
+                    </div>
 
 
-                        @include('themes.needtech.search.vendor')
-                        @include('themes.needtech.search.mobile_footer')
-
-                </div>
             </div>
         </div>
     </div>
-@else
-    <div class="text-center mt-5 pt-5">
-        <div class="text-center">
-            <img src="https://ouch-cdn.icons8.com/preview/52/3fc4ea7b-1a78-4215-be4d-e613c321ae15.png" alt="" style="max-width:300px;">
-        </div>
-        <h2>
-            Sorry! No result found :(
-        </h2>
-        <p>
-            we are sorry we cannot find what you are looking for. Please try another way.
-        </p>
-    </div>
-@endif
+
+
+

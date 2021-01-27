@@ -74,6 +74,13 @@
             .header{
                 font-size: 1.1rem;
                 font-weight:700;
+                color:#061639;
+                a{
+                    font-size: 1.1rem;
+                    font-weight:600;
+                    text-decoration:none;
+                    color:#061639;
+                }
             }
             .text{
                 font-size: 0.9rem;
@@ -85,6 +92,8 @@
                     font-weight:600;
                     padding-left:10px;
                     color:#061639;
+                    text-decoration:none;
+
                 }
 
             }

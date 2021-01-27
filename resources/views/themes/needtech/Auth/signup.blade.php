@@ -43,20 +43,20 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="fname">First Name</label>
-                                                    <input type="text" autocomplete="false" minlength="10" name="fname" id="fname"  class="form-control " placeholder="Enter First Name" required>
+                                                    <input type="text" autocomplete="false" minlength="2" name="fname" id="fname"  class="form-control " placeholder="Enter First Name" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lname">Last Name</label>
-                                                    <input type="text" autocomplete="false" minlength="10" name="lname" id="lname"  class="form-control " placeholder="Enter Last Name" required >
+                                                    <input type="text" autocomplete="false" minlength="2" name="lname" id="lname"  class="form-control " placeholder="Enter Last Name" required >
                                                 </div>
 
                                             </div>
                                         </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" autocomplete="false" minlength="10" name="email" id="email"  class="form-control " placeholder="Enter Email Address" >
+                                        <input type="email" autocomplete="false" minlength="5" name="email" id="email"  class="form-control " placeholder="Enter Email Address" >
                                     </div>
                                     <div class="form-group">
                                         <input type="checkbox"  id="t$c" name="tc" required> T$C link

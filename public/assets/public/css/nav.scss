@@ -30,6 +30,7 @@ $p-text-color: rgb(34, 34, 34);
             .icon {
                 font-size: 35px;
                 padding-right: 10px;
+                max-height:50px;
             }
             .small-icon {
                 padding-left: 5px;
@@ -54,6 +55,7 @@ $p-text-color: rgb(34, 34, 34);
             .icon {
                 font-size: 35px;
                 padding-right: 10px;
+                max-height:50px;overflow: hidden;
             }
         }
 
@@ -255,6 +257,12 @@ $p-text-color: rgb(34, 34, 34);
 
         .signup {
             font-size: 30px;
+            .icon {
+                font-size: 30px;
+                max-height:50px;
+                overflow: hidden;
+                display:inline-block;
+            }
             // padding: 0rem 0rem 0rem 0.5rem;
         }
         .search {
@@ -268,6 +276,8 @@ $p-text-color: rgb(34, 34, 34);
 
             .icon {
                 font-size: 30px;
+                max-height:50px;
+                overflow: hidden;
             }
             .sup {
                 position: absolute;

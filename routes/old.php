@@ -127,7 +127,7 @@ Route::group(['prefix'=>'user','middleware'=>'guest'],function(){
 	Route::get('auth/{provider}', 'User\Auth\LoginController@redirect');
 	Route::get('auth/{provider}/callback', 'User\Auth\LoginController@callback');
 });
-Route::group(['prefix'=>'user','middleware'=>['authen','type'],'type'=>['user']],function(){
+Route::group(['prefix'=>'old\user','middleware'=>['authen','type'],'type'=>['user']],function(){
 	Route::get('logout',[
 		'uses'=>'User\Auth\LoginController@getLogout',
 		'as'=>'user.getLogout'

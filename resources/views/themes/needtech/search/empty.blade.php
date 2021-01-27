@@ -10,6 +10,17 @@
     <div id="search" class="text-center pt-5 mt-5 d-none">
         <img src="https://bestanimations.com/media/loading-gears/2074796765loading-gears-animation-3.gif" alt="">
     </div>
+    <div id="meta-search" class="text-center mt-5 pt-5">
+        <div class="text-center">
+            <img src="https://ouch-cdn.icons8.com/preview/52/3fc4ea7b-1a78-4215-be4d-e613c321ae15.png" alt="" style="max-width:300px;">
+        </div>
+        <h2>
+            Sorry! No result :(
+        </h2>
+        <p>
+           Please Enter 3 or more letters to search.
+        </p>
+    </div>
     <div id="main_search">
 
     </div>
@@ -18,36 +29,101 @@
     <script src="{{asset('assets\public\js\nouislider.js')}}"></script>
     <script>
 
-        var pricerange;
+        var first=true;
+        var inputcheck=false;
+        var historyloc='';
         var services=[];
-        function ajaxSearch(){
+        @if(isset($all['service']))
+            // @php
+            //     dd($all['service']);
+            // @endphp
+            @if($all['service'][0]!=null)
+                var services={!! json_encode($all['service']) !!};
+            @endif
+        @endif
+
+        var pricerange;
+
+
+        window.addEventListener('popstate', function (event) {
+            state=event.state;
+            console.log('state');
+            historyloc=state.location;
+            services=state.s;
+            inputcheck=true;
+            $('#location1').val(historyloc);
+            $('#mob-search-input').val(historyloc);
+            ajaxSearch(3,2);
+        });
+        function ajaxSearch(minl=3,type=1){
             var loc=document.getElementById('location1').value;
             // console.log(loc.length);
-            document.getElementById('main_search').innerHTML="";
-            $('#search').removeClass('d-none');
-            if(loc.length>2){
+
+
+            if(loc.length>=minl){
+
                 let params = new URLSearchParams('');
-                params.append('location',loc);
+                if(type==1){
+
+                    params.append('location',loc);
+                    if(first==true){
+                        services.forEach(element => {
+                            params.append('service[]',element);
+                        });
+                        first=false;
+                    }else{
+                        services=[];
+                        $('.serviceType').each(function(){
+                            if(this.checked){
+                                services.push(this.value);
+                                params.append('service[]',this.value);
+                            }
+                        })
+                    }
+                }else{
+                    params.append('location',historyloc);
+                    services.forEach(element => {
+                            params.append('service[]',element);
+                    });
+                }
+
                 // alert(params.toString());
+                $('#search').removeClass('d-none');
+                $('#meta-search').addClass('d-none');
+                $('#main_search').addClass('d-none');
+                if(!inputcheck && !first){
+                    history.pushState({location:loc,s:services}, 'Title of the page', '{{route("n.search")}}?'+params.toString());
+                }
+
+                // document.getElementById('main_search').innerHTML="";
                 axios.get('{{route("n.ajaxsearch")}}?'+params.toString())
                 .then(function(response){
                     // console.log(response.data);
                     // console.log(document.getElementById('main_search'));
+                    document.getElementById('main_search').innerHTML= "";
+                    $('#main_search').removeClass('d-none');
                     document.getElementById('main_search').innerHTML= response.data;
                     manageData();
                     $('#search').addClass('d-none');
-
+                    if(inputcheck==true){
+                        inputcheck=false;
+                    }
                 })
                 .catch(function(err){
                     $('#search').addClass('d-none');
+                    if(inputcheck==true){
+                        inputcheck=false;
+                    }
 
                 });
+            }else{
+                $('#meta-search').removeClass('d-none');
             }
         }
 
         function checkSearch(){
             mob_searchstr=$('#mob-search-input').val().toLowerCase();
-            console.log('Search mobile','parameter:',mob_searchstr);
+            // console.log('Search mobile','parameter:',mob_searchstr);
             if(mob_searchstr.length>0){
                 $('#clear-mobile-search').removeClass('d-none');
 
@@ -58,12 +134,12 @@
         }
 
         function openFilterPage(){
-            console.log('hello');
+            // console.log('hello');
             $('.mobile-filter-page').addClass('mobile-filter-page-show');
             $('.apply-filter').addClass('apply-filter-show');
         }
         function closeFilterPage(){
-            console.log('hello');
+            // console.log('hello');
             $('.mobile-filter-page').removeClass('mobile-filter-page-show');
             $('.apply-filter').removeClass('apply-filter-show');
 
@@ -96,14 +172,14 @@
                     params.append('service[]',this.value);
                 }
             });
-            console.log(params,params.toString());
+            // console.log(params,params.toString());
         }
         checkSearch();
 
 
 
         function filter(){
-            console.log('filter started',services,pricerange);
+            // console.log('filter started',services,pricerange);
             if(pricerange!=undefined ){
                 // console.log(v);
 
@@ -141,7 +217,7 @@
                             $(this.parentNode).removeClass('d-none');
 
                         }
-                        console.log(i,k);
+                        // console.log(i,k);
 
                     });
             }
@@ -155,7 +231,7 @@
                     services.push($(this).val());
                 }
             });
-            console.log(services);
+            // console.log(services);
             filter();
         }
 
@@ -167,7 +243,7 @@
                     services.push($(this).val());
                 }
             });
-            console.log(services);
+            // console.log(services);
             filter();
         }
 
@@ -177,7 +253,7 @@
 
                 var count=$(this).children().length;
                 id=$(this).attr('id');
-                console.log("#id",id);
+                // console.log("#id",id);
                 c=$('#'+id).owlCarousel({
                     items:1,
                     navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],

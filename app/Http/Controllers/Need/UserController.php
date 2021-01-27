@@ -112,4 +112,30 @@ class UserController extends Controller
         $user=VendorUser::where('user_id',$user->id)->firstOrFail();
         return view('themes.needtech.user.notification.index',['notifications'=>$data,'user'=>$user]);
     }
+
+    public function reviews(Request $request){
+        if($request->getMethod()=="POST"){
+            $user=Auth::user();
+            $user=VendorUser::where('user_id',$user->id)->firstOrFail();
+
+            $user->reviews()->create([
+                'review_title'=>$request->review_title??'',
+                'review_description'=>$request->review_description,
+                'clean'=>$clean=$request->clean??0,
+                'food'=>$food=$request->food??0,
+                'comfort'=>$comfort=$request->comfort??0,
+                'facility'=>$facility=$request->facility??0,
+                'sbehaviour'=>$sbehaviour=$request->staff_behaviour??0,
+                'vendor_id'=>$request->vendor_id,
+                'booking_id'=>$request->booking_id,
+                'avg_rating'=>$request->rating,
+            ]);
+            return redirect()->back();
+        }else{
+            $user=Auth::user();
+            $reviews=$user->vendoruser->reviews;
+            $to_reviewed=$user->vendoruser->bookings()->where('bookings.booking_status','completed')->whereDoesntHave('review')->get();
+            return view('themes.needtech.user.reviews.index',compact('user','reviews','to_reviewed'));
+        }
+    }
 }

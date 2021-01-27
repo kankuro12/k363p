@@ -11,7 +11,12 @@
                 <span class="location">
                     <div class="d-flex" style="position:relative">
                         <span class="input ">
-                            <input type="text" autocomplete="off" oninput="$('#mob-search-input').val(this.value);ajaxSearch();"
+                            <input type="text" autocomplete="off" oninput="
+                                $('#mob-search-input').val(this.value);
+                                if(!inputcheck){
+                                    ajaxSearch();
+                                }
+                            "
 
                                 placeholder="Search By City or Neighbourhood" id="location1" name="location"
                                 required class="search-location" data-url="{{route('n.location.search')}}" data-target="#target1" value="{{ Request::get("location") ??"" }}">

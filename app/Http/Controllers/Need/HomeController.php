@@ -55,14 +55,15 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-
-        return view('themes.needtech.search.empty');
+        // dd($request->all());
+        return view('themes.needtech.search.empty',['all'=>$request->all()]);
     }
 
     public function ajaxSearch(Request $request){
         // dd($request);
         $location=$request->location;
-        $service=$request->service;
+
+        // dd($service);
         $vendors =Vendor::where('verified',1);
         $all=$request->all();
 
@@ -78,17 +79,19 @@ class HomeController extends Controller
 
         $v=$vendors->get();
 
-        // dd($v);
-        $pricemax=[];
-        $pricemin=[];
+
         // dd($v);
         $all=[];
-        $hasservice=false;
+        $hasservice=$request->filled('service');
         foreach($v as $vendor){
             $items=Room::where('vendor_id',$vendor->id);
-            if($request->filled('service')){
-                $hasservice=true;
-                $items=$items->where('roomtype_id',$service);
+            if($hasservice){
+                $service=$request->service;
+                if(count($service)>0){
+
+                    $items=$items->whereIn('roomtype_id',$service);
+                }
+
             }
             if($request->filled('pricerange')){
                 $items=$items->whereBetween('(price ', $request->pricerange);
@@ -96,23 +99,25 @@ class HomeController extends Controller
 
 
 
-            array_push($pricemax,$items->max('price'));
-            array_push($pricemin,$items->min('price'));
+
             if($items->count()>0){
                 $vendor->services=$items->get();
                 array_push($all,$vendor);
             }
         }
 
-        if(count($pricemin)==0 && count($pricemax)==0){
+        $pricemin=0;
+        $pricemax=Room::max('price');
+        if($pricemin==0 && $pricemax==0){
             $min=0;
             $max=0;
         }else{
 
-            $min=min($pricemin);
-            $max=max($pricemax);
+            $min=$pricemin;
+            $max=$pricemax;
         }
 
+        // dd($min,$max,$pricemin,$pricemax);
         if($request->filled('valmin')){
             $valmin=$request->valmin;
         }else{
@@ -123,11 +128,15 @@ class HomeController extends Controller
         }else{
             $valmax=$max;
         }
+        $services=[];
+        if($hasservice){
 
+            $services=$request->service;
+        }
         // dd(compact('hasservice','valmin','valmax','min','max','all'));
         // dd($v,$all);
 
-        return view('themes.needtech.search.location_search',compact('hasservice','valmin','valmax','min','max','all'));
+        return view('themes.needtech.search.location_search',compact('services','hasservice','valmin','valmax','min','max','all'));
     }
 
     public function single_vendor($slug){

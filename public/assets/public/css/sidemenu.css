@@ -92,6 +92,14 @@
 .sidebar .menu .menuitem .header {
   font-size: 1.1rem;
   font-weight: 700;
+  color: #061639;
+}
+
+.sidebar .menu .menuitem .header a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #061639;
 }
 
 .sidebar .menu .menuitem .text {
@@ -106,6 +114,7 @@
   font-weight: 600;
   padding-left: 10px;
   color: #061639;
+  text-decoration: none;
 }
 
 .extended {

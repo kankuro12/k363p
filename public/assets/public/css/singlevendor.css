@@ -197,6 +197,96 @@ body {
   display: inline-block;
 }
 
+.vendor-main .single-service {
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid #d2d2d2;
+}
+
+.vendor-main .single-service .image {
+  overflow: hidden;
+  position: relative;
+}
+
+.vendor-main .single-service .service-description {
+  padding: 5px 20px;
+  font-size: 1rem;
+}
+
+.vendor-main .single-service .service-description .name {
+  padding-top: 5px;
+  font-weight: 700;
+  bottom: 0px;
+  color: #061639;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.vendor-main .single-service .service-description .type {
+  font-weight: 600;
+  bottom: 0px;
+  color: #5a5a5a;
+  font-size: 1rem;
+}
+
+.vendor-main .single-service .service-description .feature-item {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.vendor-main .single-service .service-description .price {
+  font-weight: 600;
+  color: #FE7768;
+  font-size: 1.4rem;
+  display: inline-block;
+}
+
+.vendor-main .single-service .service-description .desc {
+  font-weight: 400;
+  font-size: 0.9rem;
+  /* max-height: 25px; */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.vendor-main .single-service .service-description .links {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  bottom: 15px;
+  width: 90%;
+  color: #FE7768;
+}
+
+.vendor-main .single-service .service-description .links .link {
+  margin-left: 5px;
+  color: #FE7768;
+  padding: 8px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+
+.vendor-main .single-service .link {
+  text-align: left;
+}
+
+.vendor-main .single-service .link a {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #c22319;
+}
+
 .vendor-main .section {
   color: #061639;
   -webkit-box-shadow: 0 0 4px #777777ad;
@@ -211,71 +301,6 @@ body {
   font-weight: 700;
   text-transform: capitalize;
   margin-bottom: 5px;
-}
-
-.vendor-main .section .body .single-service {
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid #d2d2d2;
-}
-
-.vendor-main .section .body .single-service .image {
-  overflow: hidden;
-  position: relative;
-}
-
-.vendor-main .section .body .single-service .service-description {
-  padding: 5px 10px;
-  font-size: 1rem;
-}
-
-.vendor-main .section .body .single-service .service-description .name {
-  font-weight: 600;
-  bottom: 0px;
-  color: #061639;
-  font-size: 1.2rem;
-}
-
-.vendor-main .section .body .single-service .service-description .price {
-  font-weight: 500;
-  color: #061639;
-  font-size: 0.9rem;
-}
-
-.vendor-main .section .body .single-service .service-description .desc {
-  font-weight: 400;
-  font-size: 0.9rem;
-  /* max-height: 25px; */
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-}
-
-.vendor-main .section .body .single-service .service-description .links {
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: absolute;
-  bottom: 10px;
-  width: 90%;
-  color: #0f0191;
-}
-
-.vendor-main .section .body .single-service .link {
-  text-align: left;
-}
-
-.vendor-main .section .body .single-service .link a {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #c22319;
 }
 
 .vendor-main .section .body .review::last-of-type {
@@ -482,50 +507,6 @@ body {
     text-transform: capitalize;
     margin-bottom: 5px;
   }
-  .vendor-main .section .body .single-service .service-description {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-  }
-  .vendor-main .section .body .single-service .service-description .name {
-    font-size: 0.8rem !important;
-    font-weight: 500 !important;
-  }
-  .vendor-main .section .body .single-service .service-description .price {
-    font-size: 0.7rem !important;
-    font-weight: 400 !important;
-  }
-  .vendor-main .section .body .single-service .service-description .desc {
-    font-weight: 400;
-    font-size: 0.6rem;
-    /* max-height: 25px; */
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  .vendor-main .section .body .single-service .service-description .links {
-    font-size: 0.7rem !important;
-    font-weight: 500 !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    position: absolute;
-    bottom: 5px;
-    width: 95%;
-    color: #0f0191;
-  }
-  .vendor-main .section .body .single-service .link {
-    text-align: left;
-  }
-  .vendor-main .section .body .single-service .link a {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #c22319;
-  }
   .vendor-main .section .body .review .review_title {
     font-weight: 500;
     font-size: 0.85rem;
@@ -571,6 +552,84 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     color: #0f0191;
+  }
+  .vendor-main .single-service {
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #d2d2d2;
+  }
+  .vendor-main .single-service .image {
+    overflow: hidden;
+    position: relative;
+  }
+  .vendor-main .single-service .service-description {
+    padding: 3px 8px;
+    font-size: 0.8rem;
+  }
+  .vendor-main .single-service .service-description .name {
+    padding-top: 5px;
+    font-weight: 700;
+    bottom: 0px;
+    color: #061639;
+    font-size: 0.9rem;
+    display: block;
+  }
+  .vendor-main .single-service .service-description .type {
+    font-weight: 600;
+    bottom: 0px;
+    color: #5a5a5a;
+    font-size: 1rem;
+  }
+  .vendor-main .single-service .service-description .feature-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .vendor-main .single-service .service-description .price {
+    font-weight: 500;
+    color: #FE7768;
+    font-size: 0.8rem;
+    display: block;
+  }
+  .vendor-main .single-service .service-description .desc {
+    font-weight: 400;
+    font-size: 0.9rem;
+    /* max-height: 25px; */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  .vendor-main .single-service .service-description .links {
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    left: 3px;
+    right: 3px;
+    color: #FE7768;
+  }
+  .vendor-main .single-service .service-description .links .link {
+    color: #FE7768;
+    padding: 0px;
+    text-decoration: none;
+    border-radius: 0px;
+    background: white;
+  }
+  .vendor-main .single-service .link {
+    text-align: left;
+  }
+  .vendor-main .single-service .link a {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #c22319;
   }
   .special-nav, .vendor-main .vendor-header .owl-nav .owl-prev, .vendor-main .vendor-header .owl-nav .owl-next {
     font-size: 0.8rem;

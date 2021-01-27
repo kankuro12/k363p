@@ -93,16 +93,16 @@
                         </div>
                     </div>
 
-                    @foreach ($services as $key=>$item)
-                        <div class="section  mb-2 mb-md-3 py-3">
-                            <div class="container-fluid">
-                                <div class="title">
-                                    {{App\Model\Vendor\RoomType::find($key)->name}}
-                                    <div class="bar"></div>
-                                </div>
-                                <div class="body ">
+                    {{-- <div class="section  mb-2 mb-md-3 py-3">
+                        <div class="container-fluid">
+                            <div class="title">
+                                {{App\Model\Vendor\RoomType::find($key)->name}}
+                                <div class="bar"></div>
+                            </div>
+                            <div class="body "> --}}
 
 
+                                @foreach ($services as $key=>$item)
                                         @foreach ($item as $service)
                                                 {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-5 " data-aos="zoom-out">
 
@@ -122,24 +122,42 @@
 
                                                     <div class="row m-0 single-service mb-2" >
                                                         <div class="col-6 col-md-5 p-0" >
-                                                            <div class="image">
+                                                            <div class="image" style="max-height:170px;overflow:hidden;">
                                                                 <img class="w-100" src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="service-description col-6 col-md-7 p-1 p-md-1" data-aos="zoom-out-left">
-                                                            <div class="name">
-                                                                {{$service->name}}
+                                                        <div class="service-description col-6 col-md-7 " >
+                                                            <div class="d-md-flex  d-block justify-content-between">
+
+                                                                <span class="name">
+                                                                    {{$service->name}}
+                                                                </span>
+                                                                <span class="price ">
+                                                                    Rs. {{round($service->getNewPrice())}}
+                                                                </span>
                                                             </div>
-                                                            <div class="price">
-                                                                Rs. {{round($service->getNewPrice())}}
+                                                            <div class="roomtype">
+                                                                {{$service->roomtype->name}} .   {{$service->bookings()->count()}} Bookings
                                                             </div>
-                                                            <div class="desc">
+                                                            <hr class="my-1 d-none d-md-block">
+
+                                                            <div class="row d-none d-md-flex">
+                                                                @foreach($service->roomamenities as $ra)
+                                                                <div class="col-md-4">
+                                                                    <span class="feature-item">{{$ra->amenity}}</span>
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
+                                                            {{-- <div class="desc d-none d-md-block">
                                                                 {!!$service->description!!}
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="links">
 
                                                                 <span  >
                                                                     <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">View Detail</a>
+                                                                </span>
+                                                                <span  >
+                                                                    <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">Book Now</a>
                                                                 </span>
 
                                                             </div>
@@ -148,12 +166,12 @@
 
 
                                         @endforeach
+                                    @endforeach
 
 
-                                </div>
+                                {{-- </div>
                             </div>
-                        </div>
-                    @endforeach
+                        </div> --}}
 
                     <div class="section mb-2 mb-md-3 py-3" >
                         <div class="container-fluid">
@@ -174,7 +192,6 @@
                                                     </span>
                                                     <span class="name" style="line-height:1rem;">
                                                         <span>
-
                                                             {{$review->vendor_user->fname}}
                                                             {{$review->vendor_user->lname}}
                                                         </span>
