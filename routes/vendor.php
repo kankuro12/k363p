@@ -37,7 +37,12 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 	Route::match(['get','post'],'step1',[
 		'uses'=>'Vendor\StepController@step1',
 		'as'=>'vendor.step1'
-	]);
+    ]);
+
+    Route::match(['get','post'],'resendotp',[
+		'uses'=>'Vendor\StepController@resendotp',
+		'as'=>'vendor.resendotp'
+    ]);
 	Route::match(['get','post'],'step2',[
 		'uses'=>'Vendor\StepController@step2',
 		'as'=>'vendor.step2'
