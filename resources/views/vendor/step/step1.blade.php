@@ -41,6 +41,52 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+otplock=false;
+        display=document.getElementById('timer');
+       function resendOTP(){
+           if(!otplock){
+                otplock=true;
+
+                axios.post("{{route('vendor.resendotp')}}",{})
+                .then(function(response){
+                    startTimer(10);
+                    alert('otp send sucessfully');
+                    otplock=false;
+
+                })
+                .catch(function(err){
+                    otplock=false;
+                });
+           }
+       }
+
+       function remove(){
+            $('.otp').removeClass('no-pointer');
+            $('#timer').hide();
+            otplock=false;
+       }
+
+       function startTimer(duration) {
+            $('#timer').show();
+            $('.otp').addClass('no-pointer');
+            var timer = duration, minutes, seconds;
+            setTimeout(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = "after " + minutes + ":" + seconds;
+                timer-=1;
+                if (timer > 0) {
+                    startTimer(timer );
+                }else{
+                    remove();
+                }
+            }, 1000);
+        }
+
     $(document).ready(function(){
        $("#register-form").validate({
            ignore: [],
@@ -92,51 +138,6 @@
            }
         });
 
-        otplock=false;
-        display=document.getElementById('timer');
-       function resendOTP(){
-           if(!otplock){
-                otplock=true;
-
-                axios.post("{{route('vendor.resendotp')}}",{})
-                .then(function(response){
-                    startTimer(10);
-                    alert('otp send sucessfully');
-                    otplock=false;
-
-                })
-                .catch(function(err){
-                    otplock=false;
-                });
-           }
-       }
-
-       function remove(){
-            $('.otp').removeClass('no-pointer');
-            $('#timer').hide();
-            otplock=false;
-       }
-
-       function startTimer(duration) {
-            $('#timer').show();
-            $('.otp').addClass('no-pointer');
-            var timer = duration, minutes, seconds;
-            setTimeout(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                display.textContent = "after " + minutes + ":" + seconds;
-                timer-=1;
-                if (timer > 0) {
-                    startTimer(timer );
-                }else{
-                    remove();
-                }
-            }, 1000);
-        }
 
 
 
