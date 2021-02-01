@@ -147,5 +147,8 @@
 
 
     });
+
+    startTimer(10);
+
 </script>
 @endsection
