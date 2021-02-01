@@ -118,7 +118,17 @@
             @yield('content')
         </div>
     </div>
+    <script>
+        window.Laravel = {csrfToken: '{{ csrf_token() }}'};
+        function goBack () {
+            if (document.referrer.indexOf("{{url('')}}") === 0) {
+                history.back();
+            } else {
+                window.location.href = "{{url('')}}";
 
+            }
+        }
+     </script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
