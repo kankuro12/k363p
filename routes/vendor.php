@@ -26,13 +26,14 @@ Route::group(['prefix'=>'vendor','middleware'=>'guest'],function(){
 		'as' => 'vendor.resend_verification',
 	    'uses' => 'Vendor\Auth\RegisterController@resend'
     ]);
+
+});
+Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>['vendor']],function(){
+
     Route::match(['get','post'],'resendotp',[
 		'uses'=>'Vendor\Auth\RegisterController@resendotp',
 		'as'=>'vendor.resendotp'
     ]);
-});
-Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>['vendor']],function(){
-
 	Route::get('logout',[
 		'uses'=>'Vendor\Auth\LoginController@getLogout',
 		'as'=>'vendor.getLogout'
