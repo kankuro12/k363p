@@ -27,7 +27,7 @@ Route::group(['prefix'=>'vendor','middleware'=>'guest'],function(){
 	    'uses' => 'Vendor\Auth\RegisterController@resend'
     ]);
     Route::match(['get','post'],'resendotp',[
-		'uses'=>'Vendor\StepController@resendotp',
+		'uses'=>'Vendor\Auth\RegisterController@resendotp',
 		'as'=>'vendor.resendotp'
     ]);
 });

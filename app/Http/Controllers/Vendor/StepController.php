@@ -40,12 +40,8 @@ class StepController extends Controller
         }
     }
 
-    public function resendotp(){
-        $user=Auth::user();
-        $user->activation_token= mt_rand(100000,999999);
-        $user->save();
-        $user->notify(new SignupActivate($user));
-    }
+
+
     public function step2(Request $request){
 
 

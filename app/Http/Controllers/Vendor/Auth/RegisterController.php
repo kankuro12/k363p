@@ -61,21 +61,29 @@ class RegisterController extends Controller
             ], 201);
 
         }
-        
+
         return response()->json(['errors' => $validator->errors()]);
     }
+
+    public function resendotp(){
+        $user=Auth::user();
+        $user->activation_token= mt_rand(100000,999999);
+        $user->save();
+        $user->notify(new SignupActivate($user));
+    }
+
     public function resend(Request $request)
     {
         $user = User::byEmail($request->email)->firstOrFail();
-              
+
         if($user->hasVerifiedEmail()) {
             return redirect('vendor/login')->withInfo('Your email has already been verified');
         }
         $user->active=0;
-        $user->activation_token=str_random(40);   
-        $user->save();        
-  
-        $user->notify(new SignupActivate($user));      
+        $user->activation_token=str_random(40);
+        $user->save();
+
+        $user->notify(new SignupActivate($user));
 
         return redirect('vendor/login')->with('msg','Verification email resent. Please check your inbox');
     }
