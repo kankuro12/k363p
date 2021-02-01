@@ -25,7 +25,11 @@ Route::group(['prefix'=>'vendor','middleware'=>'guest'],function(){
 	Route::get('auth/resend-verification',[
 		'as' => 'vendor.resend_verification',
 	    'uses' => 'Vendor\Auth\RegisterController@resend'
-	]);
+    ]);
+    Route::match(['get','post'],'resendotp',[
+		'uses'=>'Vendor\StepController@resendotp',
+		'as'=>'vendor.resendotp'
+    ]);
 });
 Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>['vendor']],function(){
 
@@ -39,10 +43,7 @@ Route::group(['prefix'=>'vendor','middleware'=>['authen','type','step'],'type'=>
 		'as'=>'vendor.step1'
     ]);
 
-    Route::match(['get','post'],'resendotp',[
-		'uses'=>'Vendor\StepController@resendotp',
-		'as'=>'vendor.resendotp'
-    ]);
+
 	Route::match(['get','post'],'step2',[
 		'uses'=>'Vendor\StepController@step2',
 		'as'=>'vendor.step2'

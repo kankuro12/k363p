@@ -54,7 +54,7 @@ class SignupActivate extends Notification
 
     public function toSMS($notifiable){
         $vendor=$notifiable->vendor;
-        dd($vendor);
+        // dd($vendor);
         return ['to'=>$vendor->phone_number,"text"=>"Your Activation Code is ".$notifiable->activation_token];
     }
 
