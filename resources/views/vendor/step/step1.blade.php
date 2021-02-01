@@ -41,7 +41,7 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-otplock=false;
+        otplock=false;
         display=document.getElementById('timer');
        function resendOTP(){
            if(!otplock){

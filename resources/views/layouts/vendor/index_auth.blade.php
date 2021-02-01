@@ -82,7 +82,7 @@
       function preloader(){
         document.querySelector("body").classList.add("loaded");
         document.querySelector("body").classList.remove("loading");
-
+        @yield('onload')
         //b.classList.remove("loading").classList.add("loaded");
         //b.classList.add("loaded");
       }
@@ -131,7 +131,13 @@
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+  <script>
+
+     axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+     axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+  </script>
 
 <!--  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
  <script type="text/javascript">
