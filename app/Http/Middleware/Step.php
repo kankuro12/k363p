@@ -18,7 +18,7 @@ class Step
     public function handle($request, Closure $next)
     {
         $user=$request->user();
-        if(($user->role->name)=="vendor" && !Route::is('vendor.getLogout')){
+        if(($user->role->name)=="vendor" && !Route::is('vendor.getLogout') && !Route::is('vendor.resendotp')){
             $vendor=$user->vendor;
             if($vendor->isverified==0){
                 if($vendor->step==0 && !Route::is('vendor.step1')){
@@ -28,7 +28,7 @@ class Step
                 }else if($vendor->step==2 && !Route::is('vendor.step3')){
                     return redirect()->route('vendor.step3');
                 }
-            }           
+            }
         }
         return $next($request);
     }
