@@ -55,12 +55,14 @@
             <span class="head">
                 Quick Search Links
             </span>
-            <span class="href search-link" data-target="#">Biratnagar : car</span>
-            <span class="href search-link" data-target="#">Kathmandu : bike</span>
-            <span class="href search-link" data-target="#">kakadvitta : tipper</span>
-            <span class="href search-link" data-target="#">kakadvitta : tipperasdfasdf</span>
+            @php
 
+                $scities=App\Model\Vendor\City::take(5)->get();
+            @endphp
+            @foreach ($scities as $city)
 
+                 <span class="href search-link" data-target="{{route('n.search')}}?location={{$city->name}}">{{$city->name}}</span>
+            @endforeach
         </div>
     </div>
 </div>

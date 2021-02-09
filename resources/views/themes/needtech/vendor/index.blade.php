@@ -119,6 +119,17 @@
                                                     </div>
                                                 </div> --}}
 
+                                                @php
+                                                $logged=Auth::check();
+                                                $isuser=false;
+                                                if($logged){
+                                                    $user=Auth::user();
+                                                    $isuser=$user->checkIfUserRole('user');
+                                                    if($isuser){
+                                                        $data=$user->vendoruser;
+                                                    }
+                                                }
+                                            @endphp
 
                                                     <div class="row m-0 single-service mb-2" >
                                                         <div class="col-6 col-md-5 p-0" >
@@ -154,10 +165,19 @@
                                                             <div class="links">
 
                                                                 <span  >
-                                                                    <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">View Detail</a>
+                                                                    <form action="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">
+
+                                                                        <input class="link" type="submit" value="View Detail" />
+                                                                    </form action>
                                                                 </span>
                                                                 <span  >
-                                                                    <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">Book Now</a>
+                                                                    <form action="{{route('n.startbooking')}}" method="post">
+                                                                        @csrf
+                                                                        <input type="hidden" name="isuser" value="{{$isuser?1:0}}">
+                                                                        <input type="hidden" name="room_id" value="{{$service->id}}">
+                                                                        <input type="submit" class="link" value="booknow">
+                                                                    </form>
+                                                                    {{-- <a class="link " href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">Book Now</a> --}}
                                                                 </span>
 
                                                             </div>

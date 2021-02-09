@@ -74,7 +74,7 @@
                                             <tr>
                                                 <td>Address</td>
                                                 <td>{{$vendor->location?$vendor->location->name:'N/A'}}</td>
-                                            </tr>                   
+                                            </tr>
                                             <tr>
                                                 <td>Category</td>
                                                 <td>{{$vendor->category->name}}</td>
@@ -135,51 +135,46 @@
                                         <div id="galleries"></div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="amenities">         
+                                <div class="tab-pane" id="amenities">
                                                         <table class="table table-bordered" id="amenities">
                                                             <thead>
                                                               <tr>
                                                                 <th>Service</th>
-                                                                <th>Icon</th>                                
+                                                                <th>Icon</th>
                                                               </tr>
                                                             </thead>
                                                             <tbody>
-                                                             @foreach($vendor->amenities as $amenity)                            
+                                                             @foreach($vendor->amenities as $amenity)
                                                               <tr>
                                                                 <td>{{$amenity->name}}</td>
-                                                                <td>                         
+                                                                <td>
                                                                   <img src="{{asset('uploads/vendor/amenities/icons/'.$amenity->icon)}}" class="img-responsive" width="50px;">
-                                                                </td>                                
+                                                                </td>
                                                               </tr>
-                                                              @endforeach                     
+                                                              @endforeach
                                                             </tbody>
-                                                          </table>                        
+                                                          </table>
                                                     </div>
-                                                    <div class="tab-pane" id="reviews" style="padding-bottom: 20px;">         
+                                                    <div class="tab-pane" id="reviews" style="padding-bottom: 20px;">
                                                         <table id="reviewstbl" class="table table-bordered">
                                                             <thead>
                                                                 <tr>
-                                                                   
-                                                                    <th>Title</th>
-                                                                    <th>Description</th>
-                                                                    <th>Clean</th>
-                                                                    <th>Food</th>
-                                                                    <th>Comfort</th>
-                                                                    <th>Facility</th>
+
+                                                                    <th>Review</th>
+
+                                                                    <th>rating</th>
                                                                     <th>Status</th>
-                                                                    <th>Time</th>                
+                                                                    <th>Time</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                             @foreach($vendor->reviews as $rv)
                                                             <tr>
-                                                              
-                                                                <td>{{$rv->review_title}}</td>
+
+
                                                                 <td>{{$rv->review_description}}</td>
-                                                                <td>{{$rv->clean}}</td>
-                                                                <td>{{$rv->food}}</td>
-                                                                <td>{{$rv->comfort}}</td>
-                                                                <td>{{$rv->facility}}</td>
+                                                                <td>{{$rv->avg_rating}}</td>
+                                                                {{-- <td>{{$rv->facility}}</td> --}}
                                                                 <td>
                                                                     @if($rv->status=="approved")
                                                                     <span class="label label-success">Approved</span>
@@ -192,19 +187,52 @@
 
                                                             @endforeach
                                                             </tbody>
-                                                                
-                                                        </table>                    
+
+                                                        </table>
                                                     </div>
-                                                    <div class="tab-pane" id="rooms"></div>
+                                                    <div class="tab-pane" id="rooms">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover" id="rooms">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>S.N.</th>
+                                                                        <th>Name</th>
+                                                                        <th>Type</th>
+                                                                        <th>Price</th>
+                                                                        <th>Discount</th>
+                                                                        <th>Status</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                  @foreach($vendor->rooms as $index=>$room)
+                                                                  <tr>
+                                                                    <td>{{$index+1}}</td>
+                                                                    <td>{{$room->name}}</td>
+                                                                    <td>{{$room->roomtype->name}}</td>
+                                                                    <td>{{$room->price}}</td>
+                                                                    <td>{{$room->discount?$room->discount:'0'}}</td>
+                                                                    <td>{{$room->status}}</td>
+                                                                    <th>
+                                                                      <a href="{{route('vendor.get_edit_rooms',['id'=>$room->id])}}" class="btn btn-success btn-sm"><i class="ion-ios-compose-outline"></i></a>
+                                                                      <button class="btn btn-primary btn-sm delete_room" data-room-id="{{$room->id}}"><i class="ion-ios-trash-outline"></i></button>
+                                                                    </th>
+                                                                  </tr>
+
+                                                                  @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                          </div>
+                                                    </div>
                             </div>
-                        </div>      
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
   </div>
 </div>
-@endsection 
+@endsection
 @section('scripts')
 <script>
       var map;
@@ -214,7 +242,7 @@
         map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: {
             lat: lat,
-            lng: lng              
+            lng: lng
           },
           zoom: 15
         });
@@ -223,14 +251,14 @@
             {
                 position: {
                     lat: lat,
-                    lng: lng               
-                }, 
+                    lng: lng
+                },
                 map: map,
                 draggable:true
             }
         );
       }
-</script>    
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script>
 @endsection
 @section('styles')

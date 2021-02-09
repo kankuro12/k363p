@@ -22,4 +22,8 @@ class RoomType extends Model
         ];
     }
     protected $fillable=['name','slug','icon','status'];
+
+    public function rooms(){
+        return $this->hasMany(Room::class,'roomtype_id','id');
+    }
 }

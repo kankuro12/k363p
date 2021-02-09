@@ -21,7 +21,7 @@ class VendorsControllers extends Controller
      */
     public function index(Request $request)
     {
-        
+
 
         $vendors=Vendor::orderBy('created_at','desc');
         if($request->filled('name')){
@@ -53,27 +53,27 @@ class VendorsControllers extends Controller
         if($request->filled('state_id')){
             $vendors=$vendors->whereHas('location',function($query){
                 $query->whereHas('city',function($query){
-                    $query->whereHas('state',function($query){                        
-                        $query->where('id',request()->state_id);                       
+                    $query->whereHas('state',function($query){
+                        $query->where('id',request()->state_id);
                     });
                 });
             });
         }
         if($request->filled('state_id')){
             $vendors=$vendors->whereHas('location',function($query){
-                $query->whereHas('city',function($query){                                          
-                    $query->where('id',request()->city_id); 
+                $query->whereHas('city',function($query){
+                    $query->where('id',request()->city_id);
                 });
             });
         }
 
         $vendors=$vendors->paginate(10)->setPath('');
         $pagination = $vendors->appends(array(
-            'title'=>$request->input('name'),  
-            'category_id'=>$request->input('category_id'),  
-            'star'=>$request->input('star'),  
-            'verified'=>$request->input('verified'),      
-            'featured'=>$request->input('featured'),                      
+            'title'=>$request->input('name'),
+            'category_id'=>$request->input('category_id'),
+            'star'=>$request->input('star'),
+            'verified'=>$request->input('verified'),
+            'featured'=>$request->input('featured'),
         ));
         $categories=Category::all();
         $countries=Country::all();
@@ -135,14 +135,14 @@ class VendorsControllers extends Controller
             'instagram_url'=>$request->instagram_url,
             'tripadvisor_url'=>$request->tripadvisor_url,
             'website'=>$request->website,
-            'featured'=>$request->featured,            
+            'featured'=>$request->featured,
         ]);
         $location_data=[
             'vendor_id'=>$vendor->id,
             'city_id'=>$request->city_id,
             'name'=>$request->location_name,
-            'lat'=>$request->lat,
-            'lng'=>$request->lng,
+            'lat'=>$request->lat??0,
+            'lng'=>$request->lng??0,
 
         ];
         Location::create($location_data);
@@ -209,7 +209,7 @@ class VendorsControllers extends Controller
             'description'=>'nullable|string',
         ]);
 
-        
+
         $vendor=Vendor::where('slug',$slug)->firstOrFail();
         if($request->hasFile('logo')){
             if(File::exists('uploads/vendor/logo'.$vendor->logo)&& 'uploads/vendor/logo'.$vendor->logo!='logo.png'){
@@ -272,7 +272,7 @@ class VendorsControllers extends Controller
     public function change_featured(Request $request){
         $vid=$request->vid;
         $value=$request->value;
-        $vendor=Vendor::where('id',$vid)->firstOrFail();         
+        $vendor=Vendor::where('id',$vid)->firstOrFail();
         $vendor->featured=$value;
         if($value=='active'){
             $vendor->featured_verified=1;

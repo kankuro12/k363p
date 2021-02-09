@@ -26,6 +26,10 @@ Route::group(['prefix' => ''], function () {
             'uses'=>'Need\HomeController@single_service',
             'as'=>'single_service'
             ]);
+        Route::get('servicetype/{slug}',[
+            'uses'=>'Need\HomeController@servicetype',
+            'as'=>'servicetype'
+            ]);
 
         Route::get('collection/{slug}',[
             'uses'=>'Need\HomeController@collection',
@@ -45,7 +49,6 @@ Route::group(['prefix' => ''], function () {
                 Route::match(['get', 'post'], 'otp','Need\Auth\BookingController@otp')->name('otp');
                 Route::match(['get', 'post'], 'resendotp','Need\Auth\BookingController@resendotp')->name('resendotp');
                 Route::match(['get', 'post'], 'logout','Need\Auth\BookingController@logout')->name('logout');
-
                 Route::get('auth/{provider}', 'Need\Auth\BookingController@redirect')->name('social');
 	            Route::get('auth/{provider}/callback', 'Need\Auth\BookingController@callback')->name('social-login');
             });

@@ -147,10 +147,10 @@
                                         <input type="hidden" name="isuser" value="{{$isuser?1:0}}">
                                         <input type="hidden" name="room_id" value="{{$room->id}}">
 
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="name">Start Date</label>
                                             <input class="form-control" type="date" name="start_date" id="start_date" required >
-                                        </div>
+                                        </div> --}}
 
                                         <div class="form-group">
                                             <button class="btn btn-success">

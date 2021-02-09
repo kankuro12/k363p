@@ -1,5 +1,5 @@
 @extends('themes.needtech.layout')
-@section('subtitle',$collection->name)
+@section('subtitle',"Service - ".$roomtype->name)
 @section('meta')
     <meta name="theme-color" content="#c22319" />
 @endsection
@@ -8,53 +8,54 @@
     <link rel="stylesheet" href="{{asset('assets\public\css\nouislider.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+        body{
+            background:white !important;
+        }
         .coll-header{
             top:35% !important;
             bottom:auto !important;
 
 
         }
+        .shadowonhover{
+            box-shadow:0px 0px 10px 0px black;
+            border-radius: 5px;
+        }
+
+        .owl-feature-vendor{
+        }
+
+
     </style>
 @endsection
 @section('content')
     <div class="vendor-main">
         <div class="vendor-header">
-            <div id="owl-vendor-header" class="owl-carousel">
-
-                <div >
-                    <img src="{{asset('uploads/vendor/collections/'.$collection->image)}}" class="img-fluid">
+            <div id="owl-vendor-header p-5 text-center" style="background:#c22319;">
+                <div style="text-align:Center;padding:30px 20px;color:white;">
+                    <img src="{{asset('uploads/vendor/room_type/icons/'.$roomtype->icon)}}" alt="" style="width:100px;border-radius:10px;">
+                    <h2 class="vendor-name">{{$roomtype->name}}</h2>
                 </div>
-
-
             </div>
-            <div class="header-overlay d-none d-md-block">
+            {{-- <div class="header-overlay d-none d-md-block">
                 <div class="main-desc coll-header text-center">
 
-                            <div class="vendor-name">{{$collection->name}}</div>
+                            <div class="vendor-name">{{$roomtype->name}}</div>
                             <div class="vendor-address">
 
-                                {{$collection->description}}
+                                {{$roomtype->description}}
                             </div>
                         </div>
-            </div>
+            </div> --}}
         </div>
-        <div class="header-overlay-mobile mb-2 mb-md-3 py-3 d-block d-md-none p-md-0">
-            <div class="container-fluid">
-                <div class="name mb-1">
-                    {{$collection->name}}
-                </div>
-                <div class="address mb-1">
-                    {{$collection->description}}
-                </div>
 
-            </div>
-        </div>
-        <div class="container d-m pt-0 pt-md-5 ">
-
+        <div class="container d-m pt-3 pt-md-5 ">
             <div class="row">
-                @foreach ($collection->collectionvendors as $cvendor)
-                    <div class="col-md-4">
-                        @include('public.home.featured',['vendor'=>$cvendor->vendor])
+                @foreach ($roomtype->rooms as $room)
+                    <div class="col-md-6 col-lg-3 pb-5 col-12 col-sm-6 ">
+                        <div class="shadowonhover">
+                            @include('themes.needtech.servicetype.single',['service'=>$room])
+                        </div>
                     </div>
                 @endforeach
             </div>

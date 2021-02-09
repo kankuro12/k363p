@@ -12,45 +12,43 @@
                     <table id="reviews" class="table table-hover">
                         <thead>
                             <tr>
-                                <th>S.N.</th>
+
                                 <th>U.Name</th>
-                                <th>R.Title</th>
+                                <th>Review</th>
                                 <th>Rating</th>
                                 <th>Status</th>
-                                <th>Time</th>  
-                                <th>Action</th>                             
+                                <th>Time</th>
+                                {{-- <th>Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($reviews as $index=>$rv)
-                        <tr>       
-                            <td>{{$index+1}}</td> 
+                        <tr>
+
                         	<td style="text-align: center;">
-                                
+
                                 <img src="{{asset('uploads/user/profile_img/200x200/'.$rv->vendor_user->profile_img)}}" class="img-circle" width="50px"><br>
                                 {{$rv->vendor_user->fname." ".$rv->vendor_user->lname}}
 
                             </td>
-                        	<td>{{$rv->review_title}}</td>
+                        	<td>{{$rv->review_description}}</td>
                             <td>
-                                {{$rv->all_rating()}}
+                                {{$rv->avg_rating}}
                             </td>
                         	<td>
                              @if($rv->status=="approved")
                              <span class="label label-success">Approved</span>
                              @else
                              <span class="label label-info">UnApproved</span>
-                             @endif   
+                             @endif
                             </td>
                         	<td>{{$rv->created_at->toFormattedDateString()}}</td>
-                            <td>
-                                <a href="{{route('vendor.review',['id'=>$rv->id])}}" class="btn btn-info btn-sm">View</a>
-                            </td>
+
                         </tr>
 
                         @endforeach
                         </tbody>
-                            
+
                     </table>
                 </div>
             </div>

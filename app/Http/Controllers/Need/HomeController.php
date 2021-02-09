@@ -27,6 +27,7 @@ class HomeController extends Controller
         $featured_vendors = Vendor::where(['featured' => 'active', 'verified' => 1])->take(8)->inRandomOrder()->latest()->get();
         $trs = Room::all();
         $roomtypes=RoomType::all();
+        // $cities=City::take(5)->get();
         $popular_vendors = Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
             ->select(array(
                 'vendors.*',
@@ -167,6 +168,12 @@ class HomeController extends Controller
     public function collection($slug){
         $collection=Collection::where('slug',$slug)->first();
     	return view('themes.needtech.collection.index',compact('collection'));
+
+    }
+
+    public function servicetype($slug){
+        $roomtype=RoomType::where('slug',$slug)->first();
+    	return view('themes.needtech.servicetype.index',compact('roomtype'));
 
     }
 }
