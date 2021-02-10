@@ -157,6 +157,14 @@
             </div>
         </div>
     </div>
+    <div class="mt-4  href" data-target="{{route('vendor.request')}}" style="border-radius:10px;overflow:hidden;cursor: pointer;">
+        <div class="d-md-none d-block">
+            <img class="w-100" src="{{asset('requestcall3.png')}}" >
+        </div>
+        <div class="d-md-block d-none">
+            <img class="w-100" src="{{asset('requestcall2.png')}}" >
+        </div>
+    </div>
     <div class="feature-services">
         <div class="fs-header" >
             <h1>

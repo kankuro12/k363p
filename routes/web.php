@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //Password reset routes
@@ -94,6 +96,10 @@ Route::get('test',function(){
 });
 
 Route::get('sms/show','MockSmsController@show');
+
+Route::get('logout', function () {
+    Auth::logout();
+});
 
 
 

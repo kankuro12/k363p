@@ -96,7 +96,7 @@
 
     <div class="row m-0">
         <div class="col-md-6 pr-0 min-h-100 d-none d-md-block sidebar" style="" >
-            @if (!Route::is('vendor.getLogin') && !Route::is('vendor.getRegister'))
+            @if (!Route::is('vendor.getLogin') && !Route::is('vendor.getRegister') && !Route::is('vendor.request'))
 
                 <div class="menu">
                     <ul>

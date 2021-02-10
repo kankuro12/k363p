@@ -2,6 +2,13 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'vendor','middleware'=>'guest'],function(){
+
+
+    Route::match(['GET','POST'],'request',[
+		'uses'=>'Vendor\RequestController@index',
+		'as'=>'vendor.request'
+	]);
+
 	Route::get('register',[
 		'uses'=>'Vendor\Auth\RegisterController@getRegister',
 		'as'=>'vendor.getRegister'

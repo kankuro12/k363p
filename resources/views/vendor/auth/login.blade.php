@@ -32,7 +32,14 @@
                          <div class="form-group">
                             <button class="btn btn-block btn-primary" id="submitBtn">Sign in</button>
                         </div>
-                         <p class="color1 text-center font-weight-bold mt-3">Not a member yet? <a href="{{route('vendor.getRegister')}}" class="color-primary">Register here</a></p>
+                         <p class="color1 text-center font-weight-bold mt-3">
+                             <div class="text-center font-weight-bold">
+                                 Not a member yet?
+                             </div>
+                             <div class="text-center font-weight-bold">
+                                 <a href="{{route('vendor.request')}}" class="color-primary">Request From Membership</a>
+                             </div>
+                        </p>
                      </form>
                  </div>
              </div>

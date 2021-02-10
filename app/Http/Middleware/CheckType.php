@@ -20,12 +20,12 @@ class CheckType
         if($request->user()->hasRole($types)){
             return $next($request);
         }
-        
+
         if(($request->user()->role->name)=="user"){
-         return redirect()->route('user.profile');            
+         return redirect()->route('n.user.dashboard');
         }
         if(($request->user()->role->name)=="vendor"){
-         return redirect()->route('vendor.dashboard');            
+            return redirect()->route('vendor.dashboard');
         }
         return $next($request);
     }
