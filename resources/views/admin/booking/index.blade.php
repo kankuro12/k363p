@@ -93,8 +93,14 @@
                         		<td>{{$index+1}}</td>
                         		<td>{{$booking->first_name." ".$booking->last_name}}</td>
                         		<td>{{$booking->email}}</td>
-                        		<th>{{$booking->room->vendor->name}}</th>
-                        		<th>{{$booking->room->name}}</th>
+                                <th>
+                                    {{$booking->vendor->name}}
+                                </th>
+                                <th>
+
+                                </th>
+                        		{{-- <th>{{$booking->room->vendor->name}}</th> --}}
+                        		{{-- <th>{{$booking->room->name}}</th> --}}
                                 <td>{{$booking->booking_status}}</td>
                         		<td>
                         		   <a href="{{route('admin.invoice',['id'=>$booking->id])}}" class="btn btn-info">View Invoice</a>	                        		

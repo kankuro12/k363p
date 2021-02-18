@@ -11,10 +11,10 @@
                       <div class="card">
                         <div class="card-header">
                           <a data-toggle="collapse" href="#booking-detail">
-                            Room Details
+                            Package Details
                           </a>
                         </div>
-                        <div id="booking-detail" class="collapse" data-parent="#accordion">
+                        <div id="booking-detail" class="" data-parent="#accordion">
                           <table class="table table-bordered">
                               <tbody>
                                 <tr>
@@ -34,25 +34,25 @@
                                   <td>{{$booking->phone_number}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Check In Time</td>
+                                  <td>Start Date</td>
                                   <td>{{$booking->check_in_time}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Check Out Time</td>
+                                  <td>End Date</td>
                                   <td>{{$booking->check_out_time}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Room</td>
+                                  <td>Package Name</td>
                                   <td>{{$booking->room->name}}</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                   <td>Adult</td>
                                   <td>{{$booking->adult}}</td>
-                                </tr>
-                                <tr>
+                                </tr> --}}
+                                {{-- <tr>
                                   <td>Child</td>
                                   <td>{{$booking->children}}</td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                   <td>Payment Method</td>
                                   <td>{{($booking->type==2?'Online Payment('.$booking->payment->provider.')':'Pay At Hotel')}}</td>
@@ -73,7 +73,7 @@
                             </table>                               
                         </div>
                       </div>
-                      <div class="card">
+                      {{-- <div class="card">
                         <div class="card-header">
                           <a data-toggle="collapse" href="#meal-detail">
                             Meal Details
@@ -111,26 +111,26 @@
                               </tbody>
                             </table>                          
                         </div>
-                      </div>
+                      </div> --}}
                       <div class="card">
                         <div class="card-header">
                           <a data-toggle="collapse" href="#price-detail">
                             Price Details
                           </a>
                         </div>
-                        <div id="price-detail" class="collapse" data-parent="#accordion"> 
+                        <div id="price-detail" class="" data-parent="#accordion"> 
                            <table class="table table-bordered">
                              <tr>
-                               <th>Room Cost</th>
+                               <th>Package Cost</th>
                                <th>{{$booking->new_price}}</th>
                              </tr>
-                             <tr>
+                             {{-- <tr>
                                <th>Meal Cost</th>
                                <th>{{$meal_price}}</th>
-                             </tr>
+                             </tr> --}}
                              <tr>
                                <th>Total Cost(In Nrs.)</th>
-                               <th>{{$booking->new_price+$meal_price}}</th>
+                               <th>{{$booking->new_price}}</th>
                              </tr>
                            </table>                      
                         </div>
