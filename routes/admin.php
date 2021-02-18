@@ -32,6 +32,10 @@ Route::get('dashboard', [
     'uses'=>'Admin\DashboardController@index',
     'as'=>'admin.dashboard'
 ]);
+Route::get('requests', [
+    'uses'=>'Admin\DashboardController@requests',
+    'as'=>'admin.requests'
+]);
 
 Route::get('categories', [
     'uses'=>'Admin\CategoriesController@index',

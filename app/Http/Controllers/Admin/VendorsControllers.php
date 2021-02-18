@@ -119,7 +119,8 @@ class VendorsControllers extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role_id'=>2,
-            'active'=>1,
+            'active'=>$request->status=='active',
+            
         ]);
         $user->save();
         $vendor=Vendor::create([
@@ -135,15 +136,17 @@ class VendorsControllers extends Controller
             'instagram_url'=>$request->instagram_url,
             'tripadvisor_url'=>$request->tripadvisor_url,
             'website'=>$request->website,
-            'featured'=>$request->featured,
+            'featured'=>$request->featured??0,
         ]);
+        $vendor->step=4;
+        $vendor->isverified=1;
+        $vendor->save();
         $location_data=[
             'vendor_id'=>$vendor->id,
             'city_id'=>$request->city_id,
             'name'=>$request->location_name,
             'lat'=>$request->lat??0,
             'lng'=>$request->lng??0,
-
         ];
         Location::create($location_data);
         if($request->hasFile('logo')){

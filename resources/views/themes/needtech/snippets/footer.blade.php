@@ -35,7 +35,7 @@
                 <div class="row h-100">
                     <div class="col-md-6">
                        <div class="important-links h-100">
-                            <span class="link">something</span>
+                            <span class="link href" data-target="{{route('vendor.getLogin')}}" >Driving center Login</span>
                             <span class="link">something</span>
                             <span class="link">something</span>
                             <span class="link">something</span>

@@ -135,10 +135,10 @@
                             <label for="description">Description</label>                        
                             <textarea class="form-control" name="description" placeholder="Vendor Description ..." rows="10">{{old('description')}}</textarea>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Average Cost(In Rs.)</label>
-                            <input type="text" name="average_cost" class="form-control" placeholder="Enter average cost" value="{{old('average_cost')}}">
-                        </div> 
+                        </div>  --}}
+                        <input type="hidden" name="average_cost" class="form-control" placeholder="Enter average cost" value="0">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -170,8 +170,8 @@
 
                         </div>                  
                         <div class="form-group">
-                            <label for="pwd">Map:</label>
-                            <input type="text" id="searchMap" name="location_name">
+                            <label for="pwd">Street Address:</label>
+                            <input type="text" id="searchMap" name="location_name" class="form-control mb-2" placeholder="Street Address">
                             <div id="map-canvas"></div>
                         </div>
                         <div class="row">
@@ -248,7 +248,7 @@
 
       }
 </script>    
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
 <script type="text/javascript">
     $("#addVendor").validate({
@@ -277,8 +277,7 @@
                 average_cost:{
                     required:true,
                 },
-                lat:"required",
-                lng:"required"             
+               
 
             },
             messages: {

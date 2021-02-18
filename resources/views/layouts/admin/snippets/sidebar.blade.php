@@ -136,6 +136,12 @@
             <p>Accounts</p>
         </a>
     </li>
+    <li class="{{ (Request::is('admin/requests') ? ' active' : '') }}">
+        <a href="{{route('admin.requests')}}">
+            <i class="ion-android-lock"></i>
+            <p>Vendor Requests</p>
+        </a>
+    </li>
     <li class="{{ (Request::is('admin/enquiries') ? ' active' : '') }}">
         <a href="{{route('admin.get_enquiries')}}">
             <i class="ion-ios-help-outline"></i>
