@@ -22,7 +22,7 @@ class RequestController extends Controller
             $req->email=$request->email;
             $req->save();
             $n=new User();
-            $n->email="cms111000111@gmail.com";
+            $n->email=env('admin_email',"cms111000111@gmail.com");
             Mail::to($n)->send(new Call($req));
             return view("vendor.request.success",compact('req'));
 
