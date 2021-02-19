@@ -102,7 +102,7 @@ Route::post('vendors/create', [
     'uses'=>'Admin\VendorsControllers@store',
     'as'=>'admin.post_create_vendor'
 ]);
-Route::get('vendors/{slug}', [
+Route::get('singlevendor/{slug}', [
     'uses'=>'Admin\VendorsControllers@show',
     'as'=>'admin.vendor'
 ]);
