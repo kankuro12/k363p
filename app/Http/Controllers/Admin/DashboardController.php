@@ -33,8 +33,8 @@ class DashboardController extends Controller
     }
 
     public function requests(){
-        $req=VendorRequest::where('accecpted',0)->get();
-        $reqacc=VendorRequest::where('accecpted',1)->get();
+        $req=VendorRequest::where('accepted',0)->get();
+        $reqacc=VendorRequest::where('accepted',1)->get();
 
         return view('admin.requests.index',compact('req','reqacc'));
     }
