@@ -13,7 +13,7 @@
     <li class="list-group-item {{ (Request::is('user/reviews*') ? ' active' : '') }}">
         <a href="{{route('n.user.reviews')}}"><i class="ion-android-chat"></i> Reviews</a>
     </li>
-    <li class="list-group-item {{ (Request::is('user/favourites*') ? ' active' : '') }}">
+    {{-- <li class="list-group-item {{ (Request::is('user/favourites*') ? ' active' : '') }}">
         <a href="{{route('user.favourites')}}"><i class="ion-heart"></i> Favourites</a>
     </li>
     <li class="list-group-item {{ (Request::is('user/settings/email-change') ? ' active' : '') }}">
@@ -21,5 +21,8 @@
     </li>
     <li class="list-group-item {{ (Request::is('user/settings/change-password') ? ' active' : '') }}">
         <a href="{{route('user.get_settings_change_password')}}"><i class="ion-key"></i> Change Password</a>
+    </li> --}}
+     <li class="list-group-item ">
+        <a href="{{route('n.user.logout')}}"><i class="ion-key"></i> Change Password</a>
     </li>
 </ul>

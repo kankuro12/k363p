@@ -46,6 +46,7 @@ Route::group(['prefix' => ''], function () {
         // XXX User Authentication
         Route::group(['prefix' => 'user'], function () {
             Route::name('user.')->group(function(){
+                Route::get('logout', 'Need\Auth\BookingController@logout')->name('logout');
                 Route::match(['get', 'post'], 'login','Need\Auth\BookingController@login')->name('login');
                 Route::match(['get', 'post'], 'signup','Need\Auth\BookingController@signup')->name('signup');
                 Route::match(['get', 'post'], 'otp','Need\Auth\BookingController@otp')->name('otp');

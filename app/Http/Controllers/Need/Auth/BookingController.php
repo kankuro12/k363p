@@ -102,6 +102,7 @@ class BookingController extends Controller
 
     public function logout(){
         Auth::logout();
+        return redirect()->route("n.user.login");
     }
 
     public function redirect($provider){
