@@ -10,6 +10,10 @@ use App\Model\Vendor\Country;
 use Session;
 class CityController extends Controller
 {
+
+    public function get_city_from_state($id){
+        return response()->json(City::where('state_id',$id)->get());
+    }
     /**
      * Display a listing of the resource.
      *

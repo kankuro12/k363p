@@ -324,6 +324,11 @@ Route::get('country/{id}/states', [
   'uses'=>'Admin\StateController@get_state_from_country',
   'as'=>'admin.get_state_from_country'
 ]);
+
+Route::get('state/{id}/cities', [
+    'uses'=>'Admin\CityController@get_city_from_state',
+    'as'=>'admin.get_state_from_country'
+  ]);
 Route::match(['get', 'post'], '/manage-coupon', [
     'as' => 'admin.manage-coupon',
     'uses' => 'Admin\CouponController@manageCoupon'

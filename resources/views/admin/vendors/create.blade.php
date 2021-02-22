@@ -14,8 +14,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="fname">Vendor Type</label>                        
-                                    <select name="category_id" class="form-control">
+                                    <label for="fname">Vendor Type *</label>                        
+                                    <select name="category_id" class="form-control" required>
                                         @foreach($vcategories as $vcategory)
                                         <option value="{{$vcategory->id}}">{{$vcategory->name}}</option>
                                         @endforeach                            
@@ -24,16 +24,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="fname">Vendor Name</label>                        
-                                    <input type="text" class="form-control" id="name" placeholder="Vendor Name" name="name" value="{{old('name')}}">
+                                    <label for="fname">Vendor Name *</label>                        
+                                    <input type="text" class="form-control" id="name" placeholder="Vendor Name" name="name" value="{{old('name')}}" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email Address</label>                        
-                                    <input type="email" class="form-control" id="email" placeholder="Email Address" name="email" value="{{old('email')}}">
+                                    <label for="email">Email Address *</label>                        
+                                    <input type="email" class="form-control" id="email" placeholder="Email Address" name="email" value="{{old('email')}}" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -47,22 +47,22 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="password">Password</label>                        
-                                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="{{old('password')}}">
+                                    <label for="password">Password *</label>                        
+                                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="{{old('password')}}" required>
                                 </div>                            
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="cpassword">Confirm Password</label>                        
-                                    <input type="password" class="form-control" id="cpassword" placeholder="Password" name="password_confirmation" value="{{old('password_confirmation')}}">
+                                    <label for="cpassword">Confirm Password *</label>                        
+                                    <input type="password" class="form-control" id="cpassword" placeholder="Password" name="password_confirmation" value="{{old('password_confirmation')}}" required>
                                 </div>                            
                             </div> 
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Phone number</label>
-                                    <input type="text" name="phone_number" class="form-control" placeholder="Enter phone number" value="{{old('phone_number')}}">
+                                    <label>Phone number *</label>
+                                    <input type="text" name="phone_number" class="form-control" placeholder="Enter phone number" value="{{old('phone_number')}}" required>
                                 </div>                            
                             </div>
                             <div class="col-md-6">
@@ -105,7 +105,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Featured</label>
-                                    <select class="form-control" name="featured">
+                                    <select class="form-control" name="featured" required>
                                         <option value="">Select One</option>
                                         <option value="1" {{old('featured')=='1'?'selected':''}}>Yes</option>
                                         <option value="0" {{old('featured')=='0'?'selected':''}}>No</option>
@@ -114,8 +114,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control" name="status">
+                                    <label>Status *</label>
+                                    <select class="form-control" name="status" required>
                                         <option value="">Select Status</option>
                                         <option value="active" {{old('status')=='active'?'selected':''}}>Active</option>
                                         <option value="inactive" {{old('status')=='inactive'?'selected':''}}>Inactive</option>
@@ -124,16 +124,16 @@
                             </div>
                         </div>           
                         <div class="form-group">
-                            <label>Logo</label>
-                            <input type="file" name="logo" class="form-control" value="{{old('logo')}}">
+                            <label>Logo *</label>
+                            <input type="file" name="logo" class="form-control" value="{{old('logo')}}" required>
                         </div>
                         <div class="form-group">
-                            <label>Cover Image</label>
-                            <input type="file" name="cover_img" class="form-control" value="{{old('cover_img')}}">
+                            <label>Cover Image *</label>
+                            <input type="file" name="cover_img" class="form-control" value="{{old('cover_img')}}" required>
                         </div> 
                         <div class="form-group">
-                            <label for="description">Description</label>                        
-                            <textarea class="form-control" name="description" placeholder="Vendor Description ..." rows="10">{{old('description')}}</textarea>
+                            <label for="description">Description *</label>                        
+                            <textarea class="form-control" name="description" placeholder="Vendor Description ..." rows="10" required>{{old('description')}}</textarea>
                         </div>
                         {{-- <div class="form-group">
                             <label>Average Cost(In Rs.)</label>
@@ -142,9 +142,9 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Country</label>
-                                    <select name="country_id" class="form-control" id="country">
-                                        <option value="" selected="" disabled="">Select Country</option>
+                                    <label>Country *</label>
+                                    <select name="country_id" class="form-control" id="country" required>
+                                        <option value="" selected="" disabled="" >Select Country</option>
                                         @foreach($countries as $country)
                                         <option value="{{$country->id}}">{{$country->name}}</option>
                                         @endforeach
@@ -206,8 +206,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: {
-            // lat: 26.4524746,
-            // lng: 87.271781              
+            lat: 26.4524746,
+            lng: 87.271781              
           },
           zoom: 15
         });
@@ -321,7 +321,7 @@
     function generateState(cid){
         $.ajax({
             type: "get",
-            url: "/country/"+cid+"/states",
+            url: "/admin/country/"+cid+"/states",
             cache: false,
             dataType: 'json',
             beforeSend: function() {
@@ -342,9 +342,10 @@
         });
     }
     function generateCity(cid){
+        console.log(cid,"cid");
         $.ajax({
             type: "get",
-            url: "/state/"+cid+"/cities",
+            url: "/admin/state/"+cid+"/cities",
             cache: false,
             dataType: 'json',
             beforeSend: function() {

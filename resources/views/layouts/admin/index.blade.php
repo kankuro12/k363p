@@ -36,7 +36,7 @@
   <script src="{{asset('assets/admin/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assets/admin/js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('assets/admin/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places"></script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places"></script> --}}
   <script src="{{asset('assets/admin/js/plugins/bootstrap-notify.js')}}"></script>
   <script src="{{asset('assets/admin/js/now-ui-dashboard.min.js')}}" type="text/javascript"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
