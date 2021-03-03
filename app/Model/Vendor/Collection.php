@@ -24,6 +24,6 @@ class Collection extends Model
         ];
     }
     public function collectionvendors(){
-    	return $this->hasMany(Collectionvendor::class);
+    	return $this->hasMany(CollectionVendor::class);
     }
 }

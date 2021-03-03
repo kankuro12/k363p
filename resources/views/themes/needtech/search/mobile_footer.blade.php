@@ -67,7 +67,7 @@
             @foreach (\App\Model\Vendor\RoomType::all() as $service)
                 <span class="service-item">
 
-                    <input type="checkbox" value="{{$service->id}}" {{Request::has('service')?(Request::get('service')==$service->id?"checked":""):""}} class="service serviceType_mobile" onchange="roomType_mobile()">
+                    <input type="checkbox" value="{{$service->id}}" {{Request::has('service')?(in_array($service->id,Request::get('service'))?"checked":""):""}} class="service serviceType_mobile" onchange="roomType_mobile()">
                     <span class="service-name">
                         {{$service->name}}
                     </span>
@@ -95,7 +95,7 @@
     </div>
     <div style="height:100px;"></div>
 
-    <button class="btn apply-filter" onclick="filter();closeFilterPage();">
+    <button class="btn apply-filter" onclick="first=true;ajaxSearch();closeFilterPage();">
         Apply Filter
     </button>
 </div>

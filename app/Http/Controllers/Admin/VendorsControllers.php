@@ -308,4 +308,12 @@ class VendorsControllers extends Controller
          $vendor->save();
          return response()->json(['message'=>$msg,'vs'=>$vendor->verified]);
     }
+
+    public function changePassword(Request $request){
+        $user=User::find($request->user_id);
+        if($user!=null){
+            $user->password=bcrypt($user->password);
+        }
+
+    }
 }

@@ -11,6 +11,9 @@
                     <i class="fas fa-times"></i>
                 </span>
             </span>
+            <span class="gosearch">
+                Search
+            </span>
         </div>
     </div>
 

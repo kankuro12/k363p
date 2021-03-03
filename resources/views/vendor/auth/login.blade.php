@@ -2,7 +2,8 @@
 @section('content')
 <div class="v-center w-100">
     <div class="logo text-center pb-1">
-        <img src="{{asset('assets/public/img/logo.png')}}" style="max-width:250px;">
+        <a href="/"><img src="{{asset('assets/public/img/logo.png')}}" style="max-width:250px;" ></a>
+        
     </div>
     <div class="container">
         <div class="row">

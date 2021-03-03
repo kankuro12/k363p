@@ -84,15 +84,23 @@
                                         </a>
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
+                            <style>
+                                .md-text-right{
+                                    text-align:right;
+                                }
+                                @media(max-width:768px){
+                                    .md-text-right{
+                                        text-align:center;
+                                    }
+                                }
+                            </style>
                             <div style="height: 2px;background:#f1f1f1;margin:10px 0px;"></div>
-                            <div class="text-right pb-3 ">
+                            <div class="md-text-right pb-3 ">
                                 Need A Account? <a href="{{route('n.user.signup')}}" style="text-decoration:none;font-weight:500;">Signup</a>
+                            </div>
+                            <div class="md-text-right pb-3 ">
+                                 <a href="{{route('vendor.getLogin')}}" style="text-decoration:none;font-weight:500;">Login as Driving Center</a>
                             </div>
                         </div>
                     </div>

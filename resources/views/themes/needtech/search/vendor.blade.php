@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="link">
-                        <a href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">{{$service->roomtype->name}} View Detail</a>
+                        <a href="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$vendor->slug])}}">View Detail</a>
                     </div>
 
                 </div>
@@ -24,7 +24,7 @@
         <div>
             <div class="title d-block d-md-inline">
                 <span>
-                    {{$vendor->name}}
+                    {{$vendor->name}}<span class="d-none d-md-inline">,</span>
                 </span>
 
             </div>
@@ -38,6 +38,18 @@
                 </span>
 
             </div>
+            <style>
+                .md-right{
+                    float:right;
+
+                }
+                @media(max-width:768px){
+                    .md-right{
+                        float:none;
+
+                    }  
+                }
+            </style>
             <div class="subtitle d-block d-md-inline" style="font-weight:700;">
                 <span >
                     <a href="{{route('n.single_vendor',['slug'=>$vendor->slug])}}">View Detail</a>
