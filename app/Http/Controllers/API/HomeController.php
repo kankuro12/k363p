@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Model\Vendor\Booking;
+use App\Model\Vendor\City;
 use App\Model\Vendor\Collection;
 use App\Model\Vendor\Location;
 use App\Model\Vendor\Review;
@@ -80,5 +81,22 @@ class HomeController extends Controller
         $package->images=RoomPhoto::where('room_id',$package->id)->pluck('image');
         $package->bookingcount=Booking::where('room_id',$package->id)->count();
         return response()->json(['status'=>true,'package'=>$package]);
+    }
+    public function cities(){
+        return response()->json(['status'=>true,'cities'=>City::all()]);
+    }
+
+    public function packageType(RoomType $packageType){
+        $packages=Room::where('roomtype_id',$packageType->id)->get();
+        $trs = Room::join('vendors','rooms.vendor_id','=','vendors.id')->select('rooms.description','rooms.id','rooms.name','rooms.price','rooms.discount',DB::raw('vendors.name as vendor'))->where('rooms.roomtype_id',$packageType->id)->get();
+        $packages=[];
+        foreach ($trs  as  $value) {
+            $value->newprice=$value->getNewPrice();
+            $value->images=RoomPhoto::where('room_id',$value->id)->pluck('image');
+            array_push($packages,$value);
+        }
+        return response()->json(['status'=>true,'packagetype'=>$packageType,'packages'=>$packages]);
+        
+
     }
 }

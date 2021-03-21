@@ -4,8 +4,10 @@ Route::post('sms/mock','MockSmsController@mock');
 Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
     // XXX hompage function
     Route::get('homepage','API\HomeController@homePage');
+    Route::get('cities','API\HomeController@cities');
     Route::get('vendor/{vendor}','API\HomeController@singleVendor');
     Route::get('package/{package}','API\HomeController@singlePackage');
+    Route::get('packagetype/{packageType}','API\HomeController@packageType');
 
 
     Route::post('login', 'API\User\AuthController@login');
@@ -21,6 +23,11 @@ Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
             echo "test ok";
         });
         Route::get('info', 'API\User\General@info');
+        Route::post('checkout', 'API\User\General@checkout');
+        Route::get('booking/{code}', 'API\User\General@SingleBooking');
+        Route::get('bookings', 'API\User\General@bookings');
+        Route::post('changepic', 'API\User\AuthController@changePic');
+        Route::post('updateprofile', 'API\User\AuthController@updateProfile');
     });
 
 
