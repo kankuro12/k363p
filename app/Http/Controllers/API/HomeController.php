@@ -34,7 +34,7 @@ class HomeController extends Controller
             $value->images=RoomPhoto::where('room_id',$value->id)->pluck('image');
             array_push($featured_services,$value);
         }
-        //delta test123
+        //delta test123   
 
         $roomtypes=RoomType::all();
         // $cities=City::take(5)->get();
