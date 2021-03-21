@@ -3,7 +3,9 @@
 Route::post('sms/mock','MockSmsController@mock');
 Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
     // XXX hompage function
-    Route::get('homepage','API\User\General@homePage');
+    Route::get('homepage','API\HomeController@homePage');
+
+
     Route::post('login', 'API\User\AuthController@login');
     Route::post('register', 'API\User\AuthController@register');
     Route::post('activate', 'API\User\AuthController@signupActivate');
