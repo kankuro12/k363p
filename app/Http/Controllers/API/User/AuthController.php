@@ -10,101 +10,109 @@ use Auth;
 use App\User;
 use App\Model\VendorUser\VendorUser;
 use App\Notifications\User\APISignupActivate;
+use App\Notifications\User\SignupActivate;
 use Illuminate\Support\Facades\Validator;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request){
-        $validator=Validator::make($request->all(),[
-            'fname' => 'required|max:255',
-            'lname' => 'required|max:255',
-            'mobile_number' => 'unique:vendor_users|required|size:10|regex:/^[0-9]+$/i',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-            //'g-recaptcha-response' => 'required|recaptcha'
-        ],[
-            'fname.required' => 'Firstname is mandatoy',
-            'lname.required'  => 'Lastname is mandatory',
-            'mobile_number.required'  => 'Mobile Number is mandatory',
-            'mobile_number.size'  => 'Mobile Number must be 10 digit',
-            'mobile_number.unique'  => 'Mobile Number number already exist',
-            'mobile_number.regex'   => 'Invalid Mobile Number',
-            'email.required'  => 'Email is mandatory',
-            'email.unique'  => 'Email already exist',
-            'email.regwx' => 'Invalid email',
-            'gender.required'   => 'Please select gender',
-            'password.required'  => 'Password is mandatory',
-        ]);
-        $input = $request->all();
-
-        if ($validator->passes()) {
-
-            $user = new User([
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-                'role_id'=>1,
-                'activation_token' => mt_rand(100000, 999999),
-            ]);
-            $user->save();
-            $vendor=VendorUser::create([
-	            'fname'=>$request->fname,
-                'lname'=>$request->lname,
-	            'mobile_number'=>$request->mobile_number,	            
-	            'user_id'=>$user->id,
-            ]);
-            $user->notify(new APISignupActivate($user));
-
-            return response()->json([
-                 'message' => 'Please verify your email','success' => '1'
-            ], 201);
-        }
-        return response()->json(['errors' => $validator->errors()],500);
-    }
-    public function login(Request $request){
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
-        ]);
-        $credentials = request(['email', 'password']);
-        $credentials['active'] = 1;
-        if(!Auth::attempt($credentials))
-            return response()->json([
-                'message' => 'Unauthorized'
-            ], 401);
-        $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
-        $token->save();
-        return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'type'=>$user->role_id,
-            'expires_at' => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString()
-        ]);
-    }
-    public function logout(){
-
-    }
-    public function signupActivate(Request $request)
+    public function login(Request $request)
     {
-        $request->validate([
-            'token' => 'required',
-        ]);
-        $user = User::where('activation_token', $request->token)->first();
-        if (!$user) {
-            return response()->json([
-                'message' => 'This activation token is invalid.'
-            ], 404);
+        $phone = $request->phone;
+        $vu = VendorUser::where('mobile_number', $phone)->first();
+        if ($vu == null) {
+            return response()->json(['status' => false, 'message' => "No Account Exist with Phone No " . $phone]);
+        } else {
+            $user = $vu->user;
+            $user->activation_token = mt_rand(100000, 999999);
+            $user->save();
+            $user->notify(new SignupActivate());
+            session(['number' => $request->phone]);
+            return response()->json(['status' => true]);
         }
-        $user->active = true;
-        $user->activation_token = '';
+    }
+
+    public function signup(Request $request)
+    {
+        $phone = $request->phone;
+        $vu = VendorUser::where('mobile_number', $phone)->first();
+        if ($vu != null) {
+            return response()->json(['status' => false, 'message' => "Account already Exist with Phone No " . $phone]);
+        }
+        
+        $user = new User();
+        if ($request->email == null || $request->email=="") {
+            $user->email = $request->phone . "@abtest.com";
+        } else {
+            $user->email = $request->email;
+            if(User::where('email',$request->email)->count()>0){
+                return response()->json(['status' => false, 'message' => "Account already Exist with email " . $request->email]);
+               
+            }
+        }
+        $user->password = bcrypt('xyzerpnepal');
+        $user->role_id = 1;
+        $user->activation_token = mt_rand(100000, 999999);
         $user->save();
-        $user->vendoruser;
-        return  response()->json([  'message' => 'Email Verified','success' => '1']);
+
+        $data = new VendorUser();
+        $data->user_id = $user->id;
+        $data->fname = $request->fname;
+        $data->lname = $request->lname;
+        $data->mobile_number = $request->phone;
+        $data->save();
+        $user->notify(new SignupActivate());
+        return response()->json(['status' => true, 'message' => "Account Created Sucessfully"]);
+        
+    }
+
+    public function otp(Request $request)
+    {
+        
+            $data = VendorUser::where('mobile_number', $request->number)->first();
+            if ($data == null) {
+                return response()->json(['status' => false, 'message' => "No Account Exist with Phone No " . $request->number]);
+            }else {
+                $user = $data->user;
+                if ($user->activation_token == $request->otp) {
+                    $user->activation_token="";
+                    $user->save();
+                    $tokenResult = $user->createToken('Personal Access Token');
+                    $token = $tokenResult->token;
+                    if ($request->remember_me)
+                        $token->expires_at = Carbon::now()->addWeeks(1);
+                    $token->save();
+                    return response()->json([
+                        'status'=>true,
+                        'user'=>$user,
+                        'acc'=>$data,
+                        'access_token' => $tokenResult->accessToken,
+                        'token_type' => 'Bearer',
+                        'type'=>$user->role_id,
+                        'expires_at' => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString()
+                    ]);
+                    
+                } else {
+                    return response()->json(['status'=>true,'message'=>'wrong otp']);
+
+                }
+            }
+      
+    }
+
+    public function resendotp(Request $request)
+    {
+        $data = VendorUser::where('mobile_number', $request->number)->first();
+        if ($data == null) {
+            return response()->json(['status' => false, 'message' => "No Account Exist with Phone No " . $request->number]);
+        } else {
+            $user = $data->user;
+            $user->activation_token = mt_rand(100000, 999999);
+            $user->save();
+            $user->notify(new SignupActivate());
+            return response()->json(['status'=>true]);
+        }
     }
 }

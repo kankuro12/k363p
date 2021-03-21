@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Http;
 class SMS
 {
     const url="https://aakashsms.com/admin/public/sms/v3/send";
-    const token="e3d8dccc23900f6d19cd76bcd4f7b5157de6e7312335d2da81c258037bbef9b4";
     /**
      * Send the given notification.
      *
@@ -21,7 +20,7 @@ class SMS
         $data = $notification->toSMS($notifiable);
         switch (env('smschannel','mock')) {
             case 'aakash':
-                $data['auth_token']=self::token;
+                $data['auth_token']=env('aakash_token',"");
                 $response = Http::post(self::url,$data);
                 break;
             

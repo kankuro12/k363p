@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Model\Vendor\Booking;
 use App\Model\Vendor\Collection;
 use App\Model\Vendor\Location;
 use App\Model\Vendor\Review;
 use App\Model\Vendor\Room;
+use App\Model\Vendor\RoomAmentiy;
 use App\Model\Vendor\RoomPhoto;
 use App\Model\Vendor\RoomType;
 use App\Model\Vendor\Vendor;
@@ -27,7 +29,7 @@ class HomeController extends Controller
         // foreach ($variable as $key => $value) {
         //     # code...
         // }
-        $trs = Room::join('room_types','rooms.roomtype_id','=','room_types.id')->join('vendors','rooms.vendor_id','=','vendors.id')->select('rooms.id','rooms.name','rooms.price','rooms.discount',DB::raw('room_types.name as roomtype'),DB::raw('vendors.name as vendor'))->inRandomOrder()->limit(8)->get();
+        $trs = Room::join('room_types','rooms.roomtype_id','=','room_types.id')->join('vendors','rooms.vendor_id','=','vendors.id')->select('rooms.description','rooms.id','rooms.name','rooms.price','rooms.discount',DB::raw('room_types.name as roomtype'),DB::raw('vendors.name as vendor'))->inRandomOrder()->limit(8)->get();
         $featured_services=[];
         foreach ($trs  as  $value) {
             $value->newprice=$value->getNewPrice();
@@ -57,4 +59,26 @@ class HomeController extends Controller
             'collections'=>$collections
         ]);
     }   
+
+    public function singleVendor(Vendor $vendor){
+        $rs=Room::join('room_types','rooms.roomtype_id','=','room_types.id')->select('rooms.description','rooms.id','rooms.name','rooms.price','rooms.discount',DB::raw('room_types.name as roomtype'))->where('rooms.vendor_id',$vendor->id)->get();
+        $rooms=[];
+        foreach ($rs as  $value) {
+            $value->amenities=RoomAmentiy::where('room_id',$value->id)->pluck('amenity');
+            $value->images=RoomPhoto::where('room_id',$value->id)->pluck('image');
+
+            array_push($rooms,$value);
+        }
+        $reviews=Review::where('vendor_id',$vendor->id)->select('id',DB::raw('vendor_user_id as user_id'),'review_title','review_description',DB::raw('avg_rating as rating'))->get();
+        return response()->json(['status'=>true,'vendor'=>$vendor,'packages'=>$rooms,'reviews'=>$reviews]);
+    }
+
+    public function singlePackage(Room $package){
+        $package->vendor=Vendor::find($package->vendor_id)->name;
+        $package->newprice=$package->getNewPrice();
+        $package->amenities=RoomAmentiy::where('room_id',$package->id)->pluck('amenity');
+        $package->images=RoomPhoto::where('room_id',$package->id)->pluck('image');
+        $package->bookingcount=Booking::where('room_id',$package->id)->count();
+        return response()->json(['status'=>true,'package'=>$package]);
+    }
 }

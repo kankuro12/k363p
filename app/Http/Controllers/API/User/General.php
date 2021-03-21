@@ -19,7 +19,7 @@ class General extends Controller
     public function info(){
         $user=Auth::user();
         $user->vendoruser;
-        return response()->json($user);
+        return response()->json(['status'=>true,'user'=>$user]);
     }
 
    
