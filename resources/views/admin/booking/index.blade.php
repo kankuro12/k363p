@@ -94,7 +94,9 @@
                         		<td>{{$booking->first_name." ".$booking->last_name}}</td>
                         		<td>{{$booking->email}}</td>
                                 <th>
+                                    @if($booking->vendor!=null)
                                     {{$booking->vendor->name}}
+                                    @endif
                                 </th>
                                 <th>
 
