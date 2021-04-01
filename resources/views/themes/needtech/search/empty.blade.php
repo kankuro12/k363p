@@ -18,7 +18,7 @@
             Sorry! No result :(
         </h2>
         <p>
-           Please Enter 3 or more letters to search.
+           Please Enter 1 or more letters to search.
         </p>
     </div>
     <div id="main_search">
