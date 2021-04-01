@@ -55,7 +55,7 @@
             $('#mob-search-input').val(historyloc);
             ajaxSearch(3,2);
         });
-        function ajaxSearch(minl=3,type=1){
+        function ajaxSearch(minl=1,type=1){
             var loc=document.getElementById('location1').value;
             // console.log(loc.length);
 
