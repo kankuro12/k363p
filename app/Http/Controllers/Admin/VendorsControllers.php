@@ -150,7 +150,7 @@ class VendorsControllers extends Controller
         ];
         Location::create($location_data);
         if($request->hasFile('logo')){
-            $vendor->logo=FileUpload::photo($request,'logo','','uploads/vendor/logo',[[200,200]]);
+            $vendor->logo=FileUpload::photo($request,'logo','','uploads/vendor/logo',[[545,300]]);
         }
         if($request->hasFile('cover_img')){
             $vendor->cover_img=FileUpload::photo($request,'cover_img','','uploads/vendor/cover_img',[[200,200],[800,800],[1200,1200]]);
@@ -219,7 +219,7 @@ class VendorsControllers extends Controller
                 unlink('uploads/vendor/cover_img'.'uploads/vendor/logo'.$vendor->logo);
                 unlink('uploads/vendor/cover_img'.'uploads/vendor/logo/200x200/'.$vendor->logo);
             }
-            $vendor->logo=FileUpload::photo($request,'logo','','uploads/vendor/logo',[[200,200]]);
+            $vendor->logo=FileUpload::photo($request,'logo','','uploads/vendor/logo',[[545,300]]);
         }
         if($request->hasFile('cover_img')){
             if(File::exists('uploads/vendor/cover_img'.$vendor->cover_img)&& 'uploads/vendor/cover_img'.$vendor->cover_img!='cover.png'){
