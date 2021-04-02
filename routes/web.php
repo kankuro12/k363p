@@ -43,6 +43,8 @@ Route::group(['prefix' => ''], function () {
         // XXX Booking Start
         Route::match(['get', 'post'],'startbooking','Need\BookingController@start')->name('startbooking');
 
+        Route::match(['get', 'post'], 'getotp','Need\Auth\BookingController@getotp')->name('getotp');
+        Route::match(['get', 'post'], 'verifyotp','Need\Auth\BookingController@verifyotp')->name('verifyotp');
         // XXX User Authentication
         Route::group(['prefix' => 'user'], function () {
             Route::name('user.')->group(function(){
@@ -57,6 +59,9 @@ Route::group(['prefix' => ''], function () {
             });
         });
         Route::group(['prefix'=>'user','middleware'=>['authen','type'],'type'=>['user']],function(){
+            Route::get('check', function () {
+                return 'ok';
+            })->name('auth_check');
             // Route::match(['get', 'post'], 'startbook', startbook);
             Route::match(['get', 'post'],'verifyBooking','Need\BookingController@verifyBooking')->name('verifyBooking');
             Route::match(['get', 'post'],'book','Need\BookingController@book')->name('book');

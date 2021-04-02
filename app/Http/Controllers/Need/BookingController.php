@@ -33,37 +33,41 @@ class BookingController extends Controller
 
     public function start(Request $request){
 
-        if($request->getMethod()=="POST"){
-            session(['date'=>$request->start_date,'room_id'=>$request->room_id]);
-            if(!Auth::check()){
-                session(['redirect'=>route('n.startbooking')]);
-                return redirect()->route('n.user.login');
-            }
-            $date=$request->start_date;
-            $room_id=$request->room_id;
-
-        }else{
-            if(!Auth::check()){
-                session(['redirect'=>route('n.startbooking')]);
-                return redirect()->route('n.user.login');
-            }
-
-            if(session('date')==null || session('room_id')==null){
-                return redirect()->route('n.home');
-            }
-            $date=session('date');
-            $room_id=session('room_id');
-
-        }
-
+        // if($request->getMethod()=="POST"){
+        //     session(['date'=>$request->start_date,'room_id'=>$request->room_id]);
+        //     if(!Auth::check()){
+        //         session(['redirect'=>route('n.startbooking')]);
+        //         return redirect()->route('n.user.login');
+        //     }
+        //     $room_id=$request->room_id;
+        
+        // }else{
+            //     if(!Auth::check()){
+                //         session(['redirect'=>route('n.startbooking')]);
+                //         return redirect()->route('n.user.login');
+                //     }
+                
+                //     if(session('date')==null || session('room_id')==null){
+                    //         return redirect()->route('n.home');
+                    //     }
+        //     $date=session('date');
+        //     $room_id=session('room_id');
+        
+        // }
+        $room_id=$request->room_id;
         $room=Room::find($room_id);
+        $date=$request->start_date;
         $user=Auth::user();
-        $data=$user->vendoruser;
+        if($user!=null){
+
+            $data=$user->vendoruser;
+        }
         $khalti=PaymentMethod::where('pkey','khalti')->first();
         $pmethods=PaymentMethod::where('status','active')->get();
 
         // dd(compact('date','room_id'));
-        return view('themes.needtech.vendor.service.booking',compact('pmethods','date','room_id','room','khalti','user'));
+        // return view('themes.needtech.vendor.service.booking',compact('pmethods','date','room_id','room','khalti','user'));
+        return view('themes.needtech.vendor.service.newbooking',compact('pmethods','date','room_id','room','khalti','user'));
     }
 
     public function final(Request $request){
