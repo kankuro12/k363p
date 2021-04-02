@@ -28,7 +28,7 @@
             <div style="position:relative;">
 
                 <input type="text" autocomplete="off" class="form-control mb-1"
-                                    placeholder="Search By City or Neighbourhood" id="location3" name="location"
+                                    placeholder="Search By City or Neighbourhood or Driving Center" id="location3" name="location"
                                     required>
                                     <div class="shadow" id="mobile-search-target" style="
                                     position:absolute;

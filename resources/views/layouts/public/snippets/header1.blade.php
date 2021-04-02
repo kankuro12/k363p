@@ -60,7 +60,7 @@
                       <div class="d-flex" style="position:relative">
                           <span class="input ">
                               <input type="text" autocomplete="off"
-                                  placeholder="Search By City or Neighbourhood" id="location1" name="location"
+                                  placeholder="Search By City or Neighbourhood or Driving Center" id="location1" name="location"
                                   required>
 
                           </span>
@@ -127,7 +127,7 @@
                     <div class="d-flex" style="position:relative">
                         <span class="input ">
                             <input type="text" autocomplete="off"
-                                placeholder="Search By City or Neighbourhood" id="location1" name="location"
+                                placeholder="Search By City or Neighbourhood or Driving Center" id="location1" name="location"
                                 required>
 
                         </span>

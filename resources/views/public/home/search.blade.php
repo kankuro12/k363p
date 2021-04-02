@@ -14,7 +14,7 @@
                             <div class="d-flex" style="position:relative">
                                 <span class="input ">
                                     <input type="text" autocomplete="off"
-                                        placeholder="Search By City or Neighbourhood" id="location" name="location"
+                                        placeholder="Search By City or Neighbourhood or Driving Center" id="location" name="location"
                                         required class="search-location" data-url="{{route('n.location.search')}}" data-target="#target">
 
                                 </span>
