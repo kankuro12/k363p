@@ -72,12 +72,14 @@ class HomeController extends Controller
         // dd($vendors->get());
         if($request->filled('location')) {
             $vendors=$vendors->orWhereHas('location', function($q) use($location) {
-                $q->where('name', 'like', '%' . $location . '%');
+                $cityids=City::where('name','like','%' . $location . '%')->pluck('id');
+                $q->where('name', 'like', '%' . $location . '%')->orWhereIn('city_id',$cityids);
             });
             $vendors=$vendors->orWhereHas('rooms',function($q) use($location){
                 $q->where('name', 'like', '%' . $location . '%');
             });
         }
+
 
         $v=$vendors->get();
 
