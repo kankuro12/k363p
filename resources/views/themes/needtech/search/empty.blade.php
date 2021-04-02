@@ -102,7 +102,7 @@
                     // console.log(document.getElementById('main_search'));
                     document.getElementById('main_search').innerHTML= "";
                     $('#main_search').removeClass('d-none');
-                        if(document.getElementById('location1').value.length>2){
+                        if(document.getElementById('location1').value.length>=1){
                             document.getElementById('main_search').innerHTML= response.data;
                         }
                     manageData();

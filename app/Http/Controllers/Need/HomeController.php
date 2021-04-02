@@ -68,11 +68,12 @@ class HomeController extends Controller
         $vendors =Vendor::where('verified',1);
         $all=$request->all();
 
+        $vendors=$vendors->Where('name', 'like', '%' . $location . '%');
+        // dd($vendors->get());
         if($request->filled('location')) {
-            $vendors=$vendors->WhereHas('location', function($q) use($location) {
+            $vendors=$vendors->orWhereHas('location', function($q) use($location) {
                 $q->where('name', 'like', '%' . $location . '%');
             });
-            $vendors=$vendors->orWhere('name', 'like', '%' . $location . '%');
             $vendors=$vendors->orWhereHas('rooms',function($q) use($location){
                 $q->where('name', 'like', '%' . $location . '%');
             });
@@ -89,7 +90,6 @@ class HomeController extends Controller
             if($hasservice){
                 $service=$request->service;
                 if(count($service)>0){
-
                     $items=$items->whereIn('roomtype_id',$service);
                 }
 
