@@ -118,6 +118,38 @@ Route::get('vendors/delete/{slug}', [
     'uses'=>'Admin\VendorsControllers@destroy',
     'as'=>'admin.get_delete_vendor'
 ]);
+Route::match(['get', 'post'], '/package/edit/{slug}', [
+    'uses'=>'Admin\VendorsControllers@packageEdit',
+    'as'=>'admin.edit_package'
+]);
+Route::get('packages/{id}/amenities/edit/',[
+    'uses'=>'Vendor\RoomsController@edit_amenities',
+    'as'=>'admin.get_edit_amenities_rooms'
+]);
+Route::post('packages/{id}/amenities/edit/',[
+    'uses'=>'Vendor\RoomsController@post_edit_amenities',
+    'as'=>'admin.post_edit_amenities_rooms'
+]);
+Route::post('packages/{id}/amenities/delete/',[
+    'uses'=>'Vendor\RoomsController@delete_amenities_rooms',
+    'as'=>'admin.delete_amenities_rooms'
+]);
+Route::post('packages/{id}/amenities/update/',[
+    'uses'=>'Vendor\RoomsController@update_amenities_rooms',
+    'as'=>'admin.update_amenities_rooms'
+]);
+Route::get('packages/{id}/photos/edit/',[
+    'uses'=>'Vendor\RoomsController@edit_photos',
+    'as'=>'admin.get_edit_photos_rooms'
+]);
+Route::post('packages/{id}/photos/delete/',[
+    'uses'=>'Vendor\RoomsController@delete_photos',
+    'as'=>'admin.get_delete_photos_rooms'
+]);
+Route::post('packages/{id}/bed/delete/',[
+    'uses'=>'Vendor\RoomsController@delete_bed',
+    'as'=>'admin..get_delete_bed_rooms'
+]);
 Route::get('vendors/{slug}/photogallery', [
     'uses'=>'Admin\GalleriesController@index',
     'as'=>'admin.get_vendor_photo'

@@ -350,9 +350,14 @@ class RoomsController extends Controller
            'adata'=>$a,
        ], 200);
     }
-    public function delete_amenities_rooms($id){
-      $user=Auth::user();
-      $room=$user->vendor->rooms()->where('id',$id)->firstOrFail();
+    public function delete_amenities_rooms($id,Request $request){
+      if($request->filled('type')){
+        
+        $room=Room::find($id);
+      }else{
+        $user=Auth::user();
+        $room=$user->vendor->rooms()->where('id',$id)->firstOrFail();
+      }
       $amenity=$room->roomamenities()->where('id',request()->aid)->firstOrFail();
       $amenity->delete();
       return response()->json([
@@ -387,8 +392,13 @@ class RoomsController extends Controller
       return view('vendor.rooms.photos.edit',compact('photos','room'));
     }
     public function delete_photos(Request $request,$id){
-      $user=Auth::user();
-      $room=$user->vendor->rooms()->where('id',$id)->firstOrFail();
+      if($request->filled('type')){
+        
+        $room=Room::find($id);
+      }else{
+        $user=Auth::user();
+        $room=$user->vendor->rooms()->where('id',$id)->firstOrFail();
+      }
       $photo=$room->roomphotos()->where('id',$request->img_id)->firstOrFail();
       if(File::exists('uploads/vendor/roomphotos/'.$photo->image)){
           unlink('uploads/vendor/roomphotos/'.$photo->image);

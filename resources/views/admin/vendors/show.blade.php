@@ -214,7 +214,7 @@
                                                                     <td>{{$room->discount?$room->discount:'0'}}</td>
                                                                     <td>{{$room->status}}</td>
                                                                     <th>
-                                                                      <a href="{{route('vendor.get_edit_rooms',['id'=>$room->id])}}" class="btn btn-success btn-sm"><i class="ion-ios-compose-outline"></i></a>
+                                                                      <a href="{{route('admin.edit_package',['slug'=>$room->slug])}}" class="btn btn-success btn-sm" target="_blank"><i class="ion-ios-compose-outline"></i></a>
                                                                       <button class="btn btn-primary btn-sm delete_room" data-room-id="{{$room->id}}"><i class="ion-ios-trash-outline"></i></button>
                                                                     </th>
                                                                   </tr>
