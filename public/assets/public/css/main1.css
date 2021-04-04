@@ -512,6 +512,9 @@
   overflow: hidden;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder img {
