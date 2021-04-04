@@ -5,7 +5,7 @@
 @import "featurevendor";
 @import "featuredservice";
 @import "services";
-
+ 
 
 
 html {
@@ -13,7 +13,7 @@ html {
 }
 .span{
 
-    background:white;
+    background:white; 
     text-align:center;
     line-height:50px;
     position:relative;
@@ -41,7 +41,7 @@ div.sticky {
     box-shadow:0px 0px 3px 3px rgba(47, 155, 206, 0.678);
 
 }
-.city{
+.city{ 
     background:#F3F5F7;  
     color:#888888;
     padding:1px;

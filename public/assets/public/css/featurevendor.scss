@@ -136,7 +136,7 @@
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (min-width:375px) {
     .feature-vendors{
 
         .f-header{
@@ -164,7 +164,8 @@
             }
             .owl-feature-vendor{
                 .image-holder{
-                    height:120px;
+                    display:block;
+                    height:140px;
                 }
                 .owl-feature-description{
 
@@ -199,6 +200,19 @@
                         }
 
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px){
+    .feature-vendors{
+        #owl-feature-vendors{
+            .owl-feature-vendor{
+                .image-holder{
+                    display:block;
+                    height:120px;
                 }
             }
         }

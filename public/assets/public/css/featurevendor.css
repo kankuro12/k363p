@@ -135,6 +135,9 @@
     height: 0;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     height: 120px;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {

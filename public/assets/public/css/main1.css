@@ -581,7 +581,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (min-width: 375px) {
   .feature-vendors .f-header {
     margin: 0.5rem 0rem;
   }
@@ -601,7 +601,8 @@
     height: 0;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
-    height: 120px;
+    display: block;
+    height: 140px;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {
     line-height: 1.2rem;
@@ -629,6 +630,13 @@
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-rating .fa-circle {
     font-size: 5px;
     color: #222222;
+  }
+}
+
+@media (max-width: 375px) {
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
+    display: block;
+    height: 120px;
   }
 }
 
