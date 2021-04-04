@@ -152,9 +152,9 @@
                                                             </div>
                                                             <hr class="my-1 d-none d-md-block">
 
-                                                            <div class="row d-none d-md-flex">
+                                                            <div class="row d-none d-md-flex" >
                                                                 @foreach($service->roomamenities as $ra)
-                                                                <div class="col-md-4">
+                                                                <div class="mx-2">
                                                                     <span class="feature-item">{{$ra->amenity}}</span>
                                                                 </div>
                                                                 @endforeach
