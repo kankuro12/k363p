@@ -92,9 +92,9 @@
 
 
                             @include('themes.needtech.search.vendor')
-                            @include('themes.needtech.search.mobile_footer')
-
+                            
                     </div>
+                    @include('themes.needtech.search.mobile_footer')
                     <div class="text-center mt-5 pt-5 {{count($all)>0?"d-none":"d-block"}}">
                         <div class="text-center">
                             <img src="https://ouch-cdn.icons8.com/preview/52/3fc4ea7b-1a78-4215-be4d-e613c321ae15.png" alt="" style="max-width:300px;">

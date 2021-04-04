@@ -273,7 +273,17 @@
   display: none !important;
 }
 
-.search-main .results .mobile-filters {
+@media (max-width: 768px) {
+  .search-main {
+    display: block;
+    min-height: 0px;
+  }
+  .search-main .filter {
+    display: none;
+  }
+}
+
+.mobile-filters {
   line-height: 1rem;
   font-size: 0.8rem;
   position: fixed;
@@ -285,19 +295,19 @@
   text-align: center;
 }
 
-.search-main .results .mobile-filters .mobile-price-range {
+.mobile-filters .mobile-price-range {
   background: white;
   border-radius: 5px;
   border: 1px solid #f1f1f1;
 }
 
-.search-main .results .mobile-filters .other-filers {
+.mobile-filters .other-filers {
   background: white;
   border-radius: 5px;
   border: 1px solid #f1f1f1;
 }
 
-.search-main .results .mobile-filter-page {
+.mobile-filter-page {
   position: fixed;
   z-index: 33;
   top: 100%;
@@ -310,41 +320,41 @@
   overflow: hidden;
 }
 
-.search-main .results .mobile-filter-page .clear {
+.mobile-filter-page .clear {
   color: #c22319;
   font-size: 0.9rem;
   font-weight: 700;
   display: contents;
 }
 
-.search-main .results .mobile-filter-page .close {
+.mobile-filter-page .close {
   font-size: 1.4rem;
   font-weight: 700;
 }
 
-.search-main .results .mobile-filter-page .price-filter {
+.mobile-filter-page .price-filter {
   margin-top: 10px;
   height: 8px !important;
 }
 
-.search-main .results .mobile-filter-page .price-filter .noUi-connect {
+.mobile-filter-page .price-filter .noUi-connect {
   background: #D91F45;
 }
 
-.search-main .results .mobile-filter-page .price-filter .noUi-origin {
+.mobile-filter-page .price-filter .noUi-origin {
   outline: none;
   border-radius: 50%;
 }
 
-.search-main .results .mobile-filter-page .price-filter .noUi-origin ::before {
+.mobile-filter-page .price-filter .noUi-origin ::before {
   content: none;
 }
 
-.search-main .results .mobile-filter-page .price-filter .noUi-origin ::after {
+.mobile-filter-page .price-filter .noUi-origin ::after {
   content: none;
 }
 
-.search-main .results .mobile-filter-page .price-filter .noUi-origin .noUi-handle {
+.mobile-filter-page .price-filter .noUi-origin .noUi-handle {
   border-radius: 10px;
   outline: none;
   width: 20px;
@@ -353,7 +363,7 @@
   top: -7px;
 }
 
-.search-main .results .mobile-filter-page .apply-filter {
+.mobile-filter-page .apply-filter {
   background: #c22319;
   position: fixed;
   bottom: -100vh;
@@ -365,22 +375,12 @@
   transition: all 1s cubic-bezier(1, 0.71, 0.73, 0.25);
 }
 
-.search-main .results .mobile-filter-page .apply-filter-show {
+.mobile-filter-page .apply-filter-show {
   bottom: 0px;
 }
 
-.search-main .results .mobile-filter-page-show {
+.mobile-filter-page-show {
   top: 50px;
   overflow: scroll !important;
-}
-
-@media (max-width: 768px) {
-  .search-main {
-    display: block;
-    min-height: 0px;
-  }
-  .search-main .filter {
-    display: none;
-  }
 }
 /*# sourceMappingURL=location.css.map */
