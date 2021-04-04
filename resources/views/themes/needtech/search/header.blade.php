@@ -114,9 +114,9 @@
             <span class="input-min-holder">
 
                 <input oninput="$('#location1').val(this.value);" data-url="{{route('n.mobile.search')}}" type="text" id="mob-search-input" class="input" placeholder="Search Location Or Establishments"  value="{{ Request::get("location") ??"" }}">
-                <span class="close d-none" id="clear-mobile-search">
+                {{-- <span class="close d-none" id="clear-mobile-search">
                     <i class="fas fa-times"></i>
-                </span>
+                </span> --}}
             </span>
             <span class="gosearch" onclick="ajaxSearch();">
                 Search

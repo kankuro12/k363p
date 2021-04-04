@@ -6,10 +6,8 @@
             </span>
             <span class="input-min-holder">
 
-                <input data-url="{{route('n.mobile.search')}}" type="text" id="mob-search-input" class="input" placeholder="Search Location Or Establishments">
-                <span class="close d-none" id="clear-mobile-search">
-                    <i class="fas fa-times"></i>
-                </span>
+                <input data-url="{{route('n.mobile.search')}}" type="search" id="mob-search-input" class="input" placeholder="Search Location Or Establishments">
+               
             </span>
             <span class="gosearch">
                 Search
