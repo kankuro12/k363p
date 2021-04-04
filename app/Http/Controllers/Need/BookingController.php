@@ -54,6 +54,9 @@ class BookingController extends Controller
         //     $room_id=session('room_id');
         
         // }
+        if($request->getMethod()!="POST" && session('startbooking')==null){
+            return redirect()->route('n.home');
+        }
         $room_id=$request->room_id;
         $room=Room::find($room_id);
         $date=$request->start_date;

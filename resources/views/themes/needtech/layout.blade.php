@@ -139,8 +139,17 @@ aria-hidden="true">
  <script>
     window.Laravel = {csrfToken: '{{ csrf_token() }}'};
     function goBack () {
+        console.log(document.referrer);
         if (document.referrer.indexOf("{{url('')}}") === 0) {
-            history.back();
+            if (document.referrer.indexOf("{{route('n.startbooking')}}") === 0) {
+              window.location.href = "{{url('')}}";
+
+            }else{
+
+              history.back();
+            }
+        
+            // history.back();
         } else {
             window.location.href = "{{url('')}}";
 

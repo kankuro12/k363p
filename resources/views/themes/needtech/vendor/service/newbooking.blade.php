@@ -149,7 +149,7 @@
                         <h5 class="color1">{{ $room->vendor->name }}</h5>
                         <p><i class="ion-android-pin"></i> {{ $room->vendor->location->name }}</p>
                     </div>
-                    <hr>
+                    {{-- <hr>
                     <div class="ch-date">
                         <div class="checkin">
                             <div class="ch-title">Start Date</div>
@@ -168,7 +168,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <hr>
                     <div class="b-total-price font-weight-bold">
                         <div class="total-price-title">Total Price</div>
@@ -186,9 +186,9 @@
     </div>
     </div>
 
-    <div class="d-block d-md-none " style="box-shadow: 0px -1px 10px 0px rgba(31,31,31,1);position:fixed;z-index:999;bottom:0px;left:0px;right:0px;padding:5px 15px;background:white;">
+    <div class="d-block d-md-none " style="box-shadow: 0px -1px 10px 0px rgb(185, 185, 185);position:fixed;z-index:999;bottom:0px;left:0px;right:0px;padding: 15px;background:white;">
         <div class="row">
-            <div class="col-6">
+            {{-- <div class="col-6">
                 <div style="font-weight:700">
                     Start Date
                 </div>
@@ -196,12 +196,12 @@
                     <div >{{$startdate->format('D')}}, {{$startdate->format('M')}} {{$startdate->format('Y')}} </div>
 
                 </div>
-            </div>
-            <div class="col-6 text-right">
-                <div style="font-weight:700">
+            </div> --}}
+            <div class="col-12  d-flex justify-content-between">
+                <div style="font-weight:700 ">
                     Amount
                 </div>
-                <div style="font-weight:500;font-size:0.8rem;">
+                <div style="font-weight:500;font-size:0.8rem;text-align:right;">
                     Rs. {{$room->discount==0? $room->price:$room->getNewPrice() }}
                  </div>
             </div>

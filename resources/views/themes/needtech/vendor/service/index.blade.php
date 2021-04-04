@@ -154,7 +154,8 @@
 
                                         <div class="form-group">
                                             <button class="btn btn-success">
-                                                {{$isuser?"Book Now":"Signin and Book"}}
+                                                {{-- {{$isuser?"Book Now":"Signin and Book"}} --}}
+                                                Book Now
                                             </button>
                                         </div>
                                     </form>
