@@ -217,4 +217,90 @@
     font-weight: 700;
   }
 }
+
+@media (max-width: 375px) {
+  .feature-services {
+    margin-top: 2rem;
+  }
+  .feature-services .fs-header {
+    text-align: left;
+    margin: 0.5rem 0rem;
+  }
+  .feature-services .fs-header h1 {
+    font-weight: 500;
+    font-size: 22px;
+    color: #1f1f1f;
+  }
+  .feature-services #owl-feature-services .owl-nav .owl-prev {
+    top: 35% !important;
+  }
+  .feature-services #owl-feature-services .owl-nav .owl-next {
+    top: 35% !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .image-holder {
+    height: 120px;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description {
+    line-height: 1.2rem;
+    padding-top: 10px !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-subtitle {
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    font-size: 0.8rem !important;
+    position: absolute;
+    bottom: 70px;
+    background: #43882c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    right: 10px;
+    color: white;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::before {
+    content: '';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-rating ::after {
+    content: '';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price {
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .new {
+    color: #EE2E24;
+    font-weight: 700;
+    font-size: 0.8rem !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .old {
+    display: none;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .discount {
+    margin-left: 5px !important;
+    font-size: 0.8rem !important;
+    display: inline-block;
+    color: #bea721;
+    font-weight: 700;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .discount ::before {
+    content: '-';
+  }
+  .feature-services #owl-feature-services .owl-feature-service .owl-feature-description .fs-price .down {
+    display: block;
+    content: 'd';
+    color: #F1F1F1;
+    font-size: 0.8rem !important;
+    font-weight: 700;
+  }
+}
 /*# sourceMappingURL=featuredservice.css.map */

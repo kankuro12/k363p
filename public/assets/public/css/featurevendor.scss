@@ -208,11 +208,68 @@
 
 @media (max-width: 375px){
     .feature-vendors{
+
+        .f-header{
+            margin:0.5rem 0rem;
+            h1{
+                font-weight: 500;
+                font-size: 22px;
+                color: #1f1f1f;
+            }
+        }
         #owl-feature-vendors{
+
+            .owl-nav{
+                .owl-prev{
+
+                    top:35% !important;
+                }
+                .owl-next{
+                    top:35% !important;
+
+                }
+            }
+            .owl-dots{
+                display:none;height:0;
+            }
             .owl-feature-vendor{
                 .image-holder{
                     display:block;
                     height:120px;
+                }
+                .owl-feature-description{
+
+                    line-height: 1.2rem;
+                    padding-top:5px !important;
+                    .f-title{
+                        font-weight: 600 !important;
+                        font-size: 0.8rem !important;
+
+                    }
+                    .f-subtitle{
+                        font-weight: 500 !important;
+                        font-size: 0.7rem !important;
+
+                    }
+                    .f-rating{
+                        margin-top:0px !important;
+                        margin-bottom:0px !important;
+                        font-weight: 400;
+                        font-size: 0.7rem !important;
+                        .f-rating-display{
+                            position: absolute;
+                            bottom: 60px;
+                            right: 5px;
+
+
+                        }
+                        .fa-circle{
+                            font-size:5px;
+                            color:#222222;
+
+                        }
+
+                    }
                 }
             }
         }

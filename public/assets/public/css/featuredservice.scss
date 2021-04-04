@@ -253,12 +253,118 @@
 
 @media (max-width: 375px){
     .feature-services{
+        margin-top:2rem;
+        .fs-header{
+            text-align:left;
+            margin:0.5rem 0rem;
+            h1{
+                font-weight: 500;
+                font-size: 22px;
+                color: #1f1f1f;
+            }
+        }
         #owl-feature-services{
+            .owl-nav{
+                .owl-prev{
+
+                    top:35% !important;
+
+                }
+                .owl-next{
+
+
+                    top:35% !important;
+
+                }
+            }
+
             .owl-feature-service{
                 .image-holder{
+
                     height:120px;
+                    img{
+
+
+
+                    }
+                }
+
+                .owl-feature-description{
+                    line-height: 1.2rem;
+                    padding-top:10px !important;
+                    .fs-title{
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-weight: 500 !important;
+                        font-size: 1rem !important;
+
+                    }
+                    .fs-subtitle{
+
+                        font-weight: 400 !important;
+                        font-size: 0.8rem !important;
+
+
+                    }
+
+                    .fs-rating{
+                        margin-top:0px !important;
+                        margin-bottom:0px !important;
+                        font-weight: 400;
+                            font-size: 0.8rem !important;
+                            position: absolute;
+                            bottom: 70px;
+                            background: #43882c;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                            right: 10px;
+                            color: white;
+                            ::before{
+                                content: '';
+                            }
+                            ::after{
+                                content: '';
+                            }
+                        .fs-rating-count{
+
+
+                        }
+                    }
+                    .fs-price{
+                        font-size:0.8rem !important;
+                        .new{
+                            color:#EE2E24;
+                            font-weight:700;
+                            font-size:0.8rem !important;
+
+                        }
+                        .old{
+                           display:none;
+                        }
+                        .discount{
+                            margin-left:5px !important;
+                            font-size:0.8rem !important;
+                            display:inline-block;
+
+                            color:#bea721;
+                            font-weight:700;
+                            ::before{
+                                content: '-';
+                            }
+                        }
+                        .down{
+                            display:block;
+                            content:'d';
+                            color:#F1F1F1;
+                            font-size:0.8rem !important;
+
+                            font-weight:700;
+                        }
+                    }
                 }
             }
         }
     }
+
 } 
