@@ -774,7 +774,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (min-width: 375px) {
   .feature-services {
     margin-top: 2rem;
   }
@@ -792,6 +792,9 @@
   }
   .feature-services #owl-feature-services .owl-nav .owl-next {
     top: 35% !important;
+  }
+  .feature-services #owl-feature-services .owl-feature-service .image-holder {
+    height: 140px;
   }
   .feature-services #owl-feature-services .owl-feature-service .owl-feature-description {
     line-height: 1.2rem;
@@ -854,6 +857,12 @@
     color: #F1F1F1;
     font-size: 0.8rem !important;
     font-weight: 700;
+  }
+}
+
+@media (max-width: 375px) {
+  .feature-services #owl-feature-services .owl-feature-service .image-holder {
+    height: 120px;
   }
 }
 
