@@ -44,18 +44,18 @@ body{
         line-height:1rem;
         background:white;
         .name{
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: 700;
             text-transform: capitalize;;
         }
         .address{
-            font-size:0.9rem;
+            font-size:0.8rem;
             text-transform: capitalize;;
 
         }
         .rating{
             background:rgb(0, 151, 0);color:white;
-            font-size:1rem;
+            font-size:0.8rem;
             margin-top:5px;
             border-radius: 2px;
             .point{
@@ -198,11 +198,11 @@ body{
         border-radius:5px;
         overflow:hidden;
         background:white;
-
-
         border:1px solid #d2d2d2;
-        .image{
+        .image{ 
             // border-radius:5px;
+            max-height:170px;overflow:hidden;
+            min-height:120px;
             overflow:hidden;
             position: relative;;
         }
@@ -269,9 +269,12 @@ body{
                 font-weight: 600 ;
                 display:flex;
                 justify-content: flex-end;
-                position:absolute;
-                bottom:15px;
-                width:90%;
+                position:relative;
+                // bottom:15px;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+                width:100%;
                 color:#FE7768;
                 .link{
                     margin-left: 5px;
@@ -601,8 +604,8 @@ body{
         .description{
             border-radius: 0px;
             background-color: white;
-            .title{
-                font-size: 1.2rem;
+            .title{ 
+                font-size: 1rem;
                 font-weight: 700;
                 text-transform: capitalize;;
             }
@@ -610,6 +613,7 @@ body{
                 text-emphasis: none;
                 font-size:0.8rem;
                 text-indent: 30px;
+                word-wrap: break-word;
             }
         }
 
@@ -724,7 +728,7 @@ body{
                     // padding-bottom:5px;
                     color:#061639;
                     // width:calc(100% - 25px);
-                    font-size:0.9rem;
+                    font-size:0.8rem; 
                     display:block;
 
                 }
@@ -770,7 +774,10 @@ body{
                     bottom:10px;
                     left:3px;
                     right:3px;
-                    // width:90%;
+                    width:90%;
+                    // bottom:15px;
+                    margin-top:0px;
+                    margin-left:0px;
                     color:#FE7768;
                     .link{
                         // margin-left: 3px;

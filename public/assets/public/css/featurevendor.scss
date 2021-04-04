@@ -46,7 +46,9 @@
             .image-holder{
 
                 overflow:hidden;
-
+                height:200px;
+                background:#F1F1F1;
+                overflow:hidden;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
                 img{
@@ -114,7 +116,9 @@
         }
         #owl-feature-vendors{
             .owl-feature-vendor{
-
+                .image-holder{
+                    height:185px;
+                }
                 .owl-feature-description{
 
                     .f-title{
@@ -158,7 +162,9 @@
                 display:none;height:0;
             }
             .owl-feature-vendor{
-
+                .image-holder{
+                    height:120px;
+                }
                 .owl-feature-description{
 
                     line-height: 1.2rem;

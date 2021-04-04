@@ -507,6 +507,9 @@
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
   overflow: hidden;
+  height: 200px;
+  background: #F1F1F1;
+  overflow: hidden;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -564,6 +567,9 @@
   .feature-vendors .f-header h1 {
     text-align: left;
   }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
+    height: 185px;
+  }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-title {
     font-size: 1.1rem;
   }
@@ -590,6 +596,9 @@
   .feature-vendors #owl-feature-vendors .owl-dots {
     display: none;
     height: 0;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
+    height: 120px;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {
     line-height: 1.2rem;
@@ -666,6 +675,7 @@
 }
 
 .feature-services #owl-feature-services .owl-feature-service .image-holder {
+  height: 200px;
   overflow: hidden;
 }
 

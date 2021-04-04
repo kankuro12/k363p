@@ -44,6 +44,7 @@
 }
 
 .feature-services #owl-feature-services .owl-feature-service .image-holder {
+  height: 200px;
   overflow: hidden;
 }
 

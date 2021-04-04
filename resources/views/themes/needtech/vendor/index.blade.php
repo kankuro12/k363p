@@ -3,7 +3,7 @@
     <meta name="theme-color" content="#c22319" />
 @endsection
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css?v=1.1')}}">
     <link rel="stylesheet" href="{{asset('assets\public\css\nouislider.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -133,7 +133,7 @@
 
                                                     <div class="row m-0 single-service mb-2" >
                                                         <div class="col-6 col-md-5 p-0" >
-                                                            <div class="image" style="max-height:170px;overflow:hidden;">
+                                                            <div class="image" style="">
                                                                 <img class="w-100" src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
                                                             </div>
                                                         </div>

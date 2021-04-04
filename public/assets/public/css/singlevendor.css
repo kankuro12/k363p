@@ -39,20 +39,20 @@ body {
 }
 
 .vendor-main .header-overlay-mobile .name {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: capitalize;
 }
 
 .vendor-main .header-overlay-mobile .address {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: capitalize;
 }
 
 .vendor-main .header-overlay-mobile .rating {
   background: #009700;
   color: white;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-top: 5px;
   border-radius: 2px;
 }
@@ -205,6 +205,9 @@ body {
 }
 
 .vendor-main .single-service .image {
+  max-height: 170px;
+  overflow: hidden;
+  min-height: 120px;
   overflow: hidden;
   position: relative;
 }
@@ -262,9 +265,11 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  position: absolute;
-  bottom: 15px;
-  width: 90%;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 100%;
   color: #FE7768;
 }
 
@@ -491,7 +496,7 @@ body {
     background-color: white;
   }
   .vendor-main .description .title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: capitalize;
   }
@@ -500,6 +505,7 @@ body {
             text-emphasis: none;
     font-size: 0.8rem;
     text-indent: 30px;
+    word-wrap: break-word;
   }
   .vendor-main .section .title {
     position: relative;
@@ -573,7 +579,7 @@ body {
     font-weight: 700;
     bottom: 0px;
     color: #061639;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: block;
   }
   .vendor-main .single-service .service-description .type {
@@ -615,6 +621,9 @@ body {
     bottom: 10px;
     left: 3px;
     right: 3px;
+    width: 90%;
+    margin-top: 0px;
+    margin-left: 0px;
     color: #FE7768;
   }
   .vendor-main .single-service .service-description .links .link {
