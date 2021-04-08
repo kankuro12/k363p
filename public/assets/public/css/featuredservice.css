@@ -50,6 +50,7 @@
 
 .feature-services #owl-feature-services .owl-feature-service .image-holder img {
   width: 100%;
+  min-height: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }

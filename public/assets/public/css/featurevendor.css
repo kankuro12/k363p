@@ -53,6 +53,7 @@
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder img {
   width: 100%;
+  min-height: 100%;
 }
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {
@@ -115,7 +116,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (min-width: 375px) {
   .feature-vendors .f-header {
     margin: 0.5rem 0rem;
   }
@@ -135,9 +136,59 @@
     height: 0;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
+    height: 140px;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {
+    line-height: 1.2rem;
+    padding-top: 5px !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-title {
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-subtitle {
+    font-weight: 500 !important;
+    font-size: 0.7rem !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-rating {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    font-size: 0.7rem !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-rating .f-rating-display {
+    position: absolute;
+    bottom: 60px;
+    right: 5px;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description .f-rating .fa-circle {
+    font-size: 5px;
+    color: #222222;
+  }
+}
+
+@media (max-width: 375px) {
+  .feature-vendors .f-header {
+    margin: 0.5rem 0rem;
+  }
+  .feature-vendors .f-header h1 {
+    font-weight: 500;
+    font-size: 22px;
+    color: #1f1f1f;
+  }
+  .feature-vendors #owl-feature-vendors .owl-nav .owl-prev {
+    top: 35% !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-nav .owl-next {
+    top: 35% !important;
+  }
+  .feature-vendors #owl-feature-vendors .owl-dots {
+    display: none;
+    height: 0;
+  }
+  .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder {
+    display: block;
     height: 120px;
   }
   .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {

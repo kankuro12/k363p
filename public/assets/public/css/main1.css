@@ -519,6 +519,7 @@
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .image-holder img {
   width: 100%;
+  min-height: 100%;
 }
 
 .feature-vendors #owl-feature-vendors .owl-feature-vendor .owl-feature-description {
@@ -737,6 +738,7 @@
 
 .feature-services #owl-feature-services .owl-feature-service .image-holder img {
   width: 100%;
+  min-height: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
