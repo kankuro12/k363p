@@ -1,6 +1,6 @@
 <div class="owl-feature-service href" data-target="{{route('n.single_service',['r_slug'=>$service->slug,'v_slug'=>$service->vendor->slug])}}">
     <div class="image-holder">
-        <img class="w-100" src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
+        <img class="w-100" src="{{asset('uploads/vendor/roomphotos/'.$service->roomphotos[0]->image)}}" alt="">
 
     </div>
     <div class="owl-feature-description p-2">
@@ -17,12 +17,12 @@
             </span>
         </div>
         <div class="fs-price">
-            @if($service->discount!=0)
+            {{-- @if($service->discount!=0) --}}
             <span class="new">
 
                 Nrs. {{$service->getNewPrice()}}
             </span>
-            <span  class="old">
+            {{-- <span  class="old">
                 Nrs.  {{$service->price}}
             </span>
             <span class="discount">
@@ -31,7 +31,7 @@
             @else
             <span class="new">Nrs. {{$service->price}}</span>
 
-            @endif
+            @endif --}}
         </div>
     </div>
 </div>

@@ -1,0 +1,226 @@
+.owl-feature-service .image-holder {
+  height: 200px;
+  overflow: hidden;
+}
+
+.owl-feature-service .image-holder img {
+  width: 100%;
+  min-height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.owl-feature-service .owl-feature-description {
+  padding: 0px 10px 10px 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #f1f1f1;
+}
+
+.owl-feature-service .owl-feature-description .fs-title {
+  white-space: nowrap;
+  color: #141414;
+  font-weight: 700;
+  font-size: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.owl-feature-service .owl-feature-description .fs-subtitle {
+  white-space: nowrap;
+  color: #333333;
+  font-weight: 400;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.owl-feature-service .owl-feature-description .fs-rating {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.owl-feature-service .owl-feature-description .fs-rating ::before {
+  content: "( ";
+}
+
+.owl-feature-service .owl-feature-description .fs-rating ::after {
+  content: " )";
+}
+
+.owl-feature-service .owl-feature-description .fs-rating .fs-rating-display {
+  padding: 2px 5px 2px 8px;
+  background: #52b520;
+  font-weight: 600;
+  color: white;
+  margin-right: 5px;
+}
+
+.owl-feature-service .owl-feature-description .fs-price {
+  font-size: 15px;
+}
+
+.owl-feature-service .owl-feature-description .fs-price .new {
+  color: #ee2e24;
+  font-weight: 700;
+}
+
+.owl-feature-service .owl-feature-description .fs-price .old {
+  text-decoration: line-through;
+  font-weight: 500;
+  color: #535353;
+  font-size: 15px;
+  margin: 0px 1px;
+  display: inline-block;
+}
+
+.owl-feature-service .owl-feature-description .fs-price .discount {
+  font-size: 15px;
+  color: #bea721;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .feature-services .fs-header {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) and (min-width: 375px) {
+  .owl-feature-service .image-holder {
+    height: 140px;
+  }
+  .owl-feature-service .owl-feature-description {
+    line-height: 1.2rem;
+    padding-top: 10px !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-subtitle {
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-rating {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    font-size: 0.8rem !important;
+    position: absolute;
+    bottom: 70px;
+    background: #43882c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    right: 10px;
+    color: white;
+  }
+  .owl-feature-service .owl-feature-description .fs-rating ::before {
+    content: "";
+  }
+  .owl-feature-service .owl-feature-description .fs-rating ::after {
+    content: "";
+  }
+  .owl-feature-service .owl-feature-description .fs-price {
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .new {
+    color: #ee2e24;
+    font-weight: 700;
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .old {
+    display: none;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .discount {
+    margin-left: 5px !important;
+    font-size: 0.8rem !important;
+    display: inline-block;
+    color: #bea721;
+    font-weight: 700;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .discount ::before {
+    content: "-";
+  }
+  .owl-feature-service .owl-feature-description .fs-price .down {
+    display: block;
+    content: "d";
+    color: #f1f1f1;
+    font-size: 0.8rem !important;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 375px) {
+  .owl-feature-service .image-holder {
+    height: 120px;
+  }
+  .owl-feature-service .owl-feature-description {
+    line-height: 1.2rem;
+    padding-top: 10px !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-subtitle {
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-rating {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    font-size: 0.8rem !important;
+    position: absolute;
+    bottom: 70px;
+    background: #43882c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    right: 10px;
+    color: white;
+  }
+  .owl-feature-service .owl-feature-description .fs-rating ::before {
+    content: "";
+  }
+  .owl-feature-service .owl-feature-description .fs-rating ::after {
+    content: "";
+  }
+  .owl-feature-service .owl-feature-description .fs-price {
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .new {
+    color: #ee2e24;
+    font-weight: 700;
+    font-size: 0.8rem !important;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .old {
+    display: none;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .discount {
+    margin-left: 5px !important;
+    font-size: 0.8rem !important;
+    display: inline-block;
+    color: #bea721;
+    font-weight: 700;
+  }
+  .owl-feature-service .owl-feature-description .fs-price .discount ::before {
+    content: "-";
+  }
+  .owl-feature-service .owl-feature-description .fs-price .down {
+    display: block;
+    content: "d";
+    color: #f1f1f1;
+    font-size: 0.8rem !important;
+    font-weight: 700;
+  }
+}
+/*# sourceMappingURL=singleservices.css.map */

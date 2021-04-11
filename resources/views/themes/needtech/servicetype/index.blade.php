@@ -5,6 +5,7 @@
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singleservices.css')}}">
     <link rel="stylesheet" href="{{asset('assets\public\css\nouislider.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
