@@ -161,6 +161,7 @@
     height: 120px;
   }
   .owl-feature-service .owl-feature-description {
+    position: relative;
     line-height: 1.2rem;
     padding-top: 10px !important;
   }
@@ -181,7 +182,7 @@
     font-weight: 400;
     font-size: 0.8rem !important;
     position: absolute;
-    bottom: 70px;
+    top: -20px;
     background: #43882c;
     padding: 5px 10px;
     border-radius: 5px;
