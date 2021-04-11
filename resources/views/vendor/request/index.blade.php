@@ -12,6 +12,7 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        
 
     </style>
     <div class="v-center w-100">
