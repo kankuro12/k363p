@@ -146,7 +146,8 @@
                         <h2 class="form-header">Your booking detail</h2>
                     </div>
                     <div class="mt-4">
-                        <h5 class="color1">{{ $room->vendor->name }}</h5>
+                        <h5 class="color1">{{ $room->name }}</h5>
+                        <h6 class="color1">{{ $room->vendor->name }}</h6>
                         <p><i class="ion-android-pin"></i> {{ $room->vendor->location->name }}</p>
                     </div>
                     {{-- <hr>
