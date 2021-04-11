@@ -34,7 +34,7 @@
 
           </div>
           <div class="h-right">
-              <span class="language" data-toggle="modal" data-target="#exampleModal">
+              {{-- <span class="language" data-toggle="modal" data-target="#exampleModal">
                   <span class="icon">
                       <i class="fas fa-globe"></i>
                   </span>
@@ -44,7 +44,7 @@
                   <span class="small-icon">
                       <i class="fas fa-caret-down"></i>
                   </span>
-              </span>
+              </span> --}}
               <span class="signup href" data-target="{{$authlink}}">
                   <span class="icon">
                       {!! $authimage !!}
@@ -106,14 +106,14 @@
           </span>
           <span class="icons">
 
-              <span class="language" data-toggle="modal" data-target="#exampleModal">
+              {{-- <span class="language" data-toggle="modal" data-target="#exampleModal">
                   <span class="icon">
                       <i class="fas fa-globe"></i>
                   </span>
                   <span class="sup">
                       EN
                   </span>
-              </span>
+              </span> --}}
               <span class="signup href" data-target="{{$authlink}}">
                   <span class="icon">
                       {!! $authimage !!}
