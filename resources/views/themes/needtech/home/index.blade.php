@@ -66,7 +66,7 @@
                     @foreach ($roomtypes as $roomtype)
                     <span class="feature-item href" data-target="{{route('n.servicetype',['slug'=>$roomtype->slug])}}">
                         <div class="icon">
-                            <img  src="{{asset('uploads/vendor/room_type/icons/'.$roomtype->icon)}}" alt="">
+                            <img class="img-thumbnail"  src="{{asset('uploads/vendor/room_type/icons/'.$roomtype->icon)}}" alt="">
                         </div>
                         <div class="text">
 
