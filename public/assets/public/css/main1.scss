@@ -356,11 +356,25 @@ div.sticky {
             flex-grow:1;
             display: flex !important;
             display:inline-block;
+            justify-content: flex-start;
             .feature-item{
+                &:hover{
+                    transform: scale(1.1);
+                }
+                cursor:pointer;
+                // width:100px;
                 flex:1;
                 text-align:center;
                 .icon{
                     font-size:25px;
+                    img{
+                        width:75px;
+                    }
+                }
+                .text{
+                    text-align: center;
+                    word-wrap: break-word;
+                    font-weight:500;
                 }
             }
 

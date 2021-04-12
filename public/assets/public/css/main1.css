@@ -1477,17 +1477,36 @@ div.sticky {
   display: -ms-flexbox !important;
   display: flex !important;
   display: inline-block;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .features .feature-holder .feature-items .feature-item {
+  cursor: pointer;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   text-align: center;
 }
 
+.features .feature-holder .feature-items .feature-item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .features .feature-holder .feature-items .feature-item .icon {
   font-size: 25px;
+}
+
+.features .feature-holder .feature-items .feature-item .icon img {
+  width: 75px;
+}
+
+.features .feature-holder .feature-items .feature-item .text {
+  text-align: center;
+  word-wrap: break-word;
+  font-weight: 500;
 }
 
 .special-nav, .feature-vendors #owl-feature-vendors .owl-nav .owl-prev, .feature-vendors #owl-feature-vendors .owl-nav .owl-next, .feature-services #owl-feature-services .owl-nav .owl-prev, .feature-services #owl-feature-services .owl-nav .owl-next, .data-services #owl-services .owl-nav .owl-prev, .data-services #owl-services .owl-nav .owl-next {
