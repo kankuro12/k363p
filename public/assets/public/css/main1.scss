@@ -367,9 +367,12 @@ div.sticky {
                 text-align:center;
                 .icon{
                     font-size:25px;
-                    img{
+                    .img-thumbnail{
+
                         width:75px;
+                        padding:.15rem;
                     }
+                   
                 }
                 .text{
                     text-align: center;

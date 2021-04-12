@@ -1499,8 +1499,9 @@ div.sticky {
   font-size: 25px;
 }
 
-.features .feature-holder .feature-items .feature-item .icon img {
+.features .feature-holder .feature-items .feature-item .icon .img-thumbnail {
   width: 75px;
+  padding: .15rem;
 }
 
 .features .feature-holder .feature-items .feature-item .text {
