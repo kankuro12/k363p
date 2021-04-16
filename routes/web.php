@@ -18,6 +18,7 @@ Route::group(['prefix' => ''], function () {
         Route::post('location/search','Need\HomeController@locSearch')->name('location.search');
         Route::post('mobile/search','Need\HomeController@mobileSearch')->name('mobile.search');
         Route::get('search','Need\HomeController@search')->name('search');
+        Route::match(['GET','POST'],'near-me','Need\HomeController@NearMe')->name('nearme');
 
         Route::get('vendor/{slug}',[
         'uses'=>'Need\HomeController@single_vendor',

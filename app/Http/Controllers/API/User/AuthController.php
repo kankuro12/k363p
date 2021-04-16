@@ -148,4 +148,35 @@ class AuthController extends Controller
         }
         
     }
+
+    public function getOTP(Request $request){
+        $data = VendorUser::where('mobile_number', $request->phone)->first();
+        if ($data != null) {
+            $user = $data->user;
+            $user->activation_token = mt_rand(100000, 999999);
+            $user->save();
+
+        } else {
+
+            $user = new User();
+            if ($request->email == null) {
+                $user->email = $request->phone . "@abtest.com";
+            } else {
+                $user->email = $request->email;
+            }
+            $user->password = bcrypt('Password');
+            $user->role_id = 1;
+            $user->activation_token = mt_rand(100000, 999999);
+            $user->save();
+
+            $data = new VendorUser();
+            $data->user_id = $user->id;
+            $data->fname = $request->fname;
+            $data->lname = $request->lname;
+            $data->mobile_number = $request->phone;
+            $data->save();
+        }
+        $user->notify(new SignupActivate());
+        return response()->json(['status' => true]);
+    }
 }

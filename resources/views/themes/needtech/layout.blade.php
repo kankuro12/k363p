@@ -100,6 +100,8 @@
       }
 
     </script>
+    @yield('top-scripts')
+
     @yield('styles')
     <title>{{env('APP_NAME','laravel')}}</title>
   </head>

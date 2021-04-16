@@ -178,4 +178,12 @@ class HomeController extends Controller
     	return view('themes.needtech.servicetype.index',compact('roomtype'));
 
     }
+
+    public function NearMe(Request $request){
+        if($request->getMethod()=="POST"){
+
+        }else{
+            return view('themes.needtech.nearme.index');
+        }
+    }
 }

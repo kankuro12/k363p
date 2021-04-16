@@ -14,6 +14,9 @@ Route::group([ 'middleware' => 'CheckApiKey','prefix'=>''],function (){
     Route::post('register', 'API\User\AuthController@signup');
     Route::post('otp', 'API\User\AuthController@otp');
     Route::post('resendotp', 'API\User\AuthController@resendotp');
+    Route::post('getotp','API\AuthController@getOTP');
+
+    // Route::post('chec','API\AuthController@getOTP');
 
     // Route::post('login', 'API\Vendor\Auth\AuthController@login');
 
