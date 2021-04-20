@@ -387,7 +387,7 @@
                 };
             map = new google.maps.Map(document.getElementById("map"), {
                 center: pos,
-                zoom: 10,
+                zoom: 13,
             });
             new google.maps.Marker({
                 position: pos,

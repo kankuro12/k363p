@@ -375,8 +375,11 @@ div.sticky {
                 }
                 .text{
                     text-align: center;
-                    word-wrap: break-word;
+                    max-width:125px;
+                    overflow:hidden;
+                    text-overflow:ellipsis; 
                     font-weight:500;
+
                 }
             }
 
