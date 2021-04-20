@@ -79,7 +79,7 @@
         <div class="container d-m pt-0 pt-md-5 ">
 
             <div class="row">
-                <div class="col-md-8 p-mobile-0">
+                <div class="col-md-7 p-mobile-0">
                     <div class="description d-block py-3  mb-2 mb-md-3">
                         <div class="container-fluid">
 
@@ -253,8 +253,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 p-mobile-0 ">
-                    <div class="section py-3  mb-2 mb-md-3">
+                <div class="col-md-5 p-mobile-0 mb-3" >
+                    {{-- <div class="section py-3  mb-2 mb-md-3">
                         <div class="container-fluid">
 
                             <div class="title mb-2">
@@ -304,8 +304,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    <div class="section p-0 p-md-3 mb-2 mb-md-3">
 
+                        <div id="map" style="height:400px;">
+    
+                        </div>
+                    </div>
                     @if($vendor->policy)
                     <div class="section py-2">
                         <div class="container-fluid">
@@ -361,6 +366,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
+        let map, infoWindow;
         AOS.init();
         $('[data-aos]').parent().addClass('hideOverflowOnMobile');
          //single vendor header image
@@ -371,7 +377,24 @@
             autoplay:true,
             nav:true
         });
+        
 
-
+        function initMap() {
+            console.log("map initiated");
+            const pos={
+                    lat: {{$vendor->location->lat}},
+                    lng: {{$vendor->location->lng}}
+                };
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: pos,
+                zoom: 10,
+            });
+            new google.maps.Marker({
+                position: pos,
+                map,
+                title: "{{$vendor->name}}",
+            });             
+        }
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async></script>
 @endsection

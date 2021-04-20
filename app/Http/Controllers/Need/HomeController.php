@@ -181,7 +181,14 @@ class HomeController extends Controller
 
     public function NearMe(Request $request){
         if($request->getMethod()=="POST"){
-
+            $lat = $request->lat;
+            $lng = $request->lng;
+            $distance = 20;
+            $nearbies=Location::selectRaw('*, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( lat ) ) ) ) AS distance', [$lat, $lng, $lat])
+            ->having('distance', '<', $distance)
+            ->orderBy('distance')->with('vendor')
+            ->get();
+            return response()->json($nearbies);
         }else{
             return view('themes.needtech.nearme.index');
         }

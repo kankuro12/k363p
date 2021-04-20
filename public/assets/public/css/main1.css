@@ -1470,6 +1470,7 @@ div.sticky {
 }
 
 .features .feature-holder .feature-items {
+  padding: 10px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1484,15 +1485,8 @@ div.sticky {
 
 .features .feature-holder .feature-items .feature-item {
   cursor: pointer;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   text-align: center;
-}
-
-.features .feature-holder .feature-items .feature-item:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  padding-right: 5px;
 }
 
 .features .feature-holder .feature-items .feature-item .icon {
@@ -1500,7 +1494,7 @@ div.sticky {
 }
 
 .features .feature-holder .feature-items .feature-item .icon .img-thumbnail {
-  width: 75px;
+  width: 125px;
   padding: .15rem;
 }
 

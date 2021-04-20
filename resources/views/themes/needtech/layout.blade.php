@@ -88,6 +88,7 @@
         }
     </style>
       {{-- @include('public.css') --}}
+      @yield('top-scripts')
     <script>
       function preloader(){
         document.querySelector("body").classList.add("loaded");
@@ -100,7 +101,6 @@
       }
 
     </script>
-    @yield('top-scripts')
 
     @yield('styles')
     <title>{{env('APP_NAME','laravel')}}</title>

@@ -15,5 +15,9 @@ class Location extends Model
     public function vendors(){
     	return $this->hasMany(Vendor::class);
     }
+
+    public function vendor(){
+        return $this->belongsTo(Vendor::class);
+    }
 }
 
