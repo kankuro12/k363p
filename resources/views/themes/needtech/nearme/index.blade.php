@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('content')
-    <div id="map" style="height:400px;"></div>
+    <div id="map" style="height:100vh;"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async>
