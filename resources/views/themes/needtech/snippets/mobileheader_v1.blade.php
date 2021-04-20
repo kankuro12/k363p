@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="cities d-flex d-xl-none" >
-    <span class="single ">
+    <span class="single href" data-target="{{route('n.nearme')}}">
         <span class="icon  " style="padding-top:10px;">
             <i class="fas fa-street-view"></i>
         </span>
