@@ -16,6 +16,26 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   @yield('styles')
+    <style>
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+  </style>
 </head>
 
 <body class="">
@@ -35,7 +55,7 @@
   <script src="{{asset('assets/admin/js/core/jquery.min.js')}}"></script>
   <script src="{{asset('assets/admin/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assets/admin/js/core/bootstrap.min.js')}}"></script>
-  <script src="{{asset('assets/admin/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+  {{-- <script src="{{asset('assets/admin/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script> --}}
   {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places"></script> --}}
   <script src="{{asset('assets/admin/js/plugins/bootstrap-notify.js')}}"></script>
   <script src="{{asset('assets/admin/js/now-ui-dashboard.min.js')}}" type="text/javascript"></script>

@@ -19,7 +19,7 @@
                             <label for="icon">Service Icon</label>                        
                             <input type="file" class="form-control" id="icon" name="icon">
                             <div style="padding:10px;">
-                               <img src="{{asset('uploads/vendor/amenities/icons/'.$amenity->icon)}}" height="50px;">
+                               <img src="{{asset($amenity->icon)}}" height="50px;">
                             </div>
                         </div>
                         

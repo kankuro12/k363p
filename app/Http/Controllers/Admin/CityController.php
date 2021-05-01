@@ -47,10 +47,13 @@ class CityController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
+            'icon'=>'image',
             'state_id'=>'required',
         ]);
         $input=$request->only('name','state_id');
-        City::create($input);
+        $city=City::create($input);
+        $city->icon=$request->icon->store('uploads/vendor/cities/icons');
+        $city->save();
         Session::flash('msg','City added successfully !');
         return redirect()->route('admin.city');
     }
@@ -96,6 +99,11 @@ class CityController extends Controller
        $input=$request->except('_token','country_id');
        $city=City::find($id);
        $city->update($input);
+       if($request->hasFile('icon')){
+
+           $city->icon=$request->icon->store('uploads/vendor/cities/icons');
+       }
+       $city->save();
        Session::flash('msg','City updated successfully !');
        return redirect()->route('admin.city');
     }

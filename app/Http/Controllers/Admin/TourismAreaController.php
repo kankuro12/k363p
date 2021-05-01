@@ -53,7 +53,7 @@ class TourismAreaController extends Controller
         $input=$request->except(['_token']);
 
         if($request->hasFile('featured_image')){           
-           $input['featured_image']=FileUpload::photo($request,'featured_image','','uploads/tourismareas',[[200,200],[800,800],[1200,1200]]);                     
+           $input['featured_image']=$request->featured_image->store('uploads/tourismareas');                     
         }else{
             $input['featured_image']='default.jpg';
         }
@@ -107,13 +107,11 @@ class TourismAreaController extends Controller
         $tr=TourismArea::find($id);
         $input=$request->except(['_token']);
         if($request->hasFile('featured_image')){
-            if(File::exists('uploads/tourismareas/'.$tr->featured_image)){
-                unlink('uploads/tourismareas/'.$tr->featured_image);
-                unlink('uploads/tourismareas/200x200/'.$tr->featured_image);
-                unlink('uploads/tourismareas/800x800/'.$tr->featured_image);
-                unlink('uploads/tourismareas/1200x1200/'.$tr->featured_image);
+            if(File::exists($tr->featured_image)){
+                unlink($tr->featured_image);
+            
             }         
-           $input['featured_image']=FileUpload::photo($request,'featured_image','','uploads/tourismareas',[[200,200],[800,800],[1200,1200]]);                         
+            $input['featured_image']=$request->featured_image->store('uploads/tourismareas');                     
         }        
         $tr->update($input);
         session()->flash('msg','TourismArea has beed successfully updated.');

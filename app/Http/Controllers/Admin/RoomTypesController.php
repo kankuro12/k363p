@@ -47,7 +47,7 @@ class RoomTypesController extends Controller
         $room_type->name=$request->name;
         $room_type->status=$request->status;
         if($request->hasFile('icon')){
-            $room_type->icon=FileUpload::photo($request,'icon','','uploads/vendor/room_type/icons',[[200,200]]);
+            $room_type->icon=$request->icon->store('uploads/vendor/room_type/icons');
         }
         $room_type->save();
         session()->flash('msg','New Package Type has beed successfully added.');
@@ -91,11 +91,11 @@ class RoomTypesController extends Controller
         $room_type->status=$request->status;
         $room_type->slug=null;
         if($request->hasFile('icon')){
-            if(File::exists('uploads/vendor/room_type/icons/'.$room_type->icon) && $room_type->icon!='icon.png'){
-                unlink('uploads/vendor/room_type/icons/'.$room_type->icon);
-                unlink('uploads/vendor/room_type/icons/200x200/'.$room_type->icon);
+            if(File::exists($room_type->icon) && $room_type->icon!='icon.png'){
+                unlink($room_type->icon);
             }
-            $room_type->icon=FileUpload::photo($request,'icon','','uploads/vendor/room_type/icons',[[200,200]]);
+            $room_type->icon=$request->icon->store('uploads/vendor/room_type/icons');
+           
         }
         $room_type->save();
         session()->flash('msg','Package Type has beed successfully updated.');
@@ -111,9 +111,8 @@ class RoomTypesController extends Controller
     public function destroy($slug)
     {
         $room_type=RoomType::where('slug',$slug)->firstOrFail();
-        if(File::exists('uploads/vendor/room_type/icons/'.$room_type->icon) && $room_type->icon!='icon.png'){
-            unlink('uploads/vendor/room_type/icons/'.$room_type->icon);
-            unlink('uploads/vendor/room_type/icons/200x200/'.$room_type->icon);
+        if(File::exists($room_type->icon) && $room_type->icon!='icon.png'){
+            unlink($room_type->icon);
         }
         $room_type->delete();
         session()->flash('msg','Package Type has beed successfully deleted.');

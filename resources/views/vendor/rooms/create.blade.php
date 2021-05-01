@@ -59,7 +59,7 @@
       <div class="card-body">
         <div class="row">                                    
             <div class="col-md-8">                                        
-                <input type='file' id="image-upload" name="photos[]" class="up form-control" required="required" multiple />
+                <input type='file' id="image-upload" name="photos[]" class="up form-control" required="required" multiple accept="image/*" />
             </div>
             <div class="col-md-4">
                <button class="btn btn-success btn-sm addPhoto" type="button"><i class="ion-ios-plus-outline"></i></button>
@@ -230,7 +230,7 @@
 
            '<div class="row" id="photo-'+i_photo+'">'+
                 '<div class="col-md-8">'+               
-                    '<input type="file" name="photos[]" id="image-upload" class="up form-control" multiple required>'+
+                    '<input type="file" name="photos[]" id="image-upload" class="up form-control" multiple required accept="image/*">'+
                 '</div>'+                
                 '<div class="col-md-2">'+
                     '<button class="btn btn-sm btn-primary addMore" onclick="removePhoto('+i_photo+')" type="button"><i class="ion-ios-trash-outline"></i></button>'+

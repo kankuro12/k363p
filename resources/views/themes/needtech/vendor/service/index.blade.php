@@ -15,7 +15,7 @@
             <div id="owl-vendor-header" class="owl-carousel">
                 @foreach($room->roomphotos as $rp)
                 <div >
-                    <img src="{{asset('uploads/vendor/roomphotos/'.$rp->image)}}" class="img-fluid">
+                    <img src="{{asset($rp->image)}}" class="img-fluid" >
                 </div>
             @endforeach
 

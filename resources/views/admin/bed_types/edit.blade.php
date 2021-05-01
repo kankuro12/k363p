@@ -19,7 +19,7 @@
                             <label for="name">Icon</label>                        
                             <input type="file" class="form-control" id="file" name="icon">
                             <div style="padding: 20px;">
-                            	<img src="{{asset('uploads/vendor/bed_type/icons/'.$bed_type->icon)}}">
+                            	<img src="{{asset($bed_type->icon)}}">
                             </div>
                         </div>                       
                         <div class="form-group">

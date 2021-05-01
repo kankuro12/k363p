@@ -93,7 +93,7 @@
                 <div class="d-flex">
                 @foreach($room->roomphotos as $photo)
                     <div class="edt-img-wrapper" id="img-{{$photo->id}}">
-                        <img src="{{asset('uploads/vendor/roomphotos/263x160/'.$photo->image)}}" class="img-responsive">
+                        <img src="{{asset($photo->image)}}" class="img-responsive">
                         <a href="#" class="del-img btn btn-primary btn-fill" data-img-id="{{$photo->id}}">x</a>
                     </div>                           
                 @endforeach

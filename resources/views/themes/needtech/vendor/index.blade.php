@@ -16,7 +16,7 @@
             <div id="owl-vendor-header" class="owl-carousel">
                 @for ($i = 0; $i < 10; $i++)
                 <div>
-                    <img src="{{asset('uploads/vendor/cover_img/'.$vendor->cover_img)}}" class="img-fluid" />
+                    <img src="{{asset($vendor->cover_img)}}" class="img-fluid" />
                 </div>
 
                 @endfor
@@ -134,7 +134,7 @@
                                                     <div class="row m-0 single-service mb-2" >
                                                         <div class="col-6 col-md-5 p-0" >
                                                             <div class="image" style="">
-                                                                <img class="w-100" src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
+                                                                <img class="w-100" src="{{asset($service->roomphotos[0]->image)}}" alt="">
                                                             </div>
                                                         </div>
                                                         <div class="service-description col-6 col-md-7 " >
@@ -252,6 +252,37 @@
                             </div>
                         </div>
                     </div>
+                    @if($images->count()>0)
+                    <div class="section mb-2 mb-md-3 py-3" >
+                        <div class="container-fluid">
+
+                            <div class="title">
+                                Gallery
+                                <div class="bar"></div>
+                            </div>
+                            <style>
+                                .gal{
+                                    column-count: 2;column-gap: 10px;
+                                }
+                                @media(max-width:768px){
+                                    .gal{
+                                        column-count: 1;
+                                    }
+                                }
+                            </style>
+                            <div class="body">
+                                <div class="gal">
+
+                                    @foreach ($images  as $image)
+                                        <div style="padding-top:10px;" >
+                                            <img class="w-100" src="{{asset($image->photo)}}" alt="" style="border-radius:10px;box-shadow:0px 0px 10px 0px rgba(0,0,0,0.2);">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-md-5 p-mobile-0 mb-3" >
                     {{-- <div class="section py-3  mb-2 mb-md-3">

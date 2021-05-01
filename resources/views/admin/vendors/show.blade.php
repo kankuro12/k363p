@@ -60,7 +60,7 @@
                                             <tr>
                                                 <td>Logo</td>
                                                 <td>
-                                                    <img src="{{asset('uploads/vendor/logo/263x160/'.$vendor->logo)}}" height="40px">
+                                                    <img src="{{asset($vendor->logo)}}" height="40px">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -148,7 +148,7 @@
                                                               <tr>
                                                                 <td>{{$amenity->name}}</td>
                                                                 <td>
-                                                                  <img src="{{asset('uploads/vendor/amenities/icons/'.$amenity->icon)}}" class="img-responsive" width="50px;">
+                                                                  <img src="{{asset($amenity->icon)}}" class="img-responsive" width="50px;">
                                                                 </td>
                                                               </tr>
                                                               @endforeach
@@ -259,7 +259,7 @@
         );
       }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
 @endsection
 @section('styles')
 <style type="text/css">

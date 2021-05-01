@@ -7,7 +7,7 @@
                 <h5>New City</h5>
             </div>
             <div class="card-body">
-                <form method="post" action="{{route('admin.post_create_city')}}" id="addCity">
+                <form method="post" action="{{route('admin.post_create_city')}}" id="addCity" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">                                
                         <div class="form-group">
@@ -29,6 +29,10 @@
                             <select name="state_id" id="state" class="form-control">
                             	<option value="">Select State</option>
                             </select>
+                        </div>   
+                        <div class="form-group">
+                            <label for="code">Icon</label>                        
+                            <input type="file" name="icon" id="icon" required accept="image/*" class="form-control">
                         </div>                                           
                     </div>
                     <div class="border-top">

@@ -52,7 +52,7 @@ class CollectionController extends Controller
         $collection->status=$request->status;
         $collection->description=$request->description;
         if($request->hasFile('image')){
-            $collection->image=FileUpload::photo($request,'image','','uploads/vendor/collections/',[[263,160]]);
+            $collection->image=$request->image->store('uploads/vendor/collections/');
         }
         $collection->save();
         Session::flash('msg','New Collection has been added successfully.');
@@ -101,11 +101,10 @@ class CollectionController extends Controller
         $collection->status=$request->status;
         $collection->description=$request->description;
         if($request->hasFile('image')){
-            if(File::exists('uploads/vendor/collections/'.$collection->image)){
-                unlink('uploads/vendor/collections/'.$collection->image);
-                unlink('uploads/vendor/collections/263x160/'.$collection->image);
+            if(File::exists($collection->image)){
+                unlink($collection->image);
             }
-            $collection->image=FileUpload::photo($request,'image','','uploads/vendor/collections/',[[263,160]]);
+            $collection->image=$request->image->store('uploads/vendor/collections/');
         }
         $collection->save();
         Session::flash('msg','Collection has been updated successfully.');
@@ -121,9 +120,8 @@ class CollectionController extends Controller
     public function destroy($id)
     {
         $collection=Collection::find($id);
-        if(File::exists('uploads/vendor/collections/'.$collection->image)){
-            unlink('uploads/vendor/collections/'.$collection->image);
-            unlink('uploads/vendor/collections/263x160/'.$collection->image);
+        if(File::exists($collection->image)){
+            unlink($collection->image);
         }
         $collection->delete();
         Session::flash('msg','Collection has been deleted successfully.');

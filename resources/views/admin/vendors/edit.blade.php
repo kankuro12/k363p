@@ -127,14 +127,14 @@
                             <label>Logo</label>
                             <input type="file" name="logo" class="form-control" value="{{old('logo')}}">
                             <div class="mt-2">
-                                <img src="{{asset('uploads/vendor/logo/'.$vendor->logo)}}" height="70" class="img-responsive">
+                                <img src="{{asset($vendor->logo)}}" height="70" class="img-responsive">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Cover Image</label>
                             <input type="file" name="cover_img" class="form-control" value="{{old('cover_img')}}">
                             <div class="mt-2">
-                                <img src="{{asset('uploads/vendor/cover_img/'.$vendor->cover_img)}}" height="70" class="img-responsive">
+                                <img src="{{asset($vendor->cover_img)}}" height="70" class="img-responsive">
                             </div>
                         </div> 
                         <div class="form-group">
@@ -190,8 +190,9 @@
                         </div>    
                    
                         <div class="form-group">
-                            <label for="pwd">Map:</label>
-                            <input type="text" id="searchMap" value="{{$vendor->location->name}}">
+                            <label for="pwd">Street Address:</label>
+                            <input type="text" id="searchMap" value="{{$vendor->location->name}}" class="form-control">
+                            <br>
                             <div id="map-canvas"></div>
                         </div>
                         <div class="row">
@@ -271,7 +272,7 @@
 
       }
 </script>    
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
 <script type="text/javascript">
     $("#addVendor").validate({
@@ -327,7 +328,7 @@
     function generateState(cid){
         $.ajax({
             type: "get",
-            url: "/country/"+cid+"/states",
+            url: "/admin/country/"+cid+"/states",
             cache: false,
             dataType: 'json',
             beforeSend: function() {
@@ -350,7 +351,7 @@
     function generateCity(cid){
         $.ajax({
             type: "get",
-            url: "/state/"+cid+"/cities",
+            url: "/admin/state/"+cid+"/cities",
             cache: false,
             dataType: 'json',
             beforeSend: function() {

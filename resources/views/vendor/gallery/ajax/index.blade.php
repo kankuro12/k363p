@@ -23,7 +23,7 @@
                   <tr>
                     <td>{{$index+1}}</td>
                     <td>
-                        <img src="{{asset('uploads/vendor/gallery/263x160/'.$gallery->photo)}}" class="img-responsive" style="max-width: 150px;">  
+                        <img src="{{asset($gallery->photo)}}" class="img-responsive" style="max-width: 150px;">  
                     </td>
                     <td>{{$gallery->caption}}</td>
                     <td>

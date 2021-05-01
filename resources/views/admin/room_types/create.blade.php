@@ -17,7 +17,7 @@
                         </div>   
                         <div class="form-group">
                             <label for="name">Icon</label>                        
-                            <input type="file" class="form-control" id="file" name="icon">
+                            <input type="file" class="form-control" id="file" name="icon" accept="image/*">
                         </div>                       
                         <div class="form-group">
                             <label>Status</label>

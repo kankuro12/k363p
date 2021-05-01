@@ -29,6 +29,7 @@
             </div>
         </div>
     </div>
+    
     <div class="checkout-section">
         <div class="container">
             <div class="row">

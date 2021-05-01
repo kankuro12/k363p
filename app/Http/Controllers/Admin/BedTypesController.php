@@ -47,7 +47,7 @@ class BedTypesController extends Controller
         $bed_type->name=$request->name;
         $bed_type->status=$request->status;
         if($request->hasFile('icon')){
-            $bed_type->icon=FileUpload::photo($request,'icon','','uploads/vendor/bed_type/icons',[[200,200]]);
+            $bed_type->icon=$request->icon->store('uploads/vendor/bed_type/icons');
         }
         $bed_type->save();
         session()->flash('msg','New Bed Type has beed successfully added.');
@@ -91,11 +91,11 @@ class BedTypesController extends Controller
         $bed_type->status=$request->status;
         $bed_type->slug=null;
         if($request->hasFile('icon')){
-            if(File::exists('uploads/vendor/bed_type/icons/'.$bed_type->icon) && $bed_type->icon!='icon.png'){
-                unlink('uploads/vendor/bed_type/icons/'.$bed_type->icon);
-                unlink('uploads/vendor/bed_type/icons/200x200/'.$bed_type->icon);
+            if(File::exists($bed_type->icon) && $bed_type->icon!='icon.png'){
+                unlink($bed_type->icon);
             }
-            $bed_type->icon=FileUpload::photo($request,'icon','','uploads/vendor/bed_type/icons',[[200,200]]);
+            $bed_type->icon=$request->icon->store('uploads/vendor/bed_type/icons');
+
         }
         $bed_type->save();
         session()->flash('msg','Bed Type has beed successfully updated.');
@@ -111,9 +111,8 @@ class BedTypesController extends Controller
     public function destroy($slug)
     {
         $bed_type=BedType::where('slug',$slug)->firstOrFail();
-        if(File::exists('uploads/vendor/bed_type/icons/'.$bed_type->icon) && $bed_type->icon!='icon.png'){
-            unlink('uploads/vendor/bed_type/icons/'.$bed_type->icon);
-            unlink('uploads/vendor/bed_type/icons/200x200/'.$bed_type->icon);
+        if(File::exists($bed_type->icon) && $bed_type->icon!='icon.png'){
+            unlink($bed_type->icon);
         }
         $bed_type->delete();
         session()->flash('msg','Bed Type has beed successfully deleted.');

@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Icon</th>
                                 <th>City Name</th>
                                 <th>State</th>                                
                                 <th>Country</th>                                 
@@ -27,6 +28,9 @@
                             	<td>
                             		{{$index+1}}
                             	</td>
+                                <td>
+                                    <img src="{{asset($city->icon)}}" alt="" style="max-width: 100px;">
+                                </td>
                             	<td>
                             		{{$city->name}}
                             	</td>

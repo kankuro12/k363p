@@ -17,9 +17,9 @@
                         </div>   
                         <div class="form-group">
                             <label for="name">Icon</label>                        
-                            <input type="file" class="form-control" id="file" name="icon">
+                            <input type="file" class="form-control" id="file" name="icon" accept="image/*">
                             <div style="padding: 20px;">
-                            	<img src="{{asset('uploads/vendor/room_type/icons/'.$room_type->icon)}}">
+                            	<img src="{{asset($room_type->icon)}}">
                             </div>
                         </div>                       
                         <div class="form-group">

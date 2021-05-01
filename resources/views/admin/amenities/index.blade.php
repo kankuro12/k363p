@@ -28,7 +28,7 @@
                                 <td>{{$index+1}}</td>                            
                                 <td>{{$amenity->name}}</td>
                                 <td>                                    
-                                    <img src="{{asset('uploads/vendor/amenities/icons/'.$amenity->icon)}}" class="img-responsive" width="50px">
+                                    <img src="{{asset($amenity->icon)}}" class="img-responsive" width="50px">
                                 </td>
                                 <td>
                                     @if($amenity->status=="active")

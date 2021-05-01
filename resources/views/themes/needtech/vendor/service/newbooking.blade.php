@@ -29,6 +29,9 @@
             </div>
         </div>
     </div>
+    <div class="mb-3 d-md-none d-flex" style="max-height: 150px;display:flex;align-items: flex-end;overflow:hidden">
+        <img src="{{asset($room->roomphotos[0]->image)}}" alt="" class="w-100">
+    </div>
     <div class="checkout-section">
         <div class="container">
             <div class="row">

@@ -19,7 +19,7 @@
                             <label for="image">Collection Image</label>                        
                             <input type="file" class="form-control" id="image" name="image">
                             <div style="padding: 20px">
-                                <img src="{{asset('uploads/vendor/collections/263x160/'.$collection->image)}}" width="120px">
+                                <img src="{{asset($collection->image)}}" width="120px">
                             </div>
                         </div>
                         <div class="form-group">

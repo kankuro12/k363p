@@ -97,18 +97,12 @@ class RoomsController extends Controller
       if($files=$request->file('photos')){
               foreach($files as $file){
                   $room_photo=new RoomPhoto();                      
-                  $name=$file->getClientOriginalName();
-                  $file->move('uploads/vendor/roomphotos/',$name);
+                  $name=$file->store('uploads/vendor/roomphotos/');
                   $room_photo->image=$name;
                   $room_photo->room_id=$room->id;
                   $room_photo->save();
 
-                  $thumbnailpath = public_path().'/uploads/vendor/roomphotos/'.$name;
-                  $thumbnailpath1 = public_path().'/uploads/vendor/roomphotos/263x160/'.$name;
-                  $img1 = Image::make($thumbnailpath)->resize(263, null, function($constraint) {
-                              $constraint->aspectRatio();
-                          });
-                  $img1->save($thumbnailpath1);
+                  
           }
       }
       // foreach($request->input('bed_number') as $i => $bed_number)
@@ -219,18 +213,12 @@ class RoomsController extends Controller
           if($files=$request->file('photos')){
                   foreach($files as $file){
                       $room_photo=new RoomPhoto();                      
-                      $name=$file->getClientOriginalName();
-                      $file->move('uploads/vendor/roomphotos/',$name);
+                      $name=$file->store('uploads/vendor/roomphotos/');
                       $room_photo->image=$name;
                       $room_photo->room_id=$room->id;
                       $room_photo->save();
 
-                      $thumbnailpath = public_path().'/uploads/vendor/roomphotos/'.$name;
-                      $thumbnailpath1 = public_path().'/uploads/vendor/roomphotos/263x160/'.$name;
-                      $img1 = Image::make($thumbnailpath)->resize(263, 160, function($constraint) {
-                                  $constraint->aspectRatio();
-                              });
-                      $img1->save($thumbnailpath1);
+                      
               }
           }
 
@@ -311,11 +299,12 @@ class RoomsController extends Controller
     public function photos($id){
         return view('vendor.rooms.photos.index',compact('id'));
     }
+
     public function post_photos(Request $request,$id){
         $roomPhoto=new RoomPhoto();
         $roomPhoto->room_id=$id;        
         if($request->hasFile('file')){
-            $roomPhoto->image=FileUpload::photo($request,'file','','uploads/vendor/roomphotos',[[200,200],[800,800],[1200,1200]]);
+            $roomPhoto->image=$request->file->store('uploads/vendor/roomphotos');
         }
         $roomPhoto->save();
         return response()->json($roomPhoto);
@@ -400,9 +389,9 @@ class RoomsController extends Controller
         $room=$user->vendor->rooms()->where('id',$id)->firstOrFail();
       }
       $photo=$room->roomphotos()->where('id',$request->img_id)->firstOrFail();
-      if(File::exists('uploads/vendor/roomphotos/'.$photo->image)){
-          unlink('uploads/vendor/roomphotos/'.$photo->image);
-          unlink('uploads/vendor/roomphotos/263x160/'.$photo->image);
+      if(File::exists($photo->image)){
+          unlink($photo->image);
+         
       }
       $photo->delete();
       return response()->json([

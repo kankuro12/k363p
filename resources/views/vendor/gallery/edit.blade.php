@@ -4,9 +4,9 @@
 @csrf
 <div class="form-group">
     <label>Photo</label>
-    <input type="file" id="image" name="photo" class="form-control">
+    <input type="file" id="image" name="photo" class="form-control" accept="image/*">
     <div>
-        <img src="{{asset('uploads/vendor/gallery/263x160/'.$gallery->photo)}}" class="img-responsive" style="padding: 20px; 0">
+        <img src="{{asset($gallery->photo)}}" class="img-responsive" style="padding: 20px; 0">
     </div>
 </div>
 <div class="form-group">

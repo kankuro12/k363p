@@ -47,7 +47,7 @@ class AmenitiesController extends Controller
         $amenity->name=$request->name;
         $amenity->status=$request->status;
         if($request->hasFile('icon')){
-            $amenity->icon=FileUpload::photo($request,'icon','','uploads/vendor/amenities/icons',[[200,200]]);
+            $amenity->icon=$request->icon->store('uploads/vendor/amenities/icons');
         }
         $amenity->save();
         session()->flash('msg','New Service has beed successfully added.');
@@ -96,11 +96,11 @@ class AmenitiesController extends Controller
         $amenity->status=$request->status;
         $amenity->slug=null;
         if($request->hasFile('icon')){
-            if(File::exists('uploads/vendor/amenities/icons/'.$amenity->icon)){
-                unlink('uploads/vendor/amenities/icons/'.$amenity->icon);
-                unlink('uploads/vendor/amenities/icons/200x200/'.$amenity->icon);
+            if(File::exists($amenity->icon)){
+                unlink($amenity->icon);
             }
-            $amenity->icon=FileUpload::photo($request,'icon','','uploads/vendor/amenities/icons',[[200,200]]);
+            $amenity->icon=$request->icon->store('uploads/vendor/amenities/icons');
+
         }
         $amenity->save();
         session()->flash('msg','Service has beed successfully updated.');

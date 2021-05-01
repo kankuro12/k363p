@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td>{{$collection->name}}&nbsp;<span class="badge badge-info">{{$collection->collectionvendors->count()}}</span></td>
-                                <td><img src="{{asset('uploads/vendor/collections/263x160/'.$collection->image)}}" width="120px"></td>
+                                <td><img src="{{asset($collection->image)}}" width="120px"></td>
                                 <td>{{$collection->slug}}</td>
                                 <td>
                                     @if($collection->status=="1")

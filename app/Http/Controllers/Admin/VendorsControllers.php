@@ -160,10 +160,10 @@ class VendorsControllers extends Controller
         ];
         Location::create($location_data);
         if ($request->hasFile('logo')) {
-            $vendor->logo = FileUpload::photo($request, 'logo', '', 'uploads/vendor/logo', [[545, 300]]);
+            $vendor->logo = $request->logo->store('uploads/vendor/logo');
         }
         if ($request->hasFile('cover_img')) {
-            $vendor->cover_img = FileUpload::photo($request, 'cover_img', '', 'uploads/vendor/cover_img', [[200, 200], [800, 800], [1200, 1200]]);
+            $vendor->cover_img = $request->cover_img->store('uploads/vendor/cover_img');
         }
         $vendor->save();
         session()->flash('msg', 'New Vendor has beed successfully added.');
@@ -209,7 +209,7 @@ class VendorsControllers extends Controller
             'name' => 'required|string',
             'category_id' => 'required',
             'phone_number' => 'required',
-            'location_id' => 'required',
+            // 'location_id' => 'required',
             'website' => 'nullable|url',
             'average_cost' => 'required',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -221,23 +221,23 @@ class VendorsControllers extends Controller
             'description' => 'nullable|string',
         ]);
 
-
-        $vendor = Vendor::where('slug', $slug)->firstOrFail();
         if ($request->hasFile('logo')) {
-            if (File::exists('uploads/vendor/logo' . $vendor->logo) && 'uploads/vendor/logo' . $vendor->logo != 'logo.png') {
-                unlink('uploads/vendor/cover_img' . 'uploads/vendor/logo' . $vendor->logo);
-                unlink('uploads/vendor/cover_img' . 'uploads/vendor/logo/200x200/' . $vendor->logo);
-            }
-            $vendor->logo = FileUpload::photo($request, 'logo', '', 'uploads/vendor/logo', [[545, 300]]);
         }
         if ($request->hasFile('cover_img')) {
-            if (File::exists('uploads/vendor/cover_img' . $vendor->cover_img) && 'uploads/vendor/cover_img' . $vendor->cover_img != 'cover.png') {
-                unlink('uploads/vendor/cover_img' . $vendor->cover_img);
-                unlink('uploads/vendor/cover_img/200x200/' . $vendor->cover_img);
-                unlink('uploads/vendor/cover_img/800x800/' . $vendor->cover_img);
-                unlink('uploads/vendor/cover_img/1200x1200/' . $vendor->cover_img);
+        }
+        $vendor = Vendor::where('slug', $slug)->firstOrFail();
+        if ($request->hasFile('logo')) {
+            if (File::exists( $vendor->logo) &&  $vendor->logo != 'logo.png') {
+                unlink($vendor->logo);
             }
-            $vendor->cover_img = FileUpload::photo($request, 'cover_img', '', 'uploads/vendor/cover_img', [[200, 200], [800, 800], [1200, 1200]]);
+            $vendor->logo = $request->logo->store('uploads/vendor/logo');
+        }
+        if ($request->hasFile('cover_img')) {
+            if (File::exists( $vendor->cover_img) &&  $vendor->cover_img != 'cover.png') {
+                unlink( $vendor->cover_img);
+            }
+            $vendor->cover_img = $request->cover_img->store('uploads/vendor/cover_img');
+
         }
         $vendor->name = $request->name;
         $vendor->average_cost = $request->average_cost;
@@ -246,14 +246,18 @@ class VendorsControllers extends Controller
         $vendor->twitter_url = $request->twitter_url;
         $vendor->instagram_url = $request->instagram_url;
         $vendor->description = $request->description;
-        $vendor->lat = $request->lat;
-        $vendor->lng = $request->lng;
-        $vendor->location_id = $request->location_id;
+
         $vendor->featured = $request->featured;
         $vendor->slug = null;
         $vendor->save();
         $vendor->user->active = $request->status;
         $vendor->user->save();
+
+        $location=Location::where('vendor_id',$vendor->id)->first();
+        $location->lat = $request->lat;
+        $location->lng = $request->lng;
+        $location->save();
+        // $vendor->location_id = $request->location_id;
         session()->flash('msg', 'Vendor Details has beed successfully updated.');
         return redirect()->route('admin.vendors');
     }
@@ -268,15 +272,12 @@ class VendorsControllers extends Controller
     {
         $vendor = Vendor::where('slug', $slug)->firstOrFail();
         $vendor->delete();
-        if (File::exists('uploads/vendor/logo/' . $vendor->logo)) {
-            unlink('uploads/vendor/logo/' . $vendor->logo);
-            unlink('uploads/vendor/logo/200x200/' . $vendor->logo);
+        if (File::exists( $vendor->logo)) {
+            unlink( $vendor->logo);
         }
-        if (File::exists('uploads/vendor/cover_img/' . $vendor->cover_img)) {
-            unlink('uploads/vendor/cover_img/' . $vendor->cover_img);
-            unlink('uploads/vendor/cover_img/200x200/' . $vendor->cover_img);
-            unlink('uploads/vendor/cover_img/800x800/' . $vendor->cover_img);
-            unlink('uploads/vendor/cover_img/1200x1200/' . $vendor->cover_img);
+        if (File::exists( $vendor->cover_img)) {
+            unlink( $vendor->cover_img);
+           
         }
         session()->flash('msg', 'Vendor Details has beed successfully deleted.');
         return redirect()->route('admin.vendors');
@@ -383,18 +384,17 @@ class VendorsControllers extends Controller
                 if ($files = $request->file('photos')) {
                     foreach ($files as $file) {
                         $room_photo = new RoomPhoto();
-                        $name = $file->getClientOriginalName();
-                        $file->move('uploads/vendor/roomphotos/', $name);
+                        $name=$file->store('uploads/vendor/roomphotos');
                         $room_photo->image = $name;
                         $room_photo->room_id = $package->id;
                         $room_photo->save();
 
-                        $thumbnailpath = public_path() . '/uploads/vendor/roomphotos/' . $name;
-                        $thumbnailpath1 = public_path() . '/uploads/vendor/roomphotos/263x160/' . $name;
-                        $img1 = Image::make($thumbnailpath)->resize(263, 160, function ($constraint) {
-                            $constraint->aspectRatio();
-                        });
-                        $img1->save($thumbnailpath1);
+                        // $thumbnailpath = public_path() . '/uploads/vendor/roomphotos/' . $name;
+                        // $thumbnailpath1 = public_path() . '/uploads/vendor/roomphotos/263x160/' . $name;
+                        // $img1 = Image::make($thumbnailpath)->resize(263, 160, function ($constraint) {
+                        //     $constraint->aspectRatio();
+                        // });
+                        // $img1->save($thumbnailpath1);
                     }
                 }
 

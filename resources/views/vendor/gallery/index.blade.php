@@ -19,7 +19,7 @@
             @csrf
           <div class="row">
             <div class="col-md-4">                  
-                <input type="file" id="image-upload" name="photo[]" class="form-control">
+                <input type="file" id="image-upload" name="photo[]" class="form-control" accept="image/*">
             </div>
             <div class="col-md-3">                  
                 <input type="text" name="caption[]" class="form-control" placeholder="Caption ...">
@@ -110,7 +110,7 @@
 
 	       '<div class="row" id="f-'+i+'">'+
 	            '<div class="col-md-4">'+               
-	                '<input type="file" id="image-upload" name="photo[]" class="form-control">'+
+	                '<input type="file" id="image-upload" name="photo[]" class="form-control" accept="image/*">'+
 	            '</div>'+
 	            '<div class="col-md-3">'+               
 	                '<input type="text" name="caption[]" class="form-control" placeholder="Caption ...">'+

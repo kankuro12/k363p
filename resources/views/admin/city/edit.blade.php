@@ -7,7 +7,7 @@
                 <h5>Edit City</h5>
             </div>
             <div class="card-body">
-                <form method="post" action="{{route('admin.post_edit_city',['id'=>$city->id])}}" id="editCity">
+                <form method="post" action="{{route('admin.post_edit_city',['id'=>$city->id])}}" id="editCity" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">                                
                         <div class="form-group">
@@ -34,6 +34,13 @@
                             </select>
                         </div>                                           
                     </div>
+                    <div>
+                        <img src="{{asset($city->icon)}}" alt="" style="max-width: 100px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Icon</label>                        
+                        <input type="file" name="icon" id="icon"  accept="image/*" class="form-control">
+                    </div>     
                     <div class="border-top">
                         <div class="card-body">
                             <button type="submit" class="btn btn-success">Submit</button>

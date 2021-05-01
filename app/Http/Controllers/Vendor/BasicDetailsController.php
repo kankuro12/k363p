@@ -96,11 +96,11 @@ class BasicDetailsController extends Controller
             $user=Auth::user();
             $vendor=Vendor::where('user_id',$user->id)->firstOrFail();
             if($request->hasFile('file')){
-                if(File::exists('uploads/vendor/logo/'.$vendor->logo)&& $vendor->logo!='logo.png'){
-                unlink('uploads/vendor/logo/'.$vendor->logo);
-                unlink('uploads/vendor/logo/263x160/'.$vendor->logo);
+                if(File::exists($vendor->logo)&& $vendor->logo!='logo.png'){
+                unlink($vendor->logo);
+              
             }
-                $vendor->logo=FileUpload::photo($request,'file','','uploads/vendor/logo',[[263,160]]);
+                $vendor->logo=$request->file->store('uploads/vendor/logo');
             }
             $vendor->save();
             return response()->json([
@@ -118,13 +118,11 @@ class BasicDetailsController extends Controller
             $user=Auth::user();
             $vendor=Vendor::where('user_id',$user->id)->firstOrFail();
             if($request->hasFile('file')){
-                if(File::exists('uploads/vendor/cover_img/'.$vendor->cover_img) && $vendor->cover_img!='cover.png'){
-                    unlink('uploads/vendor/cover_img/'.$vendor->cover_img);
-                    unlink('uploads/vendor/cover_img/545x300/'.$vendor->cover_img);
-                    // unlink('uploads/vendor/cover_img/800x800/'.$vendor->cover_img);
-                    // unlink('uploads/vendor/cover_img/1200x1200/'.$vendor->cover_img);
+                if(File::exists($vendor->cover_img) && $vendor->cover_img!='cover.png'){
+                    unlink($vendor->cover_img);
+                  
                 }
-                $vendor->cover_img=FileUpload::photo($request,'file','','uploads/vendor/cover_img',[[545,300]]);
+                $vendor->cover_img=$request->file->store('uploads/vendor/cover_img');
             }
 
             $vendor->save();
@@ -168,6 +166,8 @@ class BasicDetailsController extends Controller
         }
         return response()->json(['errors' => $validator->errors()]);
     }
+
+    //XXX gallery paths
     function get_gallery(Request $request){
         $user=Auth::user();
         $vendor=Vendor::where('user_id',$user->id)->firstOrFail();
@@ -177,13 +177,14 @@ class BasicDetailsController extends Controller
         }
        return view('vendor.gallery.index');
     }
+
+
     function delete_gallery(Request $request){
         $user=$request->user();
         $vendor=Vendor::where('user_id',$user->id)->firstOrFail();
         $gallery=$vendor->galleries()->where('id',$request->id)->firstOrFail();
-        if(File::exists('uploads/vendor/gallery/'.$gallery->photo)){
-            unlink('uploads/vendor/gallery/'.$gallery->photo);
-            unlink('uploads/vendor/gallery/263x160/'.$gallery->photo);
+        if(File::exists($gallery->photo)){
+            unlink($gallery->photo);
         }
         $gallery->delete();
         return response()->json(['message'=>'Photo has been removed successfully.','success'=>1]);
@@ -193,14 +194,7 @@ class BasicDetailsController extends Controller
         $vendor=Vendor::where('user_id',$user->id)->firstOrFail();
         $i=0;
         foreach($request->file('photo') as $file){
-            $name=time().$file->getClientOriginalName();
-            $file->move(public_path().'/uploads/vendor/gallery/', $name);
-            $thumbnailpath = public_path().'/uploads/vendor/gallery/'.$name;
-            $thumbnailpath1 = public_path().'/uploads/vendor/gallery/263x160/'.$name;
-            $img1 = Image::make($thumbnailpath)->resize(263, 160, function($constraint) {
-                        $constraint->aspectRatio();
-                    });
-            $img1->save($thumbnailpath1);
+            $name=$file->store('/uploads/vendor/gallery');
             $status=$request->status[$i];
             $caption=$request->caption[$i];
             Gallery::create([

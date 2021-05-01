@@ -26,13 +26,13 @@
   <div class="col-md-12">
     <div class="card card-user">
        <div class="image">
-              <img src="{{asset('uploads/vendor/cover_img/'.$vendor->cover_img)}}" id="cover" alt="...">
+              <img src="{{asset($vendor->cover_img)}}" id="cover" alt="...">
                <button class="btn btn-sm btn-primary btn-edit" onclick="changeCover()"><i class="ion-ios-compose-outline"></i></button>
         </div>
         <div class="content">
           <div class="author">
               <span class="pro-wrapper">
-                 <img class="avatar border-white" id="logo" src="{{asset('uploads/vendor/logo/263x160/'.$vendor->logo)}}" alt="...">
+                 <img class="avatar border-white bg-white" id="logo" src="{{asset($vendor->logo)}}" alt="...">
                  <button class="btn btn-sm btn-primary btn-edit" onclick="changeProfile()"><i class="ion-ios-compose-outline"></i></button>
               </span>
               <input type="file" id="pf-pic" style="display: none"/>

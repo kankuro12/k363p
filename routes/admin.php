@@ -352,6 +352,7 @@ Route::get('city/delete/{id}', [
   'uses'=>'Admin\CityController@destroy',
   'as'=>'admin.delete_city'
 ]);
+
 Route::get('country/{id}/states', [
   'uses'=>'Admin\StateController@get_state_from_country',
   'as'=>'admin.get_state_from_country'

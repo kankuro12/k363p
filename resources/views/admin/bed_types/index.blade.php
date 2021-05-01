@@ -29,7 +29,7 @@
                         <td>{{$type->name}}</td>
                         <td>{{$type->slug}}</td>  
                         <td>                                    
-                            <img src="{{asset('uploads/vendor/bed_type/icons/'.$type->icon)}}">
+                            <img src="{{asset($type->icon)}}">
                         </td>
                         <td>
                             @if($type->status=="active")

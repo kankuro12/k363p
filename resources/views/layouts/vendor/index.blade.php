@@ -20,6 +20,7 @@
     .btn{
       margin:4px 0;
     }
+    
   </style>
   <style>
 
@@ -84,6 +85,26 @@
     }
     }
     </style>
+    <style>
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+  </style>
   @yield('styles')
 </head>
 
@@ -113,7 +134,7 @@
   <script src="{{asset('assets/vendor/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBahYsHxb42lOZjgo5bN04hX7hXCAJCUl8&libraries=places"></script>
   <script src="{{asset('assets/vendor/js/plugins/bootstrap-notify.js')}}"></script>
-  <script src="{{asset('assets/vendor/js/now-ui-dashboard.min.js')}}" type="text/javascript"></script>
+  {{-- <script src="{{asset('assets/vendor/js/now-ui-dashboard.min.js')}}" type="text/javascript"></script> --}}
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

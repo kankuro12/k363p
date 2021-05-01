@@ -93,14 +93,14 @@
                 <div class="d-flex">
                 @foreach($room->roomphotos as $photo)
                     <div class="edt-img-wrapper" id="img-{{$photo->id}}">
-                        <img src="{{asset('uploads/vendor/roomphotos/263x160/'.$photo->image)}}" class="img-responsive">
+                        <img src="{{asset($photo->image)}}" class="img-responsive">
                         <a href="#" class="del-img btn btn-primary btn-fill" data-img-id="{{$photo->id}}">x</a>
                     </div>                           
                 @endforeach
                 </div> 
                 <div class="row">                                    
                     <div class="col-md-8">                                        
-                        <input type='file' id="image-upload" name="photos[]" class="form-control"/>
+                        <input type='file' id="image-upload" name="photos[]" class="form-control" accept="image/*"/>
                     </div>
                     <div class="col-md-4">
                        <button class="btn btn-success btn-sm addPhoto" type="button"><i class="ion-ios-plus-outline"></i></button>
@@ -314,7 +314,7 @@
 
            '<div class="row" id="photo-'+i_photo+'">'+
                 '<div class="col-md-8">'+               
-                    '<input type="file" id="image-upload" name="photos[]" class="form-control" required>'+
+                    '<input type="file" id="image-upload" name="photos[]" class="form-control" required accept="image/*">'+
                 '</div>'+                
                 '<div class="col-md-2">'+
                     '<button class="btn btn-primary btn-sm addMore" onclick="removePhoto('+i_photo+')" type="button"><i class="ion-ios-trash-outline"></i></button>'+

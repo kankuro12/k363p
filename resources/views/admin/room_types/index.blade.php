@@ -30,7 +30,7 @@
                         <td>{{$type->name}}</td>
                         <td>{{$type->slug}}</td>  
                         <td>                                    
-                            <img src="{{asset('uploads/vendor/room_type/icons/'.$type->icon)}}" class="img-responsive">
+                            <img src="{{asset($type->icon)}}" style="width:100px;">
                         </td>
                         <td>
                             @if($type->status=="active")

@@ -1,12 +1,12 @@
 <div class="sidebar" data-color="blue">
   <div class="logo text-center" style="position: relative; padding: 0rem; z-index: 4;">
     <a href="{{route('vendor.dashboard')}}" class="simple-text logo-normal" style="padding-top: 0px;">
-      <div class="avatar-wrapper" style="position: relative;height: 135px;overflow: hidden;">
-       <img class="avatar rounded"  src="{{asset('uploads/vendor/logo/263x160/'.auth()->user()->vendor->logo)}}" alt="...">
+      <div class="avatar-wrapper" style="padding:5px 50px">
+       <img class="avatar rounded"  src="{{asset(auth()->user()->vendor->logo)}}" alt="...">
      </div>
     </a>
   </div>
-  <div class="sidebar-wrapper" id="sidebar-wrapper">
+  <div class="sidebar-wrapper" id="sidebar-wrapper" style="overflow-y:auto ">
     <ul class="nav">
       <li class="{{ (Request::is('vendor/dashboard') ? ' active' : '') }}">
         <a href="{{route('vendor.dashboard')}}">

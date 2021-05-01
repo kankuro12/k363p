@@ -19,6 +19,7 @@ use App\Model\Vendor\Location;
 use App\Model\Vendor\Collection;
 // use App\Model\Vendor\Room;
 use App\Enquiry;
+use App\Model\Vendor\Gallery;
 
 class HomeController extends Controller
 {
@@ -153,10 +154,11 @@ class HomeController extends Controller
         ->where('vendor_id','<>',$vendor->id)
         ->get();
         $reviews = $vendor->reviews;
+        $images=Gallery::where('vendor_id',$vendor->id)->get();
         $services=Room::where('vendor_id',$vendor->id)->get()->groupBy('roomtype_id');
 
         // dd(compact('reviews'));
-    	return view('themes.needtech.vendor.index',compact('services','vendor','nearbies','reviews'));
+    	return view('themes.needtech.vendor.index',compact('services','vendor','nearbies','reviews','images'));
 
     }
 
