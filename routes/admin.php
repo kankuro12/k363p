@@ -499,26 +499,41 @@ Route::get('accounts/show/{id}',[
 
 //XXX Manage Banner
 
-Route::get('banners',[
-    'uses'=>'Admin\BannerController@index',
-    'as'=>'admin.banners',
-]);
+    Route::get('banners',[
+        'uses'=>'Admin\BannerController@index',
+        'as'=>'admin.banners',
+    ]);
 
-Route::match(['get','post'],'banners/add',[
-    'uses'=>'Admin\BannerController@add',
-    'as'=>'admin.banners.add',
-]);
-Route::match(['get','post'],'banners/edit/{banner}',[
-    'uses'=>'Admin\BannerController@edit',
-    'as'=>'admin.banners.edit',
-]);
+    Route::match(['get','post'],'banners/add',[
+        'uses'=>'Admin\BannerController@add',
+        'as'=>'admin.banners.add',
+    ]);
+    Route::match(['get','post'],'banners/edit/{banner}',[
+        'uses'=>'Admin\BannerController@edit',
+        'as'=>'admin.banners.edit',
+    ]);
 
-Route::get('banners/del/{banner}',[
-    'uses'=>'Admin\BannerController@del',
-    'as'=>'admin.banners.delete',
-]);
+    Route::get('banners/del/{banner}',[
+        'uses'=>'Admin\BannerController@del',
+        'as'=>'admin.banners.delete',
+    ]);
 
+    //XXX manage configs
+    Route::get('configs',[
+        'uses'=>'Admin\ConfigController@index',
+        'as'=>'admin.configs',
+    ]);
+
+    Route::post('configs/store',[
+        'uses'=>'Admin\ConfigController@store',
+        'as'=>'admin.configs.store',
+    ]);
 });
+
+
+
+
+
 
 Route::group(['prefix'=>'admin','middleware'=>'guest'],function(){
 // Authentication Routes...

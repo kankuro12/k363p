@@ -73,7 +73,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="178" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;"> <img class="adapt-img" src="{{asset('assets/public/img/logo.png')}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="178" height="41.48"></td> 
+                      <td align="center" style="padding:0;Margin:0;"> <img class="adapt-img" src="{{asset(custom_config('logo')->value)}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="178" height="41.48"></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -162,7 +162,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="174" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="right" style="padding:0;Margin:0;padding-top:35px;"> <img class="adapt-img" src="{{asset('assets/public/img/logo.png')}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="174" height="40.54"></td> 
+                      <td align="right" style="padding:0;Margin:0;padding-top:35px;"> <img class="adapt-img" src="{{asset(custom_config('logo')->value)}}" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="174" height="40.54"></td> 
                      </tr> 
                    </table> </td> 
                   <td class="es-hidden" width="20" style="padding:0;Margin:0;"></td> 

@@ -7,7 +7,7 @@
             <i class="fas fa-bars"></i>
         </span>
         <span class="logo">
-           <img src="{{asset('assets/public/img/logo.png')}}">
+           <img src="{{asset(custom_config('logo')->value)}}">
         </span>
         <span class="notification">
             <i class="fas fa-bell"></i>

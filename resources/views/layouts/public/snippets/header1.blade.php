@@ -22,7 +22,7 @@
   <div class="primary-header d-none d-xl-block">
       <div class="d-flex justify-content-between">
           <div class="h-left">
-              <a class="brand" href="/"><img src="{{asset('assets/public/img/logo.png')}}"></a>
+              <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
 
           </div>
           <div class="h-right">
@@ -51,7 +51,7 @@
   <div class="secondary-header sticky" style="display:none;" data-semi="1">
       <div class="menublock">
           <span class="menubtn">
-              <a class="brand" href="/"><img src="{{asset('assets/public/img/logo.png')}}"></a>
+              <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
           </span>
           <span class="mini-search">
               <form action="">
@@ -118,7 +118,7 @@
   <div class="secondary-header sticky" data-semi="0">
     <div class="menublock">
         <span class="menubtn">
-            <a class="brand" href="/"><img src="{{asset('assets/public/img/logo.png')}}"></a>
+            <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
         </span>
         <span class="mini-search">
             <form action="">

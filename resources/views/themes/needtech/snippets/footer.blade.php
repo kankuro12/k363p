@@ -1,33 +1,37 @@
 <div class="footer d-none d-md-block">
     <div class="title">
         <h1>
-            <img class="f-logo" src="img/trip_color.png">
+            <img class="f-logo" src="{{asset(custom_config('logo')->value)}}">
             <span>
-                some  description short descripton is as it is
+                {{custom_config('footer_title_text')->value}}
             </span>
 
         </h1>
         <div class="links">
-            <span class="href" data-target="something">
-                somthing
-            </span>
-            <span class="href" data-target="something">
-                somthing
-            </span>
+            @php
+                $links= json_decode(custom_config('footer_title_links')->value);
+            @endphp
+            @foreach ($links as $link)
+                
+                <span class="link href" data-target="{{$link->link}}" >{{$link->text}}</span>
+            @endforeach
+         
         </div>
     </div>
     <div class="description">
         <div class="row">
             <div class="col-md-5 pb-2">
                 <h5>
-                    Download AB app for exciting offers
+                    {{custom_config('footer_app_title')->value}}
+
                 </h5>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="/img/car1.png" class="w-100" alt="">
+                        <img src="{{asset(custom_config('footer_app_android')->value)}}" class="w-100 href" data-target="{{custom_config('footer_app_android')->secondary_value}}" alt="">
                     </div>
                     <div class="col-md-6">
-                        <img src="/img/car1.png" class="w-100" alt="">
+                        <img src="{{asset(custom_config('footer_app_ios')->value)}}" class="w-100 href" data-target="{{custom_config('footer_app_android')->secondary_value}}" alt="">
+
                     </div>
                 </div>
             </div>
@@ -35,22 +39,37 @@
                 <div class="row h-100">
                     <div class="col-md-6">
                        <div class="important-links h-100">
-                            <span class="link href" data-target="{{route('vendor.getLogin')}}" >Driving center Login</span>
+                           @php
+                                $links=[];
+                                if(custom_config('footer_2_links')->value!=null){
+
+                                    $links= json_decode(custom_config('footer_2_links')->value);
+                                }
+                           @endphp
+                           @foreach ($links as $link)
+                               
+                            <span class="link href" data-target="{{$link->link}}" >{{$link->text}}</span>
+                           @endforeach
+                            {{-- <span class="link">something</span>
                             <span class="link">something</span>
                             <span class="link">something</span>
                             <span class="link">something</span>
-                            <span class="link">something</span>
-                            <span class="link">something</span>
+                            <span class="link">something</span> --}}
                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class=" h-100" style="padding-top:1rem;">
-                            <span class="link">something</span>
-                            <span class="link">something</span>
-                            <span class="link">something</span>
-                            <span class="link">something</span>
-                            <span class="link">something</span>
-                            <span class="link">something</span>
+                            @php
+                               $links=[];
+                                if(custom_config('footer_3_links')->value!=null){
+
+                                    $links= json_decode(custom_config('footer_3_links')->value);
+                                }
+                           @endphp
+                           @foreach ($links as $link)
+                               
+                            <span class="link href" data-target="{{$link->link}}" >{{$link->text}}</span>
+                           @endforeach
                        </div>
                     </div>
                 </div>
@@ -59,10 +78,10 @@
                 <hr style="background:white;">
                 <div class="row" >
                     <div class="col-md-6 long-link">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint quod tempora quis quidem unde veniam culpa! Dignissimos veniam vitae aliquid quidem aperiam? Nostrum atque magni totam unde eaque cumque quibusdam?
+                        {{custom_config('footer_text_left')->value}}
                     </div>
                     <div class="col-md-6">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, aut sint. Vero nihil fugiat, sequi voluptate, fuga et quibusdam aspernatur ab rem veritatis magnam perferendis inventore rerum? Iusto, consectetur rem.
+                        {{custom_config('footer_text_right')->value}}
                     </div>
                 </div>
             </div>
@@ -70,10 +89,20 @@
                 <hr style="background:white;">
                 <div class="row" >
                     <div class="col-md-6 ">
-                        icons
+                        @php
+                               $links=[];
+                                if(custom_config('footer_social')->value!=null){
+
+                                    $links= json_decode(custom_config('footer_social')->value);
+                                }
+                           @endphp
+                           @foreach ($links as $link)
+                               
+                            <img src="{{asset($link->image)}}" class="link href" data-target="{{$link->link}}"  style="width:50px;margin-right:10px;"/>
+                           @endforeach
                     </div>
                     <div class="col-md-6 text-right">
-                        copyright
+                        copyright&#169;{{env('APP_NAME')}}
                     </div>
                 </div>
             </div>

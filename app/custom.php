@@ -12,4 +12,8 @@ function _snippets($path){
     return "themes.". env('theme',"needtech").".snippets.".$path;
 }
 
+function custom_config($id){
+    return \App\PageConfig::where('identifire',$id)->first();
+}
+
 

@@ -74,7 +74,7 @@ a[x-apple-data-detectors] {
                   <td class="es-m-p0r es-m-p20b" width="178" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                     <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;"> <img src="{{asset('assets/public/img/logo.png')}}" alt="Hummingbird logo" title="Hummingbird logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="104" height="24.23"></td> 
+                     <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;"> <img src="{{asset(custom_config('logo')->value)}}" alt="Hummingbird logo" title="Hummingbird logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="104" height="24.23"></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 

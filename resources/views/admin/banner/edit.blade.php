@@ -66,7 +66,6 @@
                         <div class="col-md-4">
                             <label for="">for small screen</label>
                             <input type="file" accept='image/*' name="mobile_image" class="dropify" data-default-file="{{asset($banner->mobile_image)}}">
-
                         </div>
                     </div>
                     <div class="py-2">
