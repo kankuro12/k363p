@@ -41,12 +41,13 @@
         </div>
 
         <div class="ad">
-
-            <div class="ad-text">
-                Some Exiting new is waiting for you
-            </div>
             <div class="ad-img">
-                <img src="{{asset('assets/public/img/adpic.png')}}" alt="">
+                @foreach (\App\Banner::where('position',3)->get() as $banner)
+                <picture class="w-100 href" data-target="{{$banner->link}}" class="mt-2">
+                    <source media="(max-width:650px)" srcset="{{asset($banner->mobile_image)}}" class="w-100">
+                    <img src="{{asset($banner->image)}}" alt="Flowers" class="w-100">
+                </picture>
+                @endforeach
             </div>
         </div>
 

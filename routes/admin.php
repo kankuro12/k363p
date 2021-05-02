@@ -497,9 +497,26 @@ Route::get('accounts/show/{id}',[
 
 
 
+//XXX Manage Banner
 
+Route::get('banners',[
+    'uses'=>'Admin\BannerController@index',
+    'as'=>'admin.banners',
+]);
 
+Route::match(['get','post'],'banners/add',[
+    'uses'=>'Admin\BannerController@add',
+    'as'=>'admin.banners.add',
+]);
+Route::match(['get','post'],'banners/edit/{banner}',[
+    'uses'=>'Admin\BannerController@edit',
+    'as'=>'admin.banners.edit',
+]);
 
+Route::get('banners/del/{banner}',[
+    'uses'=>'Admin\BannerController@del',
+    'as'=>'admin.banners.delete',
+]);
 
 });
 

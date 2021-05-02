@@ -118,12 +118,19 @@
             <p>Tourism Areas</p>
         </a>
     </li> --}}
+    <li class="{{ (Request::is('admin/banners') ? ' active' : '') }}">
+        <a href="{{route('admin.banners')}}">
+            <i class="ion-android-people"></i>
+            <p>Banners</p>
+        </a>
+    </li>
     <li class="{{ (Request::is('admin/members') ? ' active' : '') }}">
         <a href="{{route('admin.members')}}">
             <i class="ion-android-people"></i>
             <p>Admin Members</p>
         </a>
     </li>
+
     <li class="{{ (Request::is('admin/payment-modes') ? ' active' : '') }}">
         <a href="{{route('admin.get_payment_mode')}}">
             <i class="ion-cash"></i>

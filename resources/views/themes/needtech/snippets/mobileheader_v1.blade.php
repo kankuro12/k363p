@@ -34,7 +34,7 @@
     @foreach (\App\Model\Vendor\City::take(5)->get() as $city)
         <span class="single href" data-target="{{route('n.search')}}?location={{$city->name}}" >
             <span class="icon" >
-                <img src="{{asset('uploads/vendor/room_type/icons/1606802342.jpg')}}" alt="">
+                <img src="{{asset($city->icon)}}" alt="">
             </span>
 
             <span class="text">

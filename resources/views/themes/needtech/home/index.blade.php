@@ -84,10 +84,15 @@
     <div class="main ">
 
         <div class="mt-3 mb-3">
-            <div style="height:75px;background:red;color:white;font-weight:600;text-align:center;">
-                <h2>
-                    Here will ne banner
-                </h2>
+            <div >
+                @foreach (\App\Banner::where('position',0)->get() as $banner)
+                    
+                    <picture class="w-100 href" data-target="{{$banner->link}}" class="mt-2">
+                        <source media="(max-width:650px)" srcset="{{asset($banner->mobile_image)}}" class="w-100">
+                        
+                        <img src="{{asset($banner->image)}}" alt="Flowers" class="w-100">
+                    </picture>
+                @endforeach
             </div>
         </div>
         <br>
@@ -146,14 +151,14 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4  href" data-target="{{ route('vendor.request') }}"
+        <div class="mt-4 ">
             style="border-radius:10px;overflow:hidden;cursor: pointer;">
-            <div class="d-md-none d-block">
-                <img class="w-100" src="{{ asset('requestcall3.png') }}">
-            </div>
-            <div class="d-md-block d-none">
-                <img class="w-100" src="{{ asset('requestcall2.png') }}">
-            </div>
+            @foreach (\App\Banner::where('position',1)->get() as $banner)
+                <picture class="w-100 href" data-target="{{$banner->link}}" class="mt-2">
+                    <source media="(max-width:650px)" srcset="{{asset($banner->mobile_image)}}" class="w-100">
+                    <img src="{{asset($banner->image)}}" alt="Flowers" class="w-100">
+                </picture>
+            @endforeach
         </div>
         <div class="feature-services">
             <div class="fs-header">
