@@ -28,7 +28,7 @@
                         <div class="container">
 
                             <div class=" text-center bg-white py-3">
-                                <img src="{{asset(custom_config('logo')->value)}}" style="max-width:100%;">
+                                <img src="{{asset(custom_config('logo')->value??"")}}" style="max-width:100%;">
                                 <br>
                                 <h3 style="color:#c22319;font-weight:700">
                                     Verify Otp

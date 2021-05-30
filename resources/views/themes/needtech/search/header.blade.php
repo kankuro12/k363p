@@ -3,7 +3,7 @@
 <div class="secondary-header sticky" data-semi="0">
     <div class="menublock">
         <span class="menubtn">
-            <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
+            <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value??"")}}"></a>
         </span>
         <span class="mini-search">
             <form action="{{route('n.search')}}">

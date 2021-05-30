@@ -78,10 +78,10 @@
                 <hr style="background:white;">
                 <div class="row" >
                     <div class="col-md-6 long-link">
-                        {{custom_config('footer_text_left')->value}}
+                        {{custom_config('footer_text_left')->value??""}}
                     </div>
                     <div class="col-md-6">
-                        {{custom_config('footer_text_right')->value}}
+                        {{custom_config('footer_text_right')->value??""}}
                     </div>
                 </div>
             </div>

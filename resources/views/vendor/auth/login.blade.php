@@ -2,7 +2,7 @@
 @section('content')
 <div class="v-center w-100">
     <div class="logo text-center pb-1">
-        <a href="/"><img src="{{asset(custom_config('logo')->value)}}" style="max-width:250px;" ></a>
+        <a href="/"><img src="{{asset(custom_config('logo')->value??"")}}" style="max-width:250px;" ></a>
         
     </div>
     <div class="container">

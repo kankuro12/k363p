@@ -1,7 +1,7 @@
 <div class="d-block d-xl-none mobilemenu sticky " >
     <div class="menublock">
         <span class="menubtn">
-            <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
+            <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value??"")}}"></a>
         </span>
         <span>
             <span class="search " data-toggle="collapse" data-target="#min-search-bar" data-set="1"

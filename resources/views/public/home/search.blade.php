@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header" id="search-header">
             <h1 class="text-center text-white">
-                {{custom_config('home_search_title')->value}}
+                {{custom_config('home_search_title')->value??"Search Something"}}
             </h1>
         </div>
         <div id="search-bar">
