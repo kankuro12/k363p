@@ -9,7 +9,12 @@
         </h1>
         <div class="links">
             @php
-                $links= json_decode(custom_config('footer_title_links')->value);
+                $links=[];
+                $data=custom_config('footer_title_links');
+                if($data!=null){
+
+                    $links= json_decode(custom_config('footer_title_links')->value);
+                }
             @endphp
             @foreach ($links as $link)
                 
