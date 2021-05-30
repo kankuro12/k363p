@@ -30,7 +30,7 @@
   <div class="primary-header d-none d-xl-block">
       <div class="d-flex justify-content-between">
           <div class="h-left">
-              <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value)}}"></a>
+              <a class="brand" href="/"><img src="{{asset(custom_config('logo')->value??"")}}"></a>
 
           </div>
           <div class="h-right">
