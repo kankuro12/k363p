@@ -11,7 +11,7 @@
             @php
                 $links=[];
                 $data=custom_config('footer_title_links');
-                if($data!=null){
+                if($data!=null && $data->value!=null){
 
                     $links= json_decode(custom_config('footer_title_links')->value);
                 }
