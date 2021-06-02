@@ -97,7 +97,7 @@ loadCurrentLocation();
                             lat:parseFloat( element.lat),
                             lng:parseFloat(element.lng)
                         });
-                        infos[i].setContent("<div onclick='window.location.href=\"/vendor/"+element.vendor.slug+"\"' style='width:50px;text-align:center;'><image style='width:100%;' src='/"+element.vendor.logo+"'/><div>"+element.vendor.name+"</div></div>");
+                        infos[i].setContent("<div onclick='window.location.href=\"/vendor/"+element.vendor.slug+"\"' style='width:50px;text-align:center;'><div>"+element.vendor.name+"</div></div>");
                         infos[i].open(map);
                         i+=1;
                     });
