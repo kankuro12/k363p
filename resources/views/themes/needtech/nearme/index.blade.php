@@ -94,8 +94,8 @@ loadCurrentLocation();
                         console.log(element);
                         infos[i] = new google.maps.InfoWindow();   
                         infos[i].setPosition({
-                            lat:element.lat,
-                            lng:element.lng
+                            lat:parseFloat( element.lat),
+                            lng:parseFloat(element.lng)
                         });
                         infos[i].setContent("<div onclick='window.location.href=\"/vendor/"+element.vendor.slug+"\"' style='width:50px;text-align:center;'><image style='width:100%;' src='/"+element.vendor.logo+"'/><div>"+element.vendor.name+"</div></div>");
                         infos[i].open(map);

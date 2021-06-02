@@ -1489,7 +1489,7 @@ div.sticky {
 .features .feature-holder .feature-items .feature-item {
   cursor: pointer;
   text-align: center;
-  padding-right: 5px;
+  padding: 5px;
 }
 
 .features .feature-holder .feature-items .feature-item .icon {
