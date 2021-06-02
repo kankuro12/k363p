@@ -16,4 +16,7 @@ function custom_config($id){
     return \App\PageConfig::where('identifire',$id)->first();
 }
 
+function loadMapApi(){
+    return "";
+}
 

@@ -39,7 +39,7 @@ class HomeController extends Controller
             ->take(8)
             ->get();
         $collections = Collection::where('status', 1)->get();
-        return view('themes.needtech.home.index',compact('roomtypes','featured_vendors','trs','collections'));
+        return view('themes.needtech.home.index1',compact('roomtypes','featured_vendors','trs','collections'));
     }
 
     public function locSearch(Request $request){

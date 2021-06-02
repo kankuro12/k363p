@@ -418,7 +418,7 @@
                 };
             map = new google.maps.Map(document.getElementById("map"), {
                 center: pos,
-                zoom: 13,
+                zoom: 12,
             });
             new google.maps.Marker({
                 position: pos,
@@ -427,5 +427,5 @@
             });             
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{env('api','')}}&callback=initMap&libraries=&v=weekly" async></script>
 @endsection

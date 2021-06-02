@@ -31,9 +31,9 @@
           </div> 
           <div class="col-md-4">
               <div class="form-group">
-                  <label>Package Type</label>
+                  <label>Service Type</label>
                   <select class="form-control" name="roomtype_id">
-                      <option value="">Select Package Type</option>
+                      <option value="">Select Service Type</option>
                       @foreach($room_types as $room_type)
                       <option value="{{$room_type->id}}">{{$room_type->name}}</option>
                       @endforeach

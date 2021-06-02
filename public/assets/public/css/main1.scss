@@ -329,6 +329,7 @@ div.sticky {
     .feature-holder{
         padding: 1.6rem 1rem;
         display:flex;
+        justify-content: center;
         .feature-head{
             font-size:20px;
             font-weight:600;
@@ -353,11 +354,11 @@ div.sticky {
         }
 
         .feature-items{
+            justify-content: center;
             padding:10px;
             flex-grow:1;
             display: flex !important;
             display:inline-block;
-            justify-content: flex-start;
             .feature-item{
                
                 cursor:pointer;
@@ -367,9 +368,18 @@ div.sticky {
                 padding-right:5px; 
                 .icon{
                     font-size:25px;
-                    .img-thumbnail{
-                        width:125px;
-                        padding:.15rem;
+                    width:100px;
+                    padding-bottom: 100%;
+                    position:relative;
+                    background-color: white;
+                    .thumbnail{
+                        position: absolute;
+                        top:0;bottom:0;left:0;right:0;
+                        display: flex;
+                        align-items: center;
+                        img{
+                            width:100%;
+                        }
                     }
                     
                 }

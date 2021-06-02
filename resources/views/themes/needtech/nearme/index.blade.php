@@ -14,7 +14,7 @@
     <div id="map" style="height:100vh;"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{env('api','')}}&callback=initMap&libraries=&v=weekly" async>
     </script>
 @endsection
 @section('top-scripts')
@@ -97,7 +97,7 @@ loadCurrentLocation();
                             lat:element.lat,
                             lng:element.lng
                         });
-                        infos[i].setContent("<div onclick='window.location.href=\"/vendor/"+element.vendor.slug+"\"' style='width:50px;text-align:center;'><image style='width:100%;' src='/uploads/vendor/logo/"+element.vendor.logo+"'/><div>"+element.vendor.name+"</div></div>");
+                        infos[i].setContent("<div onclick='window.location.href=\"/vendor/"+element.vendor.slug+"\"' style='width:50px;text-align:center;'><image style='width:100%;' src='/"+element.vendor.logo+"'/><div>"+element.vendor.name+"</div></div>");
                         infos[i].open(map);
                         i+=1;
                     });

@@ -259,7 +259,7 @@
         );
       }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{env('api','')}}&libraries=places&callback=initMap"></script>
 @endsection
 @section('styles')
 <style type="text/css">

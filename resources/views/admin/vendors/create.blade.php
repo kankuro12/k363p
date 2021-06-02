@@ -291,7 +291,7 @@
         }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{env('api','')}}&libraries=places&callback=initMap"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
     <script type="text/javascript">

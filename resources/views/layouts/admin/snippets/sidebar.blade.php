@@ -24,16 +24,16 @@
           </a>
           <div class="collapse" id="vendorMenu" style="">
             <ul class="nav">               
-              <li class="">
+              {{-- <li class="">
                   <a href="{{route('admin.categories')}}">                        
                       <span class="sidebar-normal">Categories</span>
                   </a>
-              </li>
-              <li>
+              </li> --}}
+              {{-- <li>
                   <a href="{{route('admin.amenities')}}">
                       <span class="sidebar-normal">Services </span>
                   </a>
-              </li>
+              </li> --}}
               <li>
                   <a href="{{route('admin.vendors')}}">
                       <span class="sidebar-normal"> Vendors </span>
@@ -41,7 +41,7 @@
               </li>
               <li>
                   <a href="{{route('admin.get_room_type')}}">
-                      <span class="sidebar-normal"> Package Type </span>
+                      <span class="sidebar-normal"> Service Types </span>
                   </a>
               </li>
               {{-- <li>

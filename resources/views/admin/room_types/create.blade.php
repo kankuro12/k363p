@@ -4,7 +4,7 @@
     <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5>Create New Package Type</h5>
+                <h5>Create New Service Type</h5>
             </div>
             <div class="card-body">
                 @include('layouts.admin.snippets.error')
@@ -12,8 +12,8 @@
                     @csrf
                     <div class="card-body">                        
                         <div class="form-group">
-                            <label for="name">Package Type Name</label>                        
-                            <input type="text" class="form-control" id="name" placeholder="Package Type Name" name="name">
+                            <label for="name">Service Type Name</label>                        
+                            <input type="text" class="form-control" id="name" placeholder="Service Type Name" name="name">
                         </div>   
                         <div class="form-group">
                             <label for="name">Icon</label>                        
@@ -48,7 +48,7 @@
                 status: "required"
             },
             messages: {
-                name: "Please enter package type name",
+                name: "Please enter Service type name",
                 status: "Please select a status"                
             }
 });

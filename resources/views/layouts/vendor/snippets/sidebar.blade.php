@@ -26,12 +26,12 @@
           <p>Gallery</p>
         </a>
       </li>
-      <li class="{{ (Request::is('vendor/amenities') ? ' active' : '') }}">
+      {{-- <li class="{{ (Request::is('vendor/amenities') ? ' active' : '') }}">
         <a href="{{route('vendor.get_amenities')}}">
           <i class="ion-android-restaurant"></i>
           <p>Services</p>
         </a>
-      </li>
+      </li> --}}
       <li class="{{ (Request::is('vendor/rooms') ? ' active' : '') }}">
         <a href="{{route('vendor.get_rooms')}}">
           <i class="ion-ios-browsers-outline"></i>

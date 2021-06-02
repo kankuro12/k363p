@@ -4,8 +4,8 @@
     <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5>Package Types
-                <a href="{{route('admin.get_create_room_type')}}" class="pull-right btn  btn-success">Add Package Type</a>
+                <h5>Service Types
+                <a href="{{route('admin.get_create_room_type')}}" class="pull-right btn  btn-success">Add Service Type</a>
                 </h5>
                 <br>
             </div>
