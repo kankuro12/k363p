@@ -1,6 +1,11 @@
 @extends('themes.needtech.layout')
 @section('meta')
     <meta name="theme-color" content="#494676" />
+    <meta property="og:url"           content="{{Request::url()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('assets\public\css\userdashboard.css')}}">

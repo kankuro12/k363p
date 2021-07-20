@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Room extends Model
 {
     use Sluggable;
-    public function sluggable()
+    public function sluggable():array
     {
         return [
             'slug' => [
@@ -62,7 +62,7 @@ class Room extends Model
         $discount=$this->price*$this->discount/100;
         return $this->price-$discount;
     }
-    public function get_num_bed(){        
+    public function get_num_bed(){
         return null;
     }
     public function bed_details(){
@@ -70,7 +70,7 @@ class Room extends Model
         $cb=0;
         foreach ($this->beds as $key => $bed) {
           $ab+=$bed->adult;
-          $cb+=$bed->child;            
+          $cb+=$bed->child;
         }
         return $ab." Adult ".$cb." Child";
     }
@@ -84,6 +84,6 @@ class Room extends Model
         $result=array();
         $result['adult_bed']=$adult_bed;
         $result['child_bed']=$child_bed;
-        return $result;        
+        return $result;
     }
 }

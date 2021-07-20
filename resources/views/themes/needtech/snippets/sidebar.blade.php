@@ -70,7 +70,10 @@
                     <a href="{{route('n.user.dashboard')}}">Favourites</a>
                 </div>
                 <div class="text">
-                    <a href="{{route('n.user.dashboard')}}">Reviews</a>
+                    <a href="{{route('n.user.reviews')}}">Reviews</a>
+                </div>
+                <div class="text">
+                    <a href="{{route('n.user.referal')}}">Referal Program</a>
                 </div>
 
                 <div class="text">

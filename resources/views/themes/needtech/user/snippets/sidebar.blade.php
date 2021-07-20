@@ -13,6 +13,9 @@
     <li class="list-group-item {{ (Request::is('user/reviews*') ? ' active' : '') }}">
         <a href="{{route('n.user.reviews')}}"><i class="ion-android-chat"></i> Reviews</a>
     </li>
+    <li class="list-group-item {{ (Request::is('user/referal*') ? ' active' : '') }}">
+        <a href="{{route('n.user.referal')}}"><i class="ion-android-chat"></i> Referal Program</a>
+    </li>
     {{-- <li class="list-group-item {{ (Request::is('user/favourites*') ? ' active' : '') }}">
         <a href="{{route('user.favourites')}}"><i class="ion-heart"></i> Favourites</a>
     </li>

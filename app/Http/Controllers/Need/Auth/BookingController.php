@@ -21,14 +21,42 @@ class BookingController extends Controller
             $phone = $request->phone;
             $vu = VendorUser::where('mobile_number', $phone)->first();
             if ($vu == null) {
-                return redirect()->back()->withInput()->withErrors(['No Account Exist with Phone No ' . $phone . '. <a href="' . route('n.user.signup') . '?number=' . $phone . '">Create New Account</a>']);
+                $user = new User();
+                if ($request->email == null) {
+                    $user->email = $request->phone . "@abtest.com";
+                } else {
+                    $user->email = $request->email;
+                }
+                $user->password = bcrypt('Password');
+                $user->role_id = 1;
+                $user->activation_token = mt_rand(100000, 999999);
+                $ref_id=session('ref_id');
+                $user->referal_id=$ref_id;
+                $user->save();
+                $data = new VendorUser();
+                $data->user_id = $user->id;
+                $data->fname = "";
+                $data->lname = "";
+                $data->mobile_number = $phone;
+                $data->save();
+                $user->notify(new SignupActivate());
+                session(['number' => $request->phone]);
+                return redirect()->route('n.user.signup');
+                // return redirect()->back()->withInput()->withErrors(['No Account Exist with Phone No ' . $phone . '. <a href="' . route('n.user.signup') . '?number=' . $phone . '">Create New Account</a>']);
             } else {
                 $user = $vu->user;
                 $user->activation_token = mt_rand(100000, 999999);
                 $user->save();
                 $user->notify(new SignupActivate());
                 session(['number' => $request->phone]);
-                return redirect()->route('n.user.otp');
+                if($user->active==0){
+                    return redirect()->route('n.user.signup');
+
+                }else{
+
+                    return redirect()->route('n.user.otp');
+                }
+
             }
         } else {
             return view('themes.needtech.Auth.login');
@@ -37,34 +65,72 @@ class BookingController extends Controller
 
     public function signup(Request $request)
     {
-        if ($request->getMethod() == "POST") {
-            $user = new User();
-            if ($request->email == null) {
-                $user->email = $request->phone . "@abtest.com";
-            } else {
-                $user->email = $request->email;
-            }
-            $user->password = bcrypt('Password');
-            $user->role_id = 1;
-            $user->activation_token = mt_rand(100000, 999999);
-            $user->save();
-
-            $data = new VendorUser();
-            $data->user_id = $user->id;
-            $data->fname = $request->fname;
-            $data->lname = $request->lname;
-            $data->mobile_number = $request->phone;
-            $data->save();
-            $user->notify(new SignupActivate());
-            session(['number' => $request->phone]);
-            return redirect()->route('n.user.otp');
-        } else {
-            $number = "";
-            if ($request->filled('number')) {
-                $number = $request->number;
-            }
-            return view('themes.needtech.Auth.signup', compact('number'));
+        $phone=session('number');
+        if($phone==null){
+            return redirect()->route('n.user.login');
         }
+        if ($request->getMethod() == "POST") {
+            // dd($request->all());
+            $data = VendorUser::where('mobile_number', $request->phone)->first();
+            if ($data != null) {
+                $user = $data->user;
+                if ($user->activation_token == $request->otp) {
+                    $request->session()->forget('number');
+                    Auth::login($user, true);
+                    $data->fname = $request->fname;
+                    $data->lname = $request->lname;
+                    $data->save();
+                    if($request->filled('email')){
+                        $user->email=$request->email;
+
+                    }
+                    $user->active=1;
+                    $user->save();
+                    if (session('redirect') == null) {
+                        return redirect()->route('n.user.dashboard');
+                    } else {
+                        return redirect(session('redirect'));
+                    }
+
+                } else {
+                    return redirect()->back()->withInput()->withErrors(['Wrong OTP']);
+                }
+            }else{
+                return redirect()->route('n.user.login');
+            }
+        }else{
+            return view('themes.needtech.Auth.signup', compact('phone'));
+
+        }
+
+        // if ($request->getMethod() == "POST") {
+        //     $user = new User();
+        //     if ($request->email == null) {
+        //         $user->email = $request->phone . "@abtest.com";
+        //     } else {
+        //         $user->email = $request->email;
+        //     }
+        //     $user->password = bcrypt('Password');
+        //     $user->role_id = 1;
+        //     $user->activation_token = mt_rand(100000, 999999);
+        //     $user->save();
+
+        //     $data = new VendorUser();
+        //     $data->user_id = $user->id;
+        //     $data->fname = $request->fname;
+        //     $data->lname = $request->lname;
+        //     $data->mobile_number = $request->phone;
+        //     $data->save();
+        //     $user->notify(new SignupActivate());
+        //     session(['number' => $request->phone]);
+        //     return redirect()->route('n.user.otp');
+        // } else {
+        //     $number = "";
+        //     if ($request->filled('number')) {
+        //         $number = $request->number;
+        //     }
+        //     return view('themes.needtech.Auth.signup', compact('number'));
+        // }
     }
 
     public function otp(Request $request)
@@ -77,7 +143,7 @@ class BookingController extends Controller
                     $request->session()->forget('number');
                     Auth::login($user, true);
                     if (session('redirect') == null) {
-                        return redirect()->route('user.profile');
+                        return redirect()->route('n.user.dashboard');
                     } else {
                         return redirect(session('redirect'));
                     }
@@ -197,6 +263,8 @@ class BookingController extends Controller
             $user->password = bcrypt('Password');
             $user->role_id = 1;
             $user->activation_token = mt_rand(100000, 999999);
+            $ref_id=session('ref_id');
+            $user->referal_id=$ref_id;
             $user->save();
 
             $data = new VendorUser();
@@ -205,6 +273,7 @@ class BookingController extends Controller
             $data->lname = $request->lname;
             $data->mobile_number = $request->phone;
             $data->save();
+
         }
         $user->notify(new SignupActivate());
         return response()->json(['status' => true]);

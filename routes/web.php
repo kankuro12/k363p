@@ -59,6 +59,7 @@ Route::group(['prefix' => ''], function () {
 	            Route::get('auth/{provider}/callback', 'Need\Auth\BookingController@callback')->name('social-login');
             });
         });
+
         Route::group(['prefix'=>'user','middleware'=>['authen','type'],'type'=>['user']],function(){
             Route::get('check', function () {
                 return 'ok';
@@ -73,6 +74,7 @@ Route::group(['prefix' => ''], function () {
                 Route::match(['get', 'post'],'changepic','Need\UserController@changePic')->name('changepic');
                 Route::match(['get', 'post'],'updateprofile','Need\UserController@updateProfile')->name('updateprofile');
                 Route::match(['get', 'post'],'reviews','Need\UserController@reviews')->name('reviews');
+                Route::match(['get', 'post'],'referal','Need\UserController@referal')->name('referal');
 
                 Route::group(['prefix' => 'booking'], function () {
 					route::get('','Need\UserController@booking')->name('booking');
@@ -92,14 +94,14 @@ Route::group(['prefix' => ''], function () {
 
 Route::get('test',function(){
 	// \App\User::where('id','>','1')->update(['password'=>bcrypt('admin@123')]);
-    // dd(bcrypt('admin@123'));
-    $arr1=[1,2,3,4,5,6];
-    $arr1[1]=99;
+    dd(bcrypt('admin@123'));
+    // $arr1=[1,2,3,4,5,6];
+    // $arr1[1]=99;
 
-    $arr2=[];
-    $arr2['first']=1;
-    $arr2['second']=2;
-    dd($arr1,$arr2);
+    // $arr2=[];
+    // $arr2['first']=1;
+    // $arr2['second']=2;
+    // dd($arr1,$arr2);
 });
 
 Route::get('sms/show','MockSmsController@show');

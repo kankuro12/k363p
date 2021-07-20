@@ -138,4 +138,9 @@ class UserController extends Controller
             return view('themes.needtech.user.reviews.index',compact('user','reviews','to_reviewed'));
         }
     }
+
+    public function referal(){
+        $user=Auth::user();
+        return view('themes.needtech.user.referal.index',compact('user'));
+    }
 }

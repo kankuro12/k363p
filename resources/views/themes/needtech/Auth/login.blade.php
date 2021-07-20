@@ -48,7 +48,7 @@
                                     </span>
                                 </div>
                             </form>
-                            <div class="d-flex">
+                            {{-- <div class="d-flex">
                                 <span style="flex-grow:1;padding-top: 12px;padding-right: 10px;">
                                     <div style="height: 2px;background:#f1f1f1"></div>
                                 </span>
@@ -58,7 +58,7 @@
                                 </span>
                             </div>
                             <div >
-                                <div class="row">
+                                 <div class="row">
                                     <div class="col-md-6 pt-2">
                                         <a href="{{route('n.user.social',['provider'=>'facebook'])}}" class="w-100" style="text-decoration:none;display:inline-block;line-height:1;">
                                             <div class="d-flex ">
@@ -84,7 +84,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <style>
                                 .md-text-right{
                                     text-align:right;
@@ -96,9 +96,9 @@
                                 }
                             </style>
                             <div style="height: 2px;background:#f1f1f1;margin:10px 0px;"></div>
-                            <div class="md-text-right pb-3 ">
+                            {{-- <div class="md-text-right pb-3 ">
                                 Need A Account? <a href="{{route('n.user.signup')}}" style="text-decoration:none;font-weight:500;">Signup</a>
-                            </div>
+                            </div> --}}
                             <div class="md-text-right pb-3 ">
                                  <a href="{{route('vendor.getLogin')}}" style="text-decoration:none;font-weight:500;">Login as Driving Center</a>
                             </div>

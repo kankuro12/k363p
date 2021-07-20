@@ -20,6 +20,18 @@ class ConfigController extends Controller
             "name"=>"Logo",
             "type"=>"image",
         ],
+        'share_image'=>[
+            "name"=>"Share Image",
+            "type"=>"image",
+        ],
+        'share_title'=>[
+            "name"=>"Share Title",
+            "type"=>"text",
+        ],
+        'share_description'=>[
+            "name"=>"Share Description",
+            'type'=>"desc"
+        ],
         'home_search_title'=>[
             "name"=>"Home Search Title",
             'type'=>"text"
@@ -62,7 +74,7 @@ class ConfigController extends Controller
             'type'=>'link_image_group'
         ]
 
-       
+
     ];
     public function index(Request $request){
         $configs=PageConfig::all();

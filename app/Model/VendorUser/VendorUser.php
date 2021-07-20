@@ -17,7 +17,7 @@ class VendorUser extends Model
      *
      * @return array
      */
-    public function sluggable()
+    public function sluggable():array
     {
         return [
             'slug' => [
@@ -29,7 +29,7 @@ class VendorUser extends Model
         'fname',
         'lname',
         'slug',
-        'mobile_number',        
+        'mobile_number',
         'profile_img',
         'cover_img',
         'secondary_email',

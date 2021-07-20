@@ -1,6 +1,11 @@
 @extends('themes.needtech.layout')
 @section('meta')
     <meta name="theme-color" content="#D4184C" />
+    <meta property="og:url"           content="{{Request::url()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
 @endsection
 @section('content')
     {{-- <div class="city d-block d-md-none pl-4 pt-2 pb-2 pr-3">
@@ -18,7 +23,7 @@
     $othercities = $cities->slice(1);
     @endphp
     @if ($cities->count()>0)
-        
+
     <div class="city d-none d-md-block">
         <div class="container">
             <div class="d-block d-md-flex justify-content-between">
@@ -74,7 +79,7 @@
                         </div>
                     </span>
                     @endforeach
-                 
+
                 </div>
             </div>
         </div>
@@ -86,10 +91,10 @@
         <div class="mt-3 mb-3">
             <div >
                 @foreach (\App\Banner::where('position',0)->get() as $banner)
-                    
+
                     <picture class="w-100 href" data-target="{{$banner->link}}" class="mt-2">
                         <source media="(max-width:650px)" srcset="{{asset($banner->mobile_image)}}" class="w-100">
-                        
+
                         <img src="{{asset($banner->image)}}" alt="Flowers" class="w-100">
                     </picture>
                 @endforeach
