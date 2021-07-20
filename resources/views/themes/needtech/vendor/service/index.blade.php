@@ -4,7 +4,7 @@
     <meta name="theme-color" content="#c22319" />
     <meta property="og:url"           content="{{Request::url()}}" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$room->name}}" />
+    <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$room->name}}, {{$vendor->name}} " />
     <meta property="og:description"   content="{!!$room->description!!}" />
     <meta property="og:image"         content="{{asset($room->roomphotos[0]->image)}}" />
 @endsection
