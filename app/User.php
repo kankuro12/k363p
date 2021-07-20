@@ -34,7 +34,7 @@ class User extends Authenticatable
         return $this->hasOne('App\Role','id','role_id');
     }
 
-    public function checkIfUserRole($need_role){       
+    public function checkIfUserRole($need_role){
         return (strtolower($need_role)==strtolower($this->role->name))?true:false;
     }
     public function hasRole($types){
@@ -66,5 +66,12 @@ class User extends Authenticatable
     }
     public function messages(){
         return $this->hasMany(Message::class);
+    }
+
+    public function myReferals(){
+        return User::join('vendor_users','vendor_users.user_id','=','users.id')->where('users.referal_id',$this->id)->select('vendor_users.fname','vendor_users.lname','vendor_users.profile_img','users.id')->get();
+    }
+    public function myReferalCount(){
+        return User::where('referal_id',$this->id)->count();
     }
 }

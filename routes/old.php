@@ -143,7 +143,7 @@ Route::group(['prefix'=>'old\user','middleware'=>['authen','type'],'type'=>['use
 
 	Route::post('change-profile-pic',[
 		'uses'=>'User\DashboardController@change_profile_pic',
-		'as'=>'user.change_profile_pic'
+		'as'=>'n.user.changepic'
 	]);
 	Route::post('review/create',[
 		'uses'=>'User\ReviewController@store',

@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function changePic(Request $request){
         $validator=Validator::make($request->all(),[
-            'file'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:5500',
         ]);
 
         if ($validator->passes()) {
@@ -34,10 +34,9 @@ class UserController extends Controller
             $user=VendorUser::where('user_id',$user->id)->firstOrFail();
             if($request->hasFile('file')){
                 if(File::exists('uploads/user/profile_img/'.$user->profile_img) && $user->profile_img!='profile.png'){
-                unlink('uploads/user/profile_img/'.$user->profile_img);
-                unlink('uploads/user/profile_img/200x200/'.$user->profile_img);
-            }
-                $user->profile_img=FileUpload::photo($request,'file','','uploads/user/profile_img',[[200,200]]);
+                    unlink('uploads/user/profile_img/'.$user->profile_img);
+                }
+                $user->profile_img=$request->file->store('uploads/user/profile_img');
             }
             $user->save();
             return response()->json([

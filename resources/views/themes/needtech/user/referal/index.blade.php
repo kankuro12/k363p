@@ -42,6 +42,28 @@
                             <a class="btn btn-secondary mx-0 mx-md-2 mb-2 md-w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
 
                         </div>
+                        @if (Auth::guard()->user()->myReferalCount()>0)
+                        <hr>
+                        <h4>My Referals ({{Auth::guard()->user()->myReferalCount()}})</h4>
+                        <hr>
+                        <div class="row m-0">
+
+                            @foreach (Auth::guard()->user()->myReferals() as $referal)
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-4 col-md-5 p-1">
+                                            <img src="{{asset($referal->profile_img)}}" alt="" class="w-100">
+                                        </div>
+                                        <div class="col-8 col-md-7 p-1 pt-2">
+                                            <b>{{$referal->fname}}</b> <br>
+                                            <b>{{$referal->lname}}</b> <br>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        @endif
                     </div>
                 </div>
 
@@ -70,7 +92,7 @@
             form_data.append('file', img.files[0]);
             form_data.append('_token', '{{csrf_token()}}');
             $.ajax({
-                url: "{{route('user.change_profile_pic')}}",
+                url: "{{route('n.user.changepic')}}",
                 data: form_data,
                 type: 'POST',
                 contentType: false,

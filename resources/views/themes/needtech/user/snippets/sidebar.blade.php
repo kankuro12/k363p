@@ -14,7 +14,9 @@
         <a href="{{route('n.user.reviews')}}"><i class="ion-android-chat"></i> Reviews</a>
     </li>
     <li class="list-group-item {{ (Request::is('user/referal*') ? ' active' : '') }}">
-        <a href="{{route('n.user.referal')}}"><i class="ion-android-chat"></i> Referal Program</a>
+        <a href="{{route('n.user.referal')}}"><i class="ion-android-chat"></i> Referal Program <span class="badge badge-success">
+            &nbsp;{{Auth::guard()->user()->myReferalCount()}}
+        </span></a>
     </li>
     {{-- <li class="list-group-item {{ (Request::is('user/favourites*') ? ' active' : '') }}">
         <a href="{{route('user.favourites')}}"><i class="ion-heart"></i> Favourites</a>

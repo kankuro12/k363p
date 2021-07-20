@@ -73,7 +73,7 @@
                     <a href="{{route('n.user.reviews')}}">Reviews</a>
                 </div>
                 <div class="text">
-                    <a href="{{route('n.user.referal')}}">Referal Program</a>
+                    <a href="{{route('n.user.referal')}}">Referal Program ({{Auth::user()->myReferalCount()}})</a>
                 </div>
 
                 <div class="text">
@@ -83,9 +83,9 @@
                 <div class="text">
                     <a href="{{route('n.user.login')}}">Login</a>
                 </div>
-                <div class="text">
+                {{-- <div class="text">
                     <a href="{{route('n.user.signup')}}">signup</a>
-                </div>
+                </div> --}}
             @endif
         </div>
     </div>

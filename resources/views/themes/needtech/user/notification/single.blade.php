@@ -61,7 +61,7 @@
             form_data.append('file', img.files[0]);
             form_data.append('_token', '{{csrf_token()}}');
             $.ajax({
-                url: "{{route('user.change_profile_pic')}}",
+                url: "{{route('n.user.changepic')}}",
                 data: form_data,
                 type: 'POST',
                 contentType: false,
