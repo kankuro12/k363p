@@ -348,27 +348,22 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row m-0">
 
                         @if(Auth::user())
 
-                        <div class="col-md-6 p-1">
 
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}?ref_id={{$user->id}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
-                        </div>
-                        <div class="col-md-6 p-1">
 
-                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
-                        </div>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}?ref_id={{$user->id}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 text-left" style="background:#0E8CF1;border:none" >
+                                <img style="width:25px;" src="{{asset('images/fb_share.svg')}}" alt=""> Share
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{Request::url()}}?ref_id={{$user->id}}" class="btn btn-secondary mx-0 mx-md-2 mb-2 " style="background:#1DA1F2;border:none;color:white;" > <img style="width:25px;" src="{{asset('images/twitter_share.svg')}}" alt=""> Share</a>
+
                         @else
-                        <div class="col-md-6 p-1 ">
-
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
-                        </div>
-                        <div class="col-md-6 p-1">
-
-                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
-                        </div>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}" target="_blank" class="btn btn-secondary mx-1 mb-2 text-left" style="background:#0E8CF1;border:none" >
+                            <img style="width:25px;" src="{{asset('images/fb_share.svg')}}" alt=""> Share
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{Request::url()}}" class="btn btn-secondary mx-1 mb-2 " style="background:#1DA1F2;border:none;color:white;" > <img style="width:25px;" src="{{asset('images/twitter_share.svg')}}" alt=""> Share</a>
                         @endif
                     </div>
                     @if($vendor->policy)
