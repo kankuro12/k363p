@@ -2,6 +2,11 @@
 @section('subtitle',$room->name)
 @section('meta')
     <meta name="theme-color" content="#c22319" />
+    <meta property="og:url"           content="{{Request::url()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$room->name}}" />
+    <meta property="og:description"   content="{!!$room->description!!}" />
+    <meta property="og:image"         content="{{asset($room->roomphotos[0]->image)}}" />
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css')}}">
@@ -164,6 +169,28 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        @if(Auth::user())
+
+                        <div class="col-md-6 p-1">
+
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}?ref_id={{$user->id}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
+                        </div>
+                        <div class="col-md-6 p-1">
+
+                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
+                        </div>
+                        @else
+                        <div class="col-md-6 p-1 ">
+
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
+                        </div>
+                        <div class="col-md-6 p-1">
+
+                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
+                        </div>
+                        @endif
+                    </div>
 
                 </div>
             </div>

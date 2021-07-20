@@ -1,6 +1,11 @@
 @extends('themes.needtech.layout')
 @section('meta')
     <meta name="theme-color" content="#c22319" />
+    <meta property="og:url"           content="{{Request::url()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$vendor->name}}" />
+    <meta property="og:description"   content="{!!$vendor->description!!}" />
+    <meta property="og:image"         content="{{asset($vendor->cover_img)}}" />
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css?v=1.1')}}">
@@ -339,8 +344,32 @@
                     <div class="section p-0 p-md-3 mb-2 mb-md-3">
 
                         <div id="map" style="height:400px;">
-    
+
                         </div>
+                    </div>
+
+                    <div class="row">
+
+                        @if(Auth::user())
+
+                        <div class="col-md-6 p-1">
+
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}?ref_id={{$user->id}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
+                        </div>
+                        <div class="col-md-6 p-1">
+
+                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
+                        </div>
+                        @else
+                        <div class="col-md-6 p-1 ">
+
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}" target="_blank" class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#0E8CF1;border:none" >Share on Facebook</a>
+                        </div>
+                        <div class="col-md-6 p-1">
+
+                            <a class="btn btn-secondary mx-0 mx-md-2 mb-2 w-100" style="background:#1DA1F2;border:none;color:white;" >Share on Twitter</a>
+                        </div>
+                        @endif
                     </div>
                     @if($vendor->policy)
                     <div class="section py-2">
@@ -408,7 +437,7 @@
             autoplay:true,
             nav:true
         });
-        
+
 
         function initMap() {
             console.log("map initiated");
@@ -424,7 +453,7 @@
                 position: pos,
                 map,
                 title: "{{$vendor->name}}",
-            });             
+            });
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{env('api','')}}&callback=initMap&libraries=&v=weekly" async></script>
