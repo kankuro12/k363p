@@ -5,7 +5,7 @@
     <meta property="og:url"           content="{{Request::url()}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$room->name}}, {{$vendor->name}} " />
-    <meta property="og:description"   content="{{strip_tags($room->description)}}" />
+    <meta property="og:description"   content="{{html_entity_decode(strip_tags($room->description))}}" />
     <meta property="og:image"         content="{{asset($room->roomphotos[0]->image)}}" />
 @endsection
 @section('styles')
