@@ -4,7 +4,7 @@
     <meta property="og:url"           content="{{Request::url()}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$vendor->name}}" />
-    <meta property="og:description"   content="{!!$vendor->description!!}" />
+    <meta property="og:description"   content="{{strip_tags($vendor->description)}}" />
     <meta property="og:image"         content="{{asset($vendor->cover_img)}}" />
 @endsection
 @section('styles')
