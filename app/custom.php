@@ -27,7 +27,9 @@ function htmlToPlainText($str){
     $str = html_entity_decode($str);
     $str = htmlspecialchars_decode($str);
     $str = strip_tags($str);
-
+    if(strlen($str)>140){
+        $str=substr($str,0,140);
+    }
     return $str;
 }
 

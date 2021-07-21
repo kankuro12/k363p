@@ -1,11 +1,22 @@
 @extends('themes.needtech.layout')
 @section('meta')
     <meta name="theme-color" content="#c22319" />
+    <!-- facebook -->
     <meta property="og:url"           content="{{Request::url()}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="{{custom_config('share_title')->value}} - {{$vendor->name}}" />
     <meta property="og:description"   content="{{htmlToPlainText($vendor->description)}}" />
     <meta property="og:image"         content="{{asset($vendor->cover_img)}}" />
+    <meta name="description" content="{{htmlToPlainText($vendor->description)}}" />
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="{{custom_config('share_title')->value}} - {{$vendor->name}}">
+    <meta name="twitter:site" content="{{Request::url()}}">
+    <meta name="twitter:title" content="{{custom_config('share_title')->value}} - {{$vendor->name}}">
+    <meta name="twitter:description" content="{{htmlToPlainText($vendor->description)}}">
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:image:src" content="{{asset($vendor->cover_img)}}">
+
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/public/css/singlevendor.css?v=1.1')}}">

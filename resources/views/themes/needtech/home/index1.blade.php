@@ -6,6 +6,15 @@
     <meta property="og:title"         content="{{custom_config('share_title')->value}}" />
     <meta property="og:description"   content="{{custom_config('share_description')->value}}" />
     <meta property="og:image"         content="{{asset(custom_config('share_image')->value)}}" />
+
+        <!-- twitter -->
+        <meta name="twitter:card" content="{{custom_config('share_title')->value}}">
+        <meta name="twitter:site" content="{{Request::url()}}">
+        <meta name="twitter:title" content="{{custom_config('share_title')->value}}">
+        <meta name="twitter:description" content="{{custom_config('share_description')->value}}">
+        <!-- Twitter summary card with large image must be at least 280x150px -->
+        <meta name="twitter:image:src" content="{{asset(custom_config('share_image')->value)}}">
+
 @endsection
 @section('content')
     {{-- <div class="city d-block d-md-none pl-4 pt-2 pb-2 pr-3">
