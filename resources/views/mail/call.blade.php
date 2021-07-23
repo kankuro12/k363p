@@ -12,3 +12,4 @@
         <th>Owner Name</th><td>{{$req->owner}}</td>
     </tr>
 </table>
+

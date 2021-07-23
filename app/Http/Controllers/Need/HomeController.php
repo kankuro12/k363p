@@ -19,16 +19,22 @@ use App\Model\Vendor\Location;
 use App\Model\Vendor\Collection;
 // use App\Model\Vendor\Room;
 use App\Enquiry;
+use App\Model\Vendor\Booking;
 use App\Model\Vendor\Gallery;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $featured_vendors = Vendor::where(['featured' => 'active', 'verified' => 1])->take(8)->inRandomOrder()->latest()->get();
-        $trs = Room::all();
-        $roomtypes=RoomType::all();
-        // $cities=City::take(5)->get();
+        // $trs = Room::take();
+        // $trs=Room::join('bookings')
+        $r=Booking::select(FacadesDB::raw('room_id,count(*) as cc'))->groupBy('room_id')->orderBy('cc','desc')->take(8)->get();
+dd($r);
+        $roomtypes=RoomType::take(20)->get();
+        $cities=City::take(5)->get();
+
         $popular_vendors = Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
             ->select(array(
                 'vendors.*',
