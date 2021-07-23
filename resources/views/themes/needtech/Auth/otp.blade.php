@@ -13,11 +13,29 @@
         .no-pointer{
             pointer-events: none;
         }
+        .log1{
+            min-height:calc(100vh - 100px);
+            background:url('{{asset(custom_config("user_login_bg")->value)}}');
+            background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+        }
+        @media(max-width:500px){
+            .log1{
+                background:url('{{asset(custom_config("user_login_smbg")->value)}}');
+                background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .sm-w-100{
+                width:100%;
+            }
+        }
     </style>
 @endsection
 @section('content')
 
-<div style="min-height:calc(100vh - 100px);background:#F7F7F7;">
+<div class="log1">
 
     <div class="row m-0 h-100" >
         <div class="col-lg-6 d-none d-md-block"></div>

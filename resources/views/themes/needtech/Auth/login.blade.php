@@ -9,11 +9,30 @@
 
             width:100%;
         }
+
+        .log1{
+            min-height:calc(100vh - 100px);
+            background:url('{{asset(custom_config("user_login_bg")->value)}}');
+            background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+        }
+        @media(max-width:500px){
+            .log1{
+                background:url('{{asset(custom_config("user_login_smbg")->value)}}');
+                background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .sm-w-100{
+                width:100%;
+            }
+        }
     </style>
 @endsection
 @section('content')
 
-<div style="min-height:calc(100vh - 100px);background:#F7F7F7;">
+<div  class="log1">
 
     <div class="row m-0 h-100" >
         <div class="col-lg-6 d-none d-md-block"></div>
@@ -44,7 +63,7 @@
                                         <input type="text" autocomplete="false" minlength="10" name="phone" id="phone" style="border-radius:0px;" class="form-control mb-2 mr-0 mr-md-2 " placeholder="Enter Phone Number" value="{{old('phone')}}" >
                                     </span>
                                     <span>
-                                        <button class=" btn btn-success px-5">Next</button>
+                                        <button class=" btn btn-success px-5 sm-w-100">Next</button>
                                     </span>
                                 </div>
                             </form>
@@ -100,7 +119,7 @@
                                 Need A Account? <a href="{{route('n.user.signup')}}" style="text-decoration:none;font-weight:500;">Signup</a>
                             </div> --}}
                             <div class="md-text-right pb-3 ">
-                                 <a href="{{route('vendor.getLogin')}}" style="text-decoration:none;font-weight:500;">Login as Driving Center</a>
+                                 <a href="{{route('vendor.getLogin')}}" style="text-decoration:none;font-weight:500;">Login as Business</a>
                             </div>
                         </div>
                     </div>

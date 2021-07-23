@@ -32,6 +32,18 @@ class ConfigController extends Controller
             "name"=>"Share Description",
             'type'=>"desc"
         ],
+        'user_login_bg'=>[
+            "name"=>"User Login Background",
+            "type"=>"image",
+        ],
+        'user_login_smbg'=>[
+            "name"=>"User Login Background Mobile ",
+            "type"=>"image",
+        ],
+        'vendor_login_bg'=>[
+            "name"=>"Vendor Login Background",
+            "type"=>"image",
+        ],
         'home_search_title'=>[
             "name"=>"Home Search Title",
             'type'=>"text"

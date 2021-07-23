@@ -87,7 +87,16 @@
         //b.classList.add("loaded");
       }
 
+
     </script>
+    <style>
+        .sidebar{
+            background:url('{{asset(custom_config("vendor_login_bg")->value)}}');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
     @yield('styles')
     <title>{{env('APP_NAME','laravel')}}</title>
   </head>
