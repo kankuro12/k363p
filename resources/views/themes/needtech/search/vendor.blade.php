@@ -6,7 +6,7 @@
             @foreach ($vendor->services as $service)
                 <div  class="service" data-price="{{$service->getNewPrice()}}" data-type="{{$service->roomtype_id}}">
                     <div class="image" style="max-height:130px;overflow:hidden;">
-                        <img  src="{{asset('uploads/vendor/roomphotos/263x160/'.$service->roomphotos[0]->image)}}" alt="">
+                        <img  src="{{asset($service->roomphotos[0]->image)}}" alt="">
                         <div class="description">
                             <div class="name">
                                 {{$service->name}} | Rs. {{round($service->getNewPrice())}}
@@ -47,7 +47,7 @@
                     .md-right{
                         float:none;
 
-                    }  
+                    }
                 }
             </style>
             <div class="subtitle d-block d-md-inline" style="font-weight:700;">

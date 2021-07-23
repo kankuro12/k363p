@@ -30,20 +30,32 @@ class HomeController extends Controller
         $featured_vendors = Vendor::where(['featured' => 'active', 'verified' => 1])->take(8)->inRandomOrder()->latest()->get();
         // $trs = Room::take();
         // $trs=Room::join('bookings')
-        $r=Booking::select(FacadesDB::raw('room_id,count(*) as cc'))->groupBy('room_id')->orderBy('cc','desc')->take(8)->get();
-dd($r);
-        $roomtypes=RoomType::take(20)->get();
-        $cities=City::take(5)->get();
+        $r=Location::select(FacadesDB::raw('city_id,count(*) as count'))->groupBy('city_id')->orderBy('count','desc')->take(20);
+        $cities=City::joinSub($r,'r',function($join){
+            $join->on('cities.id','=','r.city_id');
+        })->get();;
 
-        $popular_vendors = Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
-            ->select(array(
-                'vendors.*',
-                DB::raw('SUM(avg_rating) as ratings_average')
-            ))
-            ->groupBy('id')
-            ->orderBy('ratings_average', 'DESC')
-            ->take(8)
-            ->get();
+        $room_top=Booking::select(FacadesDB::raw('room_id,count(*) as count'))->groupBy('room_id')->orderBy('count','desc')->take(8);
+        $vendor_top=Booking::select(FacadesDB::raw('vendor_id,count(*) as count'))->groupBy('vendor_id')->orderBy('count','desc')->take(8);
+        $trs=Room::joinSub($room_top,'rt',function($join){
+            $join->on('rooms.id','=','rt.room_id');
+        })->get();
+        $popular_vendors=Vendor::joinSub($vendor_top,'vt',function($join){
+            $join->on('vendors.id','=','vt.vendor_id');
+        })->get();
+        // dd($r,$j);
+        $roomtypes=RoomType::inRandomOrder()->take(10)->get();
+        // $cities=City::inRandomOrder()->take(20)->get();
+
+        // $popular_vendors = Vendor::leftJoin('reviews', 'reviews.vendor_id', '=', 'vendors.id')
+        //     ->select(array(
+        //         'vendors.*',
+        //         DB::raw('SUM(avg_rating) as ratings_average')
+        //     ))
+        //     ->groupBy('id')
+        //     ->orderBy('ratings_average', 'DESC')
+        //     ->take(8)
+        //     ->get();
         $collections = Collection::where('status', 1)->get();
         return view('themes.needtech.home.index1',compact('roomtypes','featured_vendors','trs','collections'));
     }

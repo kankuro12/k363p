@@ -109,9 +109,10 @@ Artisan::command('make:vendor', function () {
         // $vendor->address = $faker->address();
         $vendor->description = $faker->text();
         $vendor->phone_number = $phone + $i;
-        $vendor->featured = mt_rand(0, 1);
+        $vendor->featured = 'active';
         $vendor->step = 4;
         $vendor->isverified = 1;
+        $vendor->verified = 1;
         $vendor->save();
         echo $vendor->name . " Added \n";
 
@@ -121,9 +122,18 @@ Artisan::command('make:vendor', function () {
         $location->city_id = $city_ids[mt_rand(0, $cityCount - 1)];
         $l = mt_rand(0, (count($lats) - 1));
         echo $l . " indexed \n";
-
-        $location->lat = $lats[$l];
-        $location->lng = $lans[$l];
+        $lat=$lats[$l];
+        $lan=$lans[$l];
+        $location->lat= $faker->latitude(
+            $min = ($lat * 10000 - rand(0, 20)) / 10000,
+            $max = ($lat * 10000 + rand(0, 20)) / 10000
+        );
+        $location->lng= $faker->longitude(
+            $min = ($lan * 10000 - rand(0, 20)) / 10000,
+            $max = ($lan * 10000 + rand(0, 20)) / 10000
+        );
+        // $location->lat = $lats[$l];
+        // $location->lng = $lans[$l];
         $location->save();
     }
 });
@@ -145,7 +155,8 @@ Artisan::command("make:packages", function () {
     $roomtypecount = $roomtypes->count();
     $faker = Faker\Factory::create();
     foreach ($vendors as $key => $vendor_id) {
-        for ($i = 0; $i < 10; $i++) {
+        $d=mt_rand(1,10);
+        for ($i = 0; $i < $d; $i++) {
             # code...
             $room = new Room();
             $rt = $roomtypes[mt_rand(0, $roomtypecount - 1)];
@@ -168,7 +179,7 @@ Artisan::command('make:roomphotos', function () {
     $rooms = Room::pluck('id');
     foreach ($rooms as $room_id) {
         $room_photo = new RoomPhoto();
-        $room_photo->image = "uploads\vendor\roomphotos\rf.jpg";
+        $room_photo->image = 'uploads/vendor/roomphotos/rf.jpg';
         $room_photo->room_id = $room_id;
         $room_photo->save();
     }
@@ -191,7 +202,7 @@ Artisan::command('make:user', function () {
     $arr = [];
     $faker = Faker\Factory::create();
     $phone = 9800100000;
-    for ($i = 0; $i < 5000; $i++) {
+    for ($i = 0; $i < 2000; $i++) {
         $user = new User();
         $user->email = "user" . $i . "@gmail.com";
         $user->password = bcrypt('password');
@@ -210,8 +221,8 @@ Artisan::command('make:user', function () {
         $data->save();
 
         array_push($arr, $user->id);
-
-        for ($j = 0; $j < 3; $j++) {
+        $d=mt_rand(1,5);
+        for ($j = 0; $j < $d; $j++) {
             $room = $rooms[mt_rand(0, $rc)];
             $booking = new Booking();
             $booking->check_in_time = session('date');
@@ -243,4 +254,12 @@ Artisan::command('make:user', function () {
             }
         }
     }
+});
+
+
+Artisan::command('init',function(){
+    Artisan::call('make:vendor');
+    Artisan::call('make:packages');
+    Artisan::call('make:roomphotos');
+    Artisan::call('make:user');
 });
